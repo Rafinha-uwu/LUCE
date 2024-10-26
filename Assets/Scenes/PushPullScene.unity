@@ -321,6 +321,7 @@ MonoBehaviour:
   <MovingState>k__BackingField: {fileID: 11400000, guid: c420c30acb402f044807ddb6df6148c2, type: 2}
   <FallingState>k__BackingField: {fileID: 11400000, guid: 11c5c4e5ed1904b48900e9d3a6dae646, type: 2}
   <JumpingState>k__BackingField: {fileID: 11400000, guid: 3c254249a7b9cd344bb339001569fb91, type: 2}
+  <PushPullState>k__BackingField: {fileID: 11400000, guid: 09e1430761bf5b04dbdb8046e9f46a7f, type: 2}
 --- !u!114 &301643048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +518,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a39fe4fbed773854385730d1fb53adf5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -946,6 +947,7 @@ GameObject:
   - component: {fileID: 1419816957}
   - component: {fileID: 1419816956}
   - component: {fileID: 1419816955}
+  - component: {fileID: 1419816958}
   m_Layer: 8
   m_Name: Square
   m_TagString: Object
@@ -1054,7 +1056,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 768d01aab90eeb14d8e5927f90d78b2f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1110,6 +1112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1419816958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419816949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc836e5ea3a6f8e45862dff361db8601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1775571680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1300,7 @@ GameObject:
   - component: {fileID: 1851948401}
   - component: {fileID: 1851948400}
   - component: {fileID: 1851948399}
+  - component: {fileID: 1851948403}
   m_Layer: 8
   m_Name: Square (1)
   m_TagString: Object
@@ -1342,7 +1357,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 768d01aab90eeb14d8e5927f90d78b2f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1450,6 +1465,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1851948403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851948396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc836e5ea3a6f8e45862dff361db8601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1864079275
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,10 @@ public class PlayerMovingState : PlayerState
         {
             player.TransitionToState(player.FallingState);
         }
+        else if (player.InputHandler.PushPullAction)
+        {
+            player.TransitionToState(player.PushPullState);
+        }
         else if (player.InputHandler.JumpBufferCounter > 0)
         {
             player.TransitionToState(player.JumpingState);

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public PlayerMovingState MovingState { get; private set; }
     [field: SerializeField] public PlayerFallingState FallingState { get; private set; }
     [field: SerializeField] public PlayerJumpingState JumpingState { get; private set; }
+    [field: SerializeField] public PlayerPushPullState PushPullState { get; private set; }
 
 
     private void Awake()
