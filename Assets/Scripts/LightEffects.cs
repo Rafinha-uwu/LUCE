@@ -5,14 +5,23 @@ using UnityEngine.Rendering.Universal;
 
 public class LightEffects : MonoBehaviour
 {
-
-
+    [Header("Flicker Settings")]
     public bool flicker = true;
-    [SerializeField] float fn = 10;
+    [SerializeField] private float LightTimer = 10;
+    [SerializeField] private float MaxItensity = 3f;
+    [SerializeField] private float DarknessTimer = 1f;
 
+
+    [Header("Flicker Randomizer")]
+    public bool RandomTime = true;
+    [SerializeField] private float Min = 7;
+    [SerializeField] private float Max = 15;
+
+    [Header("Wigle Settings")]
     public bool wigle = true;
-    public bool dir = true;
-    [SerializeField] float speed = 1;
+    private bool wigle2 = true;
+    private bool dir = true;
+    [SerializeField] private float speed = 1;
 
 
 
@@ -29,47 +38,54 @@ public class LightEffects : MonoBehaviour
         if (flicker == true)
         {
             StartCoroutine(Flick1());
-            fn = Random.Range(7, 15);
+
+            if (RandomTime)
+            {
+                LightTimer = Random.Range(Min, Max);
+
+            }
+
         }
 
-        if (wigle == true)
+        if (wigle2 == true)
         {
             StartCoroutine(Wig());
         }
 
-
-        if (dir == true)
+        if (wigle == true)
         {
+            if (dir == true)
+            {
 
-            this.GetComponent<Transform>().Rotate(0, 0, speed);
+                this.GetComponent<Transform>().Rotate(0, 0, speed);
 
+            }
+            else
+            {
+                this.GetComponent<Transform>().Rotate(0, 0, -speed);
+
+            }
         }
-        else
-        {
-            this.GetComponent<Transform>().Rotate(0, 0, -speed);
-
-        }
-
 
     }
 
 
     public IEnumerator Flick1()
     {
-        this.GetComponentInChildren<Light2D>().intensity = 3;
+        this.GetComponentInChildren<Light2D>().intensity = MaxItensity;
 
         flicker = false;
 
-        yield return new WaitForSeconds(fn);
+        yield return new WaitForSeconds(LightTimer);
         this.GetComponentInChildren<Light2D>().intensity = 1;
 
         yield return new WaitForSeconds(0.2f);
-        this.GetComponentInChildren<Light2D>().intensity = 3;
+        this.GetComponentInChildren<Light2D>().intensity = MaxItensity;
 
         yield return new WaitForSeconds(0.1f);
         this.GetComponentInChildren<Light2D>().intensity = 0;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(DarknessTimer);
         this.GetComponentInChildren<Light2D>().intensity = 1;
 
         yield return new WaitForSeconds(0.5f);
@@ -80,7 +96,7 @@ public class LightEffects : MonoBehaviour
 
     public IEnumerator Wig()
     {
-        wigle = false;
+        wigle2 = false;
         dir = true;
         yield return new WaitForSeconds(2f);
 
@@ -93,7 +109,7 @@ public class LightEffects : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
 
-        wigle = true;
+        wigle2 = true;
 
     }
 }
