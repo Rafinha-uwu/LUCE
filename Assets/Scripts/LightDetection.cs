@@ -12,7 +12,7 @@ public class LightDetection : MonoBehaviour
     [Tooltip("Time between light value updates (default = 0.1f).")]
     public float m_fUpdateTime = 0.1f;
 
-    public static float LightValue;
+    public float LightValue;
 
     private const int c_iTextureSize = 1;
 
