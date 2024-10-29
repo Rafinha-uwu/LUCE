@@ -48,6 +48,8 @@ public class PlayerPushPullState : PlayerState
     {
         if (_currentPushableObject != null) _currentPushableObject.StopPushPull();
         _currentPushableObject = null;
+
+        GameObject.Find("Player").GetComponent<Flip>().enabled = true;
     }
 
     private void CurrentObjectCheck()
@@ -73,6 +75,8 @@ public class PlayerPushPullState : PlayerState
 
             _currentPushableObject = pushableObject;
             _currentPushableObject.StartPushPull(_objectMass, _objectMaterial);
+           
+            GameObject.Find("Player").GetComponent<Flip>().enabled = false;
             break;
         }
     }
@@ -80,11 +84,16 @@ public class PlayerPushPullState : PlayerState
 
     public void Move(PlayerController player)
     {
+        if (_currentPushableObject == null)
+        {
+            player.MovingState.Move(player);
+            return;
+        }
+        
         float horizontalInput = player.InputHandler.HorizontalInput;
         float horizontalVelocity = horizontalInput * _pushPullSpeed;
 
         player.Rb.velocity = new Vector2(horizontalVelocity, player.Rb.velocity.y);
-        
-        if (_currentPushableObject != null) _currentPushableObject.Move(horizontalVelocity);
+        _currentPushableObject.Move(horizontalVelocity);
     }
 }

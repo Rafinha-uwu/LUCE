@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5450fbc851f01694b8d138ad0b751bc1, type: 3}
   m_Name: JumpingState
   m_EditorClassIdentifier: 
-  _jumpPower: 12
+  _jumpPower: 14
