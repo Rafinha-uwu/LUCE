@@ -23,6 +23,31 @@ public class PlayerMovement : MonoBehaviour
     private float _jumpBufferCounter = 0f;
     private float _coyoteTimeCounter = 0f;
 
+    //Cam 
+
+    private float _fallSpeedYDampingChangeTreshold;
+
+    private void Start()
+    {
+        
+        _fallSpeedYDampingChangeTreshold = CamaraManager.instance._fallSpeedYDampingChangeThreshold;
+    }
+
+    private void Update()
+    {
+        if(_rb.velocity.y < _fallSpeedYDampingChangeTreshold && !CamaraManager.instance.IsLerpingYDamping && !CamaraManager.instance.LerpedFromPlayerFalling)
+        {
+            CamaraManager.instance.LerpYDamping(true);
+        }
+
+        if(_rb.velocity.y >= 0f && !CamaraManager.instance.IsLerpingYDamping && CamaraManager.instance.LerpedFromPlayerFalling)
+        {
+            CamaraManager.instance.LerpedFromPlayerFalling = false;
+
+            CamaraManager.instance.LerpYDamping(false);
+        }
+    }
+
 
     private void FixedUpdate()
     {
@@ -58,8 +83,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (isStill || isMovingRight && _isFacingRight || isMovingLeft && !_isFacingRight) return;
 
-        _isFacingRight = !_isFacingRight;
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (_isFacingRight)
+        {
+            Vector3 rotator = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
+            transform.rotation = Quaternion.Euler(rotator);
+            _isFacingRight = !_isFacingRight;
+        }
+        else
+        {
+            Vector3 rotator = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
+            transform.rotation = Quaternion.Euler(rotator);
+            _isFacingRight = !_isFacingRight;
+
+        }
+        //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
     }
 
     private void HandleJump()
