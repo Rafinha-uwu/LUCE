@@ -18,4 +18,4 @@ MonoBehaviour:
   _detectionRange: 0.75
   _objectLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512

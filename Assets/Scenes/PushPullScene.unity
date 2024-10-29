@@ -338,7 +338,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 436126815}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 576
 --- !u!114 &301643049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 1419816956}
   - component: {fileID: 1419816955}
   - component: {fileID: 1419816958}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Square
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -1039,7 +1039,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 116452720}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 576
 --- !u!50 &1419816956
 Rigidbody2D:
   serializedVersion: 4
@@ -1301,7 +1301,7 @@ GameObject:
   - component: {fileID: 1851948400}
   - component: {fileID: 1851948399}
   - component: {fileID: 1851948403}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 507065761}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 576
 --- !u!50 &1851948400
 Rigidbody2D:
   serializedVersion: 4
