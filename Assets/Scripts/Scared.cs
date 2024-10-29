@@ -13,7 +13,11 @@ public class Scared : MonoBehaviour
     CamaraManager camaram;
     public GameObject cm;
 
+    private float Ortho;
+    private bool OrthReady;
+
     public GameObject GL;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,24 +26,55 @@ public class Scared : MonoBehaviour
         camaram = cm.GetComponent<CamaraManager>();
 
         GL.GetComponent<Light2D>().intensity = 0.05f;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        if (OrthReady)
+        {
+
+            switch (camaram._currentCamera.name)
+            {
+
+
+                case "Cam Basement":
+                    Ortho = 5;
+                    break;
+
+                case "Cam Bunker":
+                    Ortho = 7;
+                    break;
+
+                default:
+
+                    break;
+            }
+
+            camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Ortho;
+        }
+
 
         if (lightdetection.LightValue < 0.25f)
         {
             if (this.GetComponentInChildren<Light2D>().intensity > 0)
             {
+
+                if (OrthReady)
+                {
+                    OrthReady = false;
+                }
+
                 this.GetComponentInChildren<Light2D>().intensity -= 0.0001f;
 
                 if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > 3)
                 {
                     camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize -= 0.0005f;
 
-                    
+
                 }
 
                 if (GL.GetComponent<Light2D>().intensity > 0.01f)
@@ -66,13 +101,15 @@ public class Scared : MonoBehaviour
             {
                 this.GetComponentInChildren<Light2D>().intensity += 0.002f;
 
-                if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize < 5)
+
+                if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize < Ortho)
                 {
-                    camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize += 0.01f;
+                    camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize += 0.012f;
                 }
-                if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > 5)
+                if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > Ortho)
                 {
-                    camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = 5;
+                    OrthReady = true;
+                    
                 }
 
                 if (GL.GetComponent<Light2D>().intensity < 0.05f)
@@ -82,6 +119,7 @@ public class Scared : MonoBehaviour
 
                 if (GL.GetComponent<Light2D>().intensity > 0.05f)
                 {
+                    
                     GL.GetComponent<Light2D>().intensity = 0.05f;
                 }
 

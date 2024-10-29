@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LightDetection : MonoBehaviour
 {
     [Header("Settings")]
@@ -24,6 +25,9 @@ public class LightDetection : MonoBehaviour
     private void Start()
     {
         StartLightDetection();
+
+
+
     }
 
     /// <summary>
