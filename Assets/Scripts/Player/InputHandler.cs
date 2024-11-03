@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
@@ -8,6 +9,8 @@ public class InputHandler : MonoBehaviour
     public float HorizontalInput { get; private set; }
     public float JumpBufferCounter { get; private set; }
     public bool PushPullAction { get; private set; }
+
+    public event Action OnInteractAction;
 
 
     public void ClearJumpBuffer()
@@ -34,5 +37,10 @@ public class InputHandler : MonoBehaviour
     public void OnPushPull(InputAction.CallbackContext context)
     {
         PushPullAction = context.ReadValueAsButton();
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed) OnInteractAction?.Invoke();
     }
 }
