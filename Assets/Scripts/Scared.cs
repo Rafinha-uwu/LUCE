@@ -18,6 +18,7 @@ public class Scared : MonoBehaviour
 
     public GameObject GL;
 
+    public Vector2 LastCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +92,7 @@ public class Scared : MonoBehaviour
             {
 
                 Debug.Log("Dead");
+                this.transform.position = LastCheck;
 
             }
 
@@ -124,6 +126,14 @@ public class Scared : MonoBehaviour
                 }
 
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Checkpoint")
+        {
+            LastCheck = collision.gameObject.transform.position;
         }
     }
 }
