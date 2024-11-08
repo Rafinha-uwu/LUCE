@@ -11,10 +11,16 @@ public class PlayerPushPullState : PlayerState
     [SerializeField] private LayerMask _objectLayer;
 
     private PushableObject _currentPushableObject;
+    private Vector2? _currentPushableObjectDirection;
+
+    private static readonly string PLAYER_TAG = "Player";
+    private static Flip _flip;
 
 
     public override void EnterState(PlayerController player)
     {
+        if (_flip == null) _flip = GameObject.Find(PLAYER_TAG).GetComponent<Flip>();
+
         CurrentStopPushing();
         NewObjectCheck(player);
     }
@@ -34,7 +40,7 @@ public class PlayerPushPullState : PlayerState
             return;
         }
 
-        CurrentObjectCheck();
+        CurrentObjectCheck(player);
         NewObjectCheck(player);
     }
 
@@ -48,14 +54,33 @@ public class PlayerPushPullState : PlayerState
     {
         if (_currentPushableObject != null) _currentPushableObject.StopPushPull();
         _currentPushableObject = null;
+        _currentPushableObjectDirection = null;
 
-        GameObject.Find("Player").GetComponent<Flip>().enabled = true;
+        _flip.enabled = true;
     }
 
-    private void CurrentObjectCheck()
+    private void CurrentObjectCheck(PlayerController player)
     {
         if (_currentPushableObject == null) return;
         if (!_currentPushableObject.IsGrounded) CurrentStopPushing();
+
+        Vector2 direction = _currentPushableObjectDirection ?? Vector2.right;
+        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, _detectionRange, _objectLayer);
+
+        if (hit.collider == null || hit.collider.gameObject != _currentPushableObject.gameObject) CurrentStopPushing();
+    }
+
+
+    private bool SetNewCurrent(PushableObject pushableObject, Vector2 direction)
+    {
+        if (!pushableObject.IsGrounded) return false;
+
+        _currentPushableObject = pushableObject;
+        _currentPushableObjectDirection = direction;
+        _currentPushableObject.StartPushPull(_objectMass, _objectMaterial);
+
+        _flip.enabled = false;
+        return true;
     }
 
     private void NewObjectCheck(PlayerController player)
@@ -71,13 +96,10 @@ public class PlayerPushPullState : PlayerState
             if (hit.collider == null) continue;
 
             bool hasPushableObject = hit.collider.TryGetComponent(out PushableObject pushableObject);
-            if (!hasPushableObject || !pushableObject.IsGrounded) continue;
+            if (!hasPushableObject) continue;
 
-            _currentPushableObject = pushableObject;
-            _currentPushableObject.StartPushPull(_objectMass, _objectMaterial);
-           
-            GameObject.Find("Player").GetComponent<Flip>().enabled = false;
-            break;
+            bool isSet = SetNewCurrent(pushableObject, direction);
+            if (isSet) break;
         }
     }
 
