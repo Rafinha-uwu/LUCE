@@ -19,6 +19,11 @@ public class InputHandler : MonoBehaviour
         JumpBufferCounter = 0f;
     }
 
+    public void ClearHoldAction()
+    {
+        HoldAction = false;
+    }
+
     private void FixedUpdate()
     {
         if (JumpBufferCounter > 0) JumpBufferCounter -= Time.fixedDeltaTime;
@@ -47,6 +52,6 @@ public class InputHandler : MonoBehaviour
 
     public void OnHold(InputAction.CallbackContext context)
     {
-        if (context.performed) HoldAction = !HoldAction;
+        HoldAction = context.ReadValueAsButton();
     }
 }
