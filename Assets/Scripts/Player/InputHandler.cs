@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     public float HorizontalInput { get; private set; }
     public float JumpBufferCounter { get; private set; }
     public bool PushPullAction { get; private set; }
+    public bool HoldAction { get; private set; }
 
     public event Action OnInteractAction;
 
@@ -42,5 +43,10 @@ public class InputHandler : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed) OnInteractAction?.Invoke();
+    }
+
+    public void OnHold(InputAction.CallbackContext context)
+    {
+        if (context.performed) HoldAction = !HoldAction;
     }
 }
