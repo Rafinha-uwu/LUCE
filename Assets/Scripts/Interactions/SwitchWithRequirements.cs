@@ -32,6 +32,7 @@ public class SwitchWithRequirements : SwitchObject
     {
         foreach (var req in _requirements)
         {
+            if (req.Switch == null) continue;
             Gizmos.color = req.IsMet ? Color.green : Color.red;
             Gizmos.DrawLine(transform.position, req.Switch.transform.position);
         }
