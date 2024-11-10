@@ -19,6 +19,21 @@ public class PlayerHoldItem : MonoBehaviour
 
     private void FixedUpdate()
     {
+        DropItemIfPushPullAction();
+        HoldOrDropItemIfHoldAction();
+    }
+
+
+    private void DropItemIfPushPullAction()
+    {
+        if (!_inputHandler.PushPullAction) return;
+        _inputHandler.ClearHoldAction();
+
+        DropItem();
+    }
+
+    private void HoldOrDropItemIfHoldAction()
+    {
         if (!_inputHandler.HoldAction) return;
         _inputHandler.ClearHoldAction();
 
@@ -29,7 +44,7 @@ public class PlayerHoldItem : MonoBehaviour
 
     private void HoldItem()
     {
-        if (_holdableItem != null) return;
+        if (IsHoldingItem) return;
 
         Vector2 size = new(2 * _holdRange, transform.localScale.y);
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, size, 0, _holdLayerMask);
@@ -47,7 +62,7 @@ public class PlayerHoldItem : MonoBehaviour
 
     private void DropItem()
     {
-        if (_holdableItem == null) return;
+        if (!IsHoldingItem) return;
 
         _holdableItem.StopHold();
         _holdableItem = null;
