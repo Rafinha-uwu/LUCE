@@ -13,6 +13,7 @@ public class Scared : MonoBehaviour
     CamaraManager camaram;
     public GameObject cm;
 
+
     private float Ortho;
     private bool OrthReady;
 
@@ -48,6 +49,18 @@ public class Scared : MonoBehaviour
 
                 case "Cam Bunker":
                     Ortho = 7;
+                    break;
+
+                case "Cam Tunel":
+                    Ortho = 3;
+                    break;
+
+                case "Cam Bunker D":
+                    Ortho = 6;
+                    break;
+
+                case "Cam Bunker R":
+                    Ortho = 9;
                     break;
 
                 default:
@@ -96,6 +109,8 @@ public class Scared : MonoBehaviour
 
             }
 
+            this.GetComponent<PlayerController>().MovingState._speed = 3;
+
         }
         else if (lightdetection.LightValue >= 0.25f)
         {
@@ -126,6 +141,9 @@ public class Scared : MonoBehaviour
                 }
 
             }
+
+            this.GetComponent<PlayerController>().MovingState._speed = 4.5f;
+
         }
     }
 
