@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_1
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d289767762fd5439b0b0049869bbfd
+      internalID: 1806903868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_2
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a8d956e672f9245864fbec7187a2d6
+      internalID: 1501722603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_3
+      rect:
+        serializedVersion: 2
+        x: 5271
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b8690ec1e2576429257168ae7aab6f
+      internalID: -183283019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_4
+      rect:
+        serializedVersion: 2
+        x: 7521
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec66c6bcdc1e1340825dde4c6a6c816
+      internalID: -360865106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_5
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 2069
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c04e3bd32086f4997ad5bc30dd65a4
+      internalID: -543386105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_6
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 2073
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e98ab8e3b79dfa469b04508c92eaeab
+      internalID: 1783262985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_7
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 2069
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b52658e2fa062b34686a001a21b3beeb
+      internalID: 1394935020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_8
+      rect:
+        serializedVersion: 2
+        x: 7526
+        y: 2069
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f9ba409c901ba49b47ed6837fc2986
+      internalID: -1863939759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_9
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 380
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf333eb5d46bab049b6d0461aecb90d4
+      internalID: 857700558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_10
+      rect:
+        serializedVersion: 2
+        x: 3021
+        y: 385
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615afd92b819a5b43911c5f465544822
+      internalID: 370953420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_11
+      rect:
+        serializedVersion: 2
+        x: 5276
+        y: 385
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e6de36c41af984bafb94c5c7387d76
+      internalID: -889100058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_CycleBlinking_12
+      rect:
+        serializedVersion: 2
+        x: 7526
+        y: 385
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab2ccc6d5ace044996012d6c54fe28b
+      internalID: 1583577431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +371,79 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Walk Cycle Spritesheet with blinking_0: -845710858
+      Walk Cycle Spritesheet with blinking_10: 364215639
+      Walk Cycle Spritesheet with blinking_11: -730220073
+      Walk Cycle Spritesheet with blinking_12: -915351641
+      Walk Cycle Spritesheet with blinking_13: -1276354813
+      Walk Cycle Spritesheet with blinking_14: -743557633
+      Walk Cycle Spritesheet with blinking_15: 1147686774
+      Walk Cycle Spritesheet with blinking_16: -886710672
+      Walk Cycle Spritesheet with blinking_17: 468361878
+      Walk Cycle Spritesheet with blinking_18: -1954338889
+      Walk Cycle Spritesheet with blinking_19: 1019695023
+      Walk Cycle Spritesheet with blinking_2: 1391431575
+      Walk Cycle Spritesheet with blinking_20: -1952767416
+      Walk Cycle Spritesheet with blinking_21: 1702684118
+      Walk Cycle Spritesheet with blinking_22: -775240680
+      Walk Cycle Spritesheet with blinking_23: -2065855600
+      Walk Cycle Spritesheet with blinking_25: 549743154
+      Walk Cycle Spritesheet with blinking_27: 777871097
+      Walk Cycle Spritesheet with blinking_30: 183926413
+      Walk Cycle Spritesheet with blinking_31: -82213943
+      Walk Cycle Spritesheet with blinking_32: -705349168
+      Walk Cycle Spritesheet with blinking_33: 862733880
+      Walk Cycle Spritesheet with blinking_34: -377031435
+      Walk Cycle Spritesheet with blinking_35: 187057394
+      Walk Cycle Spritesheet with blinking_36: 1139446665
+      Walk Cycle Spritesheet with blinking_37: 1736337398
+      Walk Cycle Spritesheet with blinking_38: -1045437586
+      Walk Cycle Spritesheet with blinking_39: -873896507
+      Walk Cycle Spritesheet with blinking_40: -2067497650
+      Walk Cycle Spritesheet with blinking_41: 1749641577
+      Walk Cycle Spritesheet with blinking_42: -1950058839
+      Walk Cycle Spritesheet with blinking_43: 879666138
+      Walk Cycle Spritesheet with blinking_44: 1537679442
+      Walk Cycle Spritesheet with blinking_45: 336794278
+      Walk Cycle Spritesheet with blinking_46: 1808218939
+      Walk Cycle Spritesheet with blinking_47: -1145415095
+      Walk Cycle Spritesheet with blinking_48: 1645002801
+      Walk Cycle Spritesheet with blinking_51: 1226131256
+      Walk Cycle Spritesheet with blinking_53: -2083676867
+      Walk Cycle Spritesheet with blinking_55: 1926258704
+      Walk Cycle Spritesheet with blinking_56: -1348325128
+      Walk Cycle Spritesheet with blinking_57: 1481894531
+      Walk Cycle Spritesheet with blinking_58: 331803642
+      Walk Cycle Spritesheet with blinking_59: 77186181
+      Walk Cycle Spritesheet with blinking_6: 391436702
+      Walk Cycle Spritesheet with blinking_60: -247273329
+      Walk Cycle Spritesheet with blinking_61: -955014065
+      Walk Cycle Spritesheet with blinking_62: 1441669027
+      Walk Cycle Spritesheet with blinking_63: 388764384
+      Walk Cycle Spritesheet with blinking_64: 91740718
+      Walk Cycle Spritesheet with blinking_65: 392306120
+      Walk Cycle Spritesheet with blinking_66: 2142254074
+      Walk Cycle Spritesheet with blinking_67: -1379246406
+      Walk Cycle Spritesheet with blinking_68: 961113010
+      Walk Cycle Spritesheet with blinking_69: 1065673032
+      Walk Cycle Spritesheet with blinking_7: 2102483583
+      Walk Cycle Spritesheet with blinking_70: 25120927
+      Walk Cycle Spritesheet with blinking_71: 781083830
+      Walk Cycle Spritesheet with blinking_8: 1469564797
+      Walk Cycle Spritesheet with blinking_9: -2144881809
+      Walk_CycleBlinking_1: 1806903868
+      Walk_CycleBlinking_10: 370953420
+      Walk_CycleBlinking_11: -889100058
+      Walk_CycleBlinking_12: 1583577431
+      Walk_CycleBlinking_2: 1501722603
+      Walk_CycleBlinking_3: -183283019
+      Walk_CycleBlinking_4: -360865106
+      Walk_CycleBlinking_5: -543386105
+      Walk_CycleBlinking_6: 1783262985
+      Walk_CycleBlinking_7: 1394935020
+      Walk_CycleBlinking_8: -1863939759
+      Walk_CycleBlinking_9: 857700558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
