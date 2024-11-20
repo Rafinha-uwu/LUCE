@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6332817ddb8182243a04d98050769fc9, type: 3}
   m_Name: PushPullState
   m_EditorClassIdentifier: 
-  _pushPullSpeed: 3
+  _pushPullSpeed: 2
   _objectMass: 1
   _objectMaterial: {fileID: 6200000, guid: a39fe4fbed773854385730d1fb53adf5, type: 2}
   _detectionRange: 0.6

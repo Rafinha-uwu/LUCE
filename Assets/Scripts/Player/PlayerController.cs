@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public InputHandler InputHandler { get; private set; }
     public Rigidbody2D Rb { get; private set; }
     public GroundCheck GroundCheck { get; private set; }
+    public Animator Animator { get; private set; }
 
     private PlayerState _currentState;
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         InputHandler = GetComponent<InputHandler>();
         Rb = GetComponent<Rigidbody2D>();
         GroundCheck = GetComponent<GroundCheck>();
+        Animator = GetComponent<Animator>();
     }
 
     private void Start()

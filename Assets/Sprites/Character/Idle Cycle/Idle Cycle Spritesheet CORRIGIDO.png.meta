@@ -1,0 +1,430 @@
+fileFormatVersion: 2
+guid: cfd2893f853674f45b0576a1718ae6b1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Idle_Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af936997344cd1a4abd5ec4428f641cb
+      internalID: 2027383129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_2
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e662859ea454bf14c8932ec220f372a7
+      internalID: -503874526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 5271
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72fb82c30dcc304fae6b58822c8c08c
+      internalID: -1558711195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 7521
+        y: 3761
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377c442f9b8903d4185cd07ec473f970
+      internalID: 1344008807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 2073
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f454c61a3a7c1234da0c4af4af28a239
+      internalID: -1527222317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 2073
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda5818fbe7951343b8822c7601c57a3
+      internalID: -579449420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 2073
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48eebf8b86fe7da4aa7fc0ad605cf1f5
+      internalID: 605979080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_8
+      rect:
+        serializedVersion: 2
+        x: 7526
+        y: 2073
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348a166d39761e04d860f7d2a321c9f3
+      internalID: -1539569169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_9
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 385
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bcb7551339382242ba1f18a19e48b3c
+      internalID: -356232723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_10
+      rect:
+        serializedVersion: 2
+        x: 3021
+        y: 385
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d632cd948d4a548a59e0446fa1599a
+      internalID: -1270837210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_11
+      rect:
+        serializedVersion: 2
+        x: 5276
+        y: 385
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b298aea8c55c034d932dea91e557dc9
+      internalID: 1379128716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_Cycle_12
+      rect:
+        serializedVersion: 2
+        x: 7526
+        y: 385
+        width: 642
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30a6dc3fb54f504a89a49f478f17042
+      internalID: -2096391527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Idle Cycle Spritesheet CORRIGIDO_0: 52682082
+      Idle Cycle Spritesheet CORRIGIDO_10: -124160592
+      Idle Cycle Spritesheet CORRIGIDO_11: 981231989
+      Idle Cycle Spritesheet CORRIGIDO_12: 1355044007
+      Idle Cycle Spritesheet CORRIGIDO_13: 1527121085
+      Idle Cycle Spritesheet CORRIGIDO_14: 822018843
+      Idle Cycle Spritesheet CORRIGIDO_15: 1511747823
+      Idle Cycle Spritesheet CORRIGIDO_16: -1821482172
+      Idle Cycle Spritesheet CORRIGIDO_18: 1007362149
+      Idle Cycle Spritesheet CORRIGIDO_2: -717798235
+      Idle Cycle Spritesheet CORRIGIDO_20: -1807446284
+      Idle Cycle Spritesheet CORRIGIDO_23: 677617805
+      Idle Cycle Spritesheet CORRIGIDO_24: 1576646553
+      Idle Cycle Spritesheet CORRIGIDO_25: 942266644
+      Idle Cycle Spritesheet CORRIGIDO_26: 801787792
+      Idle Cycle Spritesheet CORRIGIDO_27: 520159151
+      Idle Cycle Spritesheet CORRIGIDO_28: 1405107918
+      Idle Cycle Spritesheet CORRIGIDO_29: -67426240
+      Idle Cycle Spritesheet CORRIGIDO_30: -1924513819
+      Idle Cycle Spritesheet CORRIGIDO_31: 354577068
+      Idle Cycle Spritesheet CORRIGIDO_32: -1732865186
+      Idle Cycle Spritesheet CORRIGIDO_36: -1900825079
+      Idle Cycle Spritesheet CORRIGIDO_38: 623530045
+      Idle Cycle Spritesheet CORRIGIDO_39: 597386484
+      Idle Cycle Spritesheet CORRIGIDO_40: -1465294355
+      Idle Cycle Spritesheet CORRIGIDO_41: -1499659334
+      Idle Cycle Spritesheet CORRIGIDO_42: 1863327758
+      Idle Cycle Spritesheet CORRIGIDO_43: -634099277
+      Idle Cycle Spritesheet CORRIGIDO_44: 417035650
+      Idle Cycle Spritesheet CORRIGIDO_45: -823262877
+      Idle Cycle Spritesheet CORRIGIDO_46: 2080071976
+      Idle Cycle Spritesheet CORRIGIDO_47: -793238069
+      Idle Cycle Spritesheet CORRIGIDO_48: -2057517705
+      Idle Cycle Spritesheet CORRIGIDO_49: 284064545
+      Idle Cycle Spritesheet CORRIGIDO_50: -1074556003
+      Idle Cycle Spritesheet CORRIGIDO_6: -233927669
+      Idle Cycle Spritesheet CORRIGIDO_7: 1148365998
+      Idle Cycle Spritesheet CORRIGIDO_8: 156791778
+      Idle Cycle Spritesheet CORRIGIDO_9: -1147320633
+      Idle_Cycle_1: 2027383129
+      Idle_Cycle_10: -1270837210
+      Idle_Cycle_11: 1379128716
+      Idle_Cycle_12: -2096391527
+      Idle_Cycle_2: -503874526
+      Idle_Cycle_3: -1558711195
+      Idle_Cycle_4: 1344008807
+      Idle_Cycle_5: -1527222317
+      Idle_Cycle_6: -579449420
+      Idle_Cycle_7: 605979080
+      Idle_Cycle_8: -1539569169
+      Idle_Cycle_9: -356232723
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
