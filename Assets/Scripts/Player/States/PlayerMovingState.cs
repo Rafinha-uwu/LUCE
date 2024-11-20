@@ -33,9 +33,11 @@ public class PlayerMovingState : PlayerState
     }
 
 
-    public void Move(PlayerController player)
+    public void Move(PlayerController player, float? speed = null)
     {
         float horizontalInput = player.InputHandler.HorizontalInput;
-        player.Rb.velocity = new Vector2(horizontalInput * _speed, player.Rb.velocity.y);
+        player.Rb.velocity = new Vector2(horizontalInput * (speed ?? _speed), player.Rb.velocity.y);
+
+        player.Animator.SetBool("IsMoving", horizontalInput != 0);
     }
 }
