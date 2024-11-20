@@ -13,6 +13,7 @@ public class Scared : MonoBehaviour
     CamaraManager camaram;
     public GameObject cm;
 
+
     private float Ortho;
     private bool OrthReady;
 
@@ -48,6 +49,18 @@ public class Scared : MonoBehaviour
 
                 case "Cam Bunker":
                     Ortho = 7;
+                    break;
+
+                case "Cam Tunel":
+                    Ortho = 3;
+                    break;
+
+                case "Cam Bunker D":
+                    Ortho = 6;
+                    break;
+
+                case "Cam Bunker R":
+                    Ortho = 9;
                     break;
 
                 default:
@@ -94,44 +107,50 @@ public class Scared : MonoBehaviour
                 Debug.Log("Dead");
                 this.transform.position = LastCheck;
 
+                this.GetComponentInChildren<Light2D>().intensity = 0.17f;
             }
+
+            this.GetComponent<PlayerController>().MovingState._speed = 3;
 
         }
         else if (lightdetection.LightValue >= 0.25f)
         {
-            if (this.GetComponentInChildren<Light2D>().intensity < 0.3)
+            if (this.GetComponentInChildren<Light2D>().intensity < 0.17)
             {
                 this.GetComponentInChildren<Light2D>().intensity += 0.002f;
 
-
-                if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize < Ortho)
-                {
-                    camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize += 0.012f;
-                }
-                if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > Ortho)
-                {
-                    OrthReady = true;
-                    
-                }
-
-                if (GL.GetComponent<Light2D>().intensity < 0.05f)
-                {
-                    GL.GetComponent<Light2D>().intensity += 0.001f;
-                }
-
-                if (GL.GetComponent<Light2D>().intensity > 0.05f)
-                {
-                    
-                    GL.GetComponent<Light2D>().intensity = 0.05f;
-                }
+            }
+            if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize < Ortho)
+            {
+                camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize += 0.012f;
+            }
+            if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > Ortho)
+            {
+                OrthReady = true;
 
             }
+
+            if (GL.GetComponent<Light2D>().intensity < 0.05f)
+            {
+                GL.GetComponent<Light2D>().intensity += 0.001f;
+            }
+
+            if (GL.GetComponent<Light2D>().intensity > 0.05f)
+            {
+
+                GL.GetComponent<Light2D>().intensity = 0.05f;
+            }
+
+
+
+            this.GetComponent<PlayerController>().MovingState._speed = 4.5f;
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Checkpoint")
+        if (collision.tag == "Checkpoint")
         {
             LastCheck = collision.gameObject.transform.position;
         }

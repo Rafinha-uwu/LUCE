@@ -3,7 +3,7 @@
 [CreateAssetMenu(menuName = "PlayerController/PlayerMovingState")]
 public class PlayerMovingState : PlayerState
 {
-    [SerializeField] private float _speed;
+    [SerializeField] public float _speed;
 
 
     public override void EnterState(PlayerController player)
