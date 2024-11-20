@@ -111,11 +111,11 @@ public class PlayerPushPullState : PlayerState
             player.MovingState.Move(player);
             return;
         }
-        
+
+        player.MovingState.Move(player, _pushPullSpeed);
+
         float horizontalInput = player.InputHandler.HorizontalInput;
         float horizontalVelocity = horizontalInput * _pushPullSpeed;
-
-        player.Rb.velocity = new Vector2(horizontalVelocity, player.Rb.velocity.y);
         _currentPushableObject.Move(horizontalVelocity);
     }
 }
