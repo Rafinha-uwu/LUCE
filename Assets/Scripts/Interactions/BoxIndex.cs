@@ -6,8 +6,17 @@ public class BoxIndex : MonoBehaviour
 {
 
     // Reference to the other GameObject
-    public GameObject otherObject;
+    private GameObject otherObject;
     public float verticalThreshold;
+
+    private void Start()
+    {
+
+        otherObject = GameObject.FindGameObjectWithTag("Player");
+
+    }
+
+
     void Update()
     {
         if (otherObject != null)
@@ -22,26 +31,22 @@ public class BoxIndex : MonoBehaviour
         Vector3 thisPosition = transform.position;
         Vector3 otherPosition = otherObject.transform.position;
 
-        // Threshold to determine if the other object is "on top" (can be adjusted based on object sizes)
-        verticalThreshold = 0.1f;
+
 
         // Check if the other object is vertically aligned and within the threshold for being "on top"
-        if (Mathf.Abs(otherPosition.x - thisPosition.x) < verticalThreshold &&
-            otherPosition.y > thisPosition.y)
+        if (otherPosition.y > thisPosition.y + verticalThreshold)
         {
-            Debug.Log($"{otherObject.name} is ON TOP of {gameObject.name}");
-            this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+
+            this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
         }
         // Check if the other object is to the right
         else if (otherPosition.x > thisPosition.x)
         {
-            Debug.Log($"{otherObject.name} is to the RIGHT of {gameObject.name}");
-            this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+            this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
         }
         // Check if the other object is to the left
         else if (otherPosition.x < thisPosition.x)
         {
-            Debug.Log($"{otherObject.name} is to the LEFT of {gameObject.name}");
             this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
         }
     }
