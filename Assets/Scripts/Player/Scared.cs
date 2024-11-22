@@ -44,7 +44,7 @@ public class Scared : MonoBehaviour
 
 
                 case "Cam Basement":
-                    Ortho = 5;
+                    Ortho = 6;
                     break;
 
                 case "Cam Bunker":

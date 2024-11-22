@@ -37,17 +37,17 @@ public class BoxIndex : MonoBehaviour
         if (otherPosition.y > thisPosition.y + verticalThreshold)
         {
 
-            this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
+            otherObject.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
         }
         // Check if the other object is to the right
         else if (otherPosition.x > thisPosition.x)
         {
-            this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
+            otherObject.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
         }
         // Check if the other object is to the left
         else if (otherPosition.x < thisPosition.x)
         {
-            this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
+            otherObject.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
         }
     }
 }

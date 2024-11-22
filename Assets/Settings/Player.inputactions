@@ -66,10 +66,10 @@
                 {
                     "name": "",
                     "id": "3ea4d645-4504-4529-b061-ab81934c3752",
-                    "path": "<Joystick>/stick",
+                    "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": ";Gamepad",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -242,10 +242,10 @@
                 {
                     "name": "",
                     "id": "7d439b2c-59d8-41c4-93ce-ce23ca253d12",
-                    "path": "<Joystick>/stick/up",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Joystick",
+                    "groups": ";Gamepad",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -275,10 +275,10 @@
                 {
                     "name": "",
                     "id": "6be27be5-1f94-4507-9855-9c8da2975ae0",
-                    "path": "<Joystick>/trigger",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Joystick",
+                    "groups": ";Gamepad",
                     "action": "PushPull",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -319,10 +319,10 @@
                 {
                     "name": "",
                     "id": "5f511dc9-5570-439a-9a9f-be0afbf57fbb",
-                    "path": "<Joystick>/trigger",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Joystick",
+                    "groups": ";Gamepad",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -352,7 +352,7 @@
                 {
                     "name": "",
                     "id": "07e22af5-b24f-4d60-99da-0767a20bacdc",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -363,10 +363,10 @@
                 {
                     "name": "",
                     "id": "a75e2a46-6abd-41f8-9019-78e10abe5ed2",
-                    "path": "<Joystick>/trigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Joystick",
+                    "groups": ";Gamepad",
                     "action": "Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
