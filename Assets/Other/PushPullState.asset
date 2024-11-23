@@ -15,7 +15,7 @@ MonoBehaviour:
   _pushPullSpeed: 2
   _objectMass: 1
   _objectMaterial: {fileID: 6200000, guid: a39fe4fbed773854385730d1fb53adf5, type: 2}
-  _detectionRange: 0.6
+  _detectionRange: 1
   _objectLayer:
     serializedVersion: 2
     m_Bits: 512
