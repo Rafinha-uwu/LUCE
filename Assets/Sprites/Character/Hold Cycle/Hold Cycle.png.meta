@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Hold_Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 3761
+        width: 642
+        height: 839
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb850c21d8f7a9439c441b9b9da5319
+      internalID: -1261381391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_2
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 3761
+        width: 641
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4983e8573c4bec54492a1486802fc287
+      internalID: 1803344075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 5271
+        y: 3761
+        width: 642
+        height: 852
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba91442f03b2064896b72fe5b8e7563
+      internalID: 104403079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 7521
+        y: 3761
+        width: 633
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850f4a922bd48ac4d99b45a0b1a91316
+      internalID: -1544828216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 2069
+        width: 637
+        height: 856
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617de284191384d42903e1dd18c25dc3
+      internalID: -957960676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 2073
+        width: 637
+        height: 844
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481cae4e882959d4f8b69962f63d23f6
+      internalID: 856159560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 5280
+        y: 2069
+        width: 642
+        height: 843
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ce6200286d53b488d11156f718b62a
+      internalID: -1554518215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_8
+      rect:
+        serializedVersion: 2
+        x: 7526
+        y: 2069
+        width: 641
+        height: 852
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03a78a40d4f23e46a31e664a70f8d64
+      internalID: -580881653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_9
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 380
+        width: 637
+        height: 857
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07af5935ff691b142b8e01f058c78de5
+      internalID: -2106025352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_10
+      rect:
+        serializedVersion: 2
+        x: 3021
+        y: 385
+        width: 633
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2745d09a6135f4db3ae026d45cb965
+      internalID: 634670106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_11
+      rect:
+        serializedVersion: 2
+        x: 5276
+        y: 385
+        width: 637
+        height: 852
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2337d4deb9badd843914dc4be6492cba
+      internalID: 943079192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Cycle_12
+      rect:
+        serializedVersion: 2
+        x: 7526
+        y: 385
+        width: 641
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6698d963d637bdd4483b6a758e485182
+      internalID: 40860015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +371,56 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hold Cycle_0: -1422430724
+      Hold Cycle_10: -947716284
+      Hold Cycle_11: -686260691
+      Hold Cycle_12: -1202451684
+      Hold Cycle_13: -425367431
+      Hold Cycle_14: -979936619
+      Hold Cycle_15: -1205418239
+      Hold Cycle_16: 631108991
+      Hold Cycle_18: 78895314
+      Hold Cycle_2: 1287250130
+      Hold Cycle_20: -999341851
+      Hold Cycle_23: 1437860742
+      Hold Cycle_24: 2009415120
+      Hold Cycle_25: -180390692
+      Hold Cycle_26: -1105869525
+      Hold Cycle_27: 1617514524
+      Hold Cycle_28: 837623461
+      Hold Cycle_29: 2013780674
+      Hold Cycle_30: -1848582123
+      Hold Cycle_31: 120841938
+      Hold Cycle_32: -2094539176
+      Hold Cycle_33: -376621810
+      Hold Cycle_36: 2132191935
+      Hold Cycle_38: -1001331197
+      Hold Cycle_40: -850111623
+      Hold Cycle_41: 1298929385
+      Hold Cycle_42: -538306934
+      Hold Cycle_43: -893021991
+      Hold Cycle_44: 954357743
+      Hold Cycle_45: 1895150128
+      Hold Cycle_46: -603819407
+      Hold Cycle_47: -658617026
+      Hold Cycle_48: -87877895
+      Hold Cycle_6: 988251572
+      Hold Cycle_7: -721507979
+      Hold Cycle_8: 882145092
+      Hold Cycle_9: -1579988900
+      Hold_Cycle_1: -1261381391
+      Hold_Cycle_10: 634670106
+      Hold_Cycle_11: 943079192
+      Hold_Cycle_12: 40860015
+      Hold_Cycle_2: 1803344075
+      Hold_Cycle_3: 104403079
+      Hold_Cycle_4: -1544828216
+      Hold_Cycle_5: -957960676
+      Hold_Cycle_6: 856159560
+      Hold_Cycle_7: -1554518215
+      Hold_Cycle_8: -580881653
+      Hold_Cycle_9: -2106025352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
