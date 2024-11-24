@@ -10,6 +10,7 @@ public class PlayerJumpingState : PlayerState
     {
         player.InputHandler.ClearJumpBuffer();
         Jump(player);
+        player.Animator.SetBool("IsJumping", true);
     }
 
     public override void UpdateState(PlayerController player)
@@ -24,6 +25,7 @@ public class PlayerJumpingState : PlayerState
 
     public override void ExitState(PlayerController player)
     {
+        player.Animator.SetBool("IsJumping", false);
     }
 
 

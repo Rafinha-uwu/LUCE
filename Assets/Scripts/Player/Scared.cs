@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
@@ -20,6 +18,7 @@ public class Scared : MonoBehaviour
     public GameObject GL;
 
     public Vector2 LastCheck;
+    private PlayerController _playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,7 @@ public class Scared : MonoBehaviour
 
         GL.GetComponent<Light2D>().intensity = 0.05f;
 
-
+        _playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -72,7 +71,11 @@ public class Scared : MonoBehaviour
         }
 
 
-        if (lightdetection.LightValue < 0.25f)
+        bool isScared = lightdetection.LightValue < 0.25f;
+        _playerController.Animator.SetBool("IsScared", isScared);
+        _playerController.MovingState._speed = isScared ? 3 : 4.5f;
+
+        if (isScared)
         {
             if (this.GetComponentInChildren<Light2D>().intensity > 0)
             {
@@ -109,11 +112,8 @@ public class Scared : MonoBehaviour
 
                 this.GetComponentInChildren<Light2D>().intensity = 0.17f;
             }
-
-            this.GetComponent<PlayerController>().MovingState._speed = 3;
-
         }
-        else if (lightdetection.LightValue >= 0.25f)
+        else
         {
             if (this.GetComponentInChildren<Light2D>().intensity < 0.17)
             {
@@ -140,11 +140,6 @@ public class Scared : MonoBehaviour
 
                 GL.GetComponent<Light2D>().intensity = 0.05f;
             }
-
-
-
-            this.GetComponent<PlayerController>().MovingState._speed = 4.5f;
-
         }
     }
 

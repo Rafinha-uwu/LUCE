@@ -21,7 +21,7 @@ public class PlayerPushPullState : PlayerState
     {
         if (_flip == null) _flip = GameObject.Find(PLAYER_TAG).GetComponent<Flip>();
 
-        CurrentStopPushing();
+        CurrentStopPushing(player);
         NewObjectCheck(player);
     }
 
@@ -46,32 +46,45 @@ public class PlayerPushPullState : PlayerState
 
     public override void ExitState(PlayerController player)
     {
-        CurrentStopPushing();
+        CurrentStopPushing(player);
     }
 
 
-    private void CurrentStopPushing()
+    private void CurrentStopPushing(PlayerController player)
     {
         if (_currentPushableObject != null) _currentPushableObject.StopPushPull();
         _currentPushableObject = null;
         _currentPushableObjectDirection = null;
 
+        player.Animator.SetBool("IsPushingOrPulling", false);
         _flip.enabled = true;
     }
 
     private void CurrentObjectCheck(PlayerController player)
     {
         if (_currentPushableObject == null) return;
-        if (!_currentPushableObject.IsGrounded) CurrentStopPushing();
+        if (!_currentPushableObject.IsGrounded)
+        {
+            CurrentStopPushing(player);
+            return;
+        }
 
         Vector2 direction = _currentPushableObjectDirection ?? Vector2.right;
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, _detectionRange, _objectLayer);
 
-        if (hit.collider == null || hit.collider.gameObject != _currentPushableObject.gameObject) CurrentStopPushing();
+        if (hit.collider == null || hit.collider.gameObject != _currentPushableObject.gameObject)
+        {
+            CurrentStopPushing(player);
+            return;
+        }
+
+        // Is Pushing if the player is moving towards the object
+        bool isPushing = player.InputHandler.HorizontalInput * direction.x >= 0;
+        player.Animator.SetBool("IsPushing", isPushing);
     }
 
 
-    private bool SetNewCurrent(PushableObject pushableObject, Vector2 direction)
+    private bool SetNewCurrent(PlayerController player, PushableObject pushableObject, Vector2 direction)
     {
         if (!pushableObject.IsGrounded) return false;
 
@@ -79,6 +92,8 @@ public class PlayerPushPullState : PlayerState
         _currentPushableObjectDirection = direction;
         _currentPushableObject.StartPushPull(_objectMass, _objectMaterial);
 
+        player.Animator.SetBool("IsPushingOrPulling", true);
+        player.Animator.SetBool("IsPushing", true);
         _flip.enabled = false;
         return true;
     }
@@ -98,7 +113,7 @@ public class PlayerPushPullState : PlayerState
             bool hasPushableObject = hit.collider.TryGetComponent(out PushableObject pushableObject);
             if (!hasPushableObject) continue;
 
-            bool isSet = SetNewCurrent(pushableObject, direction);
+            bool isSet = SetNewCurrent(player, pushableObject, direction);
             if (isSet) break;
         }
     }
