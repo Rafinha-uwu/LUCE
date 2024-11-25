@@ -19,6 +19,9 @@ public class Scared : MonoBehaviour
 
     public GameObject GL;
 
+    public float Speed;
+    public float Speed_scared;
+
     public Vector2 LastCheck;
 
     // Start is called before the first frame update
@@ -30,7 +33,15 @@ public class Scared : MonoBehaviour
         GL.GetComponent<Light2D>().intensity = 0.05f;
 
 
+        Speed = this.GetComponent<PlayerController>().MovingState._speed;
     }
+
+    private void OnDestroy()
+    {
+        this.GetComponent<PlayerController>().MovingState._speed = Speed;
+    }
+
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -110,7 +121,7 @@ public class Scared : MonoBehaviour
                 this.GetComponentInChildren<Light2D>().intensity = 0.17f;
             }
 
-            this.GetComponent<PlayerController>().MovingState._speed = 3;
+            this.GetComponent<PlayerController>().MovingState._speed = Speed_scared;
 
         }
         else if (lightdetection.LightValue >= 0.25f)
@@ -143,7 +154,7 @@ public class Scared : MonoBehaviour
 
 
 
-            this.GetComponent<PlayerController>().MovingState._speed = 4.5f;
+            this.GetComponent<PlayerController>().MovingState._speed = Speed;
 
         }
     }
