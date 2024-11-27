@@ -103,9 +103,7 @@ public class PlayerPushPullState : PlayerState
     {
         if (_currentPushableObject != null) return;
 
-        float horizontalInput = player.InputHandler.HorizontalInput;
-        Vector2 direction = horizontalInput >= 0 ? Vector2.right : Vector2.left;
-
+        Vector2 direction = _flip.IsFacingRight ? Vector2.right : Vector2.left;
         RaycastHit2D[] hits = Physics2D.RaycastAll(player.transform.position, direction, _detectionRange, _objectLayer);
         foreach (RaycastHit2D hit in hits)
         {

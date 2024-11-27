@@ -5,6 +5,7 @@ public class Flip : MonoBehaviour
 
     private InputHandler InputHandler;
     private bool _isFacingRight = true;
+    public bool IsFacingRight => _isFacingRight;
 
     public void Awake()
     {
