@@ -78,9 +78,10 @@ public class PlayerPushPullState : PlayerState
             return;
         }
 
-        // Is Pushing if the player is moving towards the object
-        bool isPushing = player.InputHandler.HorizontalInput * direction.x >= 0;
-        player.Animator.SetBool("IsPushing", isPushing);
+        // The value is negative when pulling and positive when pushing
+        // If is 0, keep the previous value
+        float pushPullValue = player.InputHandler.HorizontalInput * direction.x;
+        if (pushPullValue != 0) player.Animator.SetBool("IsPushing", pushPullValue > 0);
     }
 
 
