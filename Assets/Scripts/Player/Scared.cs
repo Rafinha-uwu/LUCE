@@ -19,6 +19,7 @@ public class Scared : MonoBehaviour
 
     public Vector2 LastCheck;
     private PlayerController _playerController;
+    private static readonly string ANIMATOR_PARAMETER = "IsScared";
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +73,7 @@ public class Scared : MonoBehaviour
 
 
         bool isScared = lightdetection.LightValue < 0.25f;
-        _playerController.Animator.SetBool("IsScared", isScared);
+        _playerController.Animator.SetBool(ANIMATOR_PARAMETER, isScared);
         _playerController.MovingState._speed = isScared ? 3 : 4.5f;
 
         if (isScared)

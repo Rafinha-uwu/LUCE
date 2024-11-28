@@ -10,7 +10,9 @@ public class PlayerHoldItem : MonoBehaviour
     private InputHandler _inputHandler;
     private HoldableItem _holdableItem;
     public bool IsHoldingItem => _holdableItem != null;
+    
     private PlayerController _playerController;
+    private static readonly string ANIMATOR_PARAMETER = "IsHolding";
 
 
     private void Awake()
@@ -58,7 +60,7 @@ public class PlayerHoldItem : MonoBehaviour
 
             _holdableItem = holdableItem;
             _holdableItem.StartHold(_holdPosition != null ? _holdPosition : transform);
-            _playerController.Animator.SetBool("IsHolding", true);
+            _playerController.Animator.SetBool(ANIMATOR_PARAMETER, true);
             break;
         }
     }
@@ -69,6 +71,6 @@ public class PlayerHoldItem : MonoBehaviour
 
         _holdableItem.StopHold();
         _holdableItem = null;
-        _playerController.Animator.SetBool("IsHolding", false);
+        _playerController.Animator.SetBool(ANIMATOR_PARAMETER, false);
     }
 }

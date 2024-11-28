@@ -14,6 +14,8 @@ public class PlayerPushPullState : PlayerState
     private Vector2? _currentPushableObjectDirection;
 
     private static readonly string PLAYER_TAG = "Player";
+    private static readonly string ANIMATOR_PARAMETER_BOTH = "IsPushingOrPulling";
+    private static readonly string ANIMATOR_PARAMETER_PUSH = "IsPushing";
     private static Flip _flip;
 
 
@@ -56,7 +58,7 @@ public class PlayerPushPullState : PlayerState
         _currentPushableObject = null;
         _currentPushableObjectDirection = null;
 
-        player.Animator.SetBool("IsPushingOrPulling", false);
+        player.Animator.SetBool(ANIMATOR_PARAMETER_BOTH, false);
         _flip.enabled = true;
     }
 
@@ -81,7 +83,7 @@ public class PlayerPushPullState : PlayerState
         // The value is negative when pulling and positive when pushing
         // If is 0, keep the previous value
         float pushPullValue = player.InputHandler.HorizontalInput * direction.x;
-        if (pushPullValue != 0) player.Animator.SetBool("IsPushing", pushPullValue > 0);
+        if (pushPullValue != 0) player.Animator.SetBool(ANIMATOR_PARAMETER_PUSH, pushPullValue > 0);
     }
 
 
@@ -93,8 +95,8 @@ public class PlayerPushPullState : PlayerState
         _currentPushableObjectDirection = direction;
         _currentPushableObject.StartPushPull(_objectMass, _objectMaterial);
 
-        player.Animator.SetBool("IsPushingOrPulling", true);
-        player.Animator.SetBool("IsPushing", true);
+        player.Animator.SetBool(ANIMATOR_PARAMETER_BOTH, true);
+        player.Animator.SetBool(ANIMATOR_PARAMETER_PUSH, true);
         _flip.enabled = false;
         return true;
     }
