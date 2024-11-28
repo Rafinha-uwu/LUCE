@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3761
+        width: 628
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585cbe586534cf04f862c40cabe4c77b
+      internalID: -1900793234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3761
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dabf36f35ab18f14db7fb53f44771419
+      internalID: -1102704247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3761
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54483fec92928d0458b779e135f96059
+      internalID: 859613946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3761
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ea1e69f06bfe64ca6d06ca400bc337
+      internalID: -616826270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2073
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfefe107668237e4caf494a0c3b88160
+      internalID: 1359521577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2073
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ab57112ec73b44f954fa61527cb0c1
+      internalID: 441975409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2073
+        width: 628
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01cfc78e91f6e184ba204b5e3d6a426b
+      internalID: 1553237077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2073
+        width: 632
+        height: 804
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942498b83a1bec440828de09d482ca1e
+      internalID: 2039074507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 385
+        width: 628
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e3afca0062fac4da391b80ac715699
+      internalID: -34249969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 385
+        width: 624
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2b43bcda95e194baa8a58b6c6ae4d1
+      internalID: 1072862278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_Stopped_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 385
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ef95e6179834148935ec598f9d24e4
+      internalID: -2013760334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +350,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pull_Scared_Stopped_1: -1900793234
+      Pull_Scared_Stopped_10: 1072862278
+      Pull_Scared_Stopped_11: -2013760334
+      Pull_Scared_Stopped_2: -1102704247
+      Pull_Scared_Stopped_3: 859613946
+      Pull_Scared_Stopped_4: -616826270
+      Pull_Scared_Stopped_5: 1359521577
+      Pull_Scared_Stopped_6: 441975409
+      Pull_Scared_Stopped_7: 1553237077
+      Pull_Scared_Stopped_8: 2039074507
+      Pull_Scared_Stopped_9: -34249969
+      Spritesheet Pull Scared Stopped_10: 281267040
+      Spritesheet Pull Scared Stopped_11: -1096199174
+      Spritesheet Pull Scared Stopped_12: -1387614920
+      Spritesheet Pull Scared Stopped_17: 1019557392
+      Spritesheet Pull Scared Stopped_18: 17149713
+      Spritesheet Pull Scared Stopped_19: -1044810527
+      Spritesheet Pull Scared Stopped_20: 29909194
+      Spritesheet Pull Scared Stopped_21: 836908385
+      Spritesheet Pull Scared Stopped_22: -213546873
+      Spritesheet Pull Scared Stopped_23: -86457623
+      Spritesheet Pull Scared Stopped_24: -258393128
+      Spritesheet Pull Scared Stopped_27: -1895768925
+      Spritesheet Pull Scared Stopped_29: -240693952
+      Spritesheet Pull Scared Stopped_30: -1490464589
+      Spritesheet Pull Scared Stopped_31: 1226130152
+      Spritesheet Pull Scared Stopped_32: 613272317
+      Spritesheet Pull Scared Stopped_33: 440277746
+      Spritesheet Pull Scared Stopped_34: 139485889
+      Spritesheet Pull Scared Stopped_35: -641451500
+      Spritesheet Pull Scared Stopped_4: -1676995333
+      Spritesheet Pull Scared Stopped_5: 1596400679
+      Spritesheet Pull Scared Stopped_6: -1003113555
+      Spritesheet Pull Scared Stopped_7: -1360431283
+      Spritesheet Pull Scared Stopped_8: 804339367
+      Spritesheet Pull Scared Stopped_9: 1860866698
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
