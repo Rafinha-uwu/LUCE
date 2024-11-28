@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
+using UnityEngine.Rendering;
 
 public class Scared : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class Scared : MonoBehaviour
     private float Ortho;
     private bool OrthReady;
 
+
+    private float GlobalL;
+    private bool GLReady;
+
     public GameObject GL;
 
     public float Speed;
@@ -24,16 +29,20 @@ public class Scared : MonoBehaviour
 
     public Vector2 LastCheck;
 
+    public float ScaredTime = 10f;
+    public float ScaredCountDown = 10f;
+    public bool timerIsRunning = false;
+
     // Start is called before the first frame update
     void Start()
     {
         lightdetection = lt.GetComponent<LightDetection>();
         camaram = cm.GetComponent<CamaraManager>();
 
-        GL.GetComponent<Light2D>().intensity = 0.05f;
+        timerIsRunning = true;
+        ScaredCountDown = ScaredTime;
 
-
-        Speed = this.GetComponent<PlayerController>().MovingState._speed;
+       Speed = this.GetComponent<PlayerController>().MovingState._speed;
     }
 
     private void OnDestroy()
@@ -46,6 +55,20 @@ public class Scared : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (timerIsRunning)
+        {
+            if (ScaredCountDown > 0)
+            {
+                ScaredCountDown -= Time.deltaTime;
+            }
+            else
+            {
+                ScaredCountDown = 0;
+                timerIsRunning = false;
+            }
+        }
+
+
 
         if (OrthReady)
         {
@@ -56,22 +79,27 @@ public class Scared : MonoBehaviour
 
                 case "Cam Basement":
                     Ortho = 6;
+                    GlobalL = 0.05f;
                     break;
 
                 case "Cam Bunker":
                     Ortho = 7;
+                    GlobalL = 0.05f;
                     break;
 
                 case "Cam Tunel":
                     Ortho = 3;
+                    GlobalL = 0.05f;
                     break;
 
                 case "Cam Bunker D":
                     Ortho = 6;
+                    GlobalL = 0.002f;
                     break;
 
                 case "Cam Bunker R":
                     Ortho = 9;
+                    GlobalL = 0.05f;
                     break;
 
                 default:
@@ -83,9 +111,15 @@ public class Scared : MonoBehaviour
         }
 
 
+        if (GLReady)
+        {
+            GL.GetComponent<Light2D>().intensity = GlobalL;
+        }
+
+
         if (lightdetection.LightValue < 0.25f)
         {
-            if (this.GetComponentInChildren<Light2D>().intensity > 0)
+            if (ScaredCountDown > 0)
             {
 
                 if (OrthReady)
@@ -93,18 +127,24 @@ public class Scared : MonoBehaviour
                     OrthReady = false;
                 }
 
-                this.GetComponentInChildren<Light2D>().intensity -= 0.0001f;
+                this.GetComponentInChildren<Light2D>().intensity -= 0.00035f;
 
                 if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > 3)
                 {
-                    camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize -= 0.0005f;
+                    camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize -= 0.0015f;
 
 
                 }
 
-                if (GL.GetComponent<Light2D>().intensity > 0.01f)
+
+                if (GLReady)
                 {
-                    GL.GetComponent<Light2D>().intensity -= 0.00003f;
+                    GLReady = false;
+                }
+
+                if (GL.GetComponent<Light2D>().intensity > 0.001f)
+                {
+                    GL.GetComponent<Light2D>().intensity -= 0.00015f;
                 }
 
 
@@ -117,7 +157,7 @@ public class Scared : MonoBehaviour
 
                 Debug.Log("Dead");
                 this.transform.position = LastCheck;
-
+                ScaredCountDown = ScaredTime;
                 this.GetComponentInChildren<Light2D>().intensity = 0.17f;
             }
 
@@ -135,25 +175,25 @@ public class Scared : MonoBehaviour
             {
                 camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize += 0.012f;
             }
-            if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > Ortho)
+            if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize >= Ortho)
             {
                 OrthReady = true;
 
             }
 
-            if (GL.GetComponent<Light2D>().intensity < 0.05f)
+            if (GL.GetComponent<Light2D>().intensity < GlobalL)
             {
                 GL.GetComponent<Light2D>().intensity += 0.001f;
             }
 
-            if (GL.GetComponent<Light2D>().intensity > 0.05f)
+            if (GL.GetComponent<Light2D>().intensity >= GlobalL)
             {
 
-                GL.GetComponent<Light2D>().intensity = 0.05f;
+                GLReady = true;
             }
 
 
-
+            ScaredCountDown = ScaredTime;
             this.GetComponent<PlayerController>().MovingState._speed = Speed;
 
         }
