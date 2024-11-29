@@ -3,6 +3,8 @@
 [RequireComponent(typeof(InputHandler))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(GroundCheck))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Flip))] // Needed for PlayerPushPullState 
 public class PlayerController : MonoBehaviour
 {
     public InputHandler InputHandler { get; private set; }
