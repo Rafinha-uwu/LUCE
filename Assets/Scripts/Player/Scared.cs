@@ -42,7 +42,7 @@ public class Scared : MonoBehaviour
         timerIsRunning = true;
         ScaredCountDown = ScaredTime;
 
-       Speed = this.GetComponent<PlayerController>().MovingState._speed;
+        Speed = this.GetComponent<PlayerController>().MovingState._speed;
     }
 
     private void OnDestroy()
@@ -69,44 +69,49 @@ public class Scared : MonoBehaviour
         }
 
 
+        switch (camaram._currentCamera.name)
+        {
+
+
+            case "Cam Basement":
+                Ortho = 6;
+                GlobalL = 0.05f;
+                break;
+
+
+            case "Cam Elevator":
+                Ortho = 5;
+                GlobalL = 0.05f;
+                break;
+
+            case "Cam Bunker":
+                Ortho = 7;
+                GlobalL = 0.05f;
+                break;
+
+            case "Cam Tunel":
+                Ortho = 3;
+                GlobalL = 0.05f;
+                break;
+
+            case "Cam Bunker D":
+                Ortho = 6;
+                GlobalL = 0.002f;
+                break;
+
+            case "Cam Bunker R":
+                Ortho = 9;
+                GlobalL = 0.05f;
+                break;
+
+            default:
+
+                break;
+        }
+
 
         if (OrthReady)
         {
-
-            switch (camaram._currentCamera.name)
-            {
-
-
-                case "Cam Basement":
-                    Ortho = 6;
-                    GlobalL = 0.05f;
-                    break;
-
-                case "Cam Bunker":
-                    Ortho = 7;
-                    GlobalL = 0.05f;
-                    break;
-
-                case "Cam Tunel":
-                    Ortho = 3;
-                    GlobalL = 0.05f;
-                    break;
-
-                case "Cam Bunker D":
-                    Ortho = 6;
-                    GlobalL = 0.002f;
-                    break;
-
-                case "Cam Bunker R":
-                    Ortho = 9;
-                    GlobalL = 0.05f;
-                    break;
-
-                default:
-
-                    break;
-            }
-
             camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Ortho;
         }
 
@@ -144,7 +149,7 @@ public class Scared : MonoBehaviour
 
                 if (GL.GetComponent<Light2D>().intensity > 0.001f)
                 {
-                    GL.GetComponent<Light2D>().intensity -= 0.00015f;
+                    GL.GetComponent<Light2D>().intensity -= 0.00013f;
                 }
 
 
@@ -168,7 +173,7 @@ public class Scared : MonoBehaviour
         {
             if (this.GetComponentInChildren<Light2D>().intensity < 0.17)
             {
-                this.GetComponentInChildren<Light2D>().intensity += 0.002f;
+                this.GetComponentInChildren<Light2D>().intensity += 0.006f;
 
             }
             if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize < Ortho)
@@ -183,7 +188,7 @@ public class Scared : MonoBehaviour
 
             if (GL.GetComponent<Light2D>().intensity < GlobalL)
             {
-                GL.GetComponent<Light2D>().intensity += 0.001f;
+                GL.GetComponent<Light2D>().intensity += 0.002f;
             }
 
             if (GL.GetComponent<Light2D>().intensity >= GlobalL)
