@@ -4,12 +4,14 @@
 public class PlayerJumpingState : PlayerState
 {
     [SerializeField] private float _jumpPower;
+    private static readonly string ANIMATOR_PARAMETER = "IsJumping";
 
 
     public override void EnterState(PlayerController player)
     {
         player.InputHandler.ClearJumpBuffer();
         Jump(player);
+        player.Animator.SetBool(ANIMATOR_PARAMETER, true);
     }
 
     public override void UpdateState(PlayerController player)
@@ -24,6 +26,7 @@ public class PlayerJumpingState : PlayerState
 
     public override void ExitState(PlayerController player)
     {
+        player.Animator.SetBool(ANIMATOR_PARAMETER, false);
     }
 
 

@@ -34,6 +34,7 @@ public class LightEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) return;
         if (flicker == true)
         {
             StartCoroutine(Flick1());
@@ -53,19 +54,9 @@ public class LightEffects : MonoBehaviour
 
         if (wigle == true)
         {
-            if (dir == true)
-            {
-
-                this.GetComponent<Transform>().Rotate(0, 0, speed);
-
-            }
-            else
-            {
-                this.GetComponent<Transform>().Rotate(0, 0, -speed);
-
-            }
+            int leftOrRight = dir ? 1 : -1;
+            this.GetComponent<Transform>().Rotate(0, 0, speed * leftOrRight);
         }
-
     }
 
 

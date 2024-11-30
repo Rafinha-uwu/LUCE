@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pull_Start_1
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 3763
+        width: 636
+        height: 858
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06aef1cb5248fe5489fcf1d20f569107
+      internalID: 784346933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Start_2
+      rect:
+        serializedVersion: 2
+        x: 3002
+        y: 3763
+        width: 628
+        height: 861
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f6c6cb969de0184e9a299d09c05c8c6
+      internalID: 1093488956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Start_3
+      rect:
+        serializedVersion: 2
+        x: 5249
+        y: 3763
+        width: 626
+        height: 867
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6293c4f15315d4842a2fdab195f7f896
+      internalID: 864854720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Start_4
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 2075
+        width: 618
+        height: 877
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4529761c02d56945afa9fce28242df0
+      internalID: -1659791949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Start_5
+      rect:
+        serializedVersion: 2
+        x: 2994
+        y: 2072
+        width: 613
+        height: 870
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237097c11dbd7c244abc2d279878c1cd
+      internalID: 1039270774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Start_6
+      rect:
+        serializedVersion: 2
+        x: 5239
+        y: 2072
+        width: 613
+        height: 864
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ec235c570fd3945806cf5bfeb67bb1
+      internalID: -2133599936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Start_7
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 384
+        width: 619
+        height: 861
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d55879c794cf0340a3e27d5fac90bc4
+      internalID: -1059405808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +266,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Pull_In\xEDcio_11": -600969307
+      "Pull_In\xEDcio_13": 152977561
+      "Pull_In\xEDcio_14": 1695970739
+      "Pull_In\xEDcio_15": -333714937
+      "Pull_In\xEDcio_16": -14727420
+      "Pull_In\xEDcio_17": -1845523635
+      "Pull_In\xEDcio_18": -1466923728
+      "Pull_In\xEDcio_20": -1689419067
+      "Pull_In\xEDcio_21": -1682236522
+      "Pull_In\xEDcio_3": 1464185348
+      "Pull_In\xEDcio_4": 1809242268
+      "Pull_In\xEDcio_5": 17488301
+      "Pull_In\xEDcio_6": 1481224462
+      "Pull_In\xEDcio_7": -1420859313
+      "Pull_In\xEDcio_8": -673204642
+      Pull_Start_1: 784346933
+      Pull_Start_2: 1093488956
+      Pull_Start_3: 864854720
+      Pull_Start_4: -1659791949
+      Pull_Start_5: 1039270774
+      Pull_Start_6: -2133599936
+      Pull_Start_7: -1059405808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

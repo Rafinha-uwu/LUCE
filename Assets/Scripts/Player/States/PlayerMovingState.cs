@@ -4,6 +4,7 @@
 public class PlayerMovingState : PlayerState
 {
     [SerializeField] public float _speed;
+    private static readonly string ANIMATOR_PARAMETER = "IsMoving";
 
 
     public override void EnterState(PlayerController player)
@@ -38,6 +39,6 @@ public class PlayerMovingState : PlayerState
         float horizontalInput = player.InputHandler.HorizontalInput;
         player.Rb.velocity = new Vector2(horizontalInput * (speed ?? _speed) * Time.fixedDeltaTime, player.Rb.velocity.y);
 
-        player.Animator.SetBool("IsMoving", horizontalInput != 0);
+        player.Animator.SetBool(ANIMATOR_PARAMETER, horizontalInput != 0);
     }
 }

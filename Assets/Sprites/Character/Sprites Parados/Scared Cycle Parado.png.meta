@@ -1,0 +1,415 @@
+fileFormatVersion: 2
+guid: ba1aa4c0bd563a569a3add47ec971878
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3765
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b087682e2f9ee5ad963dc587727aae3
+      internalID: -693678499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3765
+        width: 619
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f5cda29c2aa1bf9ae1b87152fefda7
+      internalID: 1298016294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3765
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae10132bf81f31c92bcc423d4b7b7065
+      internalID: 898504523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3765
+        width: 619
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2d30c6949cf9f649ddf2a92336ef1f
+      internalID: 33038700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2077
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8713d450ba3c490b6b5d66195a180f87
+      internalID: -1418727800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2077
+        width: 619
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239ba541989a5c202810fa5ab714ea95
+      internalID: -403082726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2077
+        width: 628
+        height: 793
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550fcf8922b8a57ba9d262a6cbc18a14
+      internalID: -1619637035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2077
+        width: 632
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48239ae38eda9cd56b51cd60d24a0970
+      internalID: -1054964609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 389
+        width: 628
+        height: 796
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d8c892e82e7cbc92994890153a71111
+      internalID: 543587165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 389
+        width: 624
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9efbe5363b89da46af8fd89ade85820
+      internalID: -1031313733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 389
+        width: 628
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10780f8621136fee595343a879989e4a
+      internalID: -145702183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Scared_Cycle_12
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 389
+        width: 624
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48addc84e2c0ce71b9d095c363e9414d
+      internalID: 381361155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Scared Cycle Parado_10: -445739135
+      Scared Cycle Parado_11: -2066451862
+      Scared Cycle Parado_16: -506205664
+      Scared Cycle Parado_17: 1390369360
+      Scared Cycle Parado_18: -1279675576
+      Scared Cycle Parado_19: -980469421
+      Scared Cycle Parado_20: -1353145279
+      Scared Cycle Parado_21: 1244997713
+      Scared Cycle Parado_22: 2011925036
+      Scared Cycle Parado_23: -1836281618
+      Scared Cycle Parado_28: -2112436639
+      Scared Cycle Parado_29: 1027483844
+      Scared Cycle Parado_30: -2037825012
+      Scared Cycle Parado_31: -1607999373
+      Scared Cycle Parado_32: -414520513
+      Scared Cycle Parado_33: -1845925271
+      Scared Cycle Parado_34: -1051242010
+      Scared Cycle Parado_35: -865549389
+      Scared Cycle Parado_4: 47947129
+      Scared Cycle Parado_5: 75921715
+      Scared Cycle Parado_6: 1233217324
+      Scared Cycle Parado_7: 1879702541
+      Scared Cycle Parado_8: -1392541957
+      Scared Cycle Parado_9: 927979629
+      Stopped_Scared_Cycle_1: -693678499
+      Stopped_Scared_Cycle_10: -1031313733
+      Stopped_Scared_Cycle_11: -145702183
+      Stopped_Scared_Cycle_12: 381361155
+      Stopped_Scared_Cycle_2: 1298016294
+      Stopped_Scared_Cycle_3: 898504523
+      Stopped_Scared_Cycle_4: 33038700
+      Stopped_Scared_Cycle_5: -1418727800
+      Stopped_Scared_Cycle_6: -403082726
+      Stopped_Scared_Cycle_7: -1619637035
+      Stopped_Scared_Cycle_8: -1054964609
+      Stopped_Scared_Cycle_9: 543587165
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,415 @@
+fileFormatVersion: 2
+guid: a86e505630df59246a88e84d80f533db
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scared_Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3761
+        width: 628
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf7e78198134024fb212f39ddc0925c
+      internalID: 479862896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3761
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e800bfcca03584ca32f33e04d27e7a
+      internalID: 1697040398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3761
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2bf31df1a39704385d21894785de20
+      internalID: 262074969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3761
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c573bc6016f5a4e4ba32aec71ad15b58
+      internalID: 1230140411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2069
+        width: 619
+        height: 790
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82291002b26678d40b342a470216d884
+      internalID: 1373127467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2073
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39582dd3bfe6e294aa151c74a6835a93
+      internalID: -719344428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2069
+        width: 628
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be711ee4684b244889e38377331ce4a
+      internalID: 263478915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2069
+        width: 632
+        height: 808
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfb8cb5f19464e42a8a2fa84ef8b62f
+      internalID: -660934842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 380
+        width: 628
+        height: 805
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753ce58f6d69ddf4e9ff711ff6425dbb
+      internalID: -2104450892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 385
+        width: 624
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe09db2b328bc843aefb69b177a80bc
+      internalID: -1251744652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 385
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0fe3c0b45193d419feddb5d0b8168c
+      internalID: -607908705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scared_Cycle_12
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 385
+        width: 624
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85d621b52d369c49a48628ff8b53a54
+      internalID: -503669723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Scared Cycle_10: 917555297
+      Scared Cycle_11: -1479131821
+      Scared Cycle_16: -575340062
+      Scared Cycle_17: 131952139
+      Scared Cycle_18: 1224702798
+      Scared Cycle_19: -885231804
+      Scared Cycle_20: 475555648
+      Scared Cycle_21: 1604457476
+      Scared Cycle_22: -45413078
+      Scared Cycle_23: -629495046
+      Scared Cycle_28: 1372164535
+      Scared Cycle_29: -1891312169
+      Scared Cycle_30: -616705882
+      Scared Cycle_31: -1202872289
+      Scared Cycle_32: -2079807980
+      Scared Cycle_33: -1522070002
+      Scared Cycle_34: -559259836
+      Scared Cycle_35: -455435812
+      Scared Cycle_4: 71737161
+      Scared Cycle_5: -1514287777
+      Scared Cycle_6: 1248564473
+      Scared Cycle_7: -172653520
+      Scared Cycle_8: -1344036919
+      Scared Cycle_9: 1280183127
+      Scared_Cycle_1: 479862896
+      Scared_Cycle_10: -1251744652
+      Scared_Cycle_11: -607908705
+      Scared_Cycle_12: -503669723
+      Scared_Cycle_2: 1697040398
+      Scared_Cycle_3: 262074969
+      Scared_Cycle_4: 1230140411
+      Scared_Cycle_5: 1373127467
+      Scared_Cycle_6: -719344428
+      Scared_Cycle_7: 263478915
+      Scared_Cycle_8: -660934842
+      Scared_Cycle_9: -2104450892
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

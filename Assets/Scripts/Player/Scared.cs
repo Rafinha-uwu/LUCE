@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
@@ -29,6 +27,8 @@ public class Scared : MonoBehaviour
     public float Speed_scared;
 
     public Vector2 LastCheck;
+    private PlayerController _playerController;
+    private static readonly string ANIMATOR_PARAMETER = "IsScared";
 
     public float ScaredTime = 10f;
     public float ScaredCountDown = 10f;
@@ -43,19 +43,17 @@ public class Scared : MonoBehaviour
         camaram = cm.GetComponent<CamaraManager>();
 
         timerIsRunning = true;
-        ScaredCountDown = ScaredTime;
+        ScaredCountDown = ScaredTime;    
+        _playerController = GetComponent<PlayerController>();
+        Speed = _playerController.MovingState._speed;
 
-        
-
-        Speed = this.GetComponent<PlayerController>().MovingState._speed;
     }
 
     private void OnDestroy()
     {
-        this.GetComponent<PlayerController>().MovingState._speed = Speed;
+
+        _playerController.MovingState._speed = Speed;
     }
-
-
 
     // Update is called once per frame
     void FixedUpdate()
@@ -73,6 +71,7 @@ public class Scared : MonoBehaviour
             }
         }
 
+        if (Time.timeScale == 0) return;
 
         switch (camaram._currentCamera.name)
         {
@@ -127,14 +126,17 @@ public class Scared : MonoBehaviour
             camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = Ortho;
         }
 
-
         if (GLReady)
         {
             GL.GetComponent<Light2D>().intensity = GlobalL;
         }
 
+        bool isScared = lightdetection.LightValue < 0.25f;
+        _playerController.Animator.SetBool(ANIMATOR_PARAMETER, isScared);
+        _playerController.MovingState._speed = isScared ? Speed_scared : Speed;
 
-        if (lightdetection.LightValue < 0.25f)
+        if (isScared)
+
         {
             if (ScaredCountDown > 0)
             {
@@ -174,11 +176,8 @@ public class Scared : MonoBehaviour
                 Debug.Log("Dead");
                 Invoke("Death", 1f);
             }
-
-            this.GetComponent<PlayerController>().MovingState._speed = Speed_scared;
-
         }
-        else if (lightdetection.LightValue >= 0.25f)
+        else
         {
             if (this.GetComponentInChildren<Light2D>().intensity < 0.17)
             {
@@ -206,9 +205,7 @@ public class Scared : MonoBehaviour
                 GLReady = true;
             }
 
-
             ScaredCountDown = ScaredTime;
-            this.GetComponent<PlayerController>().MovingState._speed = Speed;
 
         }
     }
