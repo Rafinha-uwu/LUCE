@@ -19,6 +19,8 @@ public class HoldableItem : MonoBehaviour
         transform.position = holdPosition.position;
 
         _rigidbody2D.simulated = false;
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.angularVelocity = 0;
     }
 
     public void StopHold()
