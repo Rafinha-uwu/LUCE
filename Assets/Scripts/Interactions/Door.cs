@@ -1,19 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-[RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(SpriteRenderer))]
 public class Door : SwitchWithRequirements
 {
-    private BoxCollider2D _collider;
-    private ShadowCaster2D _shadowCaster;
-    private SpriteRenderer _renderer;
+    private bool Anim;
 
     protected override void Awake()
     {
-        _collider = GetComponent<BoxCollider2D>();
-        _renderer = GetComponent<SpriteRenderer>();
-        _shadowCaster = GetComponent<ShadowCaster2D>();
 
         OnStateChange += OnDoorStateChange;
         base.Awake();
@@ -23,15 +16,38 @@ public class Door : SwitchWithRequirements
     {
         OnStateChange -= OnDoorStateChange;
         base.OnDestroy();
+
+
     }
 
 
     private void OnDoorStateChange(SwitchObject switchObject, bool isOn)
     {
+
         bool isClosed = !isOn;
 
-        _collider.enabled = isClosed;
-        _renderer.enabled = isClosed;
-        if (_shadowCaster != null) _shadowCaster.enabled = isClosed;
+        if (this.gameObject.GetComponent<Elevator>() != null)
+        {
+            this.gameObject.GetComponent<Elevator>().On = isOn;
+        }
+        if (this.gameObject.GetComponent<Code>() != null)
+        {
+            this.gameObject.GetComponent<Code>().On = isOn;
+        }
+        if (this.gameObject.GetComponent<Animator>() != null)
+        {
+            if (Anim == isOn) { Anim = isClosed; }
+            else { Anim = isOn; };
+
+            if (Anim == true)
+            {
+                this.GetComponent<Animator>().SetBool("Open", true);
+            }
+            else
+            {
+                this.GetComponent<Animator>().SetBool("Open", false);
+            }
+        }
+
     }
 }

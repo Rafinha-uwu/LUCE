@@ -5,7 +5,6 @@ public class SwitchWithRequirements : SwitchObject
 {
     [SerializeField] private Requirement[] _requirements;
 
-
     protected virtual void Awake()
     {
         foreach (var req in _requirements) req.Switch.OnStateChange += OnSwitchStateChange;
@@ -15,7 +14,6 @@ public class SwitchWithRequirements : SwitchObject
     {
         foreach (var req in _requirements) req.Switch.OnStateChange -= OnSwitchStateChange;
     }
-
 
     private bool AllRequirementsMet() => _requirements.All(req => req.IsMet);
 
@@ -27,7 +25,6 @@ public class SwitchWithRequirements : SwitchObject
         else TurnOff();
     }
 
-
     private void OnDrawGizmosSelected()
     {
         foreach (var req in _requirements)
@@ -38,6 +35,18 @@ public class SwitchWithRequirements : SwitchObject
         }
     }
 
+    // Add a public method to update RequiredState
+    public void SetRequiredState(int index, bool newState)
+    {
+        if (index >= 0 && index < _requirements.Length)
+        {
+            _requirements[index].RequiredState = newState;
+        }
+        else
+        {
+            Debug.LogWarning("Invalid requirement index!");
+        }
+    }
 
     [System.Serializable]
     public class Requirement
