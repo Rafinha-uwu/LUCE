@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Push_Start_1
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 2072
+        width: 643
+        height: 831
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51dbc442f65b7954680329c6b4a2907a
+      internalID: -440365141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Start_2
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 2072
+        width: 643
+        height: 828
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2682be51288311244a0f37706b547e64
+      internalID: -773889734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Start_3
+      rect:
+        serializedVersion: 2
+        x: 5301
+        y: 2075
+        width: 650
+        height: 825
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e48050c59007b2c4d82f5c70a898a326
+      internalID: 631936876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Start_4
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 387
+        width: 656
+        height: 828
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6638d2c4903f3f47b314f767e279d29
+      internalID: 210249390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Start_5
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 387
+        width: 675
+        height: 808
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30dbc6cefd41d6499a26ca7a15d4216
+      internalID: 665401051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Start_6
+      rect:
+        serializedVersion: 2
+        x: 5305
+        y: 387
+        width: 675
+        height: 811
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9bb7359473412547b8d97df5488491d
+      internalID: 479927232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +245,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Push_In\xEDcio_10": 1292920038
+      "Push_In\xEDcio_11": 1514662264
+      "Push_In\xEDcio_12": 874771675
+      "Push_In\xEDcio_16": -1648435557
+      "Push_In\xEDcio_17": -780130600
+      "Push_In\xEDcio_18": -1417657434
+      "Push_In\xEDcio_19": -495781580
+      "Push_In\xEDcio_2": -1812570152
+      "Push_In\xEDcio_20": 166486922
+      "Push_In\xEDcio_21": -211272358
+      "Push_In\xEDcio_4": 541326606
+      "Push_In\xEDcio_5": -1735521963
+      "Push_In\xEDcio_6": -91870346
+      "Push_In\xEDcio_7": 441610568
+      "Push_In\xEDcio_8": 1444798618
+      "Push_In\xEDcio_9": 1559863144
+      Push_Start_1: -440365141
+      Push_Start_2: -773889734
+      Push_Start_3: 631936876
+      Push_Start_4: 210249390
+      Push_Start_5: 665401051
+      Push_Start_6: 479927232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

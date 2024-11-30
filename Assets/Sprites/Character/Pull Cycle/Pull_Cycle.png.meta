@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pull_Cycle_
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 3761
+        width: 620
+        height: 870
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9933f604ed7041a43ba8e00b2660e885
+      internalID: 2777246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 2990
+        y: 3761
+        width: 620
+        height: 874
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be1485c7d7253449b8d4a405bda6909
+      internalID: 397239989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 5241
+        y: 3761
+        width: 610
+        height: 883
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b9fd5bfa4e468a4e92b63a8621be770
+      internalID: 1504789367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 7490
+        y: 3757
+        width: 616
+        height: 874
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a66a1b07250f3544fae0b083c73956e9
+      internalID: 74582191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 2073
+        width: 611
+        height: 866
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6776c577d632ca94fa14a81a441c286b
+      internalID: -1923439300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 2990
+        y: 2069
+        width: 620
+        height: 865
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dafec03bf5c77d458e435cbed57874e
+      internalID: 633155558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 5240
+        y: 2069
+        width: 616
+        height: 874
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c8c718b4fa25d44a7208d5a4af4bb8
+      internalID: 2094836933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_8
+      rect:
+        serializedVersion: 2
+        x: 7490
+        y: 2068
+        width: 616
+        height: 875
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7546259158bf0ed41978fbcd47334f43
+      internalID: -1945212497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_9
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 385
+        width: 603
+        height: 883
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203824e8e1a2b534aace1768fd83558b
+      internalID: 1346629593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_10
+      rect:
+        serializedVersion: 2
+        x: 2990
+        y: 385
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea5de34f60d55242b708b8ac66818e5
+      internalID: 1412563123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Cycle_11
+      rect:
+        serializedVersion: 2
+        x: 5236
+        y: 385
+        width: 620
+        height: 868
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c728f2ea74d118a498b1f05d7c0b6c3a
+      internalID: 1676782089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +350,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pull_Cycle_: 2777246
+      Pull_Cycle_1: 397239989
+      Pull_Cycle_10: 1412563123
+      Pull_Cycle_11: 1676782089
+      Pull_Cycle_12: -901764182
+      Pull_Cycle_17: -1069383566
+      Pull_Cycle_18: -1751855108
+      Pull_Cycle_19: -2079925627
+      Pull_Cycle_20: -759700730
+      Pull_Cycle_21: 1552161051
+      Pull_Cycle_22: -247009197
+      Pull_Cycle_23: 1226596750
+      Pull_Cycle_26: 9587103
+      Pull_Cycle_28: -1368839957
+      Pull_Cycle_29: 300549305
+      Pull_Cycle_3: 1504789367
+      Pull_Cycle_30: -2129607476
+      Pull_Cycle_31: 39848025
+      Pull_Cycle_32: -1646801527
+      Pull_Cycle_33: -934895064
+      Pull_Cycle_34: -521143454
+      Pull_Cycle_4: 74582191
+      Pull_Cycle_5: -1923439300
+      Pull_Cycle_6: 633155558
+      Pull_Cycle_7: 2094836933
+      Pull_Cycle_8: -1945212497
+      Pull_Cycle_9: 1346629593
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

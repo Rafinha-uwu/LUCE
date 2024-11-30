@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Push_Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 3761
+        width: 668
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24715041b0741c148b4800232efe2ee8
+      internalID: 1014653827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_2
+      rect:
+        serializedVersion: 2
+        x: 3052
+        y: 3761
+        width: 681
+        height: 817
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92a23760006d8f14ba04b9486fe84c9e
+      internalID: -1493703548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 5302
+        y: 3761
+        width: 681
+        height: 817
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f360568b5f3ea94d8af6204bc645df6
+      internalID: -1119027877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 7543
+        y: 3756
+        width: 690
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60637e5f56f20c944aa013644dd797a8
+      internalID: -1336251173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 2069
+        width: 677
+        height: 826
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d5f365d53d3b44198aecb35eb060cb
+      internalID: 584836484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 3056
+        y: 2070
+        width: 673
+        height: 825
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c49dc2f81de154eb74fa777552d9c5
+      internalID: 87438165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 5306
+        y: 2073
+        width: 677
+        height: 830
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cdb47ae19ce70f4dadd1038a14ab662
+      internalID: 1599554755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_8
+      rect:
+        serializedVersion: 2
+        x: 7552
+        y: 2073
+        width: 677
+        height: 826
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a908b5b958074b6479042ebf3cd2eaca
+      internalID: -1730432625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_9
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 385
+        width: 681
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f28d5cecdbe0342bc07c79e55cfb82
+      internalID: 650869840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_10
+      rect:
+        serializedVersion: 2
+        x: 3043
+        y: 385
+        width: 690
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57751733a3dfb84b9eef0a9a86c31ba
+      internalID: -1369355999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_11
+      rect:
+        serializedVersion: 2
+        x: 5302
+        y: 385
+        width: 677
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55d62dafb199814d84d75f85d2edb48
+      internalID: 770208818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Cycle_12
+      rect:
+        serializedVersion: 2
+        x: 7552
+        y: 385
+        width: 685
+        height: 826
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a178784b7e7b3448b07ecef0778208
+      internalID: 985915499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +371,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Push_Cycle_0: 1307829187
+      Push_Cycle_1: 1014653827
+      Push_Cycle_10: -1369355999
+      Push_Cycle_11: 770208818
+      Push_Cycle_12: 985915499
+      Push_Cycle_15: -485514757
+      Push_Cycle_16: -1479805446
+      Push_Cycle_17: 1467745160
+      Push_Cycle_18: -76538019
+      Push_Cycle_19: -1241164285
+      Push_Cycle_2: -1493703548
+      Push_Cycle_20: 858130822
+      Push_Cycle_21: 791091709
+      Push_Cycle_22: -705195449
+      Push_Cycle_27: 1823608323
+      Push_Cycle_28: 1227272715
+      Push_Cycle_29: -282880725
+      Push_Cycle_3: -1119027877
+      Push_Cycle_30: 1921378160
+      Push_Cycle_31: -493115390
+      Push_Cycle_32: -988614578
+      Push_Cycle_33: -1267677356
+      Push_Cycle_34: -1018980810
+      Push_Cycle_4: -1336251173
+      Push_Cycle_5: 584836484
+      Push_Cycle_6: 87438165
+      Push_Cycle_7: 1599554755
+      Push_Cycle_8: -1730432625
+      Push_Cycle_9: 650869840
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

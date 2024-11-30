@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3765
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d39109fc811954a9663114507804c9
+      internalID: -1723189754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3765
+        width: 619
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1547e7249daef9409058a3d69e1fc93
+      internalID: 2105000100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3765
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec912592481fcc54db831c99e6862708
+      internalID: 1755703141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3765
+        width: 619
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0497b803158ed34780df0620bb28ba0
+      internalID: -1974914849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2077
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bbe0834e06c1642bf76efe71d69175
+      internalID: -1926105208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2077
+        width: 619
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c5f136041dc9e46a107e88d7ac3b47
+      internalID: 240529327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2077
+        width: 628
+        height: 793
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ca291df3ecaff47a7cd0f49ebf98dc
+      internalID: -1815447595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2077
+        width: 632
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af0e03754c4466409798a7ec409964c
+      internalID: -1441804597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 389
+        width: 628
+        height: 796
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840060b661a71c8409a602423616d2b1
+      internalID: -1654231587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 389
+        width: 624
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8a42dc7dcf8b042b4d90b8455b85ba
+      internalID: -1788041988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 389
+        width: 628
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e915e36b6b54c4391158d129837ff0
+      internalID: 1602455736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_Stopped_12
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 389
+        width: 624
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4417ecd9eca6be24a9131189b282cbf6
+      internalID: 1494153443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +371,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Push_Scared_Stopped_1: -1723189754
+      Push_Scared_Stopped_10: -1788041988
+      Push_Scared_Stopped_11: 1602455736
+      Push_Scared_Stopped_12: 1494153443
+      Push_Scared_Stopped_2: 2105000100
+      Push_Scared_Stopped_3: 1755703141
+      Push_Scared_Stopped_4: -1974914849
+      Push_Scared_Stopped_5: -1926105208
+      Push_Scared_Stopped_6: 240529327
+      Push_Scared_Stopped_7: -1815447595
+      Push_Scared_Stopped_8: -1441804597
+      Push_Scared_Stopped_9: -1654231587
+      Spritesheet Push Scared Stopped_14: -929850907
+      Spritesheet Push Scared Stopped_15: -743878710
+      Spritesheet Push Scared Stopped_16: -1192912445
+      Spritesheet Push Scared Stopped_17: -688131802
+      Spritesheet Push Scared Stopped_18: 569474525
+      Spritesheet Push Scared Stopped_19: -1092268297
+      Spritesheet Push Scared Stopped_20: 80459805
+      Spritesheet Push Scared Stopped_21: -1751185190
+      Spritesheet Push Scared Stopped_26: -1461168191
+      Spritesheet Push Scared Stopped_27: 631553683
+      Spritesheet Push Scared Stopped_28: -1854307038
+      Spritesheet Push Scared Stopped_29: 1304621737
+      Spritesheet Push Scared Stopped_30: 1729233408
+      Spritesheet Push Scared Stopped_31: -671196544
+      Spritesheet Push Scared Stopped_32: -2022520524
+      Spritesheet Push Scared Stopped_33: -331023244
+      Spritesheet Push Scared Stopped_4: -23440015
+      Spritesheet Push Scared Stopped_5: 169907235
+      Spritesheet Push Scared Stopped_6: -1112666260
+      Spritesheet Push Scared Stopped_7: -647998655
+      Spritesheet Push Scared Stopped_8: 137194788
+      Spritesheet Push Scared Stopped_9: -691745625
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

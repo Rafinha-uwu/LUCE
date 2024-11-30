@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_1
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 3765
+        width: 620
+        height: 835
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67d7df3b801e6c31b0c4fef103c70de
+      internalID: -451675223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_2
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 3765
+        width: 619
+        height: 844
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8651aec663abc40268507e8705edb2ba
+      internalID: 44560176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_3
+      rect:
+        serializedVersion: 2
+        x: 5302
+        y: 3765
+        width: 611
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fd6579eda5e82dcbeb502927b29276
+      internalID: 1883881960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_4
+      rect:
+        serializedVersion: 2
+        x: 7548
+        y: 3765
+        width: 606
+        height: 862
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00616a640acee56e98a551952e899477
+      internalID: 372025079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_5
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 2077
+        width: 611
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fad15f6fbbac163b08d6723bbcf9c7
+      internalID: 1288170651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_6
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 2077
+        width: 619
+        height: 840
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274a0e46316b1c050acc2eb1c3e52a99
+      internalID: -1246787235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_7
+      rect:
+        serializedVersion: 2
+        x: 5302
+        y: 2077
+        width: 620
+        height: 835
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ab008f37afc25aab5a6a8ac2d5e732
+      internalID: 2024429843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_8
+      rect:
+        serializedVersion: 2
+        x: 7552
+        y: 2077
+        width: 615
+        height: 844
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1415edc17cc6c1e9a3a7180608c305
+      internalID: 1235014369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_9
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 389
+        width: 615
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777e2f4d7b0a2526098cd2e21bc20d40
+      internalID: -874237603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_10
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 389
+        width: 606
+        height: 862
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30aba57474dfaf0b08ec7d0ff01c7e57
+      internalID: -2084311441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stopped_Push_Cycle_11
+      rect:
+        serializedVersion: 2
+        x: 5298
+        y: 389
+        width: 615
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217eff7ef6e288080b7516ecac815c58
+      internalID: -1173034377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +350,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Push Cycle Parado_10: -1190733635
+      Push Cycle Parado_15: 275560137
+      Push Cycle Parado_16: 2125930372
+      Push Cycle Parado_17: 1709691477
+      Push Cycle Parado_18: -1520220077
+      Push Cycle Parado_19: 505438504
+      Push Cycle Parado_20: 1206209025
+      Push Cycle Parado_24: -747656533
+      Push Cycle Parado_25: -1216203307
+      Push Cycle Parado_26: 739905117
+      Push Cycle Parado_27: 1782899441
+      Push Cycle Parado_28: 1040933807
+      Push Cycle Parado_4: -1072174035
+      Push Cycle Parado_5: -903425453
+      Push Cycle Parado_6: 760495017
+      Push Cycle Parado_7: 1946062713
+      Push Cycle Parado_8: 738429516
+      Push Cycle Parado_9: -1025187772
+      Stopped_Push_Cycle_1: -451675223
+      Stopped_Push_Cycle_10: -2084311441
+      Stopped_Push_Cycle_11: -1173034377
+      Stopped_Push_Cycle_2: 44560176
+      Stopped_Push_Cycle_3: 1883881960
+      Stopped_Push_Cycle_4: 372025079
+      Stopped_Push_Cycle_5: 1288170651
+      Stopped_Push_Cycle_6: -1246787235
+      Stopped_Push_Cycle_7: 2024429843
+      Stopped_Push_Cycle_8: 1235014369
+      Stopped_Push_Cycle_9: -874237603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
