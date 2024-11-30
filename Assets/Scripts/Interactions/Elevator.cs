@@ -42,6 +42,7 @@ public class Elevator : MonoBehaviour
 
         if (collision.tag == "Player")
         {
+            collision.transform.SetParent(this.transform);
             this.GetComponent<Animator>().SetBool("Shake", true);
 
 
@@ -83,7 +84,7 @@ public class Elevator : MonoBehaviour
         if (collision.tag == "Player")
         {
             this.GetComponent<Animator>().SetBool("Shake", false);
-
+            collision.transform.SetParent(null);
         }
 
     }

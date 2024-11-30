@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
 using UnityEngine.Rendering;
+using JetBrains.Annotations;
 
 public class Scared : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class Scared : MonoBehaviour
     public float ScaredCountDown = 10f;
     public bool timerIsRunning = false;
 
+    public CinemachineVirtualCamera BunkCam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,8 @@ public class Scared : MonoBehaviour
 
         timerIsRunning = true;
         ScaredCountDown = ScaredTime;
+
+        
 
         Speed = this.GetComponent<PlayerController>().MovingState._speed;
     }
@@ -94,10 +99,17 @@ public class Scared : MonoBehaviour
                 GlobalL = 0.05f;
                 break;
 
-            case "Cam Bunker D":
+            case "Cam Bunker D1":
+                Ortho = 6;
+                GlobalL = 0.05f;
+                break;
+
+            case "Cam Bunker D2":
                 Ortho = 6;
                 GlobalL = 0.002f;
                 break;
+
+
 
             case "Cam Bunker R":
                 Ortho = 9;
@@ -159,11 +171,8 @@ public class Scared : MonoBehaviour
 
             else
             {
-
                 Debug.Log("Dead");
-                this.transform.position = LastCheck;
-                ScaredCountDown = ScaredTime;
-                this.GetComponentInChildren<Light2D>().intensity = 0.17f;
+                Invoke("Death", 1f);
             }
 
             this.GetComponent<PlayerController>().MovingState._speed = Speed_scared;
@@ -210,5 +219,14 @@ public class Scared : MonoBehaviour
         {
             LastCheck = collision.gameObject.transform.position;
         }
+    }
+
+    public void Death()
+    {
+
+        this.transform.position = LastCheck;
+        ScaredCountDown = ScaredTime;
+        this.GetComponentInChildren<Light2D>().intensity = 0.17f;
+        timerIsRunning = true;
     }
 }
