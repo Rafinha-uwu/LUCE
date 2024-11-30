@@ -19,6 +19,7 @@ public class Polaroid : MonoBehaviour
     void Start()
     {
         count = Colect.GetComponent<CountColect>();
+
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class Polaroid : MonoBehaviour
         {
             if (transform.IsChildOf(Player.transform))
             {
+                PauseManager.Instance.PauseGame();
                 if (Narrative1)
                 {
                     Colect.GetComponent<Animator>().SetBool("Nar1", true);
@@ -49,27 +51,30 @@ public class Polaroid : MonoBehaviour
     public IEnumerator Die()
     {
         On = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         Colect.GetComponent<Animator>().SetBool("Found", false);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSecondsRealtime(2.5f);
         count.nColect++;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         Black.GetComponent<Animator>().SetBool("Dark", false);
 
+        Player.GetComponent<PlayerHoldItem>().ForceDrop();
+        PauseManager.Instance.ResumeGame();
         Destroy(this.gameObject);
     }
     public IEnumerator Die1()
     {
         On = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         Colect.GetComponent<Animator>().SetBool("Nar1", false);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSecondsRealtime(2.5f);
         count.nColect++;
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSecondsRealtime(20f);
         Black.GetComponent<Animator>().SetBool("Dark", false);
 
+        Player.GetComponent<PlayerHoldItem>().ForceDrop();
+        PauseManager.Instance.ResumeGame();
         Destroy(this.gameObject);
     }
-
 
 }

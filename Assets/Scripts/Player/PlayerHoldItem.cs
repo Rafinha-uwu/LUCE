@@ -71,4 +71,8 @@ public class PlayerHoldItem : MonoBehaviour
         _holdableItem = null;
         _playerController.Animator.SetBool(ANIMATOR_PARAMETER, false);
     }
+    public void ForceDrop()
+    {
+        DropItem();
+    }
 }
