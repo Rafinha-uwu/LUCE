@@ -79,6 +79,7 @@ public class Polaroid : MonoBehaviour
         Player.GetComponent<PlayerHoldItem>().ForceDrop();
 
         yield return new WaitForSecondsRealtime(0.5f);
+        Player.GetComponent<Scared>().Speed_scared = 220;
         PauseManager.Instance.ResumeGame();
         Destroy(this.gameObject);
     }
