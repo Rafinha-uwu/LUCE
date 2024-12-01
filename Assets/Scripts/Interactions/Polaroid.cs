@@ -34,6 +34,7 @@ public class Polaroid : MonoBehaviour
                 {
                     Colect.GetComponent<Animator>().SetBool("Nar1", true);
                     Black.GetComponent<Animator>().SetBool("Dark", true);
+
                     StartCoroutine(Die1());
                 }
                 else
@@ -59,6 +60,9 @@ public class Polaroid : MonoBehaviour
         Black.GetComponent<Animator>().SetBool("Dark", false);
 
         Player.GetComponent<PlayerHoldItem>().ForceDrop();
+
+
+        yield return new WaitForSecondsRealtime(0.5f);
         PauseManager.Instance.ResumeGame();
         Destroy(this.gameObject);
     }
@@ -73,6 +77,8 @@ public class Polaroid : MonoBehaviour
         Black.GetComponent<Animator>().SetBool("Dark", false);
 
         Player.GetComponent<PlayerHoldItem>().ForceDrop();
+
+        yield return new WaitForSecondsRealtime(0.5f);
         PauseManager.Instance.ResumeGame();
         Destroy(this.gameObject);
     }

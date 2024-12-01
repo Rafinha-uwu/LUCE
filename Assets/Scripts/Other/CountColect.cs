@@ -18,7 +18,7 @@ public class CountColect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
        tmpText.text = nColect + "/6";
