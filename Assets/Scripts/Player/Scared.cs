@@ -36,6 +36,8 @@ public class Scared : MonoBehaviour
 
     public CinemachineVirtualCamera BunkCam;
 
+    public bool check = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,8 @@ public class Scared : MonoBehaviour
     {
         if (timerIsRunning)
         {
+            check = false;
+
             if (ScaredCountDown > 0)
             {
                 ScaredCountDown -= Time.deltaTime;
@@ -173,8 +177,7 @@ public class Scared : MonoBehaviour
 
             else
             {
-                Debug.Log("Dead");
-                Invoke("Death", 1f);
+                Invoke("Death", 0f);
             }
         }
         else
@@ -220,7 +223,7 @@ public class Scared : MonoBehaviour
 
     public void Death()
     {
-
+        check = true;
         this.transform.position = LastCheck;
         ScaredCountDown = ScaredTime;
         this.GetComponentInChildren<Light2D>().intensity = 0.17f;

@@ -66,7 +66,7 @@ public class Code : MonoBehaviour
     }
 
 
-    private void Randomizer()
+    public void Randomizer()
     {
         Lev1 = UnityEngine.Random.Range(0, 2) == 0;
         Lev2 = UnityEngine.Random.Range(0, 2) == 0;

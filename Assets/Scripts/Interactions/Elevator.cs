@@ -56,18 +56,23 @@ public class Elevator : MonoBehaviour
                 else if (Mid2 == true)
                 {
                     this.GetComponent<Animator>().SetBool("MIDD", true);
+                    this.GetComponent<Animator>().SetBool("DOWN", true);
+                    this.GetComponent<Animator>().SetBool("UP", false);
                     Mid2 = false;
                 }
                 else
                 {
                     if (Top == true)
                     {
+
                         this.GetComponent<Animator>().SetBool("DOWN", true);
                         this.GetComponent<Animator>().SetBool("UP", false);
                         Top = false;
                     }
                     else
                     {
+                        this.GetComponent<Animator>().SetBool("MIDD", false);
+                        this.GetComponent<Animator>().SetBool("MID", false);
                         this.GetComponent<Animator>().SetBool("DOWN", false);
                         this.GetComponent<Animator>().SetBool("UP", true);
                         Top = true;

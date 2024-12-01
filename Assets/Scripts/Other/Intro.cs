@@ -27,7 +27,7 @@ public class Intro : MonoBehaviour
     {
         if (Zoom)
         {
-            if (GL.GetComponent<Light2D>().intensity < 0.05f) { GL.GetComponent<Light2D>().intensity += 0.0001f; }
+            if (GL.GetComponent<Light2D>().intensity < 0.05f) { GL.GetComponent<Light2D>().intensity += 0.0004f; }
             else
             {
                 sc.GetComponent<Scared>().enabled = true;
