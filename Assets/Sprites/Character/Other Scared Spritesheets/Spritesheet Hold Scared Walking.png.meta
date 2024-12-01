@@ -1,0 +1,415 @@
+fileFormatVersion: 2
+guid: e4322c15542c85a4692954a022dd4907
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hold_Scared_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3761
+        width: 628
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d7cf5bc101f744b98f3f678b38bd0b
+      internalID: 770390937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3761
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 286e27eb26c45b14a895245c6e4fd095
+      internalID: -1133478644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3761
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7e5c0de0521e4479127c35cd292597
+      internalID: 417089505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3761
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f042136c445154ea15b58ad6d5f62a
+      internalID: 1812492567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2069
+        width: 619
+        height: 790
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2220461b58f65ae4380d1971dacc6501
+      internalID: -1139221283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2073
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a629fa552afc41847886286061c2b459
+      internalID: -1430661107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2069
+        width: 628
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a2c0c9799c14d498d65ec6dd961f82
+      internalID: -456198480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2069
+        width: 632
+        height: 808
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c20fdf17340a3740b39ffbf7052bc4e
+      internalID: -1024376677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 380
+        width: 628
+        height: 805
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d39ac21e3057049adb9039f616351e
+      internalID: -1040452559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 385
+        width: 624
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771d19513992b574b91c7c28af33026c
+      internalID: -484548803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 385
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5a16b80fd69354985b868c10942d12
+      internalID: 116467384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_12
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 385
+        width: 624
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e94056849e907b4ca5df178b9e71f64
+      internalID: -535124069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hold_Scared_1: 770390937
+      Hold_Scared_10: -484548803
+      Hold_Scared_11: 116467384
+      Hold_Scared_12: -535124069
+      Hold_Scared_2: -1133478644
+      Hold_Scared_3: 417089505
+      Hold_Scared_4: 1812492567
+      Hold_Scared_5: -1139221283
+      Hold_Scared_6: -1430661107
+      Hold_Scared_7: -456198480
+      Hold_Scared_8: -1024376677
+      Hold_Scared_9: -1040452559
+      Spritesheet Hold Scared Walking_10: -1609503047
+      Spritesheet Hold Scared Walking_11: 1558514730
+      Spritesheet Hold Scared Walking_16: -693886994
+      Spritesheet Hold Scared Walking_17: 1994416901
+      Spritesheet Hold Scared Walking_18: 252119517
+      Spritesheet Hold Scared Walking_19: -936552100
+      Spritesheet Hold Scared Walking_20: 1270719556
+      Spritesheet Hold Scared Walking_21: -1791191937
+      Spritesheet Hold Scared Walking_22: -107981026
+      Spritesheet Hold Scared Walking_23: -496904292
+      Spritesheet Hold Scared Walking_28: -1015705681
+      Spritesheet Hold Scared Walking_29: -116478075
+      Spritesheet Hold Scared Walking_30: -805740775
+      Spritesheet Hold Scared Walking_31: -2093094750
+      Spritesheet Hold Scared Walking_32: -481289953
+      Spritesheet Hold Scared Walking_33: -454427603
+      Spritesheet Hold Scared Walking_34: 1899800028
+      Spritesheet Hold Scared Walking_35: -923209312
+      Spritesheet Hold Scared Walking_4: 948873702
+      Spritesheet Hold Scared Walking_5: -1403083720
+      Spritesheet Hold Scared Walking_6: 1970232666
+      Spritesheet Hold Scared Walking_7: -249205641
+      Spritesheet Hold Scared Walking_8: 1625531138
+      Spritesheet Hold Scared Walking_9: 493151311
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

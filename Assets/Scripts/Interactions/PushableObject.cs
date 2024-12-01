@@ -41,6 +41,6 @@ public class PushableObject : MonoBehaviour
 
     public void Move(float horizontalVelocity)
     {
-        _rb.velocity = new Vector2(horizontalVelocity, _rb.velocity.y);
+        _rb.velocity = new Vector2(horizontalVelocity * Time.fixedDeltaTime, _rb.velocity.y);
     }
 }

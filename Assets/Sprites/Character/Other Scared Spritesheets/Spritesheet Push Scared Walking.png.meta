@@ -1,0 +1,413 @@
+fileFormatVersion: 2
+guid: f41c079e4381e4241974e664861a9ee6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Push_Scared_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3761
+        width: 628
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d34f8a1852379444b95d5d1bf22c317
+      internalID: 309733586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3761
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af87b3d78dbff7f438a51c12ea82fe28
+      internalID: -1767142845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3761
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84ceb1f2f696514c8ea365650e49ea9
+      internalID: 115152777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3756
+        width: 619
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ad1488d9148c94ea38925053c4e840
+      internalID: 1397047610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2069
+        width: 619
+        height: 790
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb36364735cf7d499909c82ca9eb72b
+      internalID: 651229144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2070
+        width: 619
+        height: 794
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e3bb808c2d1e043a1d766465a3f27d
+      internalID: 1339408868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2073
+        width: 628
+        height: 797
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c012199cbc5af464b8975c5509d8a6a3
+      internalID: 887377008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2073
+        width: 632
+        height: 804
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a8db7edd52b4343ba962555c45811d
+      internalID: 2090670348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 385
+        width: 628
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d336bc77be90924b85b42c02408d1f7
+      internalID: -1018449117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 385
+        width: 624
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629d1d0423efa1842a37876779a8b3d9
+      internalID: -1563888735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 385
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6627b21013ee642b731b62cd9f6543
+      internalID: -2088140068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Push_Scared_12
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 385
+        width: 624
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc84443174793545bf52d6cc58dad15
+      internalID: -1543760793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Push_Scared_1: 309733586
+      Push_Scared_10: -1563888735
+      Push_Scared_11: -2088140068
+      Push_Scared_12: -1543760793
+      Push_Scared_2: -1767142845
+      Push_Scared_3: 115152777
+      Push_Scared_4: 1397047610
+      Push_Scared_5: 651229144
+      Push_Scared_6: 1339408868
+      Push_Scared_7: 887377008
+      Push_Scared_8: 2090670348
+      Push_Scared_9: -1018449117
+      Spritesheet Push Scared Walking_14: -2144723136
+      Spritesheet Push Scared Walking_15: 1843458863
+      Spritesheet Push Scared Walking_16: 1416844023
+      Spritesheet Push Scared Walking_17: 2077177374
+      Spritesheet Push Scared Walking_18: -314636437
+      Spritesheet Push Scared Walking_19: 1941112972
+      Spritesheet Push Scared Walking_20: -760592486
+      Spritesheet Push Scared Walking_21: -149333256
+      Spritesheet Push Scared Walking_26: -863987947
+      Spritesheet Push Scared Walking_27: -474062281
+      Spritesheet Push Scared Walking_28: 371125011
+      Spritesheet Push Scared Walking_29: -724647342
+      Spritesheet Push Scared Walking_30: -2020051538
+      Spritesheet Push Scared Walking_31: 531524666
+      Spritesheet Push Scared Walking_32: -1534051093
+      Spritesheet Push Scared Walking_33: 819577018
+      Spritesheet Push Scared Walking_4: -134948225
+      Spritesheet Push Scared Walking_5: 715852068
+      Spritesheet Push Scared Walking_6: -666486752
+      Spritesheet Push Scared Walking_7: -451867248
+      Spritesheet Push Scared Walking_8: 366991397
+      Spritesheet Push Scared Walking_9: -1243842111
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

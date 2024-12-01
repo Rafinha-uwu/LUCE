@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(InputHandler))]
+[RequireComponent(typeof(PlayerController))]
 public class PlayerHoldItem : MonoBehaviour
 {
     [SerializeField] private Transform _holdPosition;
     [SerializeField] private float _holdRange;
     [SerializeField] private LayerMask _holdLayerMask;
 
-    private InputHandler _inputHandler;
     private HoldableItem _holdableItem;
     public bool IsHoldingItem => _holdableItem != null;
+    
+    private PlayerController _playerController;
+    private static readonly string ANIMATOR_PARAMETER = "IsHolding";
 
 
     private void Awake()
     {
-        _inputHandler = GetComponent<InputHandler>();
+        _playerController = GetComponent<PlayerController>();
     }
 
     private void FixedUpdate()
@@ -26,16 +28,16 @@ public class PlayerHoldItem : MonoBehaviour
 
     private void DropItemIfPushPullAction()
     {
-        if (!_inputHandler.PushPullAction) return;
-        _inputHandler.ClearHoldAction();
+        if (!_playerController.InputHandler.PushPullAction) return;
+        _playerController.InputHandler.ClearHoldAction();
 
         DropItem();
     }
 
     private void HoldOrDropItemIfHoldAction()
     {
-        if (!_inputHandler.HoldAction) return;
-        _inputHandler.ClearHoldAction();
+        if (!_playerController.InputHandler.HoldAction) return;
+        _playerController.InputHandler.ClearHoldAction();
 
         if (IsHoldingItem) DropItem();
         else HoldItem();
@@ -56,6 +58,7 @@ public class PlayerHoldItem : MonoBehaviour
 
             _holdableItem = holdableItem;
             _holdableItem.StartHold(_holdPosition != null ? _holdPosition : transform);
+            _playerController.Animator.SetBool(ANIMATOR_PARAMETER, true);
             break;
         }
     }
@@ -66,5 +69,10 @@ public class PlayerHoldItem : MonoBehaviour
 
         _holdableItem.StopHold();
         _holdableItem = null;
+        _playerController.Animator.SetBool(ANIMATOR_PARAMETER, false);
+    }
+    public void ForceDrop()
+    {
+        DropItem();
     }
 }

@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Jump_Start_1
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 3763
+        width: 643
+        height: 831
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa57309d7d830d4383f422645a0335f
+      internalID: -2045154881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_2
+      rect:
+        serializedVersion: 2
+        x: 3014
+        y: 3763
+        width: 610
+        height: 854
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a40c700845cbd6a4798b3279e658bc3b
+      internalID: 914685595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_3
+      rect:
+        serializedVersion: 2
+        x: 5242
+        y: 3763
+        width: 615
+        height: 874
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aec527c190b7a6448f77a9eb2421401
+      internalID: -377148442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_4
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 2072
+        width: 621
+        height: 854
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: effc8e57612fab94fa98e0db41555813
+      internalID: -529074041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_5
+      rect:
+        serializedVersion: 2
+        x: 3067
+        y: 2066
+        width: 646
+        height: 810
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b84050fb6ebc34eaac87a67b6139b8
+      internalID: -251062613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_6
+      rect:
+        serializedVersion: 2
+        x: 5328
+        y: 2082
+        width: 656
+        height: 804
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc620ca423bf8d54790e956bf78f6a40
+      internalID: 1262599965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_7
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 417
+        width: 685
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f45544837768ed4c9f53558ad51226e
+      internalID: -711998357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_8
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 460
+        width: 690
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcce7951b4efe5e4aaa1cbaf7969bce6
+      internalID: -635343417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Start_9
+      rect:
+        serializedVersion: 2
+        x: 5348
+        y: 493
+        width: 707
+        height: 785
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308db76164b92d843b40f60edb6db987
+      internalID: 426172027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +308,42 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Jump_In\xEDcio_10": 968563806
+      "Jump_In\xEDcio_11": -1512260626
+      "Jump_In\xEDcio_14": -1782031309
+      "Jump_In\xEDcio_15": 1665869635
+      "Jump_In\xEDcio_17": -1576365038
+      "Jump_In\xEDcio_18": -1525565901
+      "Jump_In\xEDcio_19": 1454642165
+      "Jump_In\xEDcio_2": 1815884404
+      "Jump_In\xEDcio_20": 247704750
+      "Jump_In\xEDcio_21": 1561557719
+      "Jump_In\xEDcio_22": 1962139204
+      "Jump_In\xEDcio_23": -1538734176
+      "Jump_In\xEDcio_24": -636387779
+      "Jump_In\xEDcio_25": -2048059837
+      "Jump_In\xEDcio_29": 1338382305
+      "Jump_In\xEDcio_30": -1210793216
+      "Jump_In\xEDcio_31": 1598039189
+      "Jump_In\xEDcio_32": -624550777
+      "Jump_In\xEDcio_33": 995779636
+      "Jump_In\xEDcio_34": -1177096782
+      "Jump_In\xEDcio_4": -1731654628
+      "Jump_In\xEDcio_5": 1959468987
+      "Jump_In\xEDcio_6": -224027857
+      "Jump_In\xEDcio_7": 1814877057
+      "Jump_In\xEDcio_8": -2135024076
+      "Jump_In\xEDcio_9": 957258191
+      Jump_Start_1: -2045154881
+      Jump_Start_2: 914685595
+      Jump_Start_3: -377148442
+      Jump_Start_4: -529074041
+      Jump_Start_5: -251062613
+      Jump_Start_6: 1262599965
+      Jump_Start_7: -711998357
+      Jump_Start_8: -635343417
+      Jump_Start_9: 426172027
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

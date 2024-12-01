@@ -14,6 +14,8 @@ public class PlayerPushPullState : PlayerState
     private Vector2? _currentPushableObjectDirection;
 
     private static readonly string PLAYER_TAG = "Player";
+    private static readonly string ANIMATOR_PARAMETER_BOTH = "IsPushingOrPulling";
+    private static readonly string ANIMATOR_PARAMETER_PUSH = "IsPushing";
     private static Flip _flip;
 
 
@@ -21,7 +23,7 @@ public class PlayerPushPullState : PlayerState
     {
         if (_flip == null) _flip = GameObject.Find(PLAYER_TAG).GetComponent<Flip>();
 
-        CurrentStopPushing();
+        CurrentStopPushing(player);
         NewObjectCheck(player);
     }
 
@@ -46,32 +48,46 @@ public class PlayerPushPullState : PlayerState
 
     public override void ExitState(PlayerController player)
     {
-        CurrentStopPushing();
+        CurrentStopPushing(player);
     }
 
 
-    private void CurrentStopPushing()
+    private void CurrentStopPushing(PlayerController player)
     {
         if (_currentPushableObject != null) _currentPushableObject.StopPushPull();
         _currentPushableObject = null;
         _currentPushableObjectDirection = null;
 
+        player.Animator.SetBool(ANIMATOR_PARAMETER_BOTH, false);
         _flip.enabled = true;
     }
 
     private void CurrentObjectCheck(PlayerController player)
     {
         if (_currentPushableObject == null) return;
-        if (!_currentPushableObject.IsGrounded) CurrentStopPushing();
+        if (!_currentPushableObject.IsGrounded)
+        {
+            CurrentStopPushing(player);
+            return;
+        }
 
         Vector2 direction = _currentPushableObjectDirection ?? Vector2.right;
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, direction, _detectionRange, _objectLayer);
 
-        if (hit.collider == null || hit.collider.gameObject != _currentPushableObject.gameObject) CurrentStopPushing();
+        if (hit.collider == null || hit.collider.gameObject != _currentPushableObject.gameObject)
+        {
+            CurrentStopPushing(player);
+            return;
+        }
+
+        // The value is negative when pulling and positive when pushing
+        // If is 0, keep the previous value
+        float pushPullValue = player.InputHandler.HorizontalInput * direction.x;
+        if (pushPullValue != 0) player.Animator.SetBool(ANIMATOR_PARAMETER_PUSH, pushPullValue > 0);
     }
 
 
-    private bool SetNewCurrent(PushableObject pushableObject, Vector2 direction)
+    private bool SetNewCurrent(PlayerController player, PushableObject pushableObject, Vector2 direction)
     {
         if (!pushableObject.IsGrounded) return false;
 
@@ -79,6 +95,8 @@ public class PlayerPushPullState : PlayerState
         _currentPushableObjectDirection = direction;
         _currentPushableObject.StartPushPull(_objectMass, _objectMaterial);
 
+        player.Animator.SetBool(ANIMATOR_PARAMETER_BOTH, true);
+        player.Animator.SetBool(ANIMATOR_PARAMETER_PUSH, true);
         _flip.enabled = false;
         return true;
     }
@@ -87,9 +105,7 @@ public class PlayerPushPullState : PlayerState
     {
         if (_currentPushableObject != null) return;
 
-        float horizontalInput = player.InputHandler.HorizontalInput;
-        Vector2 direction = horizontalInput >= 0 ? Vector2.right : Vector2.left;
-
+        Vector2 direction = _flip.IsFacingRight ? Vector2.right : Vector2.left;
         RaycastHit2D[] hits = Physics2D.RaycastAll(player.transform.position, direction, _detectionRange, _objectLayer);
         foreach (RaycastHit2D hit in hits)
         {
@@ -98,7 +114,7 @@ public class PlayerPushPullState : PlayerState
             bool hasPushableObject = hit.collider.TryGetComponent(out PushableObject pushableObject);
             if (!hasPushableObject) continue;
 
-            bool isSet = SetNewCurrent(pushableObject, direction);
+            bool isSet = SetNewCurrent(player, pushableObject, direction);
             if (isSet) break;
         }
     }

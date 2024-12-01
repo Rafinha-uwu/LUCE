@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: 70fc538806a2bc148a852a1a94a886e9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pull_Scared_1
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3761
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2bfe5b5adbbdf4780f7ef42e745e23
+      internalID: -557072424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3761
+        width: 619
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5457e9010e22bdd41906df19be966890
+      internalID: -2108353625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3761
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 372be4ee3db0ece4ebd44b35b5bd0924
+      internalID: -1858667815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3757
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50558057c67980a41874449d91abb5d4
+      internalID: -1289821135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2073
+        width: 619
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03acc7fc584a8604682421954a2b8997
+      internalID: -56182993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2069
+        width: 619
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481f814a486fa104485a04b138824a3d
+      internalID: 581311207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2069
+        width: 628
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696a312614c9f424dbed4649bc59ea86
+      internalID: -721863075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2068
+        width: 632
+        height: 809
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914665bbcc3b0a5459c60584a4c24662
+      internalID: 1317177002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 385
+        width: 628
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6ce6176e327b245bb94b9296ce10ca
+      internalID: -28882854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 385
+        width: 624
+        height: 795
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cdaaffff452464b9cc97e03a7001d8
+      internalID: -283273610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pull_Scared_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 385
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98a144c011e65b429f847f9f8be355f
+      internalID: -1549580652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Pull_Scared_1: -557072424
+      Pull_Scared_10: -283273610
+      Pull_Scared_11: -1549580652
+      Pull_Scared_2: -2108353625
+      Pull_Scared_3: -1858667815
+      Pull_Scared_4: -1289821135
+      Pull_Scared_5: -56182993
+      Pull_Scared_6: 581311207
+      Pull_Scared_7: -721863075
+      Pull_Scared_8: 1317177002
+      Pull_Scared_9: -28882854
+      Spritesheet Pull Scared Walking_10: 296380197
+      Spritesheet Pull Scared Walking_11: 66462580
+      Spritesheet Pull Scared Walking_16: 367479853
+      Spritesheet Pull Scared Walking_17: -1346684298
+      Spritesheet Pull Scared Walking_18: 1715862445
+      Spritesheet Pull Scared Walking_19: -61563198
+      Spritesheet Pull Scared Walking_20: -2104080530
+      Spritesheet Pull Scared Walking_21: 1502683460
+      Spritesheet Pull Scared Walking_22: 1613214352
+      Spritesheet Pull Scared Walking_25: -1564899929
+      Spritesheet Pull Scared Walking_27: 129769066
+      Spritesheet Pull Scared Walking_28: 1153082110
+      Spritesheet Pull Scared Walking_29: -1298467756
+      Spritesheet Pull Scared Walking_30: -925620096
+      Spritesheet Pull Scared Walking_31: 953873362
+      Spritesheet Pull Scared Walking_32: 580317066
+      Spritesheet Pull Scared Walking_33: -1172764190
+      Spritesheet Pull Scared Walking_4: -1779701355
+      Spritesheet Pull Scared Walking_5: 1199791469
+      Spritesheet Pull Scared Walking_6: 1310667124
+      Spritesheet Pull Scared Walking_7: 278346286
+      Spritesheet Pull Scared Walking_8: -759178801
+      Spritesheet Pull Scared Walking_9: 1934444277
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
