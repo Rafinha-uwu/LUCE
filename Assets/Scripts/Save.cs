@@ -31,8 +31,6 @@ public class Save : MonoBehaviour
     private Vector3 XBox4;
     public Transform Box5;
     private Vector3 XBox5;
-    public Transform Box6;
-    private Vector3 XBox6;
     public Transform Box7;
     private Vector3 XBox7;
     public Transform Box8;
@@ -59,7 +57,6 @@ public class Save : MonoBehaviour
         XBox3 = Box3.position;
         XBox4 = Box4.position;
         XBox5 = Box5.position;
-        XBox6 = Box6.position;
         XBox7 = Box7.position;
         XBox8 = Box8.position;
 
@@ -119,7 +116,6 @@ public class Save : MonoBehaviour
                 Box3.position = XBox3;
                 Box4.position = XBox4;
                 Box5.position = XBox5;
-                Box6.position = XBox6;
                 Box7.position = XBox7;
                 Box8.position = XBox8;
                 TrapLight.GetComponent<Animator>().SetBool("Reset", true);
@@ -135,7 +131,7 @@ public class Save : MonoBehaviour
             XBox3 = Box3.position;
             XBox4 = Box4.position;
             XBox5 = Box5.position;
-            XBox6 = Box6.position;
+            XBox5 = Box5.position;
             XBox7 = Box7.position;
             XBox8 = Box8.position;
 
