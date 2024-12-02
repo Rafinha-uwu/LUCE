@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -49,7 +48,10 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToDesktop()
     {
-        if (Application.isEditor) UnityEditor.EditorApplication.isPlaying = false;
-        else Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

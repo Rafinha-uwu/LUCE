@@ -7,6 +7,8 @@ public class DeathFall : MonoBehaviour
     private Scared scared;
     public GameObject boo;
 
+    public GameObject Black;
+
     void Start()
     {
 
@@ -19,8 +21,16 @@ public class DeathFall : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            scared.ScaredCountDown = 0;
+            Black.GetComponent<Animator>().SetBool("Dark", true);
+            Invoke("FallDeath", 0.5f);
+
 
         }
+    }
+
+    private void FallDeath()
+    {
+        Black.GetComponent<Animator>().SetBool("Dark", false);
+        scared.Death();
     }
 }

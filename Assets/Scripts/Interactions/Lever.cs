@@ -10,7 +10,9 @@ public class Lever : SwitchObject
     protected static readonly string PLAYER_TAG = "Player";
     protected bool _isPlayerNearby = false;
 
-
+    public GameObject Sprite;
+    public Sprite On;
+    public Sprite Off;
     protected virtual void Awake()
     {
         if (_inputHandler == null)
@@ -26,13 +28,15 @@ public class Lever : SwitchObject
     protected override void Start()
     {
         base.Start();
-        _spriteRenderer.color = IsOn ? Color.green : Color.red;
+        Sprite.GetComponent<SpriteRenderer>().sprite = IsOn ? On : Off;
+
     }
 
     protected override void SwitchTo(bool isOn)
     {
         base.SwitchTo(isOn);
-        _spriteRenderer.color = isOn ? Color.green : Color.red;
+        Sprite.GetComponent<SpriteRenderer>().sprite = isOn ? On : Off;
+
     }
 
     protected virtual void OnInteractAction()
