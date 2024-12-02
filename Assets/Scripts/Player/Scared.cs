@@ -132,7 +132,7 @@ public class Scared : MonoBehaviour
 
 
             case "Cam Bunker R":
-                Ortho = 8;
+                Ortho = 7;
                 GlobalL = 0.05f;
                 break;
 
