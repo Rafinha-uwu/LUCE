@@ -1,0 +1,415 @@
+fileFormatVersion: 2
+guid: 3b6dcefc9394e554ba1a2c5694ec2aa1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 3765
+        width: 628
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa8dad7703c6e0418223c2a6a85afaa
+      internalID: 1697004761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_2
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 3765
+        width: 619
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846835952d348a6488c704fa8df682d2
+      internalID: -102294358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_3
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 3765
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0d05de148532a469d908a675dd51bf
+      internalID: 571159725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_4
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 3765
+        width: 619
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fb16210e6144a41b854a6de58a952a
+      internalID: -1659814339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 2077
+        width: 619
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ec74621e350134f929ce6edb0581ba
+      internalID: -461564088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_6
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 2077
+        width: 619
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5543ed5a568aab4ca56cd1e77201120
+      internalID: -1979561922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_7
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 2077
+        width: 628
+        height: 793
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3f461ca3c25664f9564f065c3b5742
+      internalID: 541239578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_8
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 2077
+        width: 632
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249143220cb975247bf94ccc69476f28
+      internalID: 876354871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_9
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 389
+        width: 628
+        height: 796
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef9c2decfa5d464e90e20d7b606bb4a
+      internalID: 1755112976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_10
+      rect:
+        serializedVersion: 2
+        x: 2960
+        y: 389
+        width: 624
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c98ec79aaeb8864c9bc682693eb36ea
+      internalID: -1879608786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_11
+      rect:
+        serializedVersion: 2
+        x: 5210
+        y: 389
+        width: 628
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be2e83168f7cb44d93bd52e2045625e
+      internalID: -1370598576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hold_Scared_Stopped_12
+      rect:
+        serializedVersion: 2
+        x: 7460
+        y: 389
+        width: 624
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6e48c548a02064fa55b69fc2472cb8
+      internalID: -1926190413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hold_Scared_Stopped_: 1697004761
+      Hold_Scared_Stopped_10: -1879608786
+      Hold_Scared_Stopped_11: -1370598576
+      Hold_Scared_Stopped_12: -1926190413
+      Hold_Scared_Stopped_2: -102294358
+      Hold_Scared_Stopped_3: 571159725
+      Hold_Scared_Stopped_4: -1659814339
+      Hold_Scared_Stopped_5: -461564088
+      Hold_Scared_Stopped_6: -1979561922
+      Hold_Scared_Stopped_7: 541239578
+      Hold_Scared_Stopped_8: 876354871
+      Hold_Scared_Stopped_9: 1755112976
+      Spritesheet Hold Scared Stopped_10: 1274481565
+      Spritesheet Hold Scared Stopped_11: 1083669205
+      Spritesheet Hold Scared Stopped_16: -2005359126
+      Spritesheet Hold Scared Stopped_17: -861170917
+      Spritesheet Hold Scared Stopped_18: -991324791
+      Spritesheet Hold Scared Stopped_19: -1493802255
+      Spritesheet Hold Scared Stopped_20: 1337898921
+      Spritesheet Hold Scared Stopped_21: -2130676041
+      Spritesheet Hold Scared Stopped_22: 612213142
+      Spritesheet Hold Scared Stopped_23: -206514204
+      Spritesheet Hold Scared Stopped_28: -1322353533
+      Spritesheet Hold Scared Stopped_29: -513473095
+      Spritesheet Hold Scared Stopped_30: 1139604814
+      Spritesheet Hold Scared Stopped_31: 1250965750
+      Spritesheet Hold Scared Stopped_32: 2137198236
+      Spritesheet Hold Scared Stopped_33: -1507837911
+      Spritesheet Hold Scared Stopped_34: -350650160
+      Spritesheet Hold Scared Stopped_35: 1722662162
+      Spritesheet Hold Scared Stopped_4: 498295435
+      Spritesheet Hold Scared Stopped_5: -621801805
+      Spritesheet Hold Scared Stopped_6: -653007644
+      Spritesheet Hold Scared Stopped_7: -1964688682
+      Spritesheet Hold Scared Stopped_8: -958243111
+      Spritesheet Hold Scared Stopped_9: 1356722961
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
