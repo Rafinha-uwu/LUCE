@@ -32,7 +32,6 @@ public class Button : Lever
 
     protected override void OnInteractAction()
     {
-        if (_isPlayerNearby) TurnOn();
-        Sprite.GetComponent<SpriteRenderer>().sprite = On;
+        if (_isPlayerNearby) { TurnOn(); Sprite.GetComponent<SpriteRenderer>().sprite = On; }
     }
 }

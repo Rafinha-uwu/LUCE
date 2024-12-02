@@ -35,14 +35,29 @@ public class Scared : MonoBehaviour
     public bool timerIsRunning = false;
 
     public CinemachineVirtualCamera BunkCam;
+    public CinemachineVirtualCamera BunkEl;
+    public CinemachineVirtualCamera BunkTun;
 
-    public bool check = false;
+    private GameObject CheckTrue;
+    public GameObject Check1;
+    public GameObject Check2;
+
+    public bool check = true;
+    public bool check2 = true;
+
+    public GameObject Scared1;
+    public GameObject Scared2;
+    public GameObject Scared3;
+
+    public GameObject Darkness;
 
     // Start is called before the first frame update
     void Start()
     {
         lightdetection = lt.GetComponent<LightDetection>();
         camaram = cm.GetComponent<CamaraManager>();
+
+        
 
         timerIsRunning = true;
         ScaredCountDown = ScaredTime;    
@@ -62,7 +77,9 @@ public class Scared : MonoBehaviour
     {
         if (timerIsRunning)
         {
+
             check = false;
+
 
             if (ScaredCountDown > 0)
             {
@@ -119,6 +136,11 @@ public class Scared : MonoBehaviour
                 GlobalL = 0.05f;
                 break;
 
+            case "Cam Bunker R2":
+                Ortho = 4;
+                GlobalL = 0.05f;
+                break;
+
             default:
 
                 break;
@@ -142,6 +164,16 @@ public class Scared : MonoBehaviour
         if (isScared)
 
         {
+
+            if (check2 == true)
+            {
+                Scared1.GetComponent<Animator>().SetBool("Scared", true);
+                Scared2.GetComponent<Animator>().SetBool("Scared", true);
+                Scared3.GetComponent<Animator>().SetBool("Scared", true);
+
+                check = false;
+            }
+
             if (ScaredCountDown > 0)
             {
 
@@ -167,7 +199,7 @@ public class Scared : MonoBehaviour
 
                 if (GL.GetComponent<Light2D>().intensity > 0.001f)
                 {
-                    GL.GetComponent<Light2D>().intensity -= 0.00013f;
+                    GL.GetComponent<Light2D>().intensity -= 0.00003f;
                 }
 
 
@@ -177,7 +209,8 @@ public class Scared : MonoBehaviour
 
             else
             {
-                Invoke("Death", 0f);
+                Invoke("Death", 0.5f);
+                Darkness.GetComponent<Animator>().SetBool("Dark", true);
             }
         }
         else
@@ -208,6 +241,11 @@ public class Scared : MonoBehaviour
                 GLReady = true;
             }
 
+            Scared1.GetComponent<Animator>().SetBool("Scared", false);
+            Scared2.GetComponent<Animator>().SetBool("Scared", false);
+            Scared3.GetComponent<Animator>().SetBool("Scared", false);
+            check2 = true;
+
             ScaredCountDown = ScaredTime;
 
         }
@@ -218,11 +256,35 @@ public class Scared : MonoBehaviour
         if (collision.tag == "Checkpoint")
         {
             LastCheck = collision.gameObject.transform.position;
+            CheckTrue = collision.gameObject;
         }
     }
 
     public void Death()
     {
+        if (camaram._currentCamera.name == "Cam Bunker")
+        {
+            if(CheckTrue == Check1)
+            {
+                camaram._currentCamera = BunkEl;
+                BunkCam.enabled = false;
+                BunkEl.enabled = true;
+            }
+            if (CheckTrue == Check2)
+            {
+                camaram._currentCamera = BunkEl;
+                BunkCam.enabled = false;
+                BunkEl.enabled = true;
+                LastCheck = Check1.transform.position;
+            }
+
+        }
+
+        Scared1.GetComponent<Animator>().SetBool("Scared", false);
+        Scared2.GetComponent<Animator>().SetBool("Scared", false);
+        Scared3.GetComponent<Animator>().SetBool("Scared", false);
+        Darkness.GetComponent<Animator>().SetBool("Dark", false);
+        check2 = true;
         check = true;
         this.transform.position = LastCheck;
         ScaredCountDown = ScaredTime;
