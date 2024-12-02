@@ -21,7 +21,7 @@ public class CountColect : MonoBehaviour
     void Update()
     {
 
-       tmpText.text = nColect + "/6";
+       tmpText.text = nColect + "/4";
 
     }
 }

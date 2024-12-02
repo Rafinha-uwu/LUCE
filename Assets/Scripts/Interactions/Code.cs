@@ -77,6 +77,10 @@ public class Code : MonoBehaviour
         {
             Lev3 = true;
         }
+        if (Lev1 && Lev2 && Lev3 && Lev4)
+        {
+            Lev3 = false;
+        }
 
     }
 }

@@ -148,7 +148,8 @@ public class Save : MonoBehaviour
 
             if (scared.check == true)
             {
-
+                TrapLight.GetComponent<Animator>().SetBool("Reset", true);
+                Invoke("HardReset", 1);
                 Box9.position = XBox9;
                 Player.GetComponent<PlayerHoldItem>().ForceDrop();
                 if (Key.gameObject != null) { Key.position = XKey; }
