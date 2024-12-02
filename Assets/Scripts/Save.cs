@@ -69,9 +69,9 @@ public class Save : MonoBehaviour
     void Update()
     {
 
-        if (camaram._currentCamera.name == "Cam Basement") 
-        { 
-            if(scared.check == true)
+        if (camaram._currentCamera.name == "Cam Basement")
+        {
+            if (scared.check == true)
             {
                 BaseBox.position = XBaseBox;
             }
@@ -84,7 +84,7 @@ public class Save : MonoBehaviour
             }
         }
 
-        if (camaram._currentCamera.name == "Cam Bunker" || camaram._currentCamera.name == "Cam Elevator" || camaram._currentCamera.name == "Cam Tunel") 
+        if (camaram._currentCamera.name == "Cam Bunker" || camaram._currentCamera.name == "Cam Elevator" || camaram._currentCamera.name == "Cam Tunel")
         {
             if (oncelight == true)
             {
@@ -101,8 +101,8 @@ public class Save : MonoBehaviour
         else
         {
 
-                XBox1 = Box1.position;
-                XBox2 = Box2.position;
+            XBox1 = Box1.position;
+            XBox2 = Box2.position;
 
         }
 
@@ -139,13 +139,18 @@ public class Save : MonoBehaviour
 
         }
 
-        if (camaram._currentCamera.name == "Cam Bunker D2" || camaram._currentCamera.name == "Cam Elevator") 
+        if (camaram._currentCamera.name == "Cam Bunker D2" || camaram._currentCamera.name == "Cam Elevator")
         {
+            if (camaram._currentCamera.name == "Cam Bunker D2")
+            {
+
+                TrapLight.GetComponent<Animator>().SetBool("Reset", true);
+                Invoke("HardReset", 1);
+
+            }
 
             if (scared.check == true)
             {
-                TrapLight.GetComponent<Animator>().SetBool("Reset", true);
-                Invoke("HardReset", 1);
                 Box9.position = XBox9;
                 Player.GetComponent<PlayerHoldItem>().ForceDrop();
                 if (Key.gameObject != null) { Key.position = XKey; }
@@ -157,12 +162,12 @@ public class Save : MonoBehaviour
         {
             XBox9 = Box9.position;
             if (Key.gameObject != null) { XKey = Key.position; }
-       
+
         }
 
-        if (camaram._currentCamera.name == "Cam Bunker R") 
-        { 
-        
+        if (camaram._currentCamera.name == "Cam Bunker R")
+        {
+
 
 
         }
