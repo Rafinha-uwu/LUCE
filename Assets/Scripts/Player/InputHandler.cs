@@ -32,7 +32,8 @@ public class InputHandler : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        HorizontalInput = context.ReadValue<Vector2>().x;
+        float x = context.ReadValue<Vector2>().x;
+        HorizontalInput = x == 0 ? 0 : Mathf.Sign(x);
     }
 
     public void OnJump(InputAction.CallbackContext context)
