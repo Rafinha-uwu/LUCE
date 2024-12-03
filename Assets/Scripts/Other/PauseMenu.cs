@@ -6,6 +6,9 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
 
+    private InputAction _pauseAction;
+    private InputAction _resumeAction;
+
     private static readonly string PAUSE_ACTION = "Pause";
     private static readonly string RESUME_ACTION = "Resume";
     private static readonly string START_SCENE = "StartMenu";
@@ -13,10 +16,19 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        PauseManager.Instance.PlayerInput.actions[PAUSE_ACTION].performed += OnPause;
-        PauseManager.Instance.PlayerInput.actions[RESUME_ACTION].performed += OnPause;
+        _pauseAction = PauseManager.Instance.PlayerInput.actions[PAUSE_ACTION];
+        _resumeAction = PauseManager.Instance.PlayerInput.actions[RESUME_ACTION];
+        
+        _pauseAction.performed += OnPause;
+        _resumeAction.performed += OnPause;
 
         _canvas.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        _pauseAction.performed -= OnPause;
+        _resumeAction.performed -= OnPause;
     }
 
 
