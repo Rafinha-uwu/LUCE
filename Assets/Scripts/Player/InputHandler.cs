@@ -10,7 +10,8 @@ public class InputHandler : MonoBehaviour
     private static readonly string UI_ACTION_MAP = "UI";
 
     [SerializeField] private float _jumpBuffer;
-    
+    private int _pauseCounter = 0;
+
     public float HorizontalInput { get; private set; }
     public float JumpBufferCounter { get; private set; }
     public bool PushPullAction { get; private set; }
@@ -22,11 +23,20 @@ public class InputHandler : MonoBehaviour
 
 
     private void Awake() => _playerInput = GetComponent<PlayerInput>();
-    public void ResumeInput() => _playerInput.SwitchCurrentActionMap(PLAYER_ACTION_MAP);
+
+    public void ResumeInput()
+    {
+        // Resume the input if the pause counter is 0
+        if (_pauseCounter > 0) _pauseCounter--;
+        if (_pauseCounter == 0) _playerInput.SwitchCurrentActionMap(PLAYER_ACTION_MAP);
+    }
+
     public void PauseInput()
     {
+        // Count the number of times the input is paused
         _playerInput.SwitchCurrentActionMap(UI_ACTION_MAP);
         ClearJumpBuffer();
+        _pauseCounter++;
     }
 
 
