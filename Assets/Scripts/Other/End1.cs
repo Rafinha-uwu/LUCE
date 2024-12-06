@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-public class End1 : MonoBehaviour
+public class End1 : SwitchObject
 {
-
+    private static readonly string PLAYER_TAG = "Player";
     public GameObject cLights;
-    public bool Once;
 
     public GameObject Lights1;
     public GameObject Lights2;
@@ -20,37 +17,24 @@ public class End1 : MonoBehaviour
     public GameObject Lights9;
     public GameObject Lights10;
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        IsOn = false;
+        base.Start();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Once == true)
-        {
-            if (transform.childCount < 1)
-            {
-                StartCoroutine(Run());
-            }
+        bool polaroidTaken = transform.childCount < 1;
+        bool playerInside = collision.CompareTag(PLAYER_TAG);
 
-        }
+        if (playerInside && polaroidTaken && !IsOn) StartCoroutine(Run());
     }
+
     public IEnumerator Run()
     {
-
+        TurnOn();
         cLights.SetActive(true);
-
-        Once = false;
 
         yield return new WaitForSeconds(1);
         cLights.SetActive(false);
