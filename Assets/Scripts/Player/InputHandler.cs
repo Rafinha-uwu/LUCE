@@ -22,8 +22,12 @@ public class InputHandler : MonoBehaviour
 
 
     private void Awake() => _playerInput = GetComponent<PlayerInput>();
-    public void PauseInput() => _playerInput.SwitchCurrentActionMap(UI_ACTION_MAP);
     public void ResumeInput() => _playerInput.SwitchCurrentActionMap(PLAYER_ACTION_MAP);
+    public void PauseInput()
+    {
+        _playerInput.SwitchCurrentActionMap(UI_ACTION_MAP);
+        ClearJumpBuffer();
+    }
 
 
     public void ClearJumpBuffer()
