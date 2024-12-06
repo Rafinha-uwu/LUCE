@@ -2,8 +2,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class InputHandler : MonoBehaviour
 {
+    private PlayerInput _playerInput;
+    private static readonly string PLAYER_ACTION_MAP = "Player";
+    private static readonly string UI_ACTION_MAP = "UI";
+
     [SerializeField] private float _jumpBuffer;
     
     public float HorizontalInput { get; private set; }
@@ -12,6 +17,13 @@ public class InputHandler : MonoBehaviour
     public bool HoldAction { get; private set; }
 
     public event Action OnInteractAction;
+    public event Action OnPauseAction;
+    public event Action OnResumeAction;
+
+
+    private void Awake() => _playerInput = GetComponent<PlayerInput>();
+    public void PauseInput() => _playerInput.SwitchCurrentActionMap(UI_ACTION_MAP);
+    public void ResumeInput() => _playerInput.SwitchCurrentActionMap(PLAYER_ACTION_MAP);
 
 
     public void ClearJumpBuffer()
@@ -54,5 +66,16 @@ public class InputHandler : MonoBehaviour
     public void OnHold(InputAction.CallbackContext context)
     {
         HoldAction = context.ReadValueAsButton();
+    }
+
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed) OnPauseAction?.Invoke();
+    }
+
+    public void OnResume(InputAction.CallbackContext context)
+    {
+        if (context.performed) OnResumeAction?.Invoke();
     }
 }

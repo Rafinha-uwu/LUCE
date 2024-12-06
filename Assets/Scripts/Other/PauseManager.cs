@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -7,22 +6,16 @@ public class PauseManager : MonoBehaviour
     public bool IsPaused { get; private set; }
 
     [HideInInspector]
-    public PlayerInput PlayerInput { get; private set; }
+    public InputHandler InputHandler { get; private set; }
     private static readonly string PLAYER_TAG = "Player";
-    private static readonly string PLAYER_ACTION_MAP = "Player";
-    private static readonly string UI_ACTION_MAP = "UI";
 
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            enabled = false;
-            return;
-        }
+        if (Instance != null) Instance.enabled = false;
         Instance = this;
 
-        PlayerInput = GameObject.Find(PLAYER_TAG).GetComponent<PlayerInput>();
+        InputHandler = GameObject.Find(PLAYER_TAG).GetComponent<InputHandler>();
         ResumeGame();
     }
 
@@ -32,9 +25,9 @@ public class PauseManager : MonoBehaviour
         if (IsPaused) return;
         IsPaused = true;
 
-        // Set the time scale to 0 and switch to the UI action map
+        // Set the time scale to 0 and pause the player input
         Time.timeScale = 0;
-        PlayerInput.SwitchCurrentActionMap(UI_ACTION_MAP);
+        if (InputHandler != null) InputHandler.PauseInput();
     }
 
     public void ResumeGame()
@@ -42,9 +35,9 @@ public class PauseManager : MonoBehaviour
         if (!IsPaused) return;
         IsPaused = false;
 
-        // Set the time scale to 1 and switch to the player action map
+        // Set the time scale to 1 and resume the player input
         Time.timeScale = 1;
-        PlayerInput.SwitchCurrentActionMap(PLAYER_ACTION_MAP);
+        if (InputHandler != null) InputHandler.PauseInput();
     }
 
     public void TogglePause()
