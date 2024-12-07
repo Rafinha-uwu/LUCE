@@ -7,6 +7,6 @@ public class ElevatorAnimationBehavior : StateMachineBehaviour
         bool hasElevator = animator.TryGetComponent<Elevator>(out var elevator);
         if (!hasElevator) return;
 
-        // elevator.OnAnimationEnd();
+        elevator.OnAnimationEnd();
     }
 }

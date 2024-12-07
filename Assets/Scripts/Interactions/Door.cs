@@ -20,11 +20,6 @@ public class Door : SwitchWithRequirements
 
     private void OnDoorStateChange(SwitchObject switchObject, bool isOn)
     {
-        if (this.gameObject.GetComponent<Elevator>() != null)
-        {
-            this.gameObject.GetComponent<Elevator>().On = isOn;
-        }
-
         if (_animator == null) return;
         _animator.SetBool("Open", isOn);
     }

@@ -3,17 +3,12 @@ using System.Linq;
 
 public class Code : SwitchWithRequirements
 {
-    Elevator elevator;
-    public GameObject el;
-
     [SerializeField] protected CodeSprite[] _codeSprites;
     [SerializeField] protected int _minimumChanges;
     [SerializeField] protected int _maximumChanges;
 
     protected override void Start()
     {
-        elevator = el.GetComponent<Elevator>();
-
         // Check if we have the same amount of requirements and code sprites
         if (_requirements.Length != _codeSprites.Length) throw new System.Exception("Requirements and Code sprites must have the same length");
 
@@ -25,17 +20,11 @@ public class Code : SwitchWithRequirements
         base.Start();
     }
 
-    void Update()
-    {
-        if (IsOn) elevator.On = true;
-    }
-
     protected virtual void UpdateLevelSprites(Requirement requirement, CodeSprite codeSprite)
     {
         codeSprite.Down.enabled = !requirement.RequiredState;
         codeSprite.Up.enabled = requirement.RequiredState;
     }
-
 
     public void Randomizer()
     {
@@ -50,6 +39,7 @@ public class Code : SwitchWithRequirements
         // Update the sprites
         for (int i = 0; i < _requirements.Length; i++) UpdateLevelSprites(_requirements[i], _codeSprites[i]);
     }
+
 
     [System.Serializable]
     public class CodeSprite
