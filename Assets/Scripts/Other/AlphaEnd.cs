@@ -27,6 +27,7 @@ public class AlphaEnd : MonoBehaviour
         yield return new WaitForSeconds(1);
         PauseManager.Instance.PauseGame();
         yield return new WaitForSecondsRealtime(20);
+        PauseManager.Instance.ResumeGame();
         SceneManager.LoadScene(SCENE_TO_GO);
     }
 }
