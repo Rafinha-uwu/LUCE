@@ -2,16 +2,42 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class InputHandler : MonoBehaviour
 {
+    private PlayerInput _playerInput;
+    private static readonly string PLAYER_ACTION_MAP = "Player";
+    private static readonly string UI_ACTION_MAP = "UI";
+
     [SerializeField] private float _jumpBuffer;
-    
+    private int _pauseCounter = 0;
+
     public float HorizontalInput { get; private set; }
     public float JumpBufferCounter { get; private set; }
     public bool PushPullAction { get; private set; }
     public bool HoldAction { get; private set; }
 
     public event Action OnInteractAction;
+    public event Action OnPauseAction;
+    public event Action OnResumeAction;
+
+
+    private void Awake() => _playerInput = GetComponent<PlayerInput>();
+
+    public void ResumeInput()
+    {
+        // Resume the input if the pause counter is 0
+        if (_pauseCounter > 0) _pauseCounter--;
+        if (_pauseCounter == 0) _playerInput.SwitchCurrentActionMap(PLAYER_ACTION_MAP);
+    }
+
+    public void PauseInput()
+    {
+        // Count the number of times the input is paused
+        _playerInput.SwitchCurrentActionMap(UI_ACTION_MAP);
+        ClearJumpBuffer();
+        _pauseCounter++;
+    }
 
 
     public void ClearJumpBuffer()
@@ -32,7 +58,8 @@ public class InputHandler : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        HorizontalInput = context.ReadValue<Vector2>().x;
+        float x = context.ReadValue<Vector2>().x;
+        HorizontalInput = x == 0 ? 0 : Mathf.Sign(x);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -53,5 +80,16 @@ public class InputHandler : MonoBehaviour
     public void OnHold(InputAction.CallbackContext context)
     {
         HoldAction = context.ReadValueAsButton();
+    }
+
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed) OnPauseAction?.Invoke();
+    }
+
+    public void OnResume(InputAction.CallbackContext context)
+    {
+        if (context.performed) OnResumeAction?.Invoke();
     }
 }

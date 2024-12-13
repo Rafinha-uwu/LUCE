@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SwitchWithRequirements : SwitchObject
 {
-    [SerializeField] private Requirement[] _requirements;
+    [SerializeField] protected Requirement[] _requirements;
 
     protected virtual void Awake()
     {
@@ -15,9 +15,9 @@ public class SwitchWithRequirements : SwitchObject
         foreach (var req in _requirements) req.Switch.OnStateChange -= OnSwitchStateChange;
     }
 
-    private bool AllRequirementsMet() => _requirements.All(req => req.IsMet);
+    protected virtual bool AllRequirementsMet() => _requirements.All(req => req.IsMet);
 
-    private void OnSwitchStateChange(SwitchObject switchObject, bool isOn)
+    protected virtual void OnSwitchStateChange(SwitchObject switchObject, bool isOn)
     {
         bool allRequirementsMet = AllRequirementsMet();
 
@@ -25,7 +25,7 @@ public class SwitchWithRequirements : SwitchObject
         else TurnOff();
     }
 
-    private void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         foreach (var req in _requirements)
         {
@@ -35,18 +35,6 @@ public class SwitchWithRequirements : SwitchObject
         }
     }
 
-    // Add a public method to update RequiredState
-    public void SetRequiredState(int index, bool newState)
-    {
-        if (index >= 0 && index < _requirements.Length)
-        {
-            _requirements[index].RequiredState = newState;
-        }
-        else
-        {
-            Debug.LogWarning("Invalid requirement index!");
-        }
-    }
 
     [System.Serializable]
     public class Requirement

@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(SpriteRenderer))]
 public class Lever : SwitchObject
 {
     private static InputHandler _inputHandler;
-    private SpriteRenderer _spriteRenderer;
 
     protected static readonly string PLAYER_TAG = "Player";
     protected bool _isPlayerNearby = false;
 
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Sprite _spriteOn;
+    [SerializeField] private Sprite _spriteOff;
 
     protected virtual void Awake()
     {
@@ -19,25 +20,25 @@ public class Lever : SwitchObject
             _inputHandler = player.GetComponent<InputHandler>();
         }
 
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _inputHandler.OnInteractAction += OnInteractAction;
+        OnStateChange += OnLeverStateChange;
     }
 
-    protected override void Start()
+    protected virtual void OnDestroy()
     {
-        base.Start();
-        _spriteRenderer.color = IsOn ? Color.green : Color.red;
-    }
-
-    protected override void SwitchTo(bool isOn)
-    {
-        base.SwitchTo(isOn);
-        _spriteRenderer.color = isOn ? Color.green : Color.red;
+        _inputHandler.OnInteractAction -= OnInteractAction;
+        OnStateChange -= OnLeverStateChange;
     }
 
     protected virtual void OnInteractAction()
     {
         if (_isPlayerNearby) Toggle();
+    }
+
+    protected virtual void OnLeverStateChange(SwitchObject switchObject, bool isOn)
+    {
+        if (_spriteRenderer == null) return;
+        _spriteRenderer.sprite = isOn ? _spriteOn : _spriteOff;
     }
 
 

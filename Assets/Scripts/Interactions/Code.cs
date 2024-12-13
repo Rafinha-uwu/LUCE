@@ -1,82 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using static SwitchWithRequirements;
+using System.Linq;
 
-public class Code : MonoBehaviour
+public class Code : SwitchWithRequirements
 {
-    Elevator elevator;
-    public GameObject el;
+    [SerializeField] protected CodeSprite[] _codeSprites;
+    [SerializeField] protected int _minimumChanges;
+    [SerializeField] protected int _maximumChanges;
 
-    public GameObject UP1;
-    public GameObject UP2;
-    public GameObject UP3;
-    public GameObject UP4;
-
-    public GameObject DOWN1;
-    public GameObject DOWN2;
-    public GameObject DOWN3;
-    public GameObject DOWN4;
-
-    public bool Lev1;
-    public bool Lev2;
-    public bool Lev3;
-    public bool Lev4;
-
-    public bool On = false;
-
-    [SerializeField] private SwitchWithRequirements switchWithRequirements;
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        elevator = el.GetComponent<Elevator>();
+        // Check if we have the same amount of requirements and code sprites
+        if (_requirements.Length != _codeSprites.Length) throw new System.Exception("Requirements and Code sprites must have the same length");
+
+        // Min and max changes must be between 0 and the amount of requirements
+        _minimumChanges = Mathf.Clamp(_minimumChanges, 0, _requirements.Length);
+        _maximumChanges = Mathf.Clamp(_maximumChanges, _minimumChanges, _requirements.Length);
         Randomizer();
+
+        base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void UpdateLevelSprites(Requirement requirement, CodeSprite codeSprite)
     {
-        if (On)
-        {
-            elevator.On = true;
-        }
-
-        UpdateLevelSprites(Lev1, UP1, DOWN1, 0);
-        UpdateLevelSprites(Lev2, UP2, DOWN2, 1);
-        UpdateLevelSprites(Lev3, UP3, DOWN3, 2);
-        UpdateLevelSprites(Lev4, UP4, DOWN4, 3);
+        codeSprite.Down.enabled = !requirement.RequiredState;
+        codeSprite.Up.enabled = requirement.RequiredState;
     }
 
-    void UpdateLevelSprites(bool level, GameObject upSprite, GameObject downSprite, int index)
+    public void Randomizer()
     {
-        if (level)
-        {
-            downSprite.GetComponent<SpriteRenderer>().enabled = false;
-            upSprite.GetComponent<SpriteRenderer>().enabled = true;
-            switchWithRequirements.SetRequiredState(index, true);
-        }
-        else
-        {
-            upSprite.GetComponent<SpriteRenderer>().enabled = false;
-            downSprite.GetComponent<SpriteRenderer>().enabled = true;
-            switchWithRequirements.SetRequiredState(index, false);
-        }
+        // Randomize the number of changes and the requirements to change
+        int changes = Random.Range(_minimumChanges, _maximumChanges + 1);
+        Requirement[] requirementsToChange = _requirements.OrderBy(x => Random.value).Take(changes).ToArray();
+
+        // Change the requirements and force a state change
+        foreach (var req in requirementsToChange) req.RequiredState = !req.RequiredState;
+        OnSwitchStateChange(null, false);
+
+        // Update the sprites
+        for (int i = 0; i < _requirements.Length; i++) UpdateLevelSprites(_requirements[i], _codeSprites[i]);
     }
 
 
-    private void Randomizer()
+    [System.Serializable]
+    public class CodeSprite
     {
-        Lev1 = UnityEngine.Random.Range(0, 2) == 0;
-        Lev2 = UnityEngine.Random.Range(0, 2) == 0;
-        Lev3 = UnityEngine.Random.Range(0, 2) == 0;
-        Lev4 = UnityEngine.Random.Range(0, 2) == 0;
-
-        if (!Lev1 && !Lev2 && !Lev3 && !Lev4)
-        {
-            Lev3 = true;
-        }
-
+        public SpriteRenderer Up;
+        public SpriteRenderer Down;
     }
 }

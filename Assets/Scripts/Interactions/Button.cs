@@ -5,7 +5,6 @@ public class Button : Lever
     [SerializeField] private float _pressTime;
     private float _pressCount = 0;
 
-
     protected override void Start()
     {
         IsOn = false;

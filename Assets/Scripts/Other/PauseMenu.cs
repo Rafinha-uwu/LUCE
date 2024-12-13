@@ -1,27 +1,33 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
 
-    private static readonly string PAUSE_ACTION = "Pause";
-    private static readonly string RESUME_ACTION = "Resume";
+    private InputHandler _inputHandler;
     private static readonly string START_SCENE = "StartMenu";
 
 
     private void Start()
     {
-        PauseManager.Instance.PlayerInput.actions[PAUSE_ACTION].performed += OnPause;
-        PauseManager.Instance.PlayerInput.actions[RESUME_ACTION].performed += OnPause;
+        _inputHandler = PauseManager.Instance.InputHandler;
+        if (_inputHandler == null) return;
+
+        _inputHandler.OnPauseAction += OnPause;
+        _inputHandler.OnResumeAction += OnPause;
 
         _canvas.enabled = false;
     }
 
+    private void OnDestroy()
+    {
+        _inputHandler.OnPauseAction -= OnPause;
+        _inputHandler.OnResumeAction -= OnPause;
+    }
 
-    private void OnPause(InputAction.CallbackContext context)
+
+    private void OnPause()
     {
         bool isShowingMenu = _canvas.enabled;
         if (isShowingMenu) Resume();
@@ -49,7 +55,10 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToDesktop()
     {
-        if (Application.isEditor) UnityEditor.EditorApplication.isPlaying = false;
-        else Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

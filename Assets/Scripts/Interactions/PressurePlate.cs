@@ -5,7 +5,18 @@ using UnityEngine;
 public class PressurePlate : SwitchObject
 {
     private readonly List<GameObject> _objectsOnPlate = new();
+    private Animator _animator;
 
+    protected void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        OnStateChange += OnPressureStateChange;
+    }
+
+    protected void OnDestroy()
+    {
+        OnStateChange -= OnPressureStateChange;
+    }
 
     protected override void Start()
     {
@@ -17,7 +28,6 @@ public class PressurePlate : SwitchObject
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (_objectsOnPlate.Contains(collision.gameObject)) return;
-
         _objectsOnPlate.Add(collision.gameObject);
         TurnOn();
     }
@@ -26,5 +36,10 @@ public class PressurePlate : SwitchObject
     {
         _objectsOnPlate.Remove(collision.gameObject);
         if (_objectsOnPlate.Count == 0) TurnOff();
+    }
+
+    private void OnPressureStateChange(SwitchObject switchObject, bool isOn)
+    {
+        _animator.SetBool("press", isOn);
     }
 }
