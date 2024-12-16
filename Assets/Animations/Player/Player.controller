@@ -86,7 +86,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerJumpEnd
-  m_Speed: 2.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1853084848781709791}
@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6f6e431f8e0fdb944a07beb453277b32, type: 2}
+  m_Motion: {fileID: 7400000, guid: 67c423da2e9f3164bb1618e17562d641, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -203,7 +203,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a61d04e2aec654b46a870d99334da3c3, type: 2}
+  m_Motion: {fileID: 7400000, guid: 093bf31f0250e5a46b041ac0e62168fe, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -453,7 +453,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerHoldJumpStart
-  m_Speed: 2.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3601823852673102563}
@@ -467,7 +467,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 31c000d20807ae24682b92673e0f9a3f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6c0560c135ce4b6448691c92000eed19, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -561,7 +561,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerJumpStart
-  m_Speed: 2.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1552141268974461928}
@@ -575,7 +575,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 31c000d20807ae24682b92673e0f9a3f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6c0560c135ce4b6448691c92000eed19, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -771,7 +771,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a61d04e2aec654b46a870d99334da3c3, type: 2}
+  m_Motion: {fileID: 7400000, guid: 093bf31f0250e5a46b041ac0e62168fe, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2439,7 +2439,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerHoldJumpEnd
-  m_Speed: 2.5
+  m_Speed: 4.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3239467150948167781}
@@ -2453,7 +2453,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6f6e431f8e0fdb944a07beb453277b32, type: 2}
+  m_Motion: {fileID: 7400000, guid: 67c423da2e9f3164bb1618e17562d641, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
