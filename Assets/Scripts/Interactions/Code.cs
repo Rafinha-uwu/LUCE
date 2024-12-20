@@ -33,7 +33,12 @@ public class Code : SwitchWithRequirements
         Requirement[] requirementsToChange = _requirements.OrderBy(x => Random.value).Take(changes).ToArray();
 
         // Change the requirements and force a state change
-        foreach (var req in requirementsToChange) req.RequiredState = !req.RequiredState;
+        foreach (var req in _requirements)
+        {
+            bool switchIsOn = req.Switch.IsOn;
+            bool needsToChange = requirementsToChange.Contains(req);
+            req.RequiredState = needsToChange ? !switchIsOn : switchIsOn;
+        }
         OnSwitchStateChange(null, false);
 
         // Update the sprites
