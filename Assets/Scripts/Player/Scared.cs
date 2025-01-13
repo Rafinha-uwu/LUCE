@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
-using UnityEngine.Rendering;
-using JetBrains.Annotations;
+using System;
 
 public class Scared : MonoBehaviour
 {
+    public event Action<bool> OnScared;
+    private bool _isScared = false;
 
     LightDetection lightdetection;
     public GameObject lt;
@@ -158,8 +159,13 @@ public class Scared : MonoBehaviour
         }
 
         bool isScared = lightdetection.LightValue < 0.25f;
-        _playerController.Animator.SetBool(ANIMATOR_PARAMETER, isScared);
-        _playerController.MovingState._speed = isScared ? Speed_scared : Speed;
+        if (_isScared != isScared)
+        {
+            _isScared = isScared;
+            OnScared?.Invoke(_isScared);
+            _playerController.Animator.SetBool(ANIMATOR_PARAMETER, isScared);
+            _playerController.MovingState._speed = isScared ? Speed_scared : Speed;
+        }
 
         if (isScared)
 
