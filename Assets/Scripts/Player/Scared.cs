@@ -268,6 +268,8 @@ public class Scared : MonoBehaviour
 
     public void Death()
     {
+        PlayDeathSound();
+
         if (camaram._currentCamera.name == "Cam Bunker")
         {
             if(CheckTrue == Check1)
@@ -296,5 +298,14 @@ public class Scared : MonoBehaviour
         ScaredCountDown = ScaredTime;
         this.GetComponentInChildren<Light2D>().intensity = 0.17f;
         timerIsRunning = true;
+    }
+
+
+    private void PlayDeathSound()
+    {
+        FMODManager.Instance.PlayOneShot(
+            FMODManager.Instance.EventDatabase.PlayerDeath,
+            transform.position
+        );
     }
 }
