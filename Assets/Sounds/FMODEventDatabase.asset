@@ -70,18 +70,18 @@ MonoBehaviour:
     Path: event:/Character/Radio Dialogue
   <ObjectMove>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 347416895
+      Data2: 1223030430
+      Data3: 47099559
+      Data4: -643625871
+    Path: event:/Character/Enemy Footsteps
   <ObjectGroundHit>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1100872744
+      Data2: 1103481048
+      Data3: -524491124
+      Data4: 2072024542
+    Path: event:/Interactables/Wooden Collision
   <Lever>k__BackingField:
     Guid:
       Data1: 0
