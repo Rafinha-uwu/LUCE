@@ -14,8 +14,120 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EventForTesting>k__BackingField:
     Guid:
-      Data1: 1958460028
-      Data2: 1217165032
-      Data3: -261621348
-      Data4: -48242944
-    Path: event:/Music/Level 01
+      Data1: 708724966
+      Data2: 1130599676
+      Data3: -768382828
+      Data4: 8080861
+    Path: event:/UI/Cancel
+  <GameBGM>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <GameAmbience>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <StartMenuBGM>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <PlayerMove>k__BackingField:
+    Guid:
+      Data1: -385494015
+      Data2: 1195472629
+      Data3: -2064153176
+      Data4: 1900422219
+    Path: event:/Character/Player Footsteps
+  <PlayerJump>k__BackingField:
+    Guid:
+      Data1: -1840800105
+      Data2: 1164219590
+      Data3: -1091619938
+      Data4: 1253267948
+    Path: event:/UI/Okay
+  <PlayerGroundHit>k__BackingField:
+    Guid:
+      Data1: 1125158724
+      Data2: 1215768668
+      Data3: -380992089
+      Data4: 1039913086
+    Path: event:/Character/Door Close
+  <PlayerDeath>k__BackingField:
+    Guid:
+      Data1: 1136926599
+      Data2: 1277521951
+      Data3: 432447913
+      Data4: 308547786
+    Path: event:/Character/Radio Dialogue
+  <ObjectMove>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <ObjectGroundHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Lever>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Button>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <PressurePlate>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Elevator>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Door>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Light>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <MovingLight>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
