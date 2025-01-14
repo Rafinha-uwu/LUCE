@@ -15,7 +15,7 @@ public class PlayerFallingState : PlayerState
     public override void UpdateState(PlayerController player)
     {
         _coyoteTimeCounter -= Time.fixedDeltaTime;
-        player.MovingState.Move(player);
+        player.MovingState.Move(player, playSound: false);
 
         if (player.GroundCheck.IsGrounded)
         {

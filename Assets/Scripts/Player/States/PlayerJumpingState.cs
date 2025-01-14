@@ -16,7 +16,7 @@ public class PlayerJumpingState : PlayerState
 
     public override void UpdateState(PlayerController player)
     {
-        player.MovingState.Move(player);
+        player.MovingState.Move(player, playSound: false);
 
         if (player.GroundCheck.IsGrounded)
         {
