@@ -34,12 +34,17 @@ public class FMODManager : MonoBehaviour
         RuntimeManager.PlayOneShot(eventReference, position);
     }
 
-    public EventInstance CreateEventInstance(EventReference eventReference)
+    public EventInstance? CreateEventInstance(EventReference eventReference)
     {
-        EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
-
-        _eventInstances.Add(eventInstance);
-        return eventInstance;
+        try
+        {
+            EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
+            
+            _eventInstances.Add(eventInstance);
+            return eventInstance;
+        }
+        catch (System.Exception) {}
+        return null;
     }
 
     public StudioEventEmitter CreateEventEmitter(EventReference eventReference, GameObject gameObject, float minDistance, float maxDistance)

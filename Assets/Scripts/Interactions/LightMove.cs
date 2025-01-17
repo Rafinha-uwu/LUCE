@@ -1,37 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
+[RequireComponent(typeof(Animator))]
 public class LightMove : MonoBehaviour
 {
+    private static readonly string PLAYER_TAG = "Player";
+    private static readonly string ANIMATOR_PARAMETER = "Move";
 
+    private Animator _animator;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        _animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag(PLAYER_TAG))
         {
-            this.GetComponent<Animator>().SetBool("Move", true);
+            _animator.SetBool(ANIMATOR_PARAMETER, true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag(PLAYER_TAG))
         {
-            this.GetComponent<Animator>().SetBool("Move", false);
+            _animator.SetBool(ANIMATOR_PARAMETER, false);
         }
     }
 

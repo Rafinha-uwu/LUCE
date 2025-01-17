@@ -8,8 +8,8 @@ public class BackgroundPlayer : MonoBehaviour
 
     private Scared _scared;
 
-    private EventInstance _bgmInstance;
-    private EventInstance _ambienceInstance;
+    private EventInstance? _bgmInstance;
+    private EventInstance? _ambienceInstance;
 
 
     private void Awake()
@@ -26,8 +26,8 @@ public class BackgroundPlayer : MonoBehaviour
         OnScared(false);
         _scared.OnScared += OnScared;
 
-        _bgmInstance.start();
-        _ambienceInstance.start();
+        _bgmInstance?.start();
+        _ambienceInstance?.start();
     }
 
     private void OnDestroy()
@@ -40,7 +40,7 @@ public class BackgroundPlayer : MonoBehaviour
     {
         float scaredValue = isScared ? 1 : 0;
 
-        _bgmInstance.setParameterByName(EVENT_PARAM_SCARED, scaredValue);
-        _ambienceInstance.setParameterByName(EVENT_PARAM_SCARED, scaredValue);
+        _bgmInstance?.setParameterByName(EVENT_PARAM_SCARED, scaredValue);
+        _ambienceInstance?.setParameterByName(EVENT_PARAM_SCARED, scaredValue);
     }
 }
