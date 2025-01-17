@@ -116,7 +116,7 @@ public class Scared : MonoBehaviour
 
             case "Cam Tunel":
                 Ortho = 3;
-                GlobalL = 0.05f;
+                GlobalL = 0.03f;
                 break;
 
             case "Cam Bunker D1":
@@ -139,6 +139,16 @@ public class Scared : MonoBehaviour
             case "Cam Bunker R2":
                 Ortho = 4;
                 GlobalL = 0.05f;
+                break;
+
+            case "Cam Tunel 2":
+                Ortho = 6;
+                GlobalL = 0.05f;
+                break;
+
+            case "Cam TP1":
+                Ortho = 9;
+                GlobalL = 0.04f;
                 break;
 
             default:
