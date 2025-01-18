@@ -27,6 +27,13 @@ public class Hand : MonoBehaviour
         {
             
         }
+
+        if(other.name == "Flash")
+        {
+
+        }
+
+
     }
 
 
