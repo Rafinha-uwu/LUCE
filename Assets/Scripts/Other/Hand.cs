@@ -25,8 +25,7 @@ public class Hand : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
-            Debug.Log("Player entered Touchi's trigger!");
-            // Add your trigger handling code here
+            
         }
     }
 
