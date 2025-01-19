@@ -13,9 +13,15 @@ public class Hand : MonoBehaviour
     public float speed;
     public bool move = false;
 
+    private Scared scared;
+    public GameObject boo;
+
+    public GameObject Black2;
+
     // Start is called before the first frame update
     void Start()
     {
+        scared = boo.GetComponent<Scared>();
 
         Collider2D childCollider = Touchi.GetComponent<Collider2D>();
 
@@ -25,7 +31,7 @@ public class Hand : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
-            
+            StartCoroutine(Death());
         }
 
         if(other.name == "Flash")
@@ -36,6 +42,18 @@ public class Hand : MonoBehaviour
 
     }
 
+    public IEnumerator Death()
+    {
+        move = false;
+        this.GetComponent<Animator>().Play("Grab");
+        yield return new WaitForSeconds(0.6f);
+        Black2.GetComponent<Animator>().SetBool("Dark", true);
+        yield return new WaitForSeconds(1f);
+        move = true;
+        scared.Death();
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -43,6 +61,7 @@ public class Hand : MonoBehaviour
 
         if (start)
         {
+            //this.transform.position = new Vector3(142, -2, 0);
             Sprite.SetActive(true);
             Black.SetActive(true);
             Touchi.SetActive(true);

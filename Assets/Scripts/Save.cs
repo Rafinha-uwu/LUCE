@@ -42,8 +42,12 @@ public class Save : MonoBehaviour
 
     public Transform Key;
     private Vector3 XKey;
+
     public Transform Box9;
     private Vector3 XBox9;
+
+    public Transform Hand;
+    private Vector3 XHand;
 
     // Start is called before the first frame update
     void Start()
@@ -59,10 +63,12 @@ public class Save : MonoBehaviour
         XBox5 = Box5.position;
         XBox7 = Box7.position;
         XBox8 = Box8.position;
+        XBox9 = Box9.position;
+        XKey = Key.position;
 
         XValve = Valve.position;
 
-
+        XHand = Hand.position;
     }
 
     // Update is called once per frame
@@ -174,6 +180,20 @@ public class Save : MonoBehaviour
         else
         {
 
+
+
+        }
+
+        if (camaram._currentCamera.name == "Cam Tunel 2")
+        {
+            if (scared.check == true)
+            {
+                Hand.position = XHand;
+            }
+
+        }
+        else
+        {
 
 
         }
