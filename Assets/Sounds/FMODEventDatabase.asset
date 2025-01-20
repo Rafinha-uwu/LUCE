@@ -154,11 +154,11 @@ MonoBehaviour:
     Path: event:/UI/TestIsOn
   <MovingLight>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -952245531
+      Data2: 1147356436
+      Data3: -386241875
+      Data4: -799918011
+    Path: event:/UI/TestMovingLight
   <TeddyPickup>k__BackingField:
     Guid:
       Data1: 0
