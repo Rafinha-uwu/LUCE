@@ -12,6 +12,7 @@ public class Hand : MonoBehaviour
 
     public float speed;
     public bool move = false;
+    public bool cool = false;
 
     private Scared scared;
     public GameObject boo;
@@ -34,12 +35,6 @@ public class Hand : MonoBehaviour
             StartCoroutine(Death());
         }
 
-        if(other.name == "Flash")
-        {
-
-        }
-
-
     }
 
     public IEnumerator Death()
@@ -56,10 +51,25 @@ public class Hand : MonoBehaviour
 
     }
 
+    public IEnumerator Flash()
+    {
+        move = false;
+        cool = true;
+        this.GetComponent<Animator>().Play("Flash");
+        yield return new WaitForSecondsRealtime(3f);
+        move = true;
+        cool = false;
+
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+        if (this.transform.position.x > 340)
+        {
+            move = false;
+        }
 
         if (start)
         {
@@ -84,4 +94,10 @@ public class Hand : MonoBehaviour
     {
         move = true;
     }
+
+    public void CallFlash()
+    {
+        StartCoroutine(Flash());
+    }
 }
+
