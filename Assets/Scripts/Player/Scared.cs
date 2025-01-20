@@ -50,6 +50,10 @@ public class Scared : MonoBehaviour
     public GameObject Scared2;
     public GameObject Scared3;
 
+    private Animator _scared1Animator;
+    private Animator _scared2Animator;
+    private Animator _scared3Animator;
+
     public GameObject Darkness;
 
     // Start is called before the first frame update
@@ -58,18 +62,18 @@ public class Scared : MonoBehaviour
         lightdetection = lt.GetComponent<LightDetection>();
         camaram = cm.GetComponent<CamaraManager>();
 
-        
-
         timerIsRunning = true;
         ScaredCountDown = ScaredTime;    
         _playerController = GetComponent<PlayerController>();
         Speed = _playerController.MovingState._speed;
 
+        _scared1Animator = Scared1 != null ? Scared1.GetComponent<Animator>() : null;
+        _scared2Animator = Scared2 != null ? Scared2.GetComponent<Animator>() : null;
+        _scared3Animator = Scared3 != null ? Scared3.GetComponent<Animator>() : null;
     }
 
     private void OnDestroy()
     {
-
         _playerController.MovingState._speed = Speed;
     }
 
@@ -173,9 +177,9 @@ public class Scared : MonoBehaviour
 
             if (check2 == true)
             {
-                Scared1.GetComponent<Animator>().SetBool("Scared", true);
-                Scared2.GetComponent<Animator>().SetBool("Scared", true);
-                Scared3.GetComponent<Animator>().SetBool("Scared", true);
+                if (_scared1Animator != null) _scared1Animator.SetBool("Scared", true);
+                if (_scared2Animator != null) _scared2Animator.SetBool("Scared", true);
+                if (_scared3Animator != null) _scared3Animator.SetBool("Scared", true);
 
                 check = false;
             }
@@ -247,9 +251,9 @@ public class Scared : MonoBehaviour
                 GLReady = true;
             }
 
-            Scared1.GetComponent<Animator>().SetBool("Scared", false);
-            Scared2.GetComponent<Animator>().SetBool("Scared", false);
-            Scared3.GetComponent<Animator>().SetBool("Scared", false);
+            if (_scared1Animator != null) _scared1Animator.SetBool("Scared", false);
+            if (_scared2Animator != null) _scared2Animator.SetBool("Scared", false);
+            if (_scared3Animator != null) _scared3Animator.SetBool("Scared", false);
             check2 = true;
 
             ScaredCountDown = ScaredTime;
@@ -288,9 +292,9 @@ public class Scared : MonoBehaviour
 
         }
 
-        Scared1.GetComponent<Animator>().SetBool("Scared", false);
-        Scared2.GetComponent<Animator>().SetBool("Scared", false);
-        Scared3.GetComponent<Animator>().SetBool("Scared", false);
+        if (_scared1Animator != null) _scared1Animator.SetBool("Scared", false);
+        if (_scared2Animator != null) _scared2Animator.SetBool("Scared", false);
+        if (_scared3Animator != null) _scared3Animator.SetBool("Scared", false);
         Darkness.GetComponent<Animator>().SetBool("Dark", false);
         check2 = true;
         check = true;
