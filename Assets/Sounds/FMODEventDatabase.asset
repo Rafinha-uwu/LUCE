@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EventForTesting>k__BackingField:
     Guid:
-      Data1: 708724966
-      Data2: 1130599676
-      Data3: -768382828
-      Data4: 8080861
-    Path: event:/UI/Cancel
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <GameBGM>k__BackingField:
     Guid:
       Data1: 0
@@ -84,32 +84,32 @@ MonoBehaviour:
     Path: 
   <Lever>k__BackingField:
     Guid:
-      Data1: -574722320
-      Data2: 1218196369
-      Data3: -282281045
-      Data4: 861860149
-    Path: event:/UI/TestIsOn
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <Button>k__BackingField:
     Guid:
-      Data1: -574722320
-      Data2: 1218196369
-      Data3: -282281045
-      Data4: 861860149
-    Path: event:/UI/TestIsOn
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <PressurePlate>k__BackingField:
     Guid:
-      Data1: -574722320
-      Data2: 1218196369
-      Data3: -282281045
-      Data4: 861860149
-    Path: event:/UI/TestIsOn
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <Elevator>k__BackingField:
     Guid:
-      Data1: -1920328563
-      Data2: 1328094821
-      Data3: 116378277
-      Data4: -1103520165
-    Path: event:/UI/TestElevator
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <Door>k__BackingField:
     Guid:
       Data1: 0
