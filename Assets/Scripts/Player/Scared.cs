@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
 using System;
+using FMOD.Studio;
 
 public class Scared : MonoBehaviour
 {
@@ -56,6 +57,9 @@ public class Scared : MonoBehaviour
 
     public GameObject Darkness;
 
+    private EventInstance? _scaredSound;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,10 +74,14 @@ public class Scared : MonoBehaviour
         _scared1Animator = Scared1 != null ? Scared1.GetComponent<Animator>() : null;
         _scared2Animator = Scared2 != null ? Scared2.GetComponent<Animator>() : null;
         _scared3Animator = Scared3 != null ? Scared3.GetComponent<Animator>() : null;
+
+        _scaredSound = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.PlayerScared);
+        OnScared += PlayScaredSound;
     }
 
     private void OnDestroy()
     {
+        OnScared -= PlayScaredSound;
         _playerController.MovingState._speed = Speed;
     }
 
@@ -309,7 +317,19 @@ public class Scared : MonoBehaviour
     {
         FMODManager.Instance.PlayOneShotAttached(
             FMODManager.Instance.EventDatabase.PlayerDeath,
-            gameObject
+            _playerController.gameObject
         );
+    }
+
+    private void PlayScaredSound(bool isScared)
+    {
+        if (!_scaredSound.HasValue) return;
+
+        if (isScared)
+        {
+            _scaredSound?.start();
+            FMODManager.Instance.AttachInstance(_scaredSound.Value, _playerController.transform, _playerController.Rb);
+        }
+        else _scaredSound?.stop(STOP_MODE.ALLOWFADEOUT);
     }
 }
