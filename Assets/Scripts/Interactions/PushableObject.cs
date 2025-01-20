@@ -81,7 +81,7 @@ public class PushableObject : MonoBehaviour
         if (horizontalVelocity == 0)_objectMoveSound.Stop();
 
         // Start the sound if it is not playing
-        if (!_objectMoveSound.IsPlaying())
+        else if (!_objectMoveSound.IsPlaying())
         {
             _objectMoveSound.Play();
             FMODManager.Instance.AttachInstance(_objectMoveSound.EventInstance, transform, _rb);

@@ -66,7 +66,7 @@ public class PlayerMovingState : PlayerState
         if (!playSound || horizontalInput == 0) _playerMoveSound.Stop();
 
         // Start the sound if it is not playing
-        if (!_playerMoveSound.IsPlaying())
+        else if (!_playerMoveSound.IsPlaying())
         {
             _playerMoveSound.Play();
             FMODManager.Instance.AttachInstance(_playerMoveSound.EventInstance, player.transform, player.Rb);

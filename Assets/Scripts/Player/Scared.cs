@@ -307,9 +307,9 @@ public class Scared : MonoBehaviour
 
     private void PlayDeathSound()
     {
-        FMODManager.Instance.PlayOneShot(
+        FMODManager.Instance.PlayOneShotAttached(
             FMODManager.Instance.EventDatabase.PlayerDeath,
-            transform.position
+            gameObject
         );
     }
 }
