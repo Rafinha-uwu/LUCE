@@ -46,11 +46,13 @@ public class Hand : MonoBehaviour
     {
         move = false;
         this.GetComponent<Animator>().Play("Grab");
-        yield return new WaitForSeconds(0.6f);
+        PauseManager.Instance.PauseGame();
+        yield return new WaitForSecondsRealtime(0.4f);
         Black2.GetComponent<Animator>().SetBool("Dark", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         move = true;
         scared.Death();
+        PauseManager.Instance.ResumeGame();
 
     }
 
