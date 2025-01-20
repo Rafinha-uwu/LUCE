@@ -62,6 +62,7 @@ public class PressurePlate : SwitchObject
             _animator.SetBool(ANIMATOR_PARAMETER, isOn);
 
         _switchSound.Play();
+        FMODManager.Instance.AttachInstance(_switchSound.EventInstance, transform);
         _switchSound.SetParameter(EVENT_PARAMETER_IS_ON, isOn ? 1 : 0);
     }
 }

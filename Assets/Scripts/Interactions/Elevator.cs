@@ -113,6 +113,7 @@ public class Elevator : SwitchWithRequirements
         int elevatorState = isMoving ? 2 : IsOn ? 1 : 0;
 
         _elevatorSound.Play();
+        FMODManager.Instance.AttachInstance(_elevatorSound.EventInstance, transform);
         _elevatorSound.SetParameter(EVENT_PARAMETER_STATE, elevatorState);
     }
 

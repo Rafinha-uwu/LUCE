@@ -39,7 +39,7 @@ public class FMODManager : MonoBehaviour
         try
         {
             EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
-            
+
             _eventInstances.Add(eventInstance);
             return eventInstance;
         }
@@ -60,6 +60,16 @@ public class FMODManager : MonoBehaviour
 
         _eventEmitters.Add(eventEmitter);
         return eventEmitter;
+    }
+
+    public void PlayOneShotAttached(EventReference eventReference, GameObject gameObject)
+    {
+        RuntimeManager.PlayOneShotAttached(eventReference, gameObject);
+    }
+
+    public void AttachInstance(EventInstance eventInstance, Transform transform, Rigidbody2D rb = null)
+    {
+        RuntimeManager.AttachInstanceToGameObject(eventInstance, transform, rb);
     }
 
 
