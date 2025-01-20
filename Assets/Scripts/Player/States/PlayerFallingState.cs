@@ -35,9 +35,9 @@ public class PlayerFallingState : PlayerState
 
     public void PlayGroundHitSound(PlayerController player)
     {
-        FMODManager.Instance.PlayOneShot(
+        FMODManager.Instance.PlayOneShotAttached(
             FMODManager.Instance.EventDatabase.PlayerGroundHit,
-            player.GroundCheck.transform.position
+            player.gameObject
         );
     }
 }

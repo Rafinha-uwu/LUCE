@@ -40,9 +40,9 @@ public class PlayerJumpingState : PlayerState
 
     private void PlayJumpSound(PlayerController player)
     {
-        FMODManager.Instance.PlayOneShot(
+        FMODManager.Instance.PlayOneShotAttached(
             FMODManager.Instance.EventDatabase.PlayerJump,
-            player.GroundCheck.transform.position
+            player.gameObject
         );
     }
 }

@@ -18,7 +18,7 @@ public class PlayerMovingState : PlayerState
 
         _playerMoveSound = FMODManager.Instance.CreateEventEmitter(
             FMODManager.Instance.EventDatabase.PlayerMove,
-            player.GroundCheck.gameObject,
+            player.gameObject,
             _soundMinDistance, _soundMaxDistance
         );
     }
@@ -53,11 +53,11 @@ public class PlayerMovingState : PlayerState
 
         player.Animator.SetBool(ANIMATOR_PARAMETER, horizontalInput != 0);
 
-        PlayMoveSound(horizontalInput, playSound);
+        PlayMoveSound(player, horizontalInput, playSound);
     }
 
 
-    private void PlayMoveSound(float horizontalInput, bool playSound = true)
+    private void PlayMoveSound(PlayerController player, float horizontalInput, bool playSound = true)
     {
         if (_playerMoveSound == null) return;
 
@@ -66,6 +66,10 @@ public class PlayerMovingState : PlayerState
         if (!playSound || horizontalInput == 0) _playerMoveSound.Stop();
 
         // Start the sound if it is not playing
-        else if (!_playerMoveSound.IsPlaying()) _playerMoveSound.Play();
+        if (!_playerMoveSound.IsPlaying())
+        {
+            _playerMoveSound.Play();
+            FMODManager.Instance.AttachInstance(_playerMoveSound.EventInstance, player.transform, player.Rb);
+        }
     }
 }

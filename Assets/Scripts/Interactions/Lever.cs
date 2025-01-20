@@ -47,6 +47,7 @@ public class Lever : SwitchObject
             _spriteRenderer.sprite = isOn ? _spriteOn : _spriteOff;
 
         _switchSound.Play();
+        FMODManager.Instance.AttachInstance(_switchSound.EventInstance, transform);
         _switchSound.SetParameter(EVENT_PARAMETER_IS_ON, isOn ? 1 : 0);
     }
 
