@@ -15,7 +15,7 @@ public class PauseManager : MonoBehaviour
         if (Instance != null) Instance.enabled = false;
         Instance = this;
 
-        InputHandler = GameObject.Find(PLAYER_TAG).GetComponent<InputHandler>();
+        InputHandler = GameObject.FindGameObjectWithTag(PLAYER_TAG).GetComponent<InputHandler>();
         ResumeGame();
     }
 
