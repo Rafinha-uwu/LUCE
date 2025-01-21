@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 5416637962973495715}
   - component: {fileID: 3223784155453003198}
   - component: {fileID: 9182211320159101340}
-  - component: {fileID: 1381272636446429467}
   m_Layer: 10
   m_Name: Polaroid
   m_TagString: Untagged
@@ -177,10 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f7a39080c3ae94e8ec970be6b59baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemType: 3
   Player: {fileID: 0}
   Colect: {fileID: 0}
   Black: {fileID: 0}
-  On: 1
   Narrative1: 0
 --- !u!50 &9182211320159101340
 Rigidbody2D:
@@ -209,15 +208,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1381272636446429467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4477609209342830111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319663be93f68654d8508eca3e31943c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
