@@ -19,6 +19,8 @@ public class PauseManager : MonoBehaviour
         ResumeGame();
     }
 
+    private void Start() => ResumeGame();
+
 
     public void PauseGame()
     {
@@ -28,6 +30,7 @@ public class PauseManager : MonoBehaviour
         // Set the time scale to 0 and pause the player input
         Time.timeScale = 0;
         if (InputHandler != null) InputHandler.PauseInput();
+        FMODManager.Instance.PauseSounds();
     }
 
     public void ResumeGame()
@@ -38,6 +41,7 @@ public class PauseManager : MonoBehaviour
         // Set the time scale to 1 and resume the player input
         Time.timeScale = 1;
         if (InputHandler != null) InputHandler.ResumeInput();
+        FMODManager.Instance.ResumeSounds();
     }
 
     public void TogglePause()
