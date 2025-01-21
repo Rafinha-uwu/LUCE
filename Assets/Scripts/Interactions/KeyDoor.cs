@@ -1,9 +1,14 @@
+using FMODUnity;
 using UnityEngine;
 
-public class KeyDoor : MonoBehaviour
+public class KeyDoor : MonoBehaviour, IDoorSound
 {
     private static readonly string ANIMATOR_PARAMETER = "Open";
     private Animator _animator;
+
+    private StudioEventEmitter _doorSound;
+    [SerializeField] private float _soundMinDistance = 0f;
+    [SerializeField] private float _soundMaxDistance = 10f;
 
 
     private void Awake()
@@ -22,6 +27,11 @@ public class KeyDoor : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        _doorSound = GetDoorSound();
+    }
+
     private void PlayUnlockSound()
     {
         FMODManager.Instance.PlayOneShotAttached(
@@ -29,4 +39,21 @@ public class KeyDoor : MonoBehaviour
             gameObject
         );
     }
+
+    private StudioEventEmitter GetDoorSound()
+    {
+        return FMODManager.Instance.CreateEventEmitter(
+            FMODManager.Instance.EventDatabase.Door,
+            gameObject,
+            _soundMinDistance, _soundMaxDistance
+        );
+    }
+
+    public void PlayDoorSound()
+    {
+        _doorSound.Play();
+        FMODManager.Instance.AttachInstance(_doorSound.EventInstance, transform);
+    }
+
+    public void StopDoorSound() => _doorSound.Stop();
 }

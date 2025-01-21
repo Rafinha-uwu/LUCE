@@ -9,19 +9,19 @@ public class DoorAnimationBehavior : StateMachineBehaviour
     {
         if (!_playOnEnter) return;
 
-        bool hasDoor = animator.TryGetComponent<Door>(out var door);
-        if (!hasDoor) return;
+        bool hasDoorSound = animator.TryGetComponent<IDoorSound>(out var doorSound);
+        if (!hasDoorSound) return;
 
-        door.PlayDoorSound();
+        doorSound.PlayDoorSound();
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (!_stopOnExit) return;
 
-        bool hasDoor = animator.TryGetComponent<Door>(out var door);
-        if (!hasDoor) return;
+        bool hasDoorSound = animator.TryGetComponent<IDoorSound>(out var doorSound);
+        if (!hasDoorSound) return;
 
-        door.StopDoorSound();
+        doorSound.StopDoorSound();
     }
 }

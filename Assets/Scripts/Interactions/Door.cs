@@ -1,7 +1,7 @@
 ﻿using FMODUnity;
 using UnityEngine;
 
-public class Door : SwitchWithRequirements
+public class Door : SwitchWithRequirements, IDoorSound
 {
     private static readonly string ANIMATOR_PARAMETER = "Open";
     private Animator _animator;
