@@ -14,6 +14,8 @@ public class FMODBusDatabase : ScriptableObject
 
     public void Initialize()
     {
+        Buses.Clear();
+
         foreach (string path in _busPaths)
         {
             // Throws an exception the bus doesn't exist

@@ -10,4 +10,9 @@ public class StartMenuBackgroundPlayer : MonoBehaviour
         _bgmInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartMenuBGM);
         _bgmInstance?.start();
     }
+
+    public void StopBGM()
+    {
+        _bgmInstance?.stop(STOP_MODE.ALLOWFADEOUT);
+    }
 }

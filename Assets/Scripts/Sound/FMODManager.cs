@@ -76,16 +76,25 @@ public class FMODManager : MonoBehaviour
     private void OnDestroy()
     {
         // Stop and release all event instances
-        foreach (EventInstance eventInstance in _eventInstances)
-        {
-            eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            eventInstance.release();
-        }
+        _eventInstances.ForEach(e => {
+            e.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            e.release();
+        });
 
         // Stop all event emitters
-        foreach (StudioEventEmitter eventEmitter in _eventEmitters)
-        {
-            eventEmitter.Stop();
-        }
+        _eventEmitters.ForEach(e => e.Stop());
+    }
+
+
+    public void PauseSounds()
+    {
+        _eventInstances.ForEach(e => e.setPaused(true));
+        _eventEmitters.ForEach(e => e.EventInstance.setPaused(true));
+    }
+
+    public void ResumeSounds()
+    {
+        _eventInstances.ForEach(e => e.setPaused(false));
+        _eventEmitters.ForEach(e => e.EventInstance.setPaused(false));
     }
 }
