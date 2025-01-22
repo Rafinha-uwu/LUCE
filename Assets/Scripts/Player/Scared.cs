@@ -197,7 +197,11 @@ public class Scared : MonoBehaviour
                     OrthReady = false;
                 }
 
-                this.GetComponentInChildren<Light2D>().intensity -= 0.00035f;
+                if (this.GetComponentInChildren<Light2D>().intensity > 0.01f)
+                {
+                    this.GetComponentInChildren<Light2D>().intensity -= 0.00035f;
+                }
+                
 
                 if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > 3)
                 {
