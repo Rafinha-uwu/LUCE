@@ -12,7 +12,11 @@ public class SettingsMenu : MonoBehaviour
     {
         if (_canvas == null) throw new System.Exception("Canvas is not set in the inspector");
 
-        foreach (var category in _categories) category.OnCategorySelected += () => OpenSettingsGroup(category);
+        foreach (var category in _categories)
+        {
+            if (category == null) throw new System.Exception("Category is not set in the inspector");
+            category.OnCategorySelected += () => OpenSettingsGroup(category);
+        }
     }
 
     private void Start() => Close();
