@@ -16,10 +16,11 @@ public class PlayerJumpingState : PlayerState
 
     public override void UpdateState(PlayerController player)
     {
-        player.MovingState.Move(player);
+        player.MovingState.Move(player, playSound: false);
 
         if (player.GroundCheck.IsGrounded)
         {
+            player.FallingState.PlayGroundHitSound(player);
             player.TransitionToState(player.MovingState);
         }
     }
@@ -33,5 +34,15 @@ public class PlayerJumpingState : PlayerState
     public void Jump(PlayerController player)
     {
         player.Rb.velocity = new Vector2(player.Rb.velocity.x, _jumpPower);
+        PlayJumpSound(player);
+    }
+
+
+    private void PlayJumpSound(PlayerController player)
+    {
+        FMODManager.Instance.PlayOneShotAttached(
+            FMODManager.Instance.EventDatabase.PlayerJump,
+            player.gameObject
+        );
     }
 }

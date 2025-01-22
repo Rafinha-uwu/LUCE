@@ -1,11 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using FMODUnity;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class PressurePlate : SwitchObject
 {
     private readonly List<GameObject> _objectsOnPlate = new();
+
+    private static readonly string ANIMATOR_PARAMETER = "press";
     private Animator _animator;
+
+    private static readonly string EVENT_PARAMETER_IS_ON = "IsOn";
+    private StudioEventEmitter _switchSound;
+    [SerializeField] private float _soundMinDistance = 0f;
+    [SerializeField] private float _soundMaxDistance = 10f;
 
     protected void Awake()
     {
@@ -21,7 +29,17 @@ public class PressurePlate : SwitchObject
     protected override void Start()
     {
         IsOn = false;
+        _switchSound = GetSwitchSound();
         base.Start();
+    }
+
+    private StudioEventEmitter GetSwitchSound()
+    {
+        return FMODManager.Instance.CreateEventEmitter(
+            FMODManager.Instance.EventDatabase.PressurePlate,
+            gameObject,
+            _soundMinDistance, _soundMaxDistance
+        );
     }
 
 
@@ -40,6 +58,11 @@ public class PressurePlate : SwitchObject
 
     private void OnPressureStateChange(SwitchObject switchObject, bool isOn)
     {
-        _animator.SetBool("press", isOn);
+        if (_animator != null)
+            _animator.SetBool(ANIMATOR_PARAMETER, isOn);
+
+        _switchSound.Play();
+        FMODManager.Instance.AttachInstance(_switchSound.EventInstance, transform);
+        _switchSound.SetParameter(EVENT_PARAMETER_IS_ON, isOn ? 1 : 0);
     }
 }

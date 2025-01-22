@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FMODUnity;
+using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Lever : SwitchObject
@@ -11,6 +12,11 @@ public class Lever : SwitchObject
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite _spriteOn;
     [SerializeField] private Sprite _spriteOff;
+
+    private static readonly string EVENT_PARAMETER_IS_ON = "IsOn";
+    protected StudioEventEmitter _switchSound;
+    [SerializeField] protected float _soundMinDistance = 0f;
+    [SerializeField] protected float _soundMaxDistance = 10f;
 
     protected virtual void Awake()
     {
@@ -37,8 +43,28 @@ public class Lever : SwitchObject
 
     protected virtual void OnLeverStateChange(SwitchObject switchObject, bool isOn)
     {
-        if (_spriteRenderer == null) return;
-        _spriteRenderer.sprite = isOn ? _spriteOn : _spriteOff;
+        if (_spriteRenderer != null)
+            _spriteRenderer.sprite = isOn ? _spriteOn : _spriteOff;
+
+        _switchSound.Play();
+        FMODManager.Instance.AttachInstance(_switchSound.EventInstance, transform);
+        _switchSound.SetParameter(EVENT_PARAMETER_IS_ON, isOn ? 1 : 0);
+    }
+
+
+    protected override void Start()
+    {
+        _switchSound = GetSwitchSound();
+        base.Start();
+    }
+
+    protected virtual StudioEventEmitter GetSwitchSound()
+    {
+        return FMODManager.Instance.CreateEventEmitter(
+            FMODManager.Instance.EventDatabase.Lever,
+            gameObject,
+            _soundMinDistance, _soundMaxDistance
+        );
     }
 
 
