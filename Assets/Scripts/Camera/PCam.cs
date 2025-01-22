@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class ParentTagDetector : MonoBehaviour
+public class PCam : MonoBehaviour
 {
     private Hand hand;
     public GameObject mao;
@@ -15,6 +15,8 @@ public class ParentTagDetector : MonoBehaviour
 
     private static InputHandler _inputHandler;
     protected static readonly string PLAYER_TAG = "Player";
+
+    public bool Cooldown = true;
 
     protected virtual void Awake()
     {
@@ -34,14 +36,17 @@ public class ParentTagDetector : MonoBehaviour
     {
         float distanceToMao = Vector2.Distance(transform.position, mao.transform.position);
 
-        if (holding) 
-        { 
+        if (holding && Cooldown == false) 
+        {
             Light.SetActive(true);
             if (!flipScript.IsFacingRight && distanceToMao <= detectionRange)
             {
                 hand.CallFlash();
+                
             }
 
+            Cooldown = true;
+            Invoke("Cool", 5);
             Invoke("Desligar", 0.3f); 
         
         }
@@ -63,6 +68,8 @@ public class ParentTagDetector : MonoBehaviour
                 {
                     hand.start = true;
                     once = false;
+                    Invoke("Cool", 9);
+
                 }
 
                 holding = true;
@@ -81,6 +88,12 @@ public class ParentTagDetector : MonoBehaviour
     private void Desligar() 
     {
         Light.SetActive(false);
+
+    }
+
+    private void Cool()
+    {
+        Cooldown = false;
 
     }
 

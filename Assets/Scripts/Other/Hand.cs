@@ -19,6 +19,10 @@ public class Hand : MonoBehaviour
 
     public GameObject Black2;
 
+    public GameObject Box;
+    public GameObject Block;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,11 @@ public class Hand : MonoBehaviour
         if (other.CompareTag("Player")) 
         {
             StartCoroutine(Death());
+        }
+
+        if (other.name == "Luz")
+        {
+            other.gameObject.SetActive(false);
         }
 
     }
@@ -66,10 +75,11 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.x > 340)
+        if (this.transform.position.x > 390)
         {
             move = false;
         }
+        
 
         if (start)
         {
@@ -79,6 +89,7 @@ public class Hand : MonoBehaviour
             Touchi.SetActive(true);
             this.GetComponent<Animator>().Play("Start");
             Invoke("Alive", 10.4f);
+            Invoke("Boxes", 9.1f);
             start = false;
         }
 
@@ -93,6 +104,12 @@ public class Hand : MonoBehaviour
     public void Alive()
     {
         move = true;
+    }
+
+    public void Boxes()
+    {
+        Box.GetComponent<Animator>().Play("Fall");
+        Block.SetActive(false);
     }
 
     public void CallFlash()

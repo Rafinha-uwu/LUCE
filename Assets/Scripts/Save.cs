@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static Cinemachine.CinemachineOrbitalTransposer;
 
 public class Save : MonoBehaviour
 {
@@ -46,14 +48,53 @@ public class Save : MonoBehaviour
     public Transform Box9;
     private Vector3 XBox9;
 
+    public Transform Box10;
+    private Vector3 XBox10;
+
+    public Transform Box11;
+    private Vector3 XBox11;
+
+    public Transform Box12;
+    private Vector3 XBox12;
+
+
     public Transform Hand;
     private Vector3 XHand;
+
+    private PuzzleEye puzzle;
+    public GameObject pp;
+
+    private Hand hand;
+    public GameObject mao;
+
+    public GameObject L1;
+    public GameObject L2;
+    public GameObject L3;
+    public GameObject L4;
+    public GameObject L5;
+    public GameObject L6;
+    public GameObject L7;
+    public GameObject L8;
+
+    public GameObject TrapLight2;
+    public GameObject TrapLight3;
+    public GameObject TrapLight4;
+
+    public GameObject Camera;
+
+    public GameObject Lever1;
+    public GameObject Lever2;
+    public GameObject Lever3;
+
 
     // Start is called before the first frame update
     void Start()
     {
         camaram = cm.GetComponent<CamaraManager>();
         scared = sc.GetComponent<Scared>();
+        hand = mao.GetComponent<Hand>();
+
+        puzzle = pp.GetComponent<PuzzleEye>();
 
         XBaseBox = BaseBox.position;
         XBox1 = Box1.position;
@@ -69,6 +110,11 @@ public class Save : MonoBehaviour
         XValve = Valve.position;
 
         XHand = Hand.position;
+
+        XBox10 = Box10.position;
+        XBox11 = Box11.position;
+        XBox12 = Box12.position;
+
     }
 
     // Update is called once per frame
@@ -184,11 +230,11 @@ public class Save : MonoBehaviour
 
         }
 
-        if (camaram._currentCamera.name == "Cam Tunel 2")
+        if (camaram._currentCamera.name == "Cam TP1")
         {
             if (scared.check == true)
             {
-                Hand.position = XHand;
+                puzzle.Phase = 1f;
             }
 
         }
@@ -198,11 +244,68 @@ public class Save : MonoBehaviour
 
         }
 
+        if (camaram._currentCamera.name == "Cam Tunel 2")
+        {
+            if (scared.check == true)
+            {
+                Hand.position = XHand;
+                hand.move = true;
+
+                L1.gameObject.SetActive(true);
+                L2.gameObject.SetActive(true);
+                L3.gameObject.SetActive(true);
+                L4.gameObject.SetActive(true);
+                L5.gameObject.SetActive(true);
+                L6.gameObject.SetActive(true);
+                L7.gameObject.SetActive(true);
+                L8.gameObject.SetActive(true);
+
+                TrapLight2.GetComponent<Animator>().SetBool("Open", false);
+                TrapLight3.GetComponent<Animator>().SetBool("Open", false);
+                TrapLight4.GetComponent<Animator>().SetBool("Open", false);
+
+                TrapLight2.GetComponent<Animator>().SetBool("Reset", true);
+                TrapLight3.GetComponent<Animator>().SetBool("Reset", true);
+                TrapLight4.GetComponent<Animator>().SetBool("Reset", true);
+                Invoke("HardReset", 1);
+
+                Box10.position = XBox10;
+                Box11.position = XBox11;
+                Box12.position = XBox12;
+
+                //Lever1.GetComponent<Lever>().OnInteractAction();
+
+                Transform parentTransform = transform.parent;
+
+
+                if (parentTransform.name == "HoldPosition")
+                {
+
+                }
+                else
+                {
+                    //Camera.transform.position = new Vector3(169, -2.4f, 0);
+                }
+
+            }
+
+        }
+        else
+        {
+
+
+
+        }
+
+
 
     }
 
     private void HardReset()
     {
         TrapLight.GetComponent<Animator>().SetBool("Reset", false);
+        TrapLight2.GetComponent<Animator>().SetBool("Reset", false);
+        TrapLight3.GetComponent<Animator>().SetBool("Reset", false);
+        TrapLight4.GetComponent<Animator>().SetBool("Reset", false);
     }
 }
