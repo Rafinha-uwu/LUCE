@@ -76,7 +76,7 @@ public class PCam : MonoBehaviour
 
                 if (!flipScript.IsFacingRight)
                 {
-
+                    this.transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
                 }
                 else
                 {
@@ -88,6 +88,7 @@ public class PCam : MonoBehaviour
             else
             {
                 holding = false;
+                this.transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
             }
 
         }

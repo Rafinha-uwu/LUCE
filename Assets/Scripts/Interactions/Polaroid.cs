@@ -14,6 +14,8 @@ public class Polaroid : MonoBehaviour
     private CountColect count;
     public bool On;
     public bool Narrative1 = false;
+    public bool Narrative2 = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,13 @@ public class Polaroid : MonoBehaviour
                     Black.GetComponent<Animator>().SetBool("Dark", true);
 
                     StartCoroutine(Die1());
+                }
+                if (Narrative2)
+                {
+                    Colect.GetComponent<Animator>().SetBool("Nar1", true);
+                    Black.GetComponent<Animator>().SetBool("Dark", true);
+
+                    StartCoroutine(Die3());
                 }
                 else
                 {
@@ -67,6 +76,23 @@ public class Polaroid : MonoBehaviour
         Destroy(this.gameObject);
     }
     public IEnumerator Die1()
+    {
+        On = false;
+        yield return new WaitForSecondsRealtime(1f);
+        Colect.GetComponent<Animator>().SetBool("Nar1", false);
+        yield return new WaitForSecondsRealtime(2.5f);
+        count.nColect++;
+        yield return new WaitForSecondsRealtime(20f);
+        Black.GetComponent<Animator>().SetBool("Dark", false);
+
+        Player.GetComponent<PlayerHoldItem>().ForceDrop();
+
+        yield return new WaitForSecondsRealtime(0.5f);
+        Player.GetComponent<Scared>().Speed_scared = 220;
+        PauseManager.Instance.ResumeGame();
+        Destroy(this.gameObject);
+    }
+    public IEnumerator Die3()
     {
         On = false;
         yield return new WaitForSecondsRealtime(1f);

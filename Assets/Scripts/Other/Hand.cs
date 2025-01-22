@@ -21,7 +21,7 @@ public class Hand : MonoBehaviour
 
     public GameObject Box;
     public GameObject Block;
-
+    public GameObject Block2;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +83,8 @@ public class Hand : MonoBehaviour
 
         if (start)
         {
-            //this.transform.position = new Vector3(142, -2, 0);
+
+            Block2.SetActive(true);
             Sprite.SetActive(true);
             Black.SetActive(true);
             Touchi.SetActive(true);
@@ -104,6 +105,7 @@ public class Hand : MonoBehaviour
     public void Alive()
     {
         move = true;
+        Block2.SetActive(false);
     }
 
     public void Boxes()

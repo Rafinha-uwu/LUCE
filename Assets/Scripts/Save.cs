@@ -73,7 +73,6 @@ public class Save : MonoBehaviour
     public GameObject L4;
     public GameObject L5;
     public GameObject L6;
-    public GameObject L7;
     public GameObject L8;
 
     public GameObject TrapLight2;
@@ -82,9 +81,9 @@ public class Save : MonoBehaviour
 
     public GameObject Camera;
 
-    public GameObject Lever1;
-    public GameObject Lever2;
-    public GameObject Lever3;
+    [SerializeField] private Lever leverToControl1;
+    [SerializeField] private Lever leverToControl2;
+    [SerializeField] private Lever leverToControl3;
 
 
     // Start is called before the first frame update
@@ -257,7 +256,6 @@ public class Save : MonoBehaviour
                 L4.gameObject.SetActive(true);
                 L5.gameObject.SetActive(true);
                 L6.gameObject.SetActive(true);
-                L7.gameObject.SetActive(true);
                 L8.gameObject.SetActive(true);
 
                 TrapLight2.GetComponent<Animator>().SetBool("Open", false);
@@ -273,9 +271,11 @@ public class Save : MonoBehaviour
                 Box11.position = XBox11;
                 Box12.position = XBox12;
 
-                //Lever1.GetComponent<Lever>().OnInteractAction();
+                leverToControl1.SetLeverState(false);
+                leverToControl2.SetLeverState(false);
+                leverToControl3.SetLeverState(false);
 
-                Transform parentTransform = transform.parent;
+                Transform parentTransform = Camera.transform.parent;
 
 
                 if (parentTransform.name == "HoldPosition")
@@ -284,7 +284,7 @@ public class Save : MonoBehaviour
                 }
                 else
                 {
-                    //Camera.transform.position = new Vector3(169, -2.4f, 0);
+                    Camera.transform.position = new Vector3(253, -2.4f, 0);
                 }
 
             }
