@@ -12,6 +12,8 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private StartMenuBackgroundPlayer _backgroundPlayer;
     private EventInstance? _startGameCutsceneInstance;
 
+    [SerializeField] private SettingsMenu _settingsMenu;
+
 
     private void Start()
     {
@@ -33,6 +35,11 @@ public class StartMenu : MonoBehaviour
     {
         _startGameCutsceneInstance?.stop(STOP_MODE.ALLOWFADEOUT);
         SceneManager.LoadScene(GAME_SCENE);
+    }
+
+    public void Settings()
+    {
+        _settingsMenu.Open();
     }
 
     public void Exit()
