@@ -1,44 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Unity.Collections.AllocatorManager;
 
 public class StartMenu : MonoBehaviour
 {
+    private static readonly string GAME_SCENE = "Main";
 
-    public GameObject Menu;
-    public GameObject Black;
+    [SerializeField] private Animator _menuAnimator;
+    [SerializeField] private Animator _blackAnimator;
+
+    [SerializeField] private StartMenuBackgroundPlayer _backgroundPlayer;
+    private EventInstance? _startGameCutsceneInstance;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
     }
 
     public void NewGame()
     {
-        Black.GetComponent<Animator>().SetBool("Dark", true);
-        Menu.GetComponent<Animator>().SetBool("Start", true);
-        Invoke("Load", 16);
+        _blackAnimator.SetBool("Dark", true);
+        _menuAnimator.SetBool("Start", true);
+
+        _backgroundPlayer.StopBGM();
+        _startGameCutsceneInstance?.start();
+
+        Invoke(nameof(Load), 16);
     }
+
     public void Load()
     {
-
-        SceneManager.LoadScene("Main");
+        _startGameCutsceneInstance?.stop(STOP_MODE.ALLOWFADEOUT);
+        SceneManager.LoadScene(GAME_SCENE);
     }
 
     public void Exit()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
-
 }
 
 

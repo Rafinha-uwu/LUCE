@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
-using UnityEngine.Rendering;
-using JetBrains.Annotations;
+using System;
+using FMOD.Studio;
 
 public class Scared : MonoBehaviour
 {
+    public event Action<bool> OnScared;
+    private bool _isScared = false;
 
     LightDetection lightdetection;
     public GameObject lt;
@@ -49,7 +51,14 @@ public class Scared : MonoBehaviour
     public GameObject Scared2;
     public GameObject Scared3;
 
+    private Animator _scared1Animator;
+    private Animator _scared2Animator;
+    private Animator _scared3Animator;
+
     public GameObject Darkness;
+
+    private EventInstance? _scaredSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,18 +66,22 @@ public class Scared : MonoBehaviour
         lightdetection = lt.GetComponent<LightDetection>();
         camaram = cm.GetComponent<CamaraManager>();
 
-        
-
         timerIsRunning = true;
         ScaredCountDown = ScaredTime;    
         _playerController = GetComponent<PlayerController>();
         Speed = _playerController.MovingState._speed;
 
+        _scared1Animator = Scared1 != null ? Scared1.GetComponent<Animator>() : null;
+        _scared2Animator = Scared2 != null ? Scared2.GetComponent<Animator>() : null;
+        _scared3Animator = Scared3 != null ? Scared3.GetComponent<Animator>() : null;
+
+        _scaredSound = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.PlayerScared);
+        OnScared += PlayScaredSound;
     }
 
     private void OnDestroy()
     {
-
+        OnScared -= PlayScaredSound;
         _playerController.MovingState._speed = Speed;
     }
 
@@ -158,8 +171,13 @@ public class Scared : MonoBehaviour
         }
 
         bool isScared = lightdetection.LightValue < 0.25f;
-        _playerController.Animator.SetBool(ANIMATOR_PARAMETER, isScared);
-        _playerController.MovingState._speed = isScared ? Speed_scared : Speed;
+        if (_isScared != isScared)
+        {
+            _isScared = isScared;
+            OnScared?.Invoke(_isScared);
+            _playerController.Animator.SetBool(ANIMATOR_PARAMETER, isScared);
+            _playerController.MovingState._speed = isScared ? Speed_scared : Speed;
+        }
 
         if (isScared)
 
@@ -167,9 +185,9 @@ public class Scared : MonoBehaviour
 
             if (check2 == true)
             {
-                Scared1.GetComponent<Animator>().SetBool("Scared", true);
-                Scared2.GetComponent<Animator>().SetBool("Scared", true);
-                Scared3.GetComponent<Animator>().SetBool("Scared", true);
+                if (_scared1Animator != null) _scared1Animator.SetBool("Scared", true);
+                if (_scared2Animator != null) _scared2Animator.SetBool("Scared", true);
+                if (_scared3Animator != null) _scared3Animator.SetBool("Scared", true);
 
                 check = false;
             }
@@ -241,9 +259,9 @@ public class Scared : MonoBehaviour
                 GLReady = true;
             }
 
-            Scared1.GetComponent<Animator>().SetBool("Scared", false);
-            Scared2.GetComponent<Animator>().SetBool("Scared", false);
-            Scared3.GetComponent<Animator>().SetBool("Scared", false);
+            if (_scared1Animator != null) _scared1Animator.SetBool("Scared", false);
+            if (_scared2Animator != null) _scared2Animator.SetBool("Scared", false);
+            if (_scared3Animator != null) _scared3Animator.SetBool("Scared", false);
             check2 = true;
 
             ScaredCountDown = ScaredTime;
@@ -262,6 +280,8 @@ public class Scared : MonoBehaviour
 
     public void Death()
     {
+        PlayDeathSound();
+
         if (camaram._currentCamera.name == "Cam Bunker")
         {
             if(CheckTrue == Check1)
@@ -280,9 +300,9 @@ public class Scared : MonoBehaviour
 
         }
 
-        Scared1.GetComponent<Animator>().SetBool("Scared", false);
-        Scared2.GetComponent<Animator>().SetBool("Scared", false);
-        Scared3.GetComponent<Animator>().SetBool("Scared", false);
+        if (_scared1Animator != null) _scared1Animator.SetBool("Scared", false);
+        if (_scared2Animator != null) _scared2Animator.SetBool("Scared", false);
+        if (_scared3Animator != null) _scared3Animator.SetBool("Scared", false);
         Darkness.GetComponent<Animator>().SetBool("Dark", false);
         check2 = true;
         check = true;
@@ -290,5 +310,26 @@ public class Scared : MonoBehaviour
         ScaredCountDown = ScaredTime;
         this.GetComponentInChildren<Light2D>().intensity = 0.17f;
         timerIsRunning = true;
+    }
+
+
+    private void PlayDeathSound()
+    {
+        FMODManager.Instance.PlayOneShotAttached(
+            FMODManager.Instance.EventDatabase.PlayerDeath,
+            _playerController.gameObject
+        );
+    }
+
+    private void PlayScaredSound(bool isScared)
+    {
+        if (!_scaredSound.HasValue) return;
+
+        if (isScared)
+        {
+            _scaredSound?.start();
+            FMODManager.Instance.AttachInstance(_scaredSound.Value, _playerController.transform, _playerController.Rb);
+        }
+        else _scaredSound?.stop(STOP_MODE.ALLOWFADEOUT);
     }
 }

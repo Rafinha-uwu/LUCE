@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FMODUnity;
+using UnityEngine;
 
 public class Button : Lever
 {
@@ -15,6 +16,15 @@ public class Button : Lever
     {
         base.TurnOn();
         _pressCount = _pressTime;
+    }
+
+    protected override StudioEventEmitter GetSwitchSound()
+    {
+        return FMODManager.Instance.CreateEventEmitter(
+            FMODManager.Instance.EventDatabase.Button,
+            gameObject,
+            _soundMinDistance, _soundMaxDistance
+        );
     }
 
 
