@@ -4,11 +4,11 @@ public class SettingsCategory : MonoBehaviour
 {
     public event System.Action OnCategorySelected;
 
-    [SerializeField] private UnityEngine.UI.Button _categoryButton;
-    [SerializeField] private GameObject _settingsGroup;
+    [SerializeField] protected UnityEngine.UI.Button _categoryButton;
+    [SerializeField] protected GameObject _settingsGroup;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (_categoryButton == null) throw new System.Exception("Category button is not set in the inspector");
         if (_settingsGroup == null) throw new System.Exception("Settings group is not set in the inspector");
@@ -17,13 +17,13 @@ public class SettingsCategory : MonoBehaviour
     }
 
 
-    public void Open()
+    public virtual void Open()
     {
         _settingsGroup.SetActive(true);
         _categoryButton.interactable = false;
     }
 
-    public void Close()
+    public virtual void Close()
     {
         _settingsGroup.SetActive(false);
         _categoryButton.interactable = true;
