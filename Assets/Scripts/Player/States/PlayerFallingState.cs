@@ -15,10 +15,11 @@ public class PlayerFallingState : PlayerState
     public override void UpdateState(PlayerController player)
     {
         _coyoteTimeCounter -= Time.fixedDeltaTime;
-        player.MovingState.Move(player);
+        player.MovingState.Move(player, playSound: false);
 
         if (player.GroundCheck.IsGrounded)
         {
+            PlayGroundHitSound(player);
             player.TransitionToState(player.MovingState);
         }
         else if (_coyoteTimeCounter > 0 && player.InputHandler.JumpBufferCounter > 0)
@@ -29,5 +30,14 @@ public class PlayerFallingState : PlayerState
 
     public override void ExitState(PlayerController player)
     {
+    }
+
+
+    public void PlayGroundHitSound(PlayerController player)
+    {
+        FMODManager.Instance.PlayOneShotAttached(
+            FMODManager.Instance.EventDatabase.PlayerGroundHit,
+            player.gameObject
+        );
     }
 }
