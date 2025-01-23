@@ -1,113 +1,98 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
-public class Polaroid : MonoBehaviour
+public class Polaroid : HoldableItem
 {
-
     public GameObject Player;
     public GameObject Colect;
     public GameObject Black;
 
     private CountColect count;
-    public bool On;
-    public bool Narrative1 = false;
-    public bool Narrative2 = false;
+    private Animator _colectAnimator;
+    private Animator _blackAnimator;
+
+    private PlayerHoldItem _playerHoldItem;
+    private Scared _playerScared;
 
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        count = Colect.GetComponent<CountColect>();
+        base.Start();
 
+        count = Colect.GetComponent<CountColect>();
+        _colectAnimator = Colect.GetComponent<Animator>();
+        _blackAnimator = Black.GetComponent<Animator>();
+
+        _playerHoldItem = Player.GetComponent<PlayerHoldItem>();
+        _playerScared = Player.GetComponent<Scared>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public override void StartHold(Transform holdPosition)
     {
-        if (On)
+        PauseManager.Instance.PauseGame();
+
+        _grabSound?.setPaused(false);
+        base.StartHold(holdPosition);
+
+        switch (_itemType)
         {
-            if (transform.IsChildOf(Player.transform))
-            {
-                PauseManager.Instance.PauseGame();
-                if (Narrative1)
-                {
-                    Colect.GetComponent<Animator>().SetBool("Nar1", true);
-                    Black.GetComponent<Animator>().SetBool("Dark", true);
+            case ItemType.Polaroid:
+                _colectAnimator.SetBool("Found", true);
+                _blackAnimator.SetBool("Dark", true);
 
-                    StartCoroutine(Die1());
-                }
-                if (Narrative2)
-                {
-                    Colect.GetComponent<Animator>().SetBool("Nar1", true);
-                    Black.GetComponent<Animator>().SetBool("Dark", true);
+                StartCoroutine(Die());
+                break;
 
-                    StartCoroutine(Die3());
-                }
-                else
-                {
-                    Colect.GetComponent<Animator>().SetBool("Found", true);
-                    Black.GetComponent<Animator>().SetBool("Dark", true);
+            case ItemType.PolaroidNarrative1:
+                _colectAnimator.SetBool("Nar1", true);
+                _blackAnimator.SetBool("Dark", true);
 
-                    StartCoroutine(Die());
-                }
-            }
+                StartCoroutine(Die1());
+                break;
+
+            // ...
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (!gameObject.scene.isLoaded) return;
+        PauseManager.Instance.ResumeGame();
     }
 
 
     public IEnumerator Die()
     {
-        On = false;
         yield return new WaitForSecondsRealtime(1f);
-        Colect.GetComponent<Animator>().SetBool("Found", false);
+        _colectAnimator.SetBool("Found", false);
+
         yield return new WaitForSecondsRealtime(2.5f);
+        _playerHoldItem.ForceDrop();
         count.nColect++;
+
         yield return new WaitForSecondsRealtime(1f);
-        Black.GetComponent<Animator>().SetBool("Dark", false);
-
-        Player.GetComponent<PlayerHoldItem>().ForceDrop();
-
+        _blackAnimator.SetBool("Dark", false);
 
         yield return new WaitForSecondsRealtime(0.5f);
-        PauseManager.Instance.ResumeGame();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
+
     public IEnumerator Die1()
     {
-        On = false;
         yield return new WaitForSecondsRealtime(1f);
-        Colect.GetComponent<Animator>().SetBool("Nar1", false);
-        yield return new WaitForSecondsRealtime(2.5f);
-        count.nColect++;
-        yield return new WaitForSecondsRealtime(20f);
-        Black.GetComponent<Animator>().SetBool("Dark", false);
+        _colectAnimator.SetBool("Nar1", false);
 
-        Player.GetComponent<PlayerHoldItem>().ForceDrop();
+        yield return new WaitForSecondsRealtime(2.5f);
+        _playerHoldItem.ForceDrop();
+        count.nColect++;
+
+        yield return new WaitForSecondsRealtime(20f);
+        _blackAnimator.SetBool("Dark", false);
 
         yield return new WaitForSecondsRealtime(0.5f);
-        Player.GetComponent<Scared>().Speed_scared = 220;
-        PauseManager.Instance.ResumeGame();
-        Destroy(this.gameObject);
-    }
-    public IEnumerator Die3()
-    {
-        On = false;
-        yield return new WaitForSecondsRealtime(1f);
-        Colect.GetComponent<Animator>().SetBool("Nar1", false);
-        yield return new WaitForSecondsRealtime(2.5f);
-        count.nColect++;
-        yield return new WaitForSecondsRealtime(20f);
-        Black.GetComponent<Animator>().SetBool("Dark", false);
-
-        Player.GetComponent<PlayerHoldItem>().ForceDrop();
-
-        yield return new WaitForSecondsRealtime(0.5f);
-        Player.GetComponent<Scared>().Speed_scared = 220;
-        PauseManager.Instance.ResumeGame();
-        Destroy(this.gameObject);
+        _playerScared.Speed_scared = 220;
+        Destroy(gameObject);
     }
 
+    // ...
 }
