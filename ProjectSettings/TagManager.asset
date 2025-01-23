@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Object
   - Checkpoint
+  - Flash
   layers:
   - Default
   - TransparentFX
