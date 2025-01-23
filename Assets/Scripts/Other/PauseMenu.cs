@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OnSettingsClose()
     {
-        _canvas.enabled = true;
+        if (PauseManager.Instance.IsPaused) _canvas.enabled = true;
     }
 
 
