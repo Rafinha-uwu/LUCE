@@ -6,7 +6,7 @@ public class Help : MonoBehaviour
     private Animator animator;
     private bool playerInRange = false;
     private bool isUsingController = false;
-    private bool hasPlayedAnimation = false;
+    // private bool hasPlayedAnimation = false;
 
     private void Start()
     {
@@ -45,7 +45,7 @@ public class Help : MonoBehaviour
         {
             animator.Play("KeyboardHelp");
         }
-        hasPlayedAnimation = true;
+        // hasPlayedAnimation = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,7 +53,7 @@ public class Help : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            hasPlayedAnimation = false;
+            // hasPlayedAnimation = false;
             PlayAppropriateAnimation();
         }
     }
@@ -63,7 +63,7 @@ public class Help : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            hasPlayedAnimation = false;
+            // hasPlayedAnimation = false;
             // Play different idle animations based on last used input method
             if (isUsingController)
             {
