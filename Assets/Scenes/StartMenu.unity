@@ -5602,7 +5602,7 @@ MonoBehaviour:
   m_Content: {fileID: 250157219}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -7722,6 +7722,7 @@ MonoBehaviour:
   _categoryButton: {fileID: 1063864854}
   _settingsGroup: {fileID: 22067662}
   _template: {fileID: 1666624237}
+  _content: {fileID: 250157219}
   _applyButton: {fileID: 1105123937}
 --- !u!1 &1773567590
 GameObject:
