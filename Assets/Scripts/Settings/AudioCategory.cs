@@ -5,18 +5,11 @@ public class AudioCategory : SettingsCategory
 {
     [SerializeField] private TemplateAudioSettings _template;
     [SerializeField] private RectTransform _content;
+
+    private FMODBusDatabase.NamedBus[] _namedBuses;
     private readonly List<TemplateAudioSettings> _options = new();
 
     [SerializeField] private UnityEngine.UI.Button _applyButton;
-
-
-    private readonly Dictionary<string, int> _testing = new() {
-        { "Master", 100 },
-        { "Music", 75 },
-        { "Ambient", 50 },
-        { "SFX", 25 },
-        { "Voice", 0 }
-    };
 
 
     protected override void Awake()
@@ -40,15 +33,16 @@ public class AudioCategory : SettingsCategory
     private void SetupOptions()
     {
         // Get buses from FMODBusDatabase
+        _namedBuses = FMODManager.Instance.BusDatabase.Buses;
 
         // Create a text and slider for each bus (according to the template given)
         int i = 0;
-        foreach (var name in _testing.Keys)
+        foreach (var namedBus in _namedBuses)
         {
             TemplateAudioSettings optionTemplate = Instantiate(_template, _content);
             
             optionTemplate.Initialize();
-            optionTemplate.SetLabel(name);
+            optionTemplate.SetLabel(namedBus.BusName);
             optionTemplate.SetToNthPosition(i);
             optionTemplate.gameObject.SetActive(true);
 
@@ -57,7 +51,7 @@ public class AudioCategory : SettingsCategory
         }
 
         // Set the content height according to the number of options
-        float contentNewHeight = _template.GetHeight() * _testing.Count;
+        float contentNewHeight = _template.GetHeight() * _namedBuses.Length;
         _content.sizeDelta = new(_content.sizeDelta.x, contentNewHeight);
     }
 
@@ -70,9 +64,10 @@ public class AudioCategory : SettingsCategory
         for (int i = 0; i < _options.Count; i++)
         {
             TemplateAudioSettings option = _options[i];
-            float volume = _testing[option.GetLabel()];
+            FMODBusDatabase.NamedBus namedBus = _namedBuses[i];
 
-            option.SetSliderValue(Mathf.RoundToInt(volume));
+            int volume = namedBus.GetBusVolume();
+            option.SetSliderValue(volume);
         }
     }
 
@@ -82,9 +77,10 @@ public class AudioCategory : SettingsCategory
         for (int i = 0; i < _options.Count; i++)
         {
             TemplateAudioSettings option = _options[i];
-            int volume = option.GetSliderValue();
+            FMODBusDatabase.NamedBus namedBus = _namedBuses[i];
 
-            _testing[option.GetLabel()] = volume;
+            int volume = option.GetSliderValue();
+            namedBus.SetBusVolume(volume);
         }
     }
 }
