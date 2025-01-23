@@ -19,10 +19,9 @@ public class StartMenu : MonoBehaviour
     private void Awake()
     {
         if (_canvas == null) throw new System.NullReferenceException("Canvas is not set in the inspector");
-        if (_settingsMenu == null) throw new System.NullReferenceException("SettingsMenu is not set in the inspector");
 
         _canvas.enabled = true;
-        _settingsMenu.OnClose += OnSettingsClose;
+        if (_settingsMenu != null) _settingsMenu.OnClose += OnSettingsClose;
     }
 
     private void Start()
@@ -32,7 +31,7 @@ public class StartMenu : MonoBehaviour
 
     private void OnDestroy()
     {
-        _settingsMenu.OnClose -= OnSettingsClose;
+        if (_settingsMenu != null) _settingsMenu.OnClose -= OnSettingsClose;
     }
 
 
@@ -56,6 +55,7 @@ public class StartMenu : MonoBehaviour
 
     public void Settings()
     {
+        if (_settingsMenu == null) return;
         _canvas.enabled = false;
         _settingsMenu.Open();
     }
