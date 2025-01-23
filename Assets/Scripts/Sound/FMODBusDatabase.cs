@@ -1,26 +1,33 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
-using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "FMODBusDatabase", menuName = "Sound/FMODBusDatabase")]
 public class FMODBusDatabase : ScriptableObject
 {
-    [SerializeField] private string[] _busPaths;
-
-    // Dictionary to store the buses by their path
-    public Dictionary<string, Bus> Buses = new();
-
+    [field: SerializeField] public NamedBus[] Buses { get; private set; }
 
     public void Initialize()
     {
-        Buses.Clear();
+        foreach (var bus in Buses)
+        {
+            if (bus == null) throw new System.Exception("Bus is not set in the inspector");
+            bus.Initialize();
+        }
+    }
 
-        foreach (string path in _busPaths)
+
+    [System.Serializable]
+    public class NamedBus
+    {
+        [field: SerializeField] public string BusName { get; private set; }
+        [field: SerializeField] public string BusPath { get; private set; }
+        public Bus Bus { get; private set; }
+
+        public void Initialize()
         {
             // Throws an exception the bus doesn't exist
-            Bus bus = RuntimeManager.GetBus(path);
-            Buses.Add(path, bus);
+            Bus = RuntimeManager.GetBus(BusPath);
         }
     }
 }
