@@ -59,8 +59,8 @@ public class PCam : HoldableItem
         if (!once) return;
 
         // Execute on the first time holding the item
-        hand.start = true;
         once = false;
+        hand.StartHand();
         Invoke(nameof(Cool), 9);
     }
 
