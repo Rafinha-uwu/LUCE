@@ -39,11 +39,6 @@ public class End1 : SwitchObject
     }
     private void OnDestroy() => OnStateChange -= OnEndStateChange;
 
-    protected override void Start()
-    {
-        IsOn = false;
-        base.Start();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
