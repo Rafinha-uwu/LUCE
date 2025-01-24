@@ -87,6 +87,7 @@ public class Save : MonoBehaviour
 
 
     // Start is called before the first frame update
+    /*
     void Start()
     {
         camaram = cm.GetComponent<CamaraManager>();
@@ -308,4 +309,5 @@ public class Save : MonoBehaviour
         TrapLight3.GetComponent<Animator>().SetBool("Reset", false);
         TrapLight4.GetComponent<Animator>().SetBool("Reset", false);
     }
+    */
 }
