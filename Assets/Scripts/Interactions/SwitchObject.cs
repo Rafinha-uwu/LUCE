@@ -1,7 +1,8 @@
+using Newtonsoft.Json;
 using System;
 using UnityEngine;
 
-public class SwitchObject : MonoBehaviour
+public class SwitchObject : MonoBehaviour, ISavable
 {
     public event Action<SwitchObject, bool> OnStateChange;
     [field: SerializeField] public bool IsOn { get; protected set; }
@@ -20,4 +21,9 @@ public class SwitchObject : MonoBehaviour
     protected virtual void Toggle() => SwitchTo(!IsOn);
     protected virtual void TurnOn() => SwitchTo(true);
     protected virtual void TurnOff() => SwitchTo(false);
+
+
+    public virtual string GetSaveName() => name;
+    public virtual object GetSaveData() => IsOn;
+    public virtual void LoadData(object data) => SwitchTo((bool)data);
 }
