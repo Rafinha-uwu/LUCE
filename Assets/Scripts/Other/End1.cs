@@ -17,6 +17,12 @@ public class End1 : SwitchObject
     public GameObject Lights9;
     public GameObject Lights10;
 
+    private Coroutine _coroutine;
+
+
+    private void Awake() => OnStateChange += OnEndStateChange;
+    private void OnDestroy() => OnStateChange -= OnEndStateChange;
+
     protected override void Start()
     {
         IsOn = false;
@@ -28,12 +34,36 @@ public class End1 : SwitchObject
         bool polaroidTaken = transform.childCount < 1;
         bool playerInside = collision.CompareTag(PLAYER_TAG);
 
-        if (playerInside && polaroidTaken && !IsOn) StartCoroutine(Run());
+        if (playerInside && polaroidTaken && !IsOn) TurnOn();
     }
+
+
+    private void OnEndStateChange(SwitchObject switchObject, bool isOn)
+    {
+        if (isOn)
+        {
+            _coroutine = StartCoroutine(Run());
+        }
+        else
+        {
+            if (_coroutine != null) StopCoroutine(_coroutine);
+            cLights.SetActive(true);
+            Lights1.SetActive(false);
+            Lights2.SetActive(false);
+            Lights3.SetActive(false);
+            Lights4.SetActive(false);
+            Lights5.SetActive(false);
+            Lights6.SetActive(false);
+            Lights7.SetActive(false);
+            Lights8.SetActive(false);
+            Lights9.SetActive(false);
+            Lights10.SetActive(false);
+        }
+    }
+
 
     public IEnumerator Run()
     {
-        TurnOn();
         cLights.SetActive(true);
 
         yield return new WaitForSeconds(1);
@@ -71,6 +101,6 @@ public class End1 : SwitchObject
         Lights1.SetActive(true);
         Lights2.SetActive(true);
 
-
+        _coroutine = null;
     }
 }
