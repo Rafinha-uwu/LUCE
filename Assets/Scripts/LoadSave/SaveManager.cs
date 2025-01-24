@@ -10,7 +10,7 @@ public class SaveManager
     private static string SavesDirectory => Path.Combine(Application.persistentDataPath, "Save");
     private static string GetFilePath(string name) => Path.Combine(SavesDirectory, $"{name}.json");
 
-    private static readonly string SaveManagerDataName = "saveManagerData";
+    private const string SAVE_MANAGER_DATA_NAME = "saveManagerData";
 
     public Checkpoint LastCheckpoint { get; private set; }
     public string LastCheckpointName { get; private set; }
@@ -25,32 +25,31 @@ public class SaveManager
     {
         LastCheckpoint = checkpoint;
 
-        string checkpointName = checkpoint.GetSaveName();
-        if (checkpointName != LastCheckpointName)
-        {
-            LastCheckpointName = checkpoint.GetSaveName();
-            SaveSaveManagerData();
-        }
+        string oldSaveName = LastCheckpointName;
+        LastCheckpointName = checkpoint.GetSaveName();
+
+        if (oldSaveName != LastCheckpointName) SaveSaveManagerData();
     }
 
 
     private string GetSaveManagerData()
     {
-        Dictionary<string, object> data = LoadFromFile(SaveManagerDataName);
+        Dictionary<string, object> data = LoadFromFile(SAVE_MANAGER_DATA_NAME);
         if (data == null) return null;
 
-        return data.GetValueOrDefault(SaveManagerDataName) as string;
+        return data.GetValueOrDefault(SAVE_MANAGER_DATA_NAME) as string;
     }
 
     private void SaveSaveManagerData()
     {
         Dictionary<string, object> data = new() {
-            [SaveManagerDataName] = LastCheckpointName
+            [SAVE_MANAGER_DATA_NAME] = LastCheckpointName
         };
-        SaveToFile(SaveManagerDataName, data);
+        SaveToFile(SAVE_MANAGER_DATA_NAME, data);
     }
 
 
+    public Dictionary<string, object> Deserialize(string json) => JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
     public Dictionary<string, object> LoadFromFile(string name)
     {
         string filePath = GetFilePath(name);
@@ -61,7 +60,7 @@ public class SaveManager
 
             // Load the file and parse it as JSON
             string json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+            return Deserialize(json);
         }
         catch (System.Exception e)
         {
@@ -71,7 +70,7 @@ public class SaveManager
         }
     }
 
-    public void SaveToFile(string name, Dictionary<string, object> data)
+    public string SaveToFile(string name, Dictionary<string, object> data)
     {
         try
         {
@@ -81,11 +80,13 @@ public class SaveManager
             // Save the JSON to the file (creating the directory if it doesn't exist)
             if (!Directory.Exists(SavesDirectory)) Directory.CreateDirectory(SavesDirectory);
             File.WriteAllText(GetFilePath(name), json);
+            return json;
         }
         catch (System.Exception e)
         {
             // If there's an error, log it
             Debug.LogError($"Failed to save {name} data: {e.Message}");
+            return null;
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Cinemachine;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour, ISavable
 {
     protected static readonly string PLAYER_TAG = "Player";
+    [field: SerializeField] public CinemachineVirtualCamera CheckpointCamera { get; private set; }
 
     [SerializeField] protected Checkpoint[] _dependencies;
     protected bool _checkpointReached = false;
@@ -43,10 +45,9 @@ public class Checkpoint : MonoBehaviour, ISavable
 
         // Check if this checkpoint is the last one reached
         if (SaveManager.Instance.LastCheckpointName == GetSaveName()) SaveManager.Instance.SetLastCheckpoint(this);
-
-        // Load the data for this checkpoint
-        Load(false);
     }
+
+    protected virtual void Start() => Load(false);
 
     protected virtual void OnReached()
     {
@@ -76,8 +77,9 @@ public class Checkpoint : MonoBehaviour, ISavable
     public virtual void Save(bool saveDependencies = true)
     {
         // Get the save data for each savable + save it to the file
-        _savedData = _savables.ToDictionary(obj => obj.GetSaveName(), obj => obj.GetSaveData());
-        SaveManager.Instance.SaveToFile(GetSaveName(), _savedData);
+        Dictionary<string, object> dataToSave = _savables.ToDictionary(obj => obj.GetSaveName(), obj => obj.GetSaveData());
+        string savedDataJson = SaveManager.Instance.SaveToFile(GetSaveName(), dataToSave);
+        _savedData = SaveManager.Instance.Deserialize(savedDataJson);
 
         // Only save the dependencies (and only them) if saveDependencies is true
         foreach (var dependency in _dependencies) dependency.Save(false);
