@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec79907dcdc08df4e92286a08a830862, type: 3}
   m_Name: FMODBusDatabase
   m_EditorClassIdentifier: 
-  _busPaths:
-  - bus:/
-  - bus:/Music
+  <Buses>k__BackingField:
+  - <BusName>k__BackingField: Master
+    <BusPath>k__BackingField: bus:/
+  - <BusName>k__BackingField: Music
+    <BusPath>k__BackingField: bus:/Music
+  - <BusName>k__BackingField: SFX
+    <BusPath>k__BackingField: bus:/SFX
+  - <BusName>k__BackingField: UI
+    <BusPath>k__BackingField: bus:/UI

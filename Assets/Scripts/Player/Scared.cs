@@ -129,7 +129,7 @@ public class Scared : MonoBehaviour
 
             case "Cam Tunel":
                 Ortho = 3;
-                GlobalL = 0.05f;
+                GlobalL = 0.03f;
                 break;
 
             case "Cam Bunker D1":
@@ -152,6 +152,21 @@ public class Scared : MonoBehaviour
             case "Cam Bunker R2":
                 Ortho = 4;
                 GlobalL = 0.05f;
+                break;
+
+            case "Cam Tunel 2":
+                Ortho = 6;
+                GlobalL = 0.04f;
+                break;
+
+            case "Cam TP1":
+                Ortho = 10;
+                GlobalL = 0.05f;
+                break;
+
+            case "Cam Exit":
+                Ortho = 4;
+                GlobalL = 0.03f;
                 break;
 
             default:
@@ -200,7 +215,11 @@ public class Scared : MonoBehaviour
                     OrthReady = false;
                 }
 
-                this.GetComponentInChildren<Light2D>().intensity -= 0.00035f;
+                if (this.GetComponentInChildren<Light2D>().intensity > 0.01f)
+                {
+                    this.GetComponentInChildren<Light2D>().intensity -= 0.00035f;
+                }
+                
 
                 if (camaram._currentCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize > 3)
                 {

@@ -79,4 +79,8 @@ public class Lever : SwitchObject
         if (!_isPlayerNearby) return;
         if (collision.CompareTag(PLAYER_TAG)) _isPlayerNearby = false;
     }
+    public void SetLeverState(bool state)
+    {
+        SwitchTo(state);
+    }
 }

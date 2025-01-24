@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private SettingsMenu _settingsMenu;
 
     private InputHandler _inputHandler;
     private static readonly string START_SCENE = "StartMenu";
@@ -18,12 +19,14 @@ public class PauseMenu : MonoBehaviour
         _inputHandler.OnResumeAction += OnPause;
 
         _canvas.enabled = false;
+        if (_settingsMenu != null) _settingsMenu.OnClose += OnSettingsClose;
     }
 
     private void OnDestroy()
     {
         _inputHandler.OnPauseAction -= OnPause;
         _inputHandler.OnResumeAction -= OnPause;
+        if (_settingsMenu != null) _settingsMenu.OnClose -= OnSettingsClose;
     }
 
 
@@ -33,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         if (isShowingMenu) Resume();
         else if (!PauseManager.Instance.IsPaused) Pause();
     }
+
 
     public void Resume()
     {
@@ -44,6 +48,19 @@ public class PauseMenu : MonoBehaviour
     {
         _canvas.enabled = true;
         PauseManager.Instance.PauseGame();
+    }
+
+
+    public void Settings()
+    {
+        if (_settingsMenu == null) return;
+        _canvas.enabled = false;
+        _settingsMenu.Open();
+    }
+
+    private void OnSettingsClose()
+    {
+        if (PauseManager.Instance.IsPaused) _canvas.enabled = true;
     }
 
 
