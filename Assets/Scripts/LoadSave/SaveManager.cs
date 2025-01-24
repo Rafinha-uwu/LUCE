@@ -93,8 +93,9 @@ public class SaveManager
 
     public void NewSave()
     {
-        if (Directory.Exists(SavesDirectory)) Directory.Delete(SavesDirectory, true);
+        if (SaveExists()) Directory.Delete(SavesDirectory, true);
         LastCheckpoint = null;
         LastCheckpointName = null;
     }
+    public bool SaveExists() => Directory.Exists(SavesDirectory);
 }
