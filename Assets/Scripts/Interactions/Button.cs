@@ -6,10 +6,10 @@ public class Button : Lever
     [SerializeField] private float _pressTime;
     private float _pressCount = 0;
 
-    protected override void Start()
+    protected override void Awake()
     {
         IsOn = false;
-        base.Start();
+        base.Awake();
     }
 
     protected override void TurnOn()
@@ -41,4 +41,7 @@ public class Button : Lever
     {
         if (_isPlayerNearby) TurnOn();
     }
+
+
+    public override object GetSaveData() => false; // Start always off
 }

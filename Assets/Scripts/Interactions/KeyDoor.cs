@@ -1,7 +1,7 @@
 using FMODUnity;
 using UnityEngine;
 
-public class KeyDoor : MonoBehaviour, IDoorSound
+public class KeyDoor : SwitchObject, IDoorSound
 {
     private static readonly string ANIMATOR_PARAMETER = "Open";
     private Animator _animator;
@@ -14,22 +14,31 @@ public class KeyDoor : MonoBehaviour, IDoorSound
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        OnStateChange += OnKeyDoorStateChange;
     }
+    private void OnDestroy() => OnStateChange -= OnKeyDoorStateChange;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool hasKey = collision.TryGetComponent(out Key key);
         if (!hasKey) return;
 
-        _animator.SetBool(ANIMATOR_PARAMETER, true);
-        PlayUnlockSound();
         key.Use();
+        TurnOn();
+    }
+
+    private void OnKeyDoorStateChange(SwitchObject switchObject, bool isOn)
+    {
+        if (_animator != null) _animator.SetBool(ANIMATOR_PARAMETER, isOn);
+        if (isOn) PlayUnlockSound();
     }
 
 
-    private void Start()
+    protected override void Start()
     {
         _doorSound = GetDoorSound();
+        base.Start();
     }
 
     private void PlayUnlockSound()

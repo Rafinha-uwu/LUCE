@@ -65,7 +65,13 @@ public class Polaroid : HoldableItem
     {
         PolaroidSaveData polaroidSaveData = JsonConvert.DeserializeObject<PolaroidSaveData>(data.ToString());
         transform.position = new Vector3(polaroidSaveData.Position[0], polaroidSaveData.Position[1], transform.position.z);
-        if (polaroidSaveData.Used) gameObject.SetActive(false);
+
+        // If the polaroid was already collected, and is active, deactivate it
+        if (polaroidSaveData.Used && gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+            count.nColect++;
+        }
     }
 
     [System.Serializable]

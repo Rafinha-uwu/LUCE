@@ -22,7 +22,8 @@ public class HoldableItem : MonoBehaviour, ISavable
     {
         _lastParent = transform.parent;
         transform.SetParent(holdPosition);
-        transform.SetPositionAndRotation(holdPosition.position, Quaternion.identity);
+        transform.position = holdPosition.position;
+        transform.localRotation = Quaternion.identity;
 
         _rigidbody2D.simulated = false;
         _rigidbody2D.velocity = Vector2.zero;
