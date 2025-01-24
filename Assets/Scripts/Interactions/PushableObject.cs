@@ -1,10 +1,11 @@
 ﻿using FMODUnity;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(GroundCheck))]
 [RequireComponent(typeof(Collider2D))]
-public class PushableObject : MonoBehaviour
+public class PushableObject : MonoBehaviour, ISavable
 {
     private Rigidbody2D _rb;
     private GroundCheck _groundCheck;
@@ -94,5 +95,17 @@ public class PushableObject : MonoBehaviour
             FMODManager.Instance.EventDatabase.ObjectGroundHit,
             gameObject
         );
+    }
+
+
+    public string GetSaveName() => name;
+    public object GetSaveData() => new float[] { transform.position.x, transform.position.y };
+    public void LoadData(object data)
+    {
+        float[] position = JsonConvert.DeserializeObject<float[]>(data.ToString());
+        transform.position = new Vector3(position[0], position[1], transform.position.z);
+
+        _rb.velocity = Vector2.zero;
+        _rb.angularVelocity = 0;
     }
 }

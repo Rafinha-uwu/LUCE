@@ -1,9 +1,10 @@
 ﻿using FMOD.Studio;
 using FMODUnity;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class HoldableItem : MonoBehaviour
+public class HoldableItem : MonoBehaviour, ISavable
 {
     protected Rigidbody2D _rigidbody2D;
     protected Transform _lastParent;
@@ -73,5 +74,17 @@ public class HoldableItem : MonoBehaviour
         Polaroid,
         PolaroidNarrative1,
         //...
+    }
+
+
+    public virtual string GetSaveName() => name;
+    public virtual object GetSaveData() => new float[] { transform.position.x, transform.position.y };
+    public virtual void LoadData(object data)
+    {
+        float[] position = JsonConvert.DeserializeObject<float[]>(data.ToString());
+        transform.position = new Vector3(position[0], position[1], transform.position.z);
+        
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.angularVelocity = 0;
     }
 }
