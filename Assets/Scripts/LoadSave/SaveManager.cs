@@ -10,7 +10,7 @@ public class SaveManager
     private static string SavesDirectory => Path.Combine(Application.persistentDataPath, "Save");
     private static string GetFilePath(string name) => Path.Combine(SavesDirectory, $"{name}.json");
 
-    private const string SAVE_MANAGER_DATA_NAME = "saveManagerData";
+    private const string SAVE_MANAGER_DATA_NAME = "SaveManagerData";
 
     public Checkpoint LastCheckpoint { get; private set; }
     public string LastCheckpointName { get; private set; }

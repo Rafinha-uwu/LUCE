@@ -349,8 +349,8 @@
                 },
                 {
                     "name": "",
-                    "id": "d4e55393-b6d9-4ad6-945a-8a15b9f12599",
-                    "path": "<Mouse>/leftButton",
+                    "id": "b2519d89-6e05-4b05-9776-f3304ef38455",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -393,8 +393,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f1717d24-a85b-4f2c-992e-db971ed4c617",
-                    "path": "<Mouse>/rightButton",
+                    "id": "d4e55393-b6d9-4ad6-945a-8a15b9f12599",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -431,6 +431,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "Hold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1717d24-a85b-4f2c-992e-db971ed4c617",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
