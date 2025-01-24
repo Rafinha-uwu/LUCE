@@ -23,7 +23,7 @@ public class KeyDoor : MonoBehaviour, IDoorSound
 
         _animator.SetBool(ANIMATOR_PARAMETER, true);
         PlayUnlockSound();
-        Destroy(key.gameObject);
+        key.Use();
     }
 
 
