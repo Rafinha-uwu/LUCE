@@ -4,6 +4,11 @@ using UnityEngine;
 public class End1 : SwitchObject
 {
     private static readonly string PLAYER_TAG = "Player";
+
+    [SerializeField] private Checkpoint _endCheckpoint;
+    private Collider2D _endCheckpointCollider;
+    private Polaroid _polaroid;
+
     public GameObject cLights;
 
     public GameObject Lights1;
@@ -17,23 +22,63 @@ public class End1 : SwitchObject
     public GameObject Lights9;
     public GameObject Lights10;
 
-    protected override void Start()
+    private Coroutine _coroutine;
+
+
+    private void Awake()
     {
-        IsOn = false;
-        base.Start();
+        _polaroid = GetComponentInChildren<Polaroid>();
+        if (_polaroid == null) throw new System.Exception($"Polaroid not found in children of {name}");
+
+        if (_endCheckpoint != null)
+        {
+            _endCheckpointCollider = _endCheckpoint.GetComponent<Collider2D>();
+            _endCheckpointCollider.enabled = false;
+        }
+        OnStateChange += OnEndStateChange;
     }
+    private void OnDestroy() => OnStateChange -= OnEndStateChange;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool polaroidTaken = transform.childCount < 1;
+        bool polaroidTaken = !_polaroid.gameObject.activeSelf;
         bool playerInside = collision.CompareTag(PLAYER_TAG);
 
-        if (playerInside && polaroidTaken && !IsOn) StartCoroutine(Run());
+        if (playerInside && polaroidTaken && !IsOn) TurnOn();
     }
+
+
+    private void OnEndStateChange(SwitchObject switchObject, bool isOn)
+    {
+        if (_endCheckpointCollider != null) _endCheckpointCollider.enabled = isOn;
+
+        if (isOn)
+        {
+            _coroutine = StartCoroutine(Run());
+        }
+        else
+        {
+            if (_coroutine != null) StopCoroutine(_coroutine);
+
+            cLights.SetActive(true);
+            Lights8.SetActive(true);
+            Lights9.SetActive(true);
+            Lights10.SetActive(true);
+
+            Lights1.SetActive(false);
+            Lights2.SetActive(false);
+            Lights3.SetActive(false);
+            Lights4.SetActive(false);
+            Lights5.SetActive(false);
+            Lights6.SetActive(false);
+            Lights7.SetActive(false);
+        }
+    }
+
 
     public IEnumerator Run()
     {
-        TurnOn();
         cLights.SetActive(true);
 
         yield return new WaitForSeconds(1);
@@ -71,6 +116,6 @@ public class End1 : SwitchObject
         Lights1.SetActive(true);
         Lights2.SetActive(true);
 
-
+        _coroutine = null;
     }
 }

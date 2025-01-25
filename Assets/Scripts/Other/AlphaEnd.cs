@@ -36,6 +36,7 @@ public class AlphaEnd : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         PauseManager.Instance.PauseGame();
+        SaveManager.Instance.NewSave(); // Clear save
 
         _endSound?.setPaused(false);
         _endSound?.start();

@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Collections;
 using UnityEngine;
 
@@ -15,9 +16,9 @@ public class Polaroid : HoldableItem
     private Scared _playerScared;
 
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         count = Colect.GetComponent<CountColect>();
         _colectAnimator = Colect.GetComponent<Animator>();
@@ -54,10 +55,30 @@ public class Polaroid : HoldableItem
         }
     }
 
-    private void OnDestroy()
+
+    public override object GetSaveData() => new PolaroidSaveData {
+        Position = new float[] { transform.position.x, transform.position.y },
+        Used = !gameObject.activeSelf
+    };
+
+    public override void LoadData(object data)
     {
-        if (!gameObject.scene.isLoaded) return;
-        PauseManager.Instance.ResumeGame();
+        PolaroidSaveData polaroidSaveData = JsonConvert.DeserializeObject<PolaroidSaveData>(data.ToString());
+        transform.position = new Vector3(polaroidSaveData.Position[0], polaroidSaveData.Position[1], transform.position.z);
+
+        // If the polaroid was already collected, and is active, deactivate it
+        if (polaroidSaveData.Used && gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+            count.nColect++;
+        }
+    }
+
+    [System.Serializable]
+    public class PolaroidSaveData
+    {
+        public float[] Position;
+        public bool Used;
     }
 
 
@@ -74,7 +95,8 @@ public class Polaroid : HoldableItem
         _blackAnimator.SetBool("Dark", false);
 
         yield return new WaitForSecondsRealtime(0.5f);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        PauseManager.Instance.ResumeGame();
     }
 
     public IEnumerator Die1()
@@ -91,7 +113,8 @@ public class Polaroid : HoldableItem
 
         yield return new WaitForSecondsRealtime(0.5f);
         _playerScared.Speed_scared = 220;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        PauseManager.Instance.ResumeGame();
     }
 
     // ...
