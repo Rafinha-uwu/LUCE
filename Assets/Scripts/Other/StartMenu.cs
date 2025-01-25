@@ -48,7 +48,7 @@ public class StartMenu : MonoBehaviour
         if (_backgroundPlayer != null) _backgroundPlayer.StopBGM();
         _startGameCutsceneInstance?.start();
 
-        Invoke(nameof(Load), 16);
+        Invoke(nameof(Load), 40.5f);
     }
 
     public void Load()
