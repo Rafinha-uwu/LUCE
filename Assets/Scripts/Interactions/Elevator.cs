@@ -1,4 +1,5 @@
 using FMODUnity;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -9,6 +10,7 @@ public class Elevator : SwitchWithRequirements
     private static readonly string PLAYER_TAG = "Player";
     private static readonly string ANIMATOR_PARAMETER_INSIDE = "PlayerInside";
     private static readonly string ANIMATOR_PARAMETER_NEXT = "GoToNext";
+    private static readonly string ANIMATOR_PARAMETER_FLOOR = "Floor";
 
     private Animator _animator;
     private Light2D _childLight;
@@ -55,6 +57,7 @@ public class Elevator : SwitchWithRequirements
         UpdateElevatorSound(true);
 
         // Set the next floor as the current floor
+        _animator.SetInteger(ANIMATOR_PARAMETER_FLOOR, -1);
         _animator.SetTrigger(ANIMATOR_PARAMETER_NEXT);
         SetCurrentFloor(_currentIndex + 1);
 
@@ -109,6 +112,8 @@ public class Elevator : SwitchWithRequirements
 
     private void UpdateElevatorSound(bool isMoving = false)
     {
+        if (_elevatorSound == null) return;
+
         // 0 = Off, 1 = On, 2 = Moving
         int elevatorState = isMoving ? 2 : IsOn ? 1 : 0;
 
@@ -122,6 +127,7 @@ public class Elevator : SwitchWithRequirements
     {
         if (!collision.CompareTag(PLAYER_TAG)) return;
 
+        _animator.SetInteger(ANIMATOR_PARAMETER_FLOOR, -1);
         _animator.SetBool(ANIMATOR_PARAMETER_INSIDE, true);
         if (collision.gameObject.scene.isLoaded) collision.transform.SetParent(transform);
 
@@ -132,7 +138,19 @@ public class Elevator : SwitchWithRequirements
     {
         if (!collision.CompareTag(PLAYER_TAG)) return;
 
+        _animator.SetInteger(ANIMATOR_PARAMETER_FLOOR, -1);
         _animator.SetBool(ANIMATOR_PARAMETER_INSIDE, false);
         if (collision.gameObject.scene.isLoaded) collision.transform.SetParent(null);
+    }
+
+
+    public override object GetSaveData() => _currentIndex;
+    public override void LoadData(object data)
+    {
+        int floor = JsonConvert.DeserializeObject<int>(data.ToString());
+        _animator.SetInteger(ANIMATOR_PARAMETER_FLOOR, floor);
+        
+        SetCurrentFloor(floor);
+        OnSwitchStateChange(null, IsOn);
     }
 }

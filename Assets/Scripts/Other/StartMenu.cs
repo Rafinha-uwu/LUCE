@@ -15,6 +15,8 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private SettingsMenu _settingsMenu;
 
+    [SerializeField] private GameObject _continueButton;
+
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class StartMenu : MonoBehaviour
     private void Start()
     {
         _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
+        if (_continueButton != null) _continueButton.SetActive(SaveManager.Instance.SaveExists());
     }
 
     private void OnDestroy()
@@ -37,6 +40,8 @@ public class StartMenu : MonoBehaviour
 
     public void NewGame()
     {
+        SaveManager.Instance.NewSave(); // Clear save
+
         if (_blackAnimator != null) _blackAnimator.SetBool("Dark", true);
         if (_menuAnimator != null) _menuAnimator.SetBool("Start", true);
 
@@ -48,6 +53,7 @@ public class StartMenu : MonoBehaviour
 
     public void Load()
     {
+        if (_backgroundPlayer != null) _backgroundPlayer.StopBGM();
         _startGameCutsceneInstance?.stop(STOP_MODE.ALLOWFADEOUT);
         SceneManager.LoadScene(GAME_SCENE);
     }

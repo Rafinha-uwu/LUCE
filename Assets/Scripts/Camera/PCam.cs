@@ -1,14 +1,13 @@
+using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class PCam : MonoBehaviour
+public class PCam : HoldableItem
 {
     private Hand hand;
     public GameObject mao;
     public GameObject Light;
 
     [SerializeField] private float detectionRange = 2f;
-    public Flip flipScript;
 
     private bool once = true;
     private bool holding = false;
@@ -16,12 +15,16 @@ public class PCam : MonoBehaviour
     private static InputHandler _inputHandler;
     protected static readonly string PLAYER_TAG = "Player";
 
-    public bool Cooldown = true;
+    private bool Cooldown = true;
 
-    protected virtual void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
 
-        hand = mao.GetComponent<Hand>();
+        if (mao == null) throw new System.Exception("Mao not set in PCam");
+        bool hasHand = mao.TryGetComponent(out hand);
+        if (!hasHand) throw new System.Exception($"Hand not found in Mao {mao.name}");
 
         if (_inputHandler == null)
         {
@@ -30,82 +33,67 @@ public class PCam : MonoBehaviour
         }
 
         _inputHandler.OnInteractAction += OnInteractAction;
-
     }
+    private void OnDestroy() => _inputHandler.OnInteractAction -= OnInteractAction;
+
+
     protected virtual void OnInteractAction()
     {
+        if (!holding || Cooldown) return;
+
+        bool itemFacingRight = transform.rotation.eulerAngles.y == 0;
         float distanceToMao = Vector2.Distance(transform.position, mao.transform.position);
+        bool maoInRange = distanceToMao <= detectionRange;
+        if (!itemFacingRight && maoInRange) hand.CallFlash();
 
-        if (holding && Cooldown == false) 
-        {
-            Light.SetActive(true);
-            if (!flipScript.IsFacingRight && distanceToMao <= detectionRange)
-            {
-                hand.CallFlash();
-                
-            }
-
-            Cooldown = true;
-            Invoke("Cool", 5);
-            Invoke("Desligar", 0.3f); 
-        
-        }
+        Cooldown = true;
+        Light.SetActive(true);
+        Invoke(nameof(Cool), 5);
+        Invoke(nameof(Desligar), 0.3f); 
     }
 
-    private void Update()
+    public override void StartHold(Transform holdPosition)
     {
+        base.StartHold(holdPosition);
+        holding = true;
+        if (!once) return;
 
-        
-
-        Transform parentTransform = transform.parent;
-
-        if (parentTransform != null)
-        {
-
-            if (parentTransform.name == "HoldPosition")
-            {
-                if (once)
-                {
-                    hand.start = true;
-                    once = false;
-                    Invoke("Cool", 9);
-
-                }
-
-                holding = true;
-
-                if (!flipScript.IsFacingRight)
-                {
-                    this.transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
-                }
-                else
-                {
-                    this.transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
-                }
-
-
-            }
-            else
-            {
-                holding = false;
-                this.transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
-            }
-
-        }
-
-
+        // Execute on the first time holding the item
+        once = false;
+        hand.StartHand();
+        Invoke(nameof(Cool), 9);
     }
 
-    private void Desligar() 
+    public override void StopHold()
     {
-        Light.SetActive(false);
-
+        base.StopHold();
+        holding = false;
     }
 
-    private void Cool()
+    private void Desligar() => Light.SetActive(false);
+    private void Cool() => Cooldown = false;
+
+
+    public override object GetSaveData() => new PCamSaveData{
+        Position = new float[] { transform.position.x, transform.position.y },
+        Once = once
+    };
+
+    public override void LoadData(object data)
     {
-        Cooldown = false;
+        PCamSaveData saveData = JsonConvert.DeserializeObject<PCamSaveData>(data.ToString());
+        transform.position = new(saveData.Position[0], saveData.Position[1], transform.position.z);
+        once = saveData.Once;
 
+        Desligar();
+        Cooldown = true;
+        CancelInvoke();
     }
 
+    [System.Serializable]
+    public class PCamSaveData
+    {
+        public float[] Position;
+        public bool Once;
+    }
 }

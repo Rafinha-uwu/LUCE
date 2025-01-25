@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using Newtonsoft.Json;
 
 public class Code : SwitchWithRequirements
 {
@@ -33,12 +34,7 @@ public class Code : SwitchWithRequirements
         Requirement[] requirementsToChange = _requirements.OrderBy(x => Random.value).Take(changes).ToArray();
 
         // Change the requirements and force a state change
-        foreach (var req in _requirements)
-        {
-            bool switchIsOn = req.Switch.IsOn;
-            bool needsToChange = requirementsToChange.Contains(req);
-            req.RequiredState = needsToChange ? !switchIsOn : switchIsOn;
-        }
+        foreach (var req in _requirements) req.RequiredState = requirementsToChange.Contains(req);
         OnSwitchStateChange(null, false);
 
         // Update the sprites
@@ -51,5 +47,50 @@ public class Code : SwitchWithRequirements
     {
         public SpriteRenderer Up;
         public SpriteRenderer Down;
+    }
+
+
+    public override object GetSaveData() => new CodeSaveData {
+        IsOn = IsOn,
+        RequiredStates = _requirements.Select(x => x.RequiredState).ToArray()
+    };
+
+    public override void LoadData(object data)
+    {
+        CodeSaveData saveData = JsonConvert.DeserializeObject<CodeSaveData>(data.ToString());
+
+        // Get the current and saved required states
+        bool[] savedRequiredStates = saveData.RequiredStates;
+        bool[] currentRequiredStates = _requirements.Select(x => x.RequiredState).ToArray();
+
+        // If the lengths are different, we can't load the data - force the switch to be off
+        if (savedRequiredStates.Length != currentRequiredStates.Length)
+        {
+            SwitchTo(false);
+            return;
+        }
+
+        // If the saved state is on, set the current required states to the saved required states
+        if (saveData.IsOn)
+        {
+            for (int i = 0; i < _requirements.Length; i++)
+            {
+                _requirements[i].RequiredState = savedRequiredStates[i];
+                UpdateLevelSprites(_requirements[i], _codeSprites[i]);
+            }
+            OnSwitchStateChange(null, false);
+        }
+        else Randomizer();
+
+        // Turn switch to the saved state
+        SwitchTo(saveData.IsOn);
+    }
+
+
+    [System.Serializable]
+    public class CodeSaveData
+    {
+        public bool IsOn;
+        public bool[] RequiredStates;
     }
 }

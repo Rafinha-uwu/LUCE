@@ -1,42 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Shut : MonoBehaviour
+public class Shut : SwitchObject
 {
+    private static readonly string PLAYER_TAG = "Player";
 
     public GameObject Block;
-    public GameObject Plate;
-    public GameObject Door;
     public GameObject Black;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private static readonly string EVENT_PARAMETER_BLACK0 = "0";
+    private static readonly string EVENT_PARAMETER_BLACK100 = "100";
+    private Animator _blackAnimator;
 
+
+    private void Awake()
+    {
+        _blackAnimator = Black.GetComponent<Animator>();
+        OnStateChange += OnShutStateChange;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-
+        OnStateChange -= OnShutStateChange;
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
-        {
+        if (IsOn) return;
+        if (!collision.CompareTag(PLAYER_TAG)) return;
 
-            Door.GetComponent<Animator>().SetBool("Open", false);
-            Door.GetComponent<Animator>().SetBool("Reset", true);
-            Block.SetActive(true);
-            Plate.SetActive(false);
-            Black.GetComponent<Animator>().Play("100");
-
-
-        }
-
-
+        TurnOn();
     }
 
+    private void OnShutStateChange(SwitchObject switchObject, bool isOn)
+    {
+        Block.SetActive(isOn);
+        _blackAnimator.Play(isOn ? EVENT_PARAMETER_BLACK100 : EVENT_PARAMETER_BLACK0);
+    }
 }

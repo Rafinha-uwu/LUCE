@@ -1,12 +1,11 @@
+using Newtonsoft.Json;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using static Unity.Collections.AllocatorManager;
 
-public class PuzzleEye : MonoBehaviour
+public class PuzzleEye : MonoBehaviour, ISavable
 {
+    private static readonly string PLAYER_TAG = "Player";
 
     // References to the colliders
     public Collider2D collider1;
@@ -25,386 +24,406 @@ public class PuzzleEye : MonoBehaviour
     public Light2D L33;
 
     public GameObject Doors;
+    private Animator _doorsAnimator;
 
     public GameObject Eye1;
     public GameObject Eye2;
+    private Animator _eye1Animator;
+    private Animator _eye2Animator;
 
     private Color NormalColor;
 
-    private void Start()
+
+    private void Awake()
     {
         // Ensure all colliders are trigger colliders
         collider1.isTrigger = true;
         collider2.isTrigger = true;
         collider3.isTrigger = true;
 
-        NormalColor = L1.GetComponent<Light2D>().color;
+        NormalColor = L1.color;
 
-
+        _doorsAnimator = Doors.GetComponent<Animator>();
+        _eye1Animator = Eye1.GetComponent<Animator>();
+        _eye2Animator = Eye2.GetComponent<Animator>();
     }
 
-    private void Update()
+
+    public void StartPuzzle()
     {
-        if(Phase == 1)
-        {
-            L1.GetComponent<Light2D>().color = NormalColor;
-            L11.GetComponent<Light2D>().color = NormalColor;
-            L2.GetComponent<Light2D>().color = NormalColor;
-            L22.GetComponent<Light2D>().color = NormalColor;
-            L3.GetComponent<Light2D>().color = NormalColor;
-            L33.GetComponent<Light2D>().color = NormalColor;
-            Invoke("FOff1", 0);
-            Invoke("FOn2", 0);
-            Invoke("FOff3", 0);
-            Doors.GetComponent<Animator>().Play("Close");
-            Eye1.GetComponent<Animator>().Play("Start");
-            Eye2.GetComponent<Animator>().Play("Start");
-            Invoke("FOff2",5);
-            Invoke("FOn1", 5);
-            Invoke("EyeL", 5f);
-            Phase = 1.1f;
-        }
+        CancelInvoke();
+        StopAllCoroutines();
+
+        L1.color = NormalColor;
+        L11.color = NormalColor;
+        L2.color = NormalColor;
+        L22.color = NormalColor;
+        L3.color = NormalColor;
+        L33.color = NormalColor;
+
+        DoorDown();
+        EyeStart();
+
+        Invoke(nameof(FOff1), 0);
+        Invoke(nameof(FOn2), 0);
+        Invoke(nameof(FOff3), 0);
+        Invoke(nameof(FOff2), 5);
+        Invoke(nameof(FOn1), 5);
+        Invoke(nameof(EyeL), 5);
+        Phase = 1.1f;
     }
 
+    public void ResetPuzzle()
+    {
+        L1.color = NormalColor;
+        L11.color = NormalColor;
+        L2.color = NormalColor;
+        L22.color = NormalColor;
+        L3.color = NormalColor;
+        L33.color = NormalColor;
+
+        EyeNone();
+        DoorUp();
+
+        Invoke(nameof(FOff1), 0);
+        Invoke(nameof(FOn2), 0);
+        Invoke(nameof(FOff3), 0);
+    }
+
+    private void EndPuzzle()
+    {
+        L1.color = Color.green;
+        L11.color = Color.green;
+        L2.color = Color.green;
+        L22.color = Color.green;
+        L3.color = Color.green;
+        L33.color = Color.green;
+
+        Invoke(nameof(FOn1), 0);
+        Invoke(nameof(FOn2), 0);
+        Invoke(nameof(FOn3), 0);
+        Invoke(nameof(DoorUp), 1.5f);
+        Phase = 4f;
+    }
+
+
+    #region Phases Logic
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check which collider was triggered
-        if (collision.IsTouching(collider1))
-        {
-            HandleCollider1Trigger(collision);
-        }
-        if (collision.IsTouching(collider2))
-        {
-            HandleCollider2Trigger(collision);
-        }
-        if (collision.IsTouching(collider3))
-        {
-            HandleCollider3Trigger(collision);
-        }
+        if (!collision.CompareTag(PLAYER_TAG)) return;
 
+        // Check which collider was triggered
+        if (collision.IsTouching(collider1)) HandleCollider1Trigger(collision);
+        else if (collision.IsTouching(collider2)) HandleCollider2Trigger(collision);
+        else if (collision.IsTouching(collider3)) HandleCollider3Trigger(collision);
     }
 
-    private void HandleCollider1Trigger(Collider2D collision)
+    private void HandleCollider1Trigger(Collider2D _)
     {
         switch (Phase)
         {
             case 1.1f:
-                Invoke("FOff1", 1);
-                Invoke("FOn3", 1);
-                Invoke("EyeR", 1f);
+                Invoke(nameof(FOff1), 1);
+                Invoke(nameof(FOn3), 1);
+                Invoke(nameof(EyeR), 1);
                 Phase = 1.2f;
                 break;
 
             case 2.1f:
-                Invoke("FOn1", 0);
-                Invoke("FOff1", 2);
-                Invoke("EyeR", 0);
+                Invoke(nameof(FOn1), 0);
+                Invoke(nameof(FOff1), 2);
+                Invoke(nameof(EyeR), 0);
                 Phase = 2.2f;
                 break;
 
             case 2.3f:
-                Invoke("FOn1", 0);
-                Invoke("FOff1", 1);
-                Invoke("EyeD", 0);
+                Invoke(nameof(FOn1), 0);
+                Invoke(nameof(FOff1), 1);
+                Invoke(nameof(EyeD), 0);
                 Phase = 2.4f;
                 break;
 
             case 3.1f:
-                Invoke("FOff1", 0);
+                Invoke(nameof(FOff1), 0);
                 Phase = 3.2f;
                 break;
 
             case 3.7f:
-                Invoke("FOff1", 0);
+                Invoke(nameof(FOff1), 0);
                 Phase = 3.8f;
                 break;
-
         }
-
     }
 
-    private void HandleCollider2Trigger(Collider2D collision)
+    private void HandleCollider2Trigger(Collider2D _)
     {
         switch (Phase)
         {
             case 1.3f:
-                Invoke("FOff2", 1);
-                Invoke("FOn1", 1);
-                Invoke("EyeL", 1f);
-                Invoke("FOff1", 2);
-                Invoke("FOn3", 2);
-                Invoke("EyeR", 2f);
+                Invoke(nameof(FOff2), 1);
+                Invoke(nameof(FOn1), 1);
+                Invoke(nameof(EyeL), 1);
+                Invoke(nameof(FOff1), 2);
+                Invoke(nameof(FOn3), 2);
+                Invoke(nameof(EyeR), 2);
                 Phase = 1.4f;
                 break;
 
             case 1.5f:
-                Invoke("FOff2", 3);
-                L1.GetComponent<Light2D>().color = Color.red;
-                L11.GetComponent<Light2D>().color = Color.red;
-                L2.GetComponent<Light2D>().color = Color.red;
-                L22.GetComponent<Light2D>().color = Color.red;
-                L3.GetComponent<Light2D>().color = Color.red;
-                L33.GetComponent<Light2D>().color = Color.red;
-                Invoke("EyeL", 0);
+                L1.color = Color.red;
+                L11.color = Color.red;
+                L2.color = Color.red;
+                L22.color = Color.red;
+                L3.color = Color.red;
+                L33.color = Color.red;
+
+                Invoke(nameof(FOff2), 3);
+                Invoke(nameof(EyeL), 0);
                 Phase = 2.1f;
                 break;
 
-
-
             case 2.4f:
-                Invoke("FOn2", 0);
-                Invoke("FOff2", 1);
-                Invoke("EyeR", 0);
+                Invoke(nameof(FOn2), 0);
+                Invoke(nameof(FOff2), 1);
+                Invoke(nameof(EyeR), 0);
                 Phase = 2.5f;
                 break;
 
-
-
             case 3.2f:
-                Invoke("FOff2", 0);
+                Invoke(nameof(FOff2), 0);
                 Phase = 3.3f;
                 break;
 
             case 3.4f:
-                Invoke("FOff2", 0);
+                Invoke(nameof(FOff2), 0);
                 Phase = 3.5f;
                 break;
 
             case 3.6f:
-                Invoke("FOff2", 0);
+                Invoke(nameof(FOff2), 0);
                 Phase = 3.7f;
                 break;
 
             case 3.8f:
-                Invoke("FOn1", 0f);
-                Invoke("FOn2", 0f);
-                Invoke("FOn3", 0f);
-                L1.GetComponent<Light2D>().color = Color.green;
-                L11.GetComponent<Light2D>().color = Color.green;
-                L2.GetComponent<Light2D>().color = Color.green;
-                L22.GetComponent<Light2D>().color = Color.green;
-                L3.GetComponent<Light2D>().color = Color.green;
-                L33.GetComponent<Light2D>().color = Color.green;
-
-                Eye1.GetComponent<Animator>().Play("Up");
-                Eye2.GetComponent<Animator>().Play("Up");
-                Invoke("DoorUp", 1.5f);
-
-                Phase = 4f;
+                EyeEnd();
+                EndPuzzle();
                 break;
-
         }
     }
 
-    private void HandleCollider3Trigger(Collider2D collision)
+    private void HandleCollider3Trigger(Collider2D _)
     {
         switch (Phase)
         {
             case 1.2f:
-                Invoke("FOff3", 1);
-                Invoke("FOn2", 1);
-                Invoke("EyeD", 1f);
+                Invoke(nameof(FOff3), 1);
+                Invoke(nameof(FOn2), 1);
+                Invoke(nameof(EyeD), 1);
                 Phase = 1.3f;
                 break;
 
             case 1.4f:
-                Invoke("FOff3", 1);
-                Invoke("FOn2", 1);
-                Invoke("EyeD", 1f);
+                Invoke(nameof(FOff3), 1);
+                Invoke(nameof(FOn2), 1);
+                Invoke(nameof(EyeD), 1);
                 Phase = 1.5f;
                 break;
 
-
             case 2.2f:
-                Invoke("FOn3", 0);
-                Invoke("FOff3", 1);
-                Invoke("EyeL", 0);
+                Invoke(nameof(FOn3), 0);
+                Invoke(nameof(FOff3), 1);
+                Invoke(nameof(EyeL), 0);
                 Phase = 2.3f;
                 break;
+
             case 2.5f:
-                Invoke("FOn3", 0);
-                Invoke("FOff3", 3);
-                
+                Invoke(nameof(FOn3), 0);
+                Invoke(nameof(FOff3), 3);
 
-                Invoke("FOn1", 3.5f);
-                Invoke("EyeL", 3.5f);
-                Invoke("FOff1", 4f);
+                Invoke(nameof(FOn1), 3.5f);
+                Invoke(nameof(EyeL), 3.5f);
+                Invoke(nameof(FOff1), 4);
               
-                Invoke("FOn2", 4.5f);
-                Invoke("EyeD", 4.5f);
-                Invoke("FOff2", 5f);
+                Invoke(nameof(FOn2), 4.5f);
+                Invoke(nameof(EyeD), 4.5f);
+                Invoke(nameof(FOff2), 5);
 
-                Invoke("FOn3", 5.5f);
-                Invoke("EyeR", 5.5f);
-                Invoke("FOff3", 6f);
+                Invoke(nameof(FOn3), 5.5f);
+                Invoke(nameof(EyeR), 5.5f);
+                Invoke(nameof(FOff3), 6);
 
-                Invoke("EyeW", 6.5f);
-
+                Invoke(nameof(EyeW), 6.5f);
                 Phase = 3.1f;
                 break;
 
             case 3.3f:
-                Invoke("FOn3", 0);
-                Invoke("EyeR", 0f);
-                Invoke("FOff3", 2);
+                Invoke(nameof(FOn3), 0);
+                Invoke(nameof(EyeR), 0);
+                Invoke(nameof(FOff3), 2);
 
-                Invoke("FOn2", 2.5f);
-                Invoke("EyeD", 2.5f);
-                Invoke("FOff2", 3f);
+                Invoke(nameof(FOn2), 2.5f);
+                Invoke(nameof(EyeD), 2.5f);
+                Invoke(nameof(FOff2), 3);
 
-                Invoke("FOn3", 3.5f);
-                Invoke("EyeR", 3.5f);
-                Invoke("FOff3", 4f);
+                Invoke(nameof(FOn3), 3.5f);
+                Invoke(nameof(EyeR), 3.5f);
+                Invoke(nameof(FOff3), 4);
 
-                Invoke("FOn2", 4.5f);
-                Invoke("EyeD", 4.5f);
-                Invoke("FOff2", 5f);
+                Invoke(nameof(FOn2), 4.5f);
+                Invoke(nameof(EyeD), 4.5f);
+                Invoke(nameof(FOff2), 5);
 
-                Invoke("FOn1", 5.5f);
-                Invoke("EyeL", 5.5f);
-                Invoke("FOff1", 6f);
+                Invoke(nameof(FOn1), 5.5f);
+                Invoke(nameof(EyeL), 5.5f);
+                Invoke(nameof(FOff1), 6);
 
-                Invoke("FOn2", 6.5f);
-                Invoke("EyeD", 6.5f);
-                Invoke("FOff2", 7f);
+                Invoke(nameof(FOn2), 6.5f);
+                Invoke(nameof(EyeD), 6.5f);
+                Invoke(nameof(FOff2), 7);
 
-                Invoke("EyeW", 7.5f);
+                Invoke(nameof(EyeW), 7.5f);
                 Phase = 3.4f;
                 break;
 
             case 3.5f:
-                Invoke("FOff3", 0);
+                Invoke(nameof(FOff3), 0);
                 Phase = 3.6f;
                 break;
         }
     }
+    #endregion
 
-    public void DoorUp()
+
+    #region Animation Logic
+    private void DoorUp() => _doorsAnimator.Play("Open");
+    private void DoorDown() => _doorsAnimator.Play("Close");
+
+    private void EyeNone()
     {
-        Doors.GetComponent<Animator>().Play("Open");
+        _eye1Animator.Play("Start 1");
+        _eye2Animator.Play("Start 1");
     }
 
-    public void EyeW()
+    private void EyeStart()
     {
-        Eye1.GetComponent<Animator>().Play("Wiggle");
-        Eye2.GetComponent<Animator>().Play("Wiggle");
-    }
-    public void EyeL()
-    {
-        Eye1.GetComponent<Animator>().Play("Left");
-        Eye2.GetComponent<Animator>().Play("Right");
+        _eye1Animator.Play("Start");
+        _eye2Animator.Play("Start");
     }
 
-    public void EyeD()
+    private void EyeEnd()
     {
-        Eye1.GetComponent<Animator>().Play("Down");
-        Eye2.GetComponent<Animator>().Play("Down");
+        _eye1Animator.Play("Up");
+        _eye2Animator.Play("Up");
     }
 
-    public void EyeR()
+    private void EyeW()
     {
-        Eye1.GetComponent<Animator>().Play("Right");
-        Eye2.GetComponent<Animator>().Play("Left");
+        _eye1Animator.Play("Wiggle");
+        _eye2Animator.Play("Wiggle");
     }
 
-    public void FOn1()
+    private void EyeL()
     {
-        StartCoroutine(On1());
+        _eye1Animator.Play("Left");
+        _eye2Animator.Play("Right");
     }
 
-    public void FOn2()
+    private void EyeD()
     {
-        StartCoroutine(On2());
+        _eye1Animator.Play("Down");
+        _eye2Animator.Play("Down");
     }
 
-    public void FOn3()
+    private void EyeR()
     {
-        StartCoroutine(On3());
+        _eye1Animator.Play("Right");
+        _eye2Animator.Play("Left");
     }
 
-    public void FOff1()
-    {
-        StartCoroutine(Off1());
-    }
+    private void FOn1() => StartCoroutine(On1());
+    private void FOn2() => StartCoroutine(On2());
+    private void FOn3() => StartCoroutine(On3());
 
-    public void FOff2()
-    {
-        StartCoroutine(Off2());
-    }
+    private void FOff1() => StartCoroutine(Off1());
+    private void FOff2() => StartCoroutine(Off2());
+    private void FOff3() => StartCoroutine(Off3());
 
-    public void FOff3()
+    private IEnumerator On1()
     {
-        StartCoroutine(Off3());
-    }
-
-    public IEnumerator On1()
-    {
-        L1.GetComponent<Light2D>().intensity = 0.5f;
-        L11.GetComponent<Light2D>().intensity = 0.5f;
+        L1.intensity = 0.5f;
+        L11.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.5f);
-        L1.GetComponent<Light2D>().intensity = 2;
-        L11.GetComponent<Light2D>().intensity = 1f;
-
+        L1.intensity = 2;
+        L11.intensity = 1;
     }
 
-    public IEnumerator On2()
+    private IEnumerator On2()
     {
-        L2.GetComponent<Light2D>().intensity = 0.5f;
-        L22.GetComponent<Light2D>().intensity = 0.5f;
+        L2.intensity = 0.5f;
+        L22.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.5f);
-        L2.GetComponent<Light2D>().intensity = 2;
-        L22.GetComponent<Light2D>().intensity = 1f;
-
+        L2.intensity = 2;
+        L22.intensity = 1;
     }
 
-    public IEnumerator On3()
+    private IEnumerator On3()
     {
-        L3.GetComponent<Light2D>().intensity = 0.5f;
-        L33.GetComponent<Light2D>().intensity = 0.5f;
+        L3.intensity = 0.5f;
+        L33.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.5f);
-        L3.GetComponent<Light2D>().intensity = 2;
-        L33.GetComponent<Light2D>().intensity = 1f;
-
+        L3.intensity = 2;
+        L33.intensity = 1;
     }
 
-    public IEnumerator Off1()
+
+    private IEnumerator Off1()
     {
-        L1.GetComponent<Light2D>().intensity = 0.5f;
-        L11.GetComponent<Light2D>().intensity = 0.5f;
+        L1.intensity = 0.5f;
+        L11.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.1f);
-        L1.GetComponent<Light2D>().intensity = 2;
-        L11.GetComponent<Light2D>().intensity = 1f;
+        L1.intensity = 2;
+        L11.intensity = 1;
         yield return new WaitForSecondsRealtime(0.5f);
-        L1.GetComponent<Light2D>().intensity = 0;
-        L11.GetComponent<Light2D>().intensity = 0f;
-
+        L1.intensity = 0;
+        L11.intensity = 0;
     }
 
-    public IEnumerator Off2()
+    private IEnumerator Off2()
     {
-        L2.GetComponent<Light2D>().intensity = 0.5f;
-        L22.GetComponent<Light2D>().intensity = 0.5f;
+        L2.intensity = 0.5f;
+        L22.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.1f);
-        L2.GetComponent<Light2D>().intensity = 2;
-        L22.GetComponent<Light2D>().intensity = 1f;
+        L2.intensity = 2;
+        L22.intensity = 1;
         yield return new WaitForSecondsRealtime(0.5f);
-        L2.GetComponent<Light2D>().intensity = 0;
-        L22.GetComponent<Light2D>().intensity = 0f;
-
+        L2.intensity = 0;
+        L22.intensity = 0;
     }
-    public IEnumerator Off3()
+
+    private IEnumerator Off3()
     {
-        L3.GetComponent<Light2D>().intensity = 0.5f;
-        L33.GetComponent<Light2D>().intensity = 0.5f;
+        L3.intensity = 0.5f;
+        L33.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.1f);
-        L3.GetComponent<Light2D>().intensity = 2;
-        L33.GetComponent<Light2D>().intensity = 1f;
+        L3.intensity = 2;
+        L33.intensity = 1;
         yield return new WaitForSecondsRealtime(0.5f);
-        L3.GetComponent<Light2D>().intensity = 0;
-        L33.GetComponent<Light2D>().intensity = 0f;
-
+        L3.intensity = 0;
+        L33.intensity = 0;
     }
+    #endregion
 
 
+    public string GetSaveName() => name;
+    public object GetSaveData() => Phase;
+    public void LoadData(object data)
+    {
+        float savedPhase = JsonConvert.DeserializeObject<float>(data.ToString());
+        
+        CancelInvoke();
+        StopAllCoroutines();
 
+        if (savedPhase >= 4) EndPuzzle();
+        else ResetPuzzle();
+    }
 }

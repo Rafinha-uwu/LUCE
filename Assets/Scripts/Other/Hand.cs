@@ -1,122 +1,159 @@
+using Newtonsoft.Json;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Hand : MonoBehaviour
+[RequireComponent(typeof(Animator))]
+public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
 {
+    private static readonly string PLAYER_TAG = "Player";
     public bool start = false;
 
     public GameObject Sprite;
     public GameObject Black;
     public GameObject Touchi;
+    private Animator _animator;
 
     public float speed;
-    public bool move = false;
-    public bool cool = false;
+    private bool move = false;
 
-    private Scared scared;
-    public GameObject boo;
-
+    private Scared _scared;
     public GameObject Black2;
 
     public GameObject Box;
     public GameObject Block;
     public GameObject Block2;
 
-    // Start is called before the first frame update
-    void Start()
+    private Animator _black2Animator;
+    private Animator _boxAnimator;
+
+
+    private void Awake()
     {
-        scared = boo.GetComponent<Scared>();
+        GameObject player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
+        _scared = player.GetComponent<Scared>();
 
-        Collider2D childCollider = Touchi.GetComponent<Collider2D>();
-
+        _animator = GetComponent<Animator>();
+        _black2Animator = Black2.GetComponent<Animator>();
+        _boxAnimator = Box.GetComponent<Animator>();
     }
 
-    public void OnChildTriggerEnter(GameObject other)
+    private void Update()
     {
-        if (other.CompareTag("Player")) 
-        {
-            StartCoroutine(Death());
-        }
+        if (!move) return;
+        if (transform.position.x > 390) move = false;
 
-        if (other.name == "Luz")
-        {
-            other.gameObject.SetActive(false);
-        }
-
-    }
-
-    public IEnumerator Death()
-    {
-        move = false;
-        this.GetComponent<Animator>().Play("Grab");
-        PauseManager.Instance.PauseGame();
-        yield return new WaitForSecondsRealtime(0.4f);
-        Black2.GetComponent<Animator>().SetBool("Dark", true);
-        yield return new WaitForSecondsRealtime(1f);
-        move = true;
-        scared.Death();
-        PauseManager.Instance.ResumeGame();
-
-    }
-
-    public IEnumerator Flash()
-    {
-        move = false;
-        cool = true;
-        this.GetComponent<Animator>().Play("Flash");
-        yield return new WaitForSecondsRealtime(3f);
-        move = true;
-        cool = false;
-
+        transform.Translate(speed * Time.deltaTime * Vector3.right);
+        _animator.Play("Move");
     }
 
 
-    // Update is called once per frame
-    void Update()
+    public void StartHand()
     {
-        if (this.transform.position.x > 390)
-        {
-            move = false;
-        }
+        start = true;
         
+        Block2.SetActive(true);
+        Sprite.SetActive(true);
+        Black.SetActive(true);
+        Touchi.SetActive(true);
 
-        if (start)
-        {
+        _animator.Play("Start");
 
-            Block2.SetActive(true);
-            Sprite.SetActive(true);
-            Black.SetActive(true);
-            Touchi.SetActive(true);
-            this.GetComponent<Animator>().Play("Start");
-            Invoke("Alive", 10.4f);
-            Invoke("Boxes", 9.1f);
-            start = false;
-        }
-
-        if (move)
-        {
-            this.transform.Translate(Vector3.right * speed * Time.deltaTime);
-            this.GetComponent<Animator>().Play("Move");
-        }
-
+        Invoke(nameof(Alive), 10.4f);
+        Invoke(nameof(Boxes), 9.1f);
     }
 
-    public void Alive()
+    private void ResetHand()
+    {
+        start = false;
+        move = false;
+
+        Block2.SetActive(false);
+        Sprite.SetActive(false);
+        Black.SetActive(false);
+        Touchi.SetActive(false);
+        Block.SetActive(true);
+
+        _boxAnimator.Play("Idle");
+    }
+
+
+    private void Alive()
     {
         move = true;
         Block2.SetActive(false);
     }
 
-    public void Boxes()
+    private void Boxes()
     {
-        Box.GetComponent<Animator>().Play("Fall");
+        _boxAnimator.Play("Fall");
         Block.SetActive(false);
     }
 
-    public void CallFlash()
+
+    public void OnChildTriggerEnter(GameObject other)
     {
-        StartCoroutine(Flash());
+        if (other.CompareTag(PLAYER_TAG))
+        {
+            StartCoroutine(Death());
+            return;
+        }
+
+        bool hasLightHand = other.TryGetComponent(out LightHand lightHand);
+        if (hasLightHand) lightHand.TurnOff();
+    }
+
+    private IEnumerator Death()
+    {
+        move = false;
+        _animator.Play("Grab");
+        PauseManager.Instance.PauseGame();
+        yield return new WaitForSecondsRealtime(0.4f);
+
+        _black2Animator.SetBool("Dark", true);
+        yield return new WaitForSecondsRealtime(1f);
+
+        move = true;
+        _scared.Death();
+        PauseManager.Instance.ResumeGame();
+    }
+
+
+    private IEnumerator Flash()
+    {
+        move = false;
+        _animator.Play("Flash");
+        yield return new WaitForSeconds(3f);
+        move = true;
+    }
+    public void CallFlash() => StartCoroutine(Flash());
+
+
+    public string GetSaveName() => name;
+
+    public object GetSaveData() => new HandSaveData {
+        Position = new float[] { transform.position.x, transform.position.y },
+        Started = start
+    };
+
+    public void LoadData(object data)
+    {
+        HandSaveData savedData = JsonConvert.DeserializeObject<HandSaveData>(data.ToString());
+        transform.position = new(savedData.Position[0], savedData.Position[1], transform.position.z);
+
+        CancelInvoke();
+        StopAllCoroutines();
+
+        if (savedData.Started) StartHand();
+        else ResetHand();
+    }
+
+
+    [System.Serializable]
+    public class HandSaveData
+    {
+        public float[] Position;
+        public bool Started;
+        public bool Stopped;
     }
 }
 
