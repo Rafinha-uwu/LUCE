@@ -3,8 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
+    [SerializeField] public Canvas _canvas;
     [SerializeField] private SettingsMenu _settingsMenu;
+    [SerializeField] private HintsMenu _hintsMenu;
 
     private InputHandler _inputHandler;
     private static readonly string START_SCENE = "StartMenu";
@@ -48,6 +49,13 @@ public class PauseMenu : MonoBehaviour
     {
         _canvas.enabled = true;
         PauseManager.Instance.PauseGame();
+    }
+
+    public void Hints()
+    {
+        if (_hintsMenu == null) return;
+        _canvas.enabled = false;
+        _hintsMenu.Open();
     }
 
 
