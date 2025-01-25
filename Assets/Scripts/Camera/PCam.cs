@@ -86,7 +86,7 @@ public class PCam : HoldableItem
         once = saveData.Once;
 
         Desligar();
-        Cool();
+        Cooldown = true;
         CancelInvoke();
     }
 

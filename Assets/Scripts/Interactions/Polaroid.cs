@@ -16,9 +16,9 @@ public class Polaroid : HoldableItem
     private Scared _playerScared;
 
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         count = Colect.GetComponent<CountColect>();
         _colectAnimator = Colect.GetComponent<Animator>();

@@ -75,7 +75,7 @@ public class SaveManager
         try
         {
             // Convert the dictionary to JSON
-            string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+            string json = JsonConvert.SerializeObject(data);
 
             // Save the JSON to the file (creating the directory if it doesn't exist)
             if (!Directory.Exists(SavesDirectory)) Directory.CreateDirectory(SavesDirectory);
