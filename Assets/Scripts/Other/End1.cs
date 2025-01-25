@@ -118,4 +118,11 @@ public class End1 : SwitchObject
 
         _coroutine = null;
     }
+
+
+    public override void LoadData(object data)
+    {
+        TurnOff();
+        base.LoadData(data);
+    }
 }

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class KeyDoor : SwitchObject, IDoorSound
 {
-    private static readonly string ANIMATOR_PARAMETER = "Open";
+    private static readonly string ANIMATOR_PARAMETER_ON = "Open";
+    private static readonly string ANIMATOR_PARAMETER_RESET = "Reset";
     private Animator _animator;
 
     private StudioEventEmitter _doorSound;
@@ -30,8 +31,10 @@ public class KeyDoor : SwitchObject, IDoorSound
 
     private void OnKeyDoorStateChange(SwitchObject switchObject, bool isOn)
     {
-        if (_animator != null) _animator.SetBool(ANIMATOR_PARAMETER, isOn);
         if (isOn) PlayUnlockSound();
+        if (_animator == null) return;
+        _animator.SetBool(ANIMATOR_PARAMETER_RESET, false);
+        _animator.SetBool(ANIMATOR_PARAMETER_ON, isOn);
     }
 
 
@@ -65,4 +68,12 @@ public class KeyDoor : SwitchObject, IDoorSound
     }
 
     public void StopDoorSound() => _doorSound.Stop();
+
+
+    public override void LoadData(object data)
+    {
+        TurnOff();
+        if (_animator != null) _animator.SetBool(ANIMATOR_PARAMETER_RESET, true);
+        base.LoadData(data);
+    }
 }
