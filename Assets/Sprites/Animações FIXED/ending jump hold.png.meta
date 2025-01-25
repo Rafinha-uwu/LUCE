@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,448 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HoldJumpEnd1
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 7327
+        width: 828
+        height: 792
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc612f5e91227224bb76f69767cad569
+      internalID: -1353499869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd2
+      rect:
+        serializedVersion: 2
+        x: 3081
+        y: 7286
+        width: 821
+        height: 787
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2af9f0b6fa5fb42b348feeca1ace8d
+      internalID: -1804964946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd3
+      rect:
+        serializedVersion: 2
+        x: 5332
+        y: 7257
+        width: 820
+        height: 784
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea31dad9422fd9d489267ab3180649ae
+      internalID: -2087088085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd4
+      rect:
+        serializedVersion: 2
+        x: 7583
+        y: 7216
+        width: 810
+        height: 774
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18d9c65d06ae5944c99a9b26e2ea7db2
+      internalID: -596604353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd5
+      rect:
+        serializedVersion: 2
+        x: 9834
+        y: 7071
+        width: 769
+        height: 872
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f67391d88f32244daf5c50df179b695
+      internalID: 1138074822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd6
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 5469
+        width: 767
+        height: 783
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224ff9427d1fe9d45bdf50a1a94dc142
+      internalID: 1111727638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd7
+      rect:
+        serializedVersion: 2
+        x: 3085
+        y: 5451
+        width: 733
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c81921fc15c8d84ab65e157573c786c
+      internalID: 1863880722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd8
+      rect:
+        serializedVersion: 2
+        x: 5336
+        y: 5454
+        width: 702
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763ff8012c4af0d44822a2171207a1df
+      internalID: 1256406540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd9
+      rect:
+        serializedVersion: 2
+        x: 7587
+        y: 5457
+        width: 653
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3b14e032d6957449b6dadc7f8d5a16
+      internalID: -267533048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd10
+      rect:
+        serializedVersion: 2
+        x: 9805
+        y: 5456
+        width: 646
+        height: 796
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b131f1ef78bab7f4e997f5809d23a942
+      internalID: -2067838857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd11
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 3768
+        width: 640
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f3af1725b5eb21479624abc24b1b212
+      internalID: 1647437526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd12
+      rect:
+        serializedVersion: 2
+        x: 3016
+        y: 3763
+        width: 609
+        height: 828
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a377abbff9ed54949919f9135d2cbfab
+      internalID: -1267620987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd13
+      rect:
+        serializedVersion: 2
+        x: 5227
+        y: 3746
+        width: 567
+        height: 830
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8840155bb6d1884a98ae62b7e872057
+      internalID: 292763261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd14
+      rect:
+        serializedVersion: 2
+        x: 7443
+        y: 3748
+        width: 553
+        height: 819
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ea8c22153def64abd9138bed00db98
+      internalID: 1810744975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd15
+      rect:
+        serializedVersion: 2
+        x: 9656
+        y: 3726
+        width: 555
+        height: 841
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 933f5d396ef476a40b0ebb70ed2d4418
+      internalID: 1968368629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd16
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 2027
+        width: 591
+        height: 857
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3edc8f83b4c9c43b83e24577510eee
+      internalID: 467912305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd17
+      rect:
+        serializedVersion: 2
+        x: 2905
+        y: 2037
+        width: 596
+        height: 842
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046ac0d1c391d0a40b235fa0a38879ac
+      internalID: 222105846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd18
+      rect:
+        serializedVersion: 2
+        x: 5193
+        y: 2061
+        width: 604
+        height: 818
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67b4f33bb2bd734698d1336537cdb2a
+      internalID: 106867814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd19
+      rect:
+        serializedVersion: 2
+        x: 7477
+        y: 2059
+        width: 613
+        height: 829
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7d4cce7bb6c8942acd2a5d43f24197
+      internalID: 192950963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd20
+      rect:
+        serializedVersion: 2
+        x: 9767
+        y: 2073
+        width: 607
+        height: 830
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2367f0dbe8a07843915d50311880b78
+      internalID: 580954926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HoldJumpEnd21
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 392
+        width: 641
+        height: 823
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bf9a00d1c935742a06ad41cfa5d19b
+      internalID: -1938692896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +560,80 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HoldJumpEnd1: -1353499869
+      HoldJumpEnd10: -2067838857
+      HoldJumpEnd11: 1647437526
+      HoldJumpEnd12: -1267620987
+      HoldJumpEnd13: 292763261
+      HoldJumpEnd14: 1810744975
+      HoldJumpEnd15: 1968368629
+      HoldJumpEnd16: 467912305
+      HoldJumpEnd17: 222105846
+      HoldJumpEnd18: 106867814
+      HoldJumpEnd19: 192950963
+      HoldJumpEnd2: -1804964946
+      HoldJumpEnd20: 580954926
+      HoldJumpEnd21: -1938692896
+      HoldJumpEnd3: -2087088085
+      HoldJumpEnd4: -596604353
+      HoldJumpEnd5: 1138074822
+      HoldJumpEnd6: 1111727638
+      HoldJumpEnd7: 1863880722
+      HoldJumpEnd8: 1256406540
+      HoldJumpEnd9: -267533048
+      ending jump hold_1: -551037188
+      ending jump hold_10: 316115803
+      ending jump hold_11: -1194818696
+      ending jump hold_12: -800572
+      ending jump hold_13: 834307316
+      ending jump hold_14: 546462125
+      ending jump hold_18: 1122424885
+      ending jump hold_19: -1248037914
+      ending jump hold_2: 1192580899
+      ending jump hold_22: 717310145
+      ending jump hold_23: -742445290
+      ending jump hold_24: 1853866768
+      ending jump hold_25: -870516189
+      ending jump hold_26: 772134750
+      ending jump hold_27: -622790524
+      ending jump hold_28: 863571382
+      ending jump hold_29: 20721594
+      ending jump hold_30: 1568182702
+      ending jump hold_31: -1690811695
+      ending jump hold_32: 1612062575
+      ending jump hold_33: -1417345796
+      ending jump hold_36: 837263860
+      ending jump hold_40: 1636245566
+      ending jump hold_41: 185550938
+      ending jump hold_42: -2033270095
+      ending jump hold_43: -1123342730
+      ending jump hold_44: -1306851429
+      ending jump hold_45: 2138745903
+      ending jump hold_46: 899857055
+      ending jump hold_47: -212874357
+      ending jump hold_48: -1127344740
+      ending jump hold_49: -1492979176
+      ending jump hold_50: -1339713729
+      ending jump hold_51: -885099763
+      ending jump hold_52: -366070575
+      ending jump hold_58: 1438432061
+      ending jump hold_59: 921459545
+      ending jump hold_60: 1677199065
+      ending jump hold_61: 681354437
+      ending jump hold_62: -173317174
+      ending jump hold_63: -144955450
+      ending jump hold_64: 956361761
+      ending jump hold_65: 279845555
+      ending jump hold_66: -1798496676
+      ending jump hold_67: 259930916
+      ending jump hold_68: 1745044538
+      ending jump hold_7: 1948476832
+      ending jump hold_70: -1042118097
+      ending jump hold_71: 1572977621
+      ending jump hold_72: 481520611
+      ending jump hold_8: -1804796677
+      ending jump hold_9: 66047068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
