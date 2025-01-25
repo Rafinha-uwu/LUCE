@@ -30,8 +30,6 @@ public class HintsMenu : MonoBehaviour
         camaram = cm.GetComponent<CamaraManager>();
     }
 
-    private void Start() => Close();
-
     private void Update()
     {
         if (camaram._currentCamera.name != null && On == true)
