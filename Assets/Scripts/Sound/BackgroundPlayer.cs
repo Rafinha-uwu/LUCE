@@ -32,6 +32,12 @@ public class BackgroundPlayer : MonoBehaviour
         BunkerDown2,
         BunkerRight,
         Tunnel,
+        PuzzleEye,
+        Tunnel2,
+        Hand,
+        Tunnel3,
+        RealBasement,
+        Escape,
         // ...
     }
 }

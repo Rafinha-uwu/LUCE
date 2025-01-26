@@ -254,8 +254,8 @@ public class Scared : MonoBehaviour
 
             else
             {
-                Invoke("Death", 0.5f);
-                Darkness.GetComponent<Animator>().SetBool("Dark", true);
+                StartCoroutine(ScaredDeath());
+                if (Darkness != null) Darkness.GetComponent<Animator>().SetBool("Dark", true);
             }
         }
         else
@@ -306,6 +306,15 @@ public class Scared : MonoBehaviour
     }
     */
 
+    private System.Collections.IEnumerator ScaredDeath()
+    {
+        timerIsRunning = false;
+        ScaredCountDown = ScaredTime;
+
+        yield return new WaitForSeconds(0.5f);
+        Death();
+    }
+
     public void Death()
     {
         PlayDeathSound();
@@ -336,7 +345,7 @@ public class Scared : MonoBehaviour
         if (_scared1Animator != null) _scared1Animator.SetBool("Scared", false);
         if (_scared2Animator != null) _scared2Animator.SetBool("Scared", false);
         if (_scared3Animator != null) _scared3Animator.SetBool("Scared", false);
-        Darkness.GetComponent<Animator>().SetBool("Dark", false);
+        if (Darkness != null) Darkness.GetComponent<Animator>().SetBool("Dark", false);
         // check2 = true;
         // check = true;
         // this.transform.position = LastCheck;

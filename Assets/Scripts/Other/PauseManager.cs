@@ -22,7 +22,7 @@ public class PauseManager : MonoBehaviour
     private void Start() => ResumeGame();
 
 
-    public void PauseGame()
+    public void PauseGame(bool pauseSounds = true)
     {
         if (IsPaused) return;
         IsPaused = true;
@@ -30,7 +30,7 @@ public class PauseManager : MonoBehaviour
         // Set the time scale to 0 and pause the player input
         Time.timeScale = 0;
         if (InputHandler != null) InputHandler.PauseInput();
-        FMODManager.Instance.PauseSounds();
+        if (pauseSounds) FMODManager.Instance.PauseSounds();
     }
 
     public void ResumeGame()

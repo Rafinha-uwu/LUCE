@@ -122,7 +122,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         move = false;
         _animator.Play("Grab");
-        PauseManager.Instance.PauseGame();
+        PauseManager.Instance.PauseGame(false); // Pause the game but not the sounds
         yield return new WaitForSecondsRealtime(0.4f);
 
         _black2Animator.SetBool("Dark", true);
