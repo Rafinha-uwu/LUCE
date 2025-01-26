@@ -13,6 +13,8 @@ public class FMODManager : MonoBehaviour
     private readonly List<EventInstance> _eventInstances = new();
     private readonly List<StudioEventEmitter> _eventEmitters = new();
 
+    private bool _isPaused = false;
+
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class FMODManager : MonoBehaviour
 
     public void PlayOneShot(EventReference eventReference, Vector3 position = default)
     {
+        if (_isPaused) return;
         RuntimeManager.PlayOneShot(eventReference, position);
     }
 
@@ -39,6 +42,7 @@ public class FMODManager : MonoBehaviour
         try
         {
             EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
+            eventInstance.setPaused(_isPaused);
 
             _eventInstances.Add(eventInstance);
             return eventInstance;
@@ -58,12 +62,15 @@ public class FMODManager : MonoBehaviour
         eventEmitter.OverrideMinDistance = minDistance;
         eventEmitter.OverrideMaxDistance = maxDistance;
 
+        eventEmitter.EventInstance.setPaused(_isPaused);
+
         _eventEmitters.Add(eventEmitter);
         return eventEmitter;
     }
 
     public void PlayOneShotAttached(EventReference eventReference, GameObject gameObject)
     {
+        if (_isPaused) return;
         RuntimeManager.PlayOneShotAttached(eventReference, gameObject);
     }
 
@@ -86,15 +93,13 @@ public class FMODManager : MonoBehaviour
     }
 
 
-    public void PauseSounds()
-    {
-        _eventInstances.ForEach(e => e.setPaused(true));
-        _eventEmitters.ForEach(e => e.EventInstance.setPaused(true));
-    }
+    public void PauseSounds() => SetPaused(true);
+    public void ResumeSounds() => SetPaused(false);
 
-    public void ResumeSounds()
+    private void SetPaused(bool paused)
     {
-        _eventInstances.ForEach(e => e.setPaused(false));
-        _eventEmitters.ForEach(e => e.EventInstance.setPaused(false));
+        _isPaused = paused;
+        _eventInstances.ForEach(e => e.setPaused(_isPaused));
+        _eventEmitters.ForEach(e => e.EventInstance.setPaused(_isPaused));
     }
 }

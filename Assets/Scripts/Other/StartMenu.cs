@@ -1,4 +1,5 @@
 using FMOD.Studio;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,8 +29,11 @@ public class StartMenu : MonoBehaviour
 
     private void Start()
     {
-        _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
         if (_continueButton != null) _continueButton.SetActive(SaveManager.Instance.SaveExists());
+        _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
+        
+        FMODManager.Instance.PauseSounds();
+        StartCoroutine(StopExternalSounds());
     }
 
     private void OnDestroy()
@@ -46,7 +50,9 @@ public class StartMenu : MonoBehaviour
         if (_menuAnimator != null) _menuAnimator.SetBool("Start", true);
 
         if (_backgroundPlayer != null) _backgroundPlayer.StopBGM();
+
         _startGameCutsceneInstance?.start();
+        _startGameCutsceneInstance?.setPaused(false);
 
         Invoke(nameof(Load), 16);
     }
@@ -55,6 +61,9 @@ public class StartMenu : MonoBehaviour
     {
         if (_backgroundPlayer != null) _backgroundPlayer.StopBGM();
         _startGameCutsceneInstance?.stop(STOP_MODE.ALLOWFADEOUT);
+
+        FMODManager.Instance.ResumeSounds();
+
         SceneManager.LoadScene(GAME_SCENE);
     }
 
@@ -79,6 +88,13 @@ public class StartMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+
+    private IEnumerator StopExternalSounds()
+    {
+        yield return new WaitForEndOfFrame();
+        if (_backgroundPlayer != null) _backgroundPlayer.PlayBGM();
     }
 }
 
