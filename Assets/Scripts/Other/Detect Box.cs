@@ -35,8 +35,12 @@ public class DetectBox : MonoBehaviour
             {
                 Help.GetComponent<Animator>().Play("Idle 1");
             }
+            Invoke("Kill", 1);
         }
 
     }
-
+    public void Kill()
+    {
+        Destroy(Help);
+    }
 }
