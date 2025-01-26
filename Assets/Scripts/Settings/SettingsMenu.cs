@@ -65,14 +65,11 @@ public class SettingsMenu : MonoBehaviour
     private void UpdateCloseButtonNavigation(SettingsCategory category)
     {
         UnityEngine.UI.Button buttonOnRight = category.GetRightCloseButton();
-
-        Navigation nav = new()
+        _closeButton.navigation = new()
         {
             mode = Navigation.Mode.Explicit,
             selectOnUp = _categories.Last(sc => !sc.IsOpen).CategoryButton,
             selectOnRight = buttonOnRight != null ? buttonOnRight : _closeButton
         };
-
-        _closeButton.navigation = nav;
     }
 }
