@@ -7,6 +7,14 @@ public class PCam : HoldableItem
     public GameObject mao;
     public GameObject Light;
 
+    public GameObject HelpKey;
+
+
+    public GameObject HelpGrab;
+    public GameObject HelpCam;
+
+    public GameObject ECam;
+
     [SerializeField] private float detectionRange = 2f;
 
     private bool once = true;
@@ -16,6 +24,8 @@ public class PCam : HoldableItem
     protected static readonly string PLAYER_TAG = "Player";
 
     private bool Cooldown = true;
+
+
 
 
     protected override void Awake()
@@ -30,6 +40,15 @@ public class PCam : HoldableItem
         {
             GameObject player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
             _inputHandler = player.GetComponent<InputHandler>();
+        }
+
+        if (ECam.GetComponent<Help>().isUsingController == true)
+        {
+            ECam.GetComponent<Animator>().Play("Idle");
+        }
+        else
+        {
+            ECam.GetComponent<Animator>().Play("Idle 1");
         }
 
         _inputHandler.OnInteractAction += OnInteractAction;
@@ -48,17 +67,58 @@ public class PCam : HoldableItem
 
         Cooldown = true;
         Light.SetActive(true);
+
+        ECam.SetActive(false);
+
         Invoke(nameof(Cool), 5);
-        Invoke(nameof(Desligar), 0.3f); 
+        Invoke(nameof(Desligar), 0.3f);
     }
 
     public override void StartHold(Transform holdPosition)
     {
         base.StartHold(holdPosition);
         holding = true;
+
+        if (once == false)
+        {
+
+
+            if (HelpCam.GetComponent<Help>().isUsingController == true)
+            {
+                HelpCam.GetComponent<Animator>().Play("Idle");
+            }
+            else
+            {
+                HelpCam.GetComponent<Animator>().Play("Idle 1");
+            }
+
+            if (HelpGrab.GetComponent<Help>().isUsingController == true)
+            {
+                HelpGrab.GetComponent<Animator>().Play("ControllerHelp");
+            }
+            else
+            {
+                HelpGrab.GetComponent<Animator>().Play("KeyboardHelp");
+            }
+
+
+        }
+
+
         if (!once) return;
 
         // Execute on the first time holding the item
+
+        ECam.SetActive(true);
+        if (HelpKey.GetComponent<Help>().isUsingController == true)
+        {
+            HelpKey.GetComponent<Animator>().Play("Idle");
+        }
+        else
+        {
+            HelpKey.GetComponent<Animator>().Play("Idle 1");
+        }
+
         once = false;
         hand.StartHand();
         Invoke(nameof(Cool), 9);
@@ -66,15 +126,48 @@ public class PCam : HoldableItem
 
     public override void StopHold()
     {
+
+        if (HelpCam.GetComponent<Help>().isUsingController == true)
+        {
+            HelpCam.GetComponent<Animator>().Play("ControllerHelp");
+        }
+        else
+        {
+            HelpCam.GetComponent<Animator>().Play("KeyboardHelp");
+        }
+
+        if (HelpGrab.GetComponent<Help>().isUsingController == true)
+        {
+            HelpGrab.GetComponent<Animator>().Play("Idle");
+        }
+        else
+        {
+            HelpGrab.GetComponent<Animator>().Play("Idle 1");
+        }
+
+
         base.StopHold();
         holding = false;
     }
 
     private void Desligar() => Light.SetActive(false);
-    private void Cool() => Cooldown = false;
+    private void Cool()
+    {
+        Cooldown = false;
 
+        if (ECam.GetComponent<Help>().isUsingController == true)
+        {
+            ECam.GetComponent<Animator>().Play("ControllerHelp");
+        }
+        else
+        {
+            ECam.GetComponent<Animator>().Play("KeyboardHelp");
+        }
 
-    public override object GetSaveData() => new PCamSaveData{
+    }
+
+    public override object GetSaveData() => new PCamSaveData
+    {
         Position = new float[] { transform.position.x, transform.position.y },
         Once = once
     };

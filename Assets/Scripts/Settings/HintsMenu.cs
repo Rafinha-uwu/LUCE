@@ -19,24 +19,21 @@ public class HintsMenu : MonoBehaviour
     private GameObject current;
 
 
-    CamaraManager camaram;
-    public GameObject cm;
-
     private void Awake()
     {
         if (_canvas == null) throw new System.Exception("Canvas is not set in the inspector");
         if (_pauseMenu == null) throw new System.Exception("PauseMenu is not set in the inspector");
 
-        camaram = cm.GetComponent<CamaraManager>();
+
     }
 
     private void Update()
     {
-        if (camaram._currentCamera.name != null && On == true)
+        if (SaveManager.Instance.LastCheckpointName != null && On == true)
         {
-            switch (camaram._currentCamera.name)
+            switch (SaveManager.Instance.LastCheckpointName)
             {
-                case "Cam Bunker":
+                case "BunkerStartCheckpoint":
 
                     See.SetActive(true);
                     Blur.SetActive(true);
@@ -45,7 +42,7 @@ public class HintsMenu : MonoBehaviour
 
                     break;
 
-                case "Cam Bunker D1":
+                case "BunkerD1Checkpoint":
 
                     See.SetActive(true);
                     Blur.SetActive(true);
@@ -54,7 +51,7 @@ public class HintsMenu : MonoBehaviour
 
                     break;
 
-                case "Cam Bunker D2":
+                case "BunkerD2Checkpoint":
 
                     See.SetActive(true);
                     Blur.SetActive(true);
@@ -63,7 +60,7 @@ public class HintsMenu : MonoBehaviour
 
                     break;
 
-                case "Cam TP1":
+                case "PuzzleEyeCheckpoint":
 
                     See.SetActive(true);
                     Blur.SetActive(true);

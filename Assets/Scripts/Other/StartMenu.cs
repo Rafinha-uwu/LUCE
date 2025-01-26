@@ -54,7 +54,7 @@ public class StartMenu : MonoBehaviour
         _startGameCutsceneInstance?.start();
         _startGameCutsceneInstance?.setPaused(false);
 
-        Invoke(nameof(Load), 16);
+        Invoke(nameof(Load), 40.5f);
     }
 
     public void Load()

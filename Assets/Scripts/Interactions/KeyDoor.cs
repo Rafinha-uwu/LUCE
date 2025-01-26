@@ -7,6 +7,7 @@ public class KeyDoor : SwitchObject, IDoorSound
     private static readonly string ANIMATOR_PARAMETER_RESET = "Reset";
     private Animator _animator;
 
+
     private StudioEventEmitter _doorSound;
     [SerializeField] private float _soundMinDistance = 0f;
     [SerializeField] private float _soundMaxDistance = 10f;
@@ -19,7 +20,10 @@ public class KeyDoor : SwitchObject, IDoorSound
     }
     private void OnDestroy() => OnStateChange -= OnKeyDoorStateChange;
 
-
+    public void Update()
+    {
+        
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool hasKey = collision.TryGetComponent(out Key key);

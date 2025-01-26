@@ -171,6 +171,11 @@ public class Scared : MonoBehaviour
                 break;
 
             case "Cam Exit":
+                Ortho = 6;
+                GlobalL = 0.03f;
+                break;
+
+            case "Cam Closet":
                 Ortho = 4;
                 GlobalL = 0.03f;
                 break;
