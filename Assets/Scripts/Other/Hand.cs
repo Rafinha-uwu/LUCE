@@ -17,6 +17,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     private bool move = false;
 
     private Scared _scared;
+    private InputHandler _inputHandler;
     public GameObject Black2;
 
     public GameObject Box;
@@ -31,6 +32,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         GameObject player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
         _scared = player.GetComponent<Scared>();
+        _inputHandler = player.GetComponent<InputHandler>();
 
         _animator = GetComponent<Animator>();
         _black2Animator = Black2.GetComponent<Animator>();
@@ -106,15 +108,15 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         move = false;
         _animator.Play("Grab");
-        PauseManager.Instance.PauseGame(false); // Pause the game but not the sounds
-        yield return new WaitForSecondsRealtime(0.4f);
+        _inputHandler.PauseInput();
+        yield return new WaitForSeconds(0.4f);
 
         _black2Animator.SetBool("Dark", true);
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
 
         move = true;
         _scared.Death();
-        PauseManager.Instance.ResumeGame();
+        _inputHandler.ResumeInput();
     }
 
 
