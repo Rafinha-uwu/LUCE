@@ -7,6 +7,9 @@ public class SettingsCategory : MonoBehaviour
     [SerializeField] protected UnityEngine.UI.Button _categoryButton;
     [SerializeField] protected GameObject _settingsGroup;
 
+    public bool IsOpen => _settingsGroup.activeSelf;
+    public UnityEngine.UI.Button CategoryButton => _categoryButton;
+
 
     protected virtual void Awake()
     {
@@ -28,4 +31,7 @@ public class SettingsCategory : MonoBehaviour
         _settingsGroup.SetActive(false);
         _categoryButton.interactable = true;
     }
+
+
+    public virtual UnityEngine.UI.Button GetRightCloseButton() => null;
 }

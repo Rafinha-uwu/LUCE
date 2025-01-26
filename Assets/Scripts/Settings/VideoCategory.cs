@@ -75,4 +75,7 @@ public class VideoCategory : SettingsCategory
             _currentMode.Value, _currentResolution.Value.refreshRateRatio
         );
     }
+
+
+    public override UnityEngine.UI.Button GetRightCloseButton() => _applyButton;
 }

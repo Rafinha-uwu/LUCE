@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static FMODBusDatabase;
 
 public class AudioCategory : SettingsCategory
 {
     [SerializeField] private TemplateAudioSettings _template;
     [SerializeField] private RectTransform _content;
 
-    private FMODBusDatabase.NamedBus[] _namedBuses;
+    private NamedBus[] _namedBuses;
     private readonly List<TemplateAudioSettings> _options = new();
 
     [SerializeField] private UnityEngine.UI.Button _applyButton;
@@ -35,21 +36,29 @@ public class AudioCategory : SettingsCategory
         // Get buses from FMODBusDatabase
         _namedBuses = FMODManager.Instance.BusDatabase.Buses;
 
+        CreateOptions();
+        SetContentHeight();
+    }
+
+    private void CreateOptions()
+    {
         // Create a text and slider for each bus (according to the template given)
-        int i = 0;
-        foreach (var namedBus in _namedBuses)
+        for (int i = 0; i < _namedBuses.Length; i++)
         {
+            NamedBus namedBus = _namedBuses[i];
             TemplateAudioSettings optionTemplate = Instantiate(_template, _content);
-            
+
             optionTemplate.Initialize();
             optionTemplate.SetLabel(namedBus.BusName);
             optionTemplate.SetToNthPosition(i);
             optionTemplate.gameObject.SetActive(true);
 
             _options.Add(optionTemplate);
-            i++;
         }
+    }
 
+    private void SetContentHeight()
+    {
         // Set the content height according to the number of options
         float contentNewHeight = _template.GetHeight() * _namedBuses.Length;
         _content.sizeDelta = new(_content.sizeDelta.x, contentNewHeight);
@@ -64,7 +73,7 @@ public class AudioCategory : SettingsCategory
         for (int i = 0; i < _options.Count; i++)
         {
             TemplateAudioSettings option = _options[i];
-            FMODBusDatabase.NamedBus namedBus = _namedBuses[i];
+            NamedBus namedBus = _namedBuses[i];
 
             int volume = namedBus.GetBusVolume();
             option.SetSliderValue(volume);
@@ -77,10 +86,13 @@ public class AudioCategory : SettingsCategory
         for (int i = 0; i < _options.Count; i++)
         {
             TemplateAudioSettings option = _options[i];
-            FMODBusDatabase.NamedBus namedBus = _namedBuses[i];
+            NamedBus namedBus = _namedBuses[i];
 
             int volume = option.GetSliderValue();
             namedBus.SetBusVolume(volume);
         }
     }
+
+
+    public override UnityEngine.UI.Button GetRightCloseButton() => _applyButton;
 }

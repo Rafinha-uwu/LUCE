@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Linq;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -6,6 +8,7 @@ public class SettingsMenu : MonoBehaviour
 
     [SerializeField] private Canvas _canvas;
     [SerializeField] private SettingsCategory[] _categories;
+    [SerializeField] private UnityEngine.UI.Button _closeButton;
 
 
     private void Awake()
@@ -45,11 +48,29 @@ public class SettingsMenu : MonoBehaviour
         // Close all groups before opening the selected one
         CloseGroups();
         category.Open();
+
+        // Update the close button navigation
+        UpdateCloseButtonNavigation(category);
     }
 
     private void CloseGroups()
     {
         // Close all settings groups
         foreach (var category in _categories) category.Close();
+    }
+
+
+    private void UpdateCloseButtonNavigation(SettingsCategory category)
+    {
+        UnityEngine.UI.Button buttonOnRight = category.GetRightCloseButton();
+
+        Navigation nav = new()
+        {
+            mode = Navigation.Mode.Explicit,
+            selectOnUp = _categories.Last(sc => !sc.IsOpen).CategoryButton,
+            selectOnRight = buttonOnRight != null ? buttonOnRight : _closeButton
+        };
+
+        _closeButton.navigation = nav;
     }
 }
