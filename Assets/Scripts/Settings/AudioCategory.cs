@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static FMODBusDatabase;
 
 public class AudioCategory : SettingsCategory
@@ -11,6 +12,7 @@ public class AudioCategory : SettingsCategory
     private readonly List<TemplateAudioSettings> _options = new();
 
     [SerializeField] private UnityEngine.UI.Button _applyButton;
+    [SerializeField] private Selectable _otherSelectable;
 
 
     protected override void Awake()
@@ -20,6 +22,7 @@ public class AudioCategory : SettingsCategory
         if (_content == null) throw new System.Exception("Content is not set in the inspector");
         if (_template == null) throw new System.Exception("Template is not set in the inspector");
         if (_applyButton == null) throw new System.Exception("ApplyButton is not set in the inspector");
+        if (_otherSelectable == null) throw new System.Exception("OtherSelectable is not set in the inspector");
 
         _template.Initialize();
     }
@@ -37,6 +40,8 @@ public class AudioCategory : SettingsCategory
         _namedBuses = FMODManager.Instance.BusDatabase.Buses;
 
         CreateOptions();
+        SetOtherCategoryButtonNativation();
+        SetNavigation();
         SetContentHeight();
     }
 
@@ -65,6 +70,36 @@ public class AudioCategory : SettingsCategory
     }
 
 
+    private void SetOtherCategoryButtonNativation()
+    {
+        _otherSelectable.navigation = new()
+        {
+            mode = Navigation.Mode.Explicit,
+            selectOnLeft = _otherSelectable.navigation.selectOnLeft,
+            selectOnRight = _options.Count > 0 ? _options[0].GetSelectable() : _applyButton,
+            selectOnUp = _otherSelectable.navigation.selectOnUp,
+            selectOnDown = _otherSelectable.navigation.selectOnDown
+        };
+    }
+
+    private void SetNavigation()
+    {
+        for (int i = 0; i < _options.Count; i++)
+        {
+            TemplateAudioSettings option = _options[i];
+            Selectable selectable = option.GetSelectable();
+            selectable.navigation = new()
+            {
+                mode = Navigation.Mode.Explicit,
+                selectOnLeft = selectable.navigation.selectOnLeft,
+                selectOnRight = selectable.navigation.selectOnRight,
+                selectOnUp = i > 0 ? _options[i].GetSelectable() : selectable,
+                selectOnDown = i < _options.Count - 1 ? _options[i + 1].GetSelectable() : _applyButton
+            };
+        }
+    }
+
+
     public override void Open()
     {
         base.Open();
@@ -78,6 +113,10 @@ public class AudioCategory : SettingsCategory
             int volume = namedBus.GetBusVolume();
             option.SetSliderValue(volume);
         }
+
+        // Select the first option
+        if (_options.Count > 0) _options[0].GetSelectable().Select();
+        else _applyButton.Select();
     }
 
     private void Apply()
