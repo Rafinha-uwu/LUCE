@@ -5,7 +5,7 @@ public class Help : MonoBehaviour
 {
     private Animator animator;
     private bool playerInRange = false;
-    private bool isUsingController = false;
+    public bool isUsingController = false;
     // private bool hasPlayedAnimation = false;
 
     private void Start()
