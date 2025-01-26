@@ -74,6 +74,7 @@ public class HoldableItem : MonoBehaviour, ISavable
         Key,
         Polaroid,
         PolaroidNarrative1,
+        PolaroidNarrative2,
         //...
     }
 

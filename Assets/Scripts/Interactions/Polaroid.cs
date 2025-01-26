@@ -51,7 +51,13 @@ public class Polaroid : HoldableItem
                 StartCoroutine(Die1());
                 break;
 
-            // ...
+            case ItemType.PolaroidNarrative2:
+                _colectAnimator.SetBool("Nar2", true);
+                _blackAnimator.SetBool("Dark", true);
+
+                StartCoroutine(Die2());
+                break;
+                // ...
         }
     }
 
@@ -117,5 +123,21 @@ public class Polaroid : HoldableItem
         PauseManager.Instance.ResumeGame();
     }
 
-    // ...
+    public IEnumerator Die2()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        _colectAnimator.SetBool("Nar2", false);
+
+        yield return new WaitForSecondsRealtime(2.5f);
+        _playerHoldItem.ForceDrop();
+        count.nColect++;
+
+        yield return new WaitForSecondsRealtime(25f);
+        _blackAnimator.SetBool("Dark", false);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        gameObject.SetActive(false);
+        PauseManager.Instance.ResumeGame();
+    }
 }
