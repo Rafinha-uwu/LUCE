@@ -26,6 +26,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     private Animator _black2Animator;
     private Animator _boxAnimator;
 
+    public GameObject HelpCam;
 
     private void Awake()
     {
@@ -60,6 +61,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
 
         Invoke(nameof(Alive), 10.4f);
         Invoke(nameof(Boxes), 9.1f);
+        Invoke(nameof(Help), 8f);
     }
 
     private void ResetHand()
@@ -88,6 +90,20 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         _boxAnimator.Play("Fall");
         Block.SetActive(false);
     }
+
+    private void Help()
+    {
+        HelpCam.SetActive(true);
+        if (HelpCam.GetComponent<Help>().isUsingController == true)
+        {
+            HelpCam.GetComponent<Animator>().Play("ControllerHelp");
+        }
+        else
+        {
+            HelpCam.GetComponent<Animator>().Play("KeyboardHelp");
+        }
+    }
+
 
 
     public void OnChildTriggerEnter(GameObject other)
@@ -122,9 +138,25 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         move = false;
         _animator.Play("Flash");
+
+        if (HelpCam.GetComponent<Help>().isUsingController == true)
+        {
+            HelpCam.GetComponent<Animator>().Play("Idle");
+        }
+        else
+        {
+            HelpCam.GetComponent<Animator>().Play("Idle 1");
+        }
+
+        Invoke("HelpKill", 1);
         yield return new WaitForSeconds(3f);
         move = true;
+
+        
+
     }
+
+    public void HelpKill() => HelpCam.SetActive(false);
     public void CallFlash() => StartCoroutine(Flash());
 
 
