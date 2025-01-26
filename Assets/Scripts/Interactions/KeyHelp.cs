@@ -21,7 +21,7 @@ public class KeyHelp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Key.activeSelf)
+        if (!Key.activeSelf && HelpDoor != null)
         {
             keyreal = false;
 
@@ -35,6 +35,7 @@ public class KeyHelp : MonoBehaviour
             }
 
             Invoke("Kill", 1);
+
         }
     }
 

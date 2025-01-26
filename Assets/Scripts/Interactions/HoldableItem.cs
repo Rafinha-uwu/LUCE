@@ -59,6 +59,10 @@ public class HoldableItem : MonoBehaviour, ISavable
             ItemType.Key => FMODManager.Instance.EventDatabase.KeyPickup,
             ItemType.Polaroid => FMODManager.Instance.EventDatabase.PolaroidPickup,
             ItemType.PolaroidNarrative1 => FMODManager.Instance.EventDatabase.Narrative1Pickup,
+            ItemType.PolaroidNarrative2 => FMODManager.Instance.EventDatabase.Narrative2Pickup,
+            ItemType.PolaroidNarrative3 => FMODManager.Instance.EventDatabase.Narrative3Pickup,
+            ItemType.PolaroidNarrative4 => FMODManager.Instance.EventDatabase.Narrative4Pickup,
+            ItemType.Camera => FMODManager.Instance.EventDatabase.CameraPickup,
             // ...
             _ => null
         };
@@ -74,6 +78,10 @@ public class HoldableItem : MonoBehaviour, ISavable
         Key,
         Polaroid,
         PolaroidNarrative1,
+        PolaroidNarrative2,
+        PolaroidNarrative3,
+        PolaroidNarrative4,
+        Camera,
         //...
     }
 
