@@ -14,6 +14,7 @@ public class SettingsMenu : MonoBehaviour
     private void Awake()
     {
         if (_canvas == null) throw new System.Exception("Canvas is not set in the inspector");
+        if (_closeButton == null) throw new System.Exception("CloseButton is not set in the inspector");
 
         foreach (var category in _categories)
         {
@@ -31,6 +32,7 @@ public class SettingsMenu : MonoBehaviour
 
         // Open the first category by default
         if (_categories.Length > 0) OpenSettingsGroup(_categories[0]);
+        else _closeButton.Select();
     }
 
     public void Close()

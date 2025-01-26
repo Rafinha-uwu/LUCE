@@ -63,6 +63,9 @@ public class VideoCategory : SettingsCategory
         _resolutionDropdown.value = _resolutions.ToList().IndexOf(_currentResolution.Value);
 
         base.Open();
+
+        // Select the first dropdown
+        _modeDropdown.Select();
     }
 
     private void Apply()
