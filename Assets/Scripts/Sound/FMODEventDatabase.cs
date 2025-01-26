@@ -16,6 +16,7 @@ public class FMODEventDatabase : ScriptableObject
     [field: Header("Cutscenes")]
     [field: SerializeField] public EventReference StartGameCutscene { get; private set; }
     [field: SerializeField] public EventReference EndGameCutscene { get; private set; }
+    // ...
 
     // Player
     [field: Header("Player")]
@@ -50,10 +51,15 @@ public class FMODEventDatabase : ScriptableObject
     [field: SerializeField] public EventReference KeyPickup { get; private set; }
     [field: SerializeField] public EventReference KeyGroundHit { get; private set; }
     [field: SerializeField] public EventReference KeyUnlock { get; private set; }
+    [field: SerializeField] public EventReference CameraPickup { get; private set; }
+    // ...
 
     // Polaroids
     [field: Header("Polaroids")]
     [field: SerializeField] public EventReference PolaroidPickup { get; private set; }
     [field: SerializeField] public EventReference Narrative1Pickup { get; private set; }
+    [field: SerializeField] public EventReference Narrative2Pickup { get; private set; }
+    [field: SerializeField] public EventReference Narrative3Pickup { get; private set; }
+    [field: SerializeField] public EventReference Narrative4Pickup { get; private set; }
     // ...
 }
