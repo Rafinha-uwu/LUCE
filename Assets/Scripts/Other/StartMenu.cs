@@ -16,11 +16,13 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private SettingsMenu _settingsMenu;
 
     [SerializeField] private GameObject _continueButton;
+    [SerializeField] private UnityEngine.UI.Button _firstButton;
 
 
     private void Awake()
     {
-        if (_canvas == null) throw new System.NullReferenceException("Canvas is not set in the inspector");
+        if (_canvas == null) throw new System.Exception("Canvas is not set in the inspector");
+        if (_firstButton == null) throw new System.Exception("FirstButton is not set in the inspector");
 
         _canvas.enabled = true;
         if (_settingsMenu != null) _settingsMenu.OnClose += OnSettingsClose;
@@ -29,7 +31,12 @@ public class StartMenu : MonoBehaviour
     private void Start()
     {
         _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
-        if (_continueButton != null) _continueButton.SetActive(SaveManager.Instance.SaveExists());
+        if (_continueButton == null) return;
+
+        bool saveExists = SaveManager.Instance.SaveExists();
+        _continueButton.SetActive(saveExists);
+
+        if (saveExists) _firstButton = _continueButton.GetComponent<UnityEngine.UI.Button>();
     }
 
     private void OnDestroy()
@@ -69,6 +76,7 @@ public class StartMenu : MonoBehaviour
     private void OnSettingsClose()
     {
         _canvas.enabled = true;
+        _firstButton.Select();
     }
 
 

@@ -5293,18 +5293,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 916560648949368482, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_Navigation.m_SelectOnRight
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131403887679730685, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131403887679730685, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6785351719874278385, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5385,33 +5373,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7486749967287172565, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7766589442677688917, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
       propertyPath: m_Name
       value: SettingsCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8353799638584335432, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8367200141910678622, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8367200141910678622, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8367200141910678622, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9213713600551383824, guid: 60e69e0c415e43a4581774de6a503046, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
