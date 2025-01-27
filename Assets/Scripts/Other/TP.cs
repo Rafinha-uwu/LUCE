@@ -1,12 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class TP : MonoBehaviour
+public class TP : MonoBehaviour, ISavable
 {
-
     public GameObject Pol;
 
     public GameObject Player;
@@ -20,14 +17,8 @@ public class TP : MonoBehaviour
 
     private bool Once = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!Pol.activeSelf && Once == true)
         {
@@ -38,8 +29,6 @@ public class TP : MonoBehaviour
 
     private IEnumerator TPME()
     {
-
-
         yield return new WaitForSeconds(1);
 
         Light1.GetComponent<Light2D>().intensity = 2;
@@ -91,8 +80,10 @@ public class TP : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         White.GetComponent<Animator>().SetBool("White", false);
-
-
     }
 
+
+    public string GetSaveName() => name;
+    public object GetSaveData() => Once;
+    public void LoadData(object data) => Once = (bool)data;
 }
