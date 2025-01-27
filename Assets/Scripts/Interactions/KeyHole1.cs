@@ -14,6 +14,7 @@ public class KeyHole1 : MonoBehaviour
     public GameObject Block;
     public GameObject KeyCanvas;
 
+    public GameObject Door;
 
     public bool once;
 
@@ -69,6 +70,7 @@ public class KeyHole1 : MonoBehaviour
 
         KeyCanvas.GetComponent<Animator>().Play("HoleBlack");
 
+        Door.SetActive(true);
 
         once = false;
         yield return new WaitForSecondsRealtime(9f);
