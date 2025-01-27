@@ -2,6 +2,7 @@ using FMOD.Studio;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
@@ -40,7 +41,16 @@ public class StartMenu : MonoBehaviour
         bool saveExists = SaveManager.Instance.SaveExists();
         _continueButton.SetActive(saveExists);
 
-        if (saveExists) _firstButton = _continueButton.GetComponent<UnityEngine.UI.Button>();
+        if (!saveExists) return;
+        UnityEngine.UI.Button continueButtonUI = _continueButton.GetComponent<UnityEngine.UI.Button>();
+
+        _firstButton.navigation = new Navigation {
+            mode = Navigation.Mode.Explicit,
+            selectOnUp = continueButtonUI,
+            selectOnDown = _firstButton.navigation.selectOnDown
+        };
+
+        _firstButton = continueButtonUI;
     }
 
     private void OnDestroy()
