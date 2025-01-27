@@ -42,11 +42,11 @@ MonoBehaviour:
     Path: event:/Music/Menu Music
   <StartGameCutscene>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -588362225
+      Data2: 1182126560
+      Data3: -1025580405
+      Data4: -879563330
+    Path: event:/Ambience/Intro Scene
   <EndGameCutscene>k__BackingField:
     Guid:
       Data1: 0
@@ -210,11 +210,11 @@ MonoBehaviour:
     Path: event:/Music/Narrative 1
   <Narrative2Pickup>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 436534270
+      Data2: 1217183819
+      Data3: 2085807492
+      Data4: 1002529721
+    Path: event:/Music/Narrative 2
   <Narrative3Pickup>k__BackingField:
     Guid:
       Data1: 0
