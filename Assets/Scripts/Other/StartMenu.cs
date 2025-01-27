@@ -2,6 +2,7 @@ using FMOD.Studio;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
@@ -17,11 +18,13 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private SettingsMenu _settingsMenu;
 
     [SerializeField] private GameObject _continueButton;
+    [SerializeField] private UnityEngine.UI.Button _firstButton;
 
 
     private void Awake()
     {
-        if (_canvas == null) throw new System.NullReferenceException("Canvas is not set in the inspector");
+        if (_canvas == null) throw new System.Exception("Canvas is not set in the inspector");
+        if (_firstButton == null) throw new System.Exception("FirstButton is not set in the inspector");
 
         _canvas.enabled = true;
         if (_settingsMenu != null) _settingsMenu.OnClose += OnSettingsClose;
@@ -29,11 +32,25 @@ public class StartMenu : MonoBehaviour
 
     private void Start()
     {
-        if (_continueButton != null) _continueButton.SetActive(SaveManager.Instance.SaveExists());
         _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
         
         FMODManager.Instance.PauseSounds();
         StartCoroutine(StopExternalSounds());
+
+        if (_continueButton == null) return;
+        bool saveExists = SaveManager.Instance.SaveExists();
+        _continueButton.SetActive(saveExists);
+
+        if (!saveExists) return;
+        UnityEngine.UI.Button continueButtonUI = _continueButton.GetComponent<UnityEngine.UI.Button>();
+
+        _firstButton.navigation = new Navigation {
+            mode = Navigation.Mode.Explicit,
+            selectOnUp = continueButtonUI,
+            selectOnDown = _firstButton.navigation.selectOnDown
+        };
+
+        _firstButton = continueButtonUI;
     }
 
     private void OnDestroy()
@@ -78,6 +95,7 @@ public class StartMenu : MonoBehaviour
     private void OnSettingsClose()
     {
         _canvas.enabled = true;
+        _firstButton.Select();
     }
 
 
@@ -89,6 +107,9 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+
+    public void OnAnimationEnd() => _firstButton.Select();
 
 
     private IEnumerator StopExternalSounds()

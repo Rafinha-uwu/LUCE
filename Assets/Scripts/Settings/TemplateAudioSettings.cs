@@ -35,6 +35,8 @@ public class TemplateAudioSettings : MonoBehaviour
     public void SetLabel(string text) => _labelText.text = text;
     public void SetSliderValue(int value) => _slider.value = value;
 
+    public Selectable GetSelectable() => _slider;
+
 
     public float GetHeight() => _rectTransform.rect.height;
     public void SetToNthPosition(int n)
