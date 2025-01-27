@@ -99,6 +99,9 @@ public class StartMenu : MonoBehaviour
     }
 
 
+    public void OnAnimationEnd() => _firstButton.Select();
+
+
     private IEnumerator StopExternalSounds()
     {
         yield return new WaitForEndOfFrame();
