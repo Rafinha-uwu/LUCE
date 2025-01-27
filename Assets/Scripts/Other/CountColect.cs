@@ -7,6 +7,7 @@ public class CountColect : MonoBehaviour
     public float nColect = 0;
 
     private TextMeshProUGUI tmpText;
+    public TextMeshProUGUI pauseText;
 
     // Start is called before the first frame update
     private void Start()
@@ -18,5 +19,6 @@ public class CountColect : MonoBehaviour
     private void Update()
     {
        tmpText.text = nColect + "/6";
+       pauseText.GetComponentInChildren<TextMeshProUGUI>().text = nColect + "/6";
     }
 }

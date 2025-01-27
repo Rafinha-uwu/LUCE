@@ -401,7 +401,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3449088805499835502}
-  - component: {fileID: 465339998561637870}
   m_Layer: 5
   m_Name: Polaroid
   m_TagString: Untagged
@@ -421,8 +420,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6474729844433454030}
   - {fileID: 1113369917805127137}
+  - {fileID: 6474729844433454030}
   m_Father: {fileID: 569095616119422654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -430,19 +429,6 @@ RectTransform:
   m_AnchoredPosition: {x: 34, y: 38}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &465339998561637870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960050827042158109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc98d806ac252746be02accc2aac38c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nColect: 0
 --- !u!1 &1966090766158331187
 GameObject:
   m_ObjectHideFlags: 0
