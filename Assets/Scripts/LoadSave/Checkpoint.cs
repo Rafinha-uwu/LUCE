@@ -71,7 +71,7 @@ public class Checkpoint : MonoBehaviour, ISavable
         });
 
         // Load the dependencies (recursively) if loadDependencies is true
-        if (loadDependencies) foreach (var dependency in _dependencies) dependency.Load();
+        if (loadDependencies) foreach (var dependency in _dependencies) dependency.Load(false);
     }
 
     public virtual void Save(bool saveDependencies = true)

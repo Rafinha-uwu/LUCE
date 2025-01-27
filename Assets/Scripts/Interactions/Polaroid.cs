@@ -77,6 +77,8 @@ public class Polaroid : HoldableItem
         {
             gameObject.SetActive(false);
             count.nColect++;
+
+            if (_itemType == ItemType.PolaroidNarrative1) MoreSpeed();
         }
     }
 
@@ -87,6 +89,11 @@ public class Polaroid : HoldableItem
         public bool Used;
     }
 
+
+    private void MoreSpeed()
+    {
+        _playerScared.Speed_scared = 220;
+    }
 
     public IEnumerator Die()
     {
@@ -118,7 +125,7 @@ public class Polaroid : HoldableItem
         _blackAnimator.SetBool("Dark", false);
 
         yield return new WaitForSecondsRealtime(0.5f);
-        _playerScared.Speed_scared = 220;
+        MoreSpeed();
         gameObject.SetActive(false);
         PauseManager.Instance.ResumeGame();
     }
