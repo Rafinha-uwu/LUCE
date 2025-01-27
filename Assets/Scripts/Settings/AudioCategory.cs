@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using static FMODBusDatabase;
@@ -41,6 +42,7 @@ public class AudioCategory : SettingsCategory
 
         CreateOptions();
         SetOtherCategoryButtonNativation();
+        SetApplyButtonNavigation();
         SetNavigation();
         SetContentHeight();
     }
@@ -82,6 +84,18 @@ public class AudioCategory : SettingsCategory
         };
     }
 
+    private void SetApplyButtonNavigation()
+    {
+        _applyButton.navigation = new()
+        {
+            mode = Navigation.Mode.Explicit,
+            selectOnLeft = _applyButton.navigation.selectOnLeft,
+            selectOnRight = _applyButton.navigation.selectOnRight,
+            selectOnUp = _options.Count > 0 ? _options.Last().GetSelectable() : _applyButton.navigation.selectOnUp,
+            selectOnDown = _applyButton.navigation.selectOnDown
+        };
+    }
+
     private void SetNavigation()
     {
         for (int i = 0; i < _options.Count; i++)
@@ -93,7 +107,7 @@ public class AudioCategory : SettingsCategory
                 mode = Navigation.Mode.Explicit,
                 selectOnLeft = selectable.navigation.selectOnLeft,
                 selectOnRight = selectable.navigation.selectOnRight,
-                selectOnUp = i > 0 ? _options[i].GetSelectable() : selectable,
+                selectOnUp = i > 0 ? _options[i - 1].GetSelectable() : selectable,
                 selectOnDown = i < _options.Count - 1 ? _options[i + 1].GetSelectable() : _applyButton
             };
         }
