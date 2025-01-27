@@ -88,6 +88,6 @@ public class TP : MonoBehaviour, ISavable
     public void LoadData(object data)
     {
         bool savedOnce = (bool)data;
-        if (!Once) Once = savedOnce;
+        if (Once) Once = savedOnce;
     }
 }
