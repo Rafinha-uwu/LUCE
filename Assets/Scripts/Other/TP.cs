@@ -85,5 +85,9 @@ public class TP : MonoBehaviour, ISavable
 
     public string GetSaveName() => name;
     public object GetSaveData() => Once;
-    public void LoadData(object data) => Once = (bool)data;
+    public void LoadData(object data)
+    {
+        bool savedOnce = (bool)data;
+        if (!Once) Once = savedOnce;
+    }
 }
