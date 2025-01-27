@@ -15,4 +15,13 @@ public class GroundCheck : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapBoxAll(_groundCheck.position, _groundCheckSize, 0, _groundLayer);
         IsGrounded = colliders.Any(collider => collider.gameObject != gameObject);
     }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        if (_groundCheck == null) return;
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(_groundCheck.position, _groundCheckSize);
+    }
 }

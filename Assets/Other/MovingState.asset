@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: MovingState
   m_EditorClassIdentifier: 
   _speed: 200
+  _soundMinDistance: 0
+  _soundMaxDistance: 10

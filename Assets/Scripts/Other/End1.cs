@@ -1,13 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-public class End1 : MonoBehaviour
+public class End1 : SwitchObject
 {
+    private static readonly string PLAYER_TAG = "Player";
+
+    [SerializeField] private Checkpoint _endCheckpoint;
+    private Collider2D _endCheckpointCollider;
+    private Polaroid _polaroid;
 
     public GameObject cLights;
-    public bool Once;
 
     public GameObject Lights1;
     public GameObject Lights2;
@@ -20,37 +22,64 @@ public class End1 : MonoBehaviour
     public GameObject Lights9;
     public GameObject Lights10;
 
+    private Coroutine _coroutine;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        _polaroid = GetComponentInChildren<Polaroid>();
+        if (_polaroid == null) throw new System.Exception($"Polaroid not found in children of {name}");
 
+        if (_endCheckpoint != null)
+        {
+            _endCheckpointCollider = _endCheckpoint.GetComponent<Collider2D>();
+            _endCheckpointCollider.enabled = false;
+        }
+        OnStateChange += OnEndStateChange;
     }
+    private void OnDestroy() => OnStateChange -= OnEndStateChange;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Once == true)
-        {
-            if (transform.childCount < 1)
-            {
-                StartCoroutine(Run());
-            }
+        bool polaroidTaken = !_polaroid.gameObject.activeSelf;
+        bool playerInside = collision.CompareTag(PLAYER_TAG);
 
+        if (playerInside && polaroidTaken && !IsOn) TurnOn();
+    }
+
+
+    private void OnEndStateChange(SwitchObject switchObject, bool isOn)
+    {
+        if (_endCheckpointCollider != null) _endCheckpointCollider.enabled = isOn;
+
+        if (isOn)
+        {
+            _coroutine = StartCoroutine(Run());
+        }
+        else
+        {
+            if (_coroutine != null) StopCoroutine(_coroutine);
+
+            cLights.SetActive(true);
+            Lights8.SetActive(true);
+            Lights9.SetActive(true);
+            Lights10.SetActive(true);
+
+            Lights1.SetActive(false);
+            Lights2.SetActive(false);
+            Lights3.SetActive(false);
+            Lights4.SetActive(false);
+            Lights5.SetActive(false);
+            Lights6.SetActive(false);
+            Lights7.SetActive(false);
         }
     }
+
+
     public IEnumerator Run()
     {
-
         cLights.SetActive(true);
-
-        Once = false;
 
         yield return new WaitForSeconds(1);
         cLights.SetActive(false);
@@ -87,6 +116,13 @@ public class End1 : MonoBehaviour
         Lights1.SetActive(true);
         Lights2.SetActive(true);
 
+        _coroutine = null;
+    }
 
+
+    public override void LoadData(object data)
+    {
+        TurnOff();
+        base.LoadData(data);
     }
 }

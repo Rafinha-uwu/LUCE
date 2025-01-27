@@ -21,7 +21,7 @@ public class PlayerPushPullState : PlayerState
 
     public override void EnterState(PlayerController player)
     {
-        if (_flip == null) _flip = GameObject.Find(PLAYER_TAG).GetComponent<Flip>();
+        if (_flip == null) _flip = GameObject.FindGameObjectWithTag(PLAYER_TAG).GetComponent<Flip>();
 
         CurrentStopPushing(player);
         NewObjectCheck(player);

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using TMPro;
 
 public class CountColect : MonoBehaviour
@@ -10,18 +7,18 @@ public class CountColect : MonoBehaviour
     public float nColect = 0;
 
     private TextMeshProUGUI tmpText;
+    public TextMeshProUGUI pauseText;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         tmpText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
-       tmpText.text = nColect + "/4";
-
+       tmpText.text = nColect + "/6";
+       pauseText.GetComponentInChildren<TextMeshProUGUI>().text = nColect + "/6";
     }
 }

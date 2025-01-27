@@ -10,7 +10,7 @@
                     "type": "Value",
                     "id": "12a9869f-5db2-474d-b45f-b6cf48550258",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -305,6 +305,28 @@
                 },
                 {
                     "name": "",
+                    "id": "bfe872dd-e3a1-4c7f-b4ea-17e1f3332029",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "PushPull",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b87bf78d-0741-4971-b82a-9f6f7a410e19",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "PushPull",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f2ef9589-45fd-4d42-b7de-794257129125",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -327,8 +349,8 @@
                 },
                 {
                     "name": "",
-                    "id": "d4e55393-b6d9-4ad6-945a-8a15b9f12599",
-                    "path": "<Mouse>/leftButton",
+                    "id": "b2519d89-6e05-4b05-9776-f3304ef38455",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -371,8 +393,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f1717d24-a85b-4f2c-992e-db971ed4c617",
-                    "path": "<Mouse>/rightButton",
+                    "id": "d4e55393-b6d9-4ad6-945a-8a15b9f12599",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -409,6 +431,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "Hold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1717d24-a85b-4f2c-992e-db971ed4c617",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Hold",
                     "isComposite": false,
                     "isPartOfComposite": false

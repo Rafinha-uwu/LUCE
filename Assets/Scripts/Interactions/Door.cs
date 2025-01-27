@@ -1,14 +1,23 @@
-﻿using UnityEngine;
-using UnityEngine.Rendering.Universal;
+﻿using FMODUnity;
+using UnityEngine;
 
-public class Door : SwitchWithRequirements
+public class Door : SwitchWithRequirements, IDoorSound
 {
-    private bool Anim;
+    private static readonly string ANIMATOR_PARAMETER_ON = "Open";
+    private static readonly string ANIMATOR_PARAMETER_RESET = "Reset";
+    private Animator _animator;
+
+    private StudioEventEmitter _doorSound;
+    [SerializeField] private bool _playSound = true;
+    [SerializeField] private float _soundMinDistance = 0f;
+    [SerializeField] private float _soundMaxDistance = 10f;
+
 
     protected override void Awake()
     {
-
+        _animator = GetComponent<Animator>();
         OnStateChange += OnDoorStateChange;
+        IsOn = false;
         base.Awake();
     }
 
@@ -16,38 +25,46 @@ public class Door : SwitchWithRequirements
     {
         OnStateChange -= OnDoorStateChange;
         base.OnDestroy();
-
-
     }
 
 
     private void OnDoorStateChange(SwitchObject switchObject, bool isOn)
     {
+        if (_animator == null) return;
+        _animator.SetBool(ANIMATOR_PARAMETER_RESET, false);
+        _animator.SetBool(ANIMATOR_PARAMETER_ON, isOn);
+    }
 
-        bool isClosed = !isOn;
 
-        if (this.gameObject.GetComponent<Elevator>() != null)
-        {
-            this.gameObject.GetComponent<Elevator>().On = isOn;
-        }
-        if (this.gameObject.GetComponent<Code>() != null)
-        {
-            this.gameObject.GetComponent<Code>().On = isOn;
-        }
-        if (this.gameObject.GetComponent<Animator>() != null)
-        {
-            if (Anim == isOn) { Anim = isClosed; }
-            else { Anim = isOn; };
+    protected override void Start()
+    {
+        base.Start();
+        _doorSound = GetDoorSound();
+    }
 
-            if (Anim == true)
-            {
-                this.GetComponent<Animator>().SetBool("Open", true);
-            }
-            else
-            {
-                this.GetComponent<Animator>().SetBool("Open", false);
-            }
-        }
+    private StudioEventEmitter GetDoorSound()
+    {
+        return FMODManager.Instance.CreateEventEmitter(
+            FMODManager.Instance.EventDatabase.Door,
+            gameObject,
+            _soundMinDistance, _soundMaxDistance
+        );
+    }
 
+    public void PlayDoorSound()
+    {
+        if (!_playSound) return;
+
+        _doorSound.Play();
+        FMODManager.Instance.AttachInstance(_doorSound.EventInstance, transform);
+    }
+
+    public void StopDoorSound() => _doorSound.Stop();
+
+
+    public override void LoadData(object data)
+    {
+        TurnOff();
+        if (_animator != null) _animator.SetBool(ANIMATOR_PARAMETER_RESET, true);
     }
 }

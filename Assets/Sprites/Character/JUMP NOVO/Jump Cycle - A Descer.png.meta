@@ -1,0 +1,642 @@
+fileFormatVersion: 2
+guid: 36b0544abed135f45a224a033fa08fea
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jump_Cycle_End_1
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 7338
+        width: 828
+        height: 781
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a392aefd9650a4fa425da6b88a82e6
+      internalID: -775885375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_2
+      rect:
+        serializedVersion: 2
+        x: 3081
+        y: 7296
+        width: 821
+        height: 777
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 915cd68e07570534289903c8d31811da
+      internalID: -279646422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_3
+      rect:
+        serializedVersion: 2
+        x: 5332
+        y: 7263
+        width: 820
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0601f7d5a6bed4c96203bf88a88863
+      internalID: 1752549213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_4
+      rect:
+        serializedVersion: 2
+        x: 7583
+        y: 7224
+        width: 810
+        height: 766
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85b08c62bec5684188ae7bdefad366b
+      internalID: 1838148559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_5
+      rect:
+        serializedVersion: 2
+        x: 9834
+        y: 7178
+        width: 769
+        height: 765
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6da879d2200db488a6ba04fedfce2a
+      internalID: 824903670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_6
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 5473
+        width: 767
+        height: 779
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a86fce775a7c144f967bcbf0d7e0b27
+      internalID: -448422531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_7
+      rect:
+        serializedVersion: 2
+        x: 3085
+        y: 5451
+        width: 733
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1212e7e2ebea642be352865709d786
+      internalID: 864826704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_8
+      rect:
+        serializedVersion: 2
+        x: 5336
+        y: 5454
+        width: 702
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9d4848af63549468882d86fd80a016
+      internalID: 471315666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_9
+      rect:
+        serializedVersion: 2
+        x: 7587
+        y: 5457
+        width: 653
+        height: 791
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c92fcd1d76ac044b1b7006773873b9
+      internalID: -1862290974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_10
+      rect:
+        serializedVersion: 2
+        x: 9805
+        y: 5456
+        width: 646
+        height: 796
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb81b3fff0b94f940a134a70f03100a5
+      internalID: -1163374508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_11
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 3768
+        width: 640
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab7f42c088b152448fca06550dfe411
+      internalID: -1356860010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_12
+      rect:
+        serializedVersion: 2
+        x: 3016
+        y: 3763
+        width: 609
+        height: 828
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3b674d60bee6a4abff4d548cc44214
+      internalID: -1982001614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_13
+      rect:
+        serializedVersion: 2
+        x: 5227
+        y: 3746
+        width: 567
+        height: 830
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a09a083863f364486b9846e96b7d96
+      internalID: -1144446567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_14
+      rect:
+        serializedVersion: 2
+        x: 7443
+        y: 3748
+        width: 553
+        height: 819
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc8ee9062e9d284e948d2edc20d15b2
+      internalID: -2116969740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_15
+      rect:
+        serializedVersion: 2
+        x: 9656
+        y: 3735
+        width: 555
+        height: 832
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e3edfa6cb03fd4195dea190b187dee
+      internalID: 1812722006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_16
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 2039
+        width: 563
+        height: 845
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e23855884afd0547b96b120ca6fc9ee
+      internalID: 1402036488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_17
+      rect:
+        serializedVersion: 2
+        x: 2905
+        y: 2037
+        width: 559
+        height: 842
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c58bc81f004fe4a93fbf50bc3fa66b
+      internalID: 653184726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_18
+      rect:
+        serializedVersion: 2
+        x: 5193
+        y: 2061
+        width: 551
+        height: 818
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eefb21c8fddd5d24fb80f398cec06e74
+      internalID: 2078269294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_19
+      rect:
+        serializedVersion: 2
+        x: 7477
+        y: 2059
+        width: 569
+        height: 829
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537068401049ea34b800c6aeebf726a1
+      internalID: -1338370175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_20
+      rect:
+        serializedVersion: 2
+        x: 9767
+        y: 2073
+        width: 607
+        height: 830
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222b8c3a6d942e8488ea821c826801d9
+      internalID: -1538334644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump_Cycle_End_21
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 392
+        width: 641
+        height: 823
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865f2cdb3bac1704284089a88ebe61ef
+      internalID: -1552309775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Jump Cycle - A Descer_1: -1916680829
+      Jump Cycle - A Descer_10: -395757642
+      Jump Cycle - A Descer_11: -1707320062
+      Jump Cycle - A Descer_12: 460018978
+      Jump Cycle - A Descer_13: -529026758
+      Jump Cycle - A Descer_14: 227010443
+      Jump Cycle - A Descer_18: -1356803679
+      Jump Cycle - A Descer_19: 1940533536
+      Jump Cycle - A Descer_2: -2015504310
+      Jump Cycle - A Descer_22: 1139778852
+      Jump Cycle - A Descer_23: -838955692
+      Jump Cycle - A Descer_24: 588921713
+      Jump Cycle - A Descer_25: 1678971318
+      Jump Cycle - A Descer_26: -438911875
+      Jump Cycle - A Descer_27: -911310378
+      Jump Cycle - A Descer_28: 944777980
+      Jump Cycle - A Descer_29: -41866408
+      Jump Cycle - A Descer_30: -1869005541
+      Jump Cycle - A Descer_31: -1215931297
+      Jump Cycle - A Descer_32: -406877794
+      Jump Cycle - A Descer_33: 450208564
+      Jump Cycle - A Descer_34: 258926432
+      Jump Cycle - A Descer_37: 1030913236
+      Jump Cycle - A Descer_41: -735297370
+      Jump Cycle - A Descer_42: -331149766
+      Jump Cycle - A Descer_43: 1839265486
+      Jump Cycle - A Descer_44: -818153182
+      Jump Cycle - A Descer_45: 300847770
+      Jump Cycle - A Descer_46: -440748240
+      Jump Cycle - A Descer_47: 391088520
+      Jump Cycle - A Descer_48: -1440279282
+      Jump Cycle - A Descer_49: 1084633559
+      Jump Cycle - A Descer_50: -997466885
+      Jump Cycle - A Descer_51: -1230149531
+      Jump Cycle - A Descer_52: 342431205
+      Jump Cycle - A Descer_53: 566279108
+      Jump Cycle - A Descer_59: -162853351
+      Jump Cycle - A Descer_60: -539970460
+      Jump Cycle - A Descer_61: 1102987434
+      Jump Cycle - A Descer_62: -1306631355
+      Jump Cycle - A Descer_63: -1380086672
+      Jump Cycle - A Descer_64: 723664651
+      Jump Cycle - A Descer_65: -1157738209
+      Jump Cycle - A Descer_66: -267355164
+      Jump Cycle - A Descer_67: -2041735030
+      Jump Cycle - A Descer_68: -1808568709
+      Jump Cycle - A Descer_69: 319604243
+      Jump Cycle - A Descer_7: -46959688
+      Jump Cycle - A Descer_70: -869526007
+      Jump Cycle - A Descer_72: 56275908
+      Jump Cycle - A Descer_73: -41459358
+      Jump Cycle - A Descer_8: -350869631
+      Jump Cycle - A Descer_9: 1157531424
+      Jump_Cycle_End_1: -775885375
+      Jump_Cycle_End_10: -1163374508
+      Jump_Cycle_End_11: -1356860010
+      Jump_Cycle_End_12: -1982001614
+      Jump_Cycle_End_13: -1144446567
+      Jump_Cycle_End_14: -2116969740
+      Jump_Cycle_End_15: 1812722006
+      Jump_Cycle_End_16: 1402036488
+      Jump_Cycle_End_17: 653184726
+      Jump_Cycle_End_18: 2078269294
+      Jump_Cycle_End_19: -1338370175
+      Jump_Cycle_End_2: -279646422
+      Jump_Cycle_End_20: -1538334644
+      Jump_Cycle_End_21: -1552309775
+      Jump_Cycle_End_3: 1752549213
+      Jump_Cycle_End_4: 1838148559
+      Jump_Cycle_End_5: 824903670
+      Jump_Cycle_End_6: -448422531
+      Jump_Cycle_End_7: 864826704
+      Jump_Cycle_End_8: 471315666
+      Jump_Cycle_End_9: -1862290974
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

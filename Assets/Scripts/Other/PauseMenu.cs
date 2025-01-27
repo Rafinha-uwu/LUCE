@@ -1,54 +1,95 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private SettingsMenu _settingsMenu;
+    [SerializeField] private HintsMenu _hintsMenu;
+    [SerializeField] private UnityEngine.UI.Button _firstButton;
 
-    private InputAction _pauseAction;
-    private InputAction _resumeAction;
-
-    private static readonly string PAUSE_ACTION = "Pause";
-    private static readonly string RESUME_ACTION = "Resume";
+    private InputHandler _inputHandler;
     private static readonly string START_SCENE = "StartMenu";
 
 
     private void Start()
     {
-        _pauseAction = PauseManager.Instance.PlayerInput.actions[PAUSE_ACTION];
-        _resumeAction = PauseManager.Instance.PlayerInput.actions[RESUME_ACTION];
-        
-        _pauseAction.performed += OnPause;
-        _resumeAction.performed += OnPause;
+        _inputHandler = PauseManager.Instance.InputHandler;
+        if (_inputHandler == null) return;
+        if (_canvas == null) throw new System.Exception("Canvas is not set in the inspector");
+        if (_firstButton == null) throw new System.Exception("First button is not set in the inspector");
+
+        _inputHandler.OnPauseAction += OnPause;
+        _inputHandler.OnResumeAction += OnPause;
 
         _canvas.enabled = false;
+        if (_settingsMenu != null) _settingsMenu.OnClose += OnSettingsClose;
+        if (_hintsMenu != null) _hintsMenu.OnClose += OnHintsClose;
     }
 
     private void OnDestroy()
     {
-        _pauseAction.performed -= OnPause;
-        _resumeAction.performed -= OnPause;
+        _inputHandler.OnPauseAction -= OnPause;
+        _inputHandler.OnResumeAction -= OnPause;
+        if (_settingsMenu != null) _settingsMenu.OnClose -= OnSettingsClose;
+        if (_hintsMenu != null) _hintsMenu.OnClose -= OnHintsClose;
     }
 
 
-    private void OnPause(InputAction.CallbackContext context)
+    private void OnPause()
     {
         bool isShowingMenu = _canvas.enabled;
         if (isShowingMenu) Resume();
         else if (!PauseManager.Instance.IsPaused) Pause();
     }
 
+
     public void Resume()
     {
         _canvas.enabled = false;
+        EventSystem.current.SetSelectedGameObject(null);
         PauseManager.Instance.ResumeGame();
     }
 
     public void Pause()
     {
         _canvas.enabled = true;
+        _firstButton.Select();
         PauseManager.Instance.PauseGame();
+    }
+
+    public void Hints()
+    {
+        if (_hintsMenu == null) return;
+        _canvas.enabled = false;
+        _hintsMenu.Open();
+    }
+
+    private void OnHintsClose()
+    {
+        if (PauseManager.Instance.IsPaused)
+        {
+            _canvas.enabled = true;
+            _firstButton.Select();
+        }
+    }
+
+
+    public void Settings()
+    {
+        if (_settingsMenu == null) return;
+        _canvas.enabled = false;
+        _settingsMenu.Open();
+    }
+
+    private void OnSettingsClose()
+    {
+        if (PauseManager.Instance.IsPaused)
+        {
+            _canvas.enabled = true;
+            _firstButton.Select();
+        }
     }
 
 

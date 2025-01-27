@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8620c97861bc7d4489d1b10d24190c6, type: 3}
+  m_Name: FMODEventDatabase
+  m_EditorClassIdentifier: 
+  <EventForTesting>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <GameBGM>k__BackingField:
+    Guid:
+      Data1: 58814223
+      Data2: 1111349174
+      Data3: 2144186302
+      Data4: -1130093972
+    Path: event:/Music/BGM_Test
+  <GameAmbience>k__BackingField:
+    Guid:
+      Data1: -568085690
+      Data2: 1080146247
+      Data3: 746786696
+      Data4: 1855816880
+    Path: event:/Ambience/Background
+  <StartMenuBGM>k__BackingField:
+    Guid:
+      Data1: -928497198
+      Data2: 1291328188
+      Data3: -328156798
+      Data4: 158271820
+    Path: event:/Music/Menu Music
+  <StartGameCutscene>k__BackingField:
+    Guid:
+      Data1: -588362225
+      Data2: 1182126560
+      Data3: -1025580405
+      Data4: -879563330
+    Path: event:/Ambience/Intro Scene
+  <EndGameCutscene>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <PlayerMove>k__BackingField:
+    Guid:
+      Data1: -385494015
+      Data2: 1195472629
+      Data3: -2064153176
+      Data4: 1900422219
+    Path: event:/Character/Player Footsteps
+  <PlayerJump>k__BackingField:
+    Guid:
+      Data1: -1745418624
+      Data2: 1227007548
+      Data3: 1741931908
+      Data4: -1625957231
+    Path: event:/Character/Player Jump
+  <PlayerGroundHit>k__BackingField:
+    Guid:
+      Data1: 1433369090
+      Data2: 1252383634
+      Data3: -16945234
+      Data4: 660363690
+    Path: event:/Character/Player Ground Hit
+  <PlayerDeath>k__BackingField:
+    Guid:
+      Data1: 2077946357
+      Data2: 1276706141
+      Data3: 145259401
+      Data4: 1623790457
+    Path: event:/Character/Player Death
+  <PlayerScared>k__BackingField:
+    Guid:
+      Data1: -1860238070
+      Data2: 1213020734
+      Data3: -1276593265
+      Data4: -391213670
+    Path: event:/Character/Player Scared
+  <ObjectMove>k__BackingField:
+    Guid:
+      Data1: -457460480
+      Data2: 1257366697
+      Data3: -23562336
+      Data4: 275765477
+    Path: event:/Interactables/Box Drag
+  <ObjectGroundHit>k__BackingField:
+    Guid:
+      Data1: 1757647535
+      Data2: 1077322122
+      Data3: -195308398
+      Data4: 1708833056
+    Path: event:/Interactables/Box Fall
+  <Lever>k__BackingField:
+    Guid:
+      Data1: -2000198305
+      Data2: 1256602528
+      Data3: -839889534
+      Data4: 487148907
+    Path: event:/Interactables/Switch
+  <Button>k__BackingField:
+    Guid:
+      Data1: -1686053449
+      Data2: 1089469772
+      Data3: 63215508
+      Data4: 1017973816
+    Path: event:/Interactables/Button
+  <PressurePlate>k__BackingField:
+    Guid:
+      Data1: -1787480728
+      Data2: 1168154422
+      Data3: -1239433595
+      Data4: 1341299982
+    Path: event:/Interactables/Pressure Plate
+  <Elevator>k__BackingField:
+    Guid:
+      Data1: -1920328563
+      Data2: 1328094821
+      Data3: 116378277
+      Data4: -1103520165
+    Path: event:/UI/TestElevator
+  <ElevatorShake>k__BackingField:
+    Guid:
+      Data1: -545613628
+      Data2: 1210497615
+      Data3: -147174011
+      Data4: 2030471289
+    Path: event:/UI/Elevator Shake
+  <Door>k__BackingField:
+    Guid:
+      Data1: -780643195
+      Data2: 1093783188
+      Data3: -2007359555
+      Data4: 317742445
+    Path: event:/UI/Door Movement
+  <Light>k__BackingField:
+    Guid:
+      Data1: -953896551
+      Data2: 1179323909
+      Data3: 1592764574
+      Data4: -1553160603
+    Path: event:/UI/Lamp
+  <MovingLight>k__BackingField:
+    Guid:
+      Data1: -952245531
+      Data2: 1147356436
+      Data3: -386241875
+      Data4: -799918011
+    Path: event:/UI/TestMovingLight
+  <TeddyPickup>k__BackingField:
+    Guid:
+      Data1: 224608274
+      Data2: 1172690000
+      Data3: 428165248
+      Data4: 1799377049
+    Path: event:/Interactables/Teddy
+  <KeyPickup>k__BackingField:
+    Guid:
+      Data1: -717385297
+      Data2: 1169461115
+      Data3: -453936739
+      Data4: 1705533421
+    Path: event:/Interactables/Key Grab
+  <KeyGroundHit>k__BackingField:
+    Guid:
+      Data1: -177195592
+      Data2: 1112089129
+      Data3: 1479526533
+      Data4: -2139604265
+    Path: event:/Interactables/Key Fall
+  <KeyUnlock>k__BackingField:
+    Guid:
+      Data1: 628729321
+      Data2: 1268007017
+      Data3: -2059073105
+      Data4: -662535256
+    Path: event:/Interactables/Key Interaction
+  <CameraPickup>k__BackingField:
+    Guid:
+      Data1: 1492440964
+      Data2: 1147271134
+      Data3: 1356289711
+      Data4: 514862247
+    Path: event:/Interactables/Camera Pick
+  <PolaroidPickup>k__BackingField:
+    Guid:
+      Data1: -1077080282
+      Data2: 1132289756
+      Data3: -1241178752
+      Data4: -1307194684
+    Path: event:/Interactables/Polaroid
+  <Narrative1Pickup>k__BackingField:
+    Guid:
+      Data1: 1149368326
+      Data2: 1216367197
+      Data3: -1035697022
+      Data4: 395364433
+    Path: event:/Music/Narrative 1
+  <Narrative2Pickup>k__BackingField:
+    Guid:
+      Data1: 436534270
+      Data2: 1217183819
+      Data3: 2085807492
+      Data4: 1002529721
+    Path: event:/Music/Narrative 2
+  <Narrative3Pickup>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Narrative4Pickup>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
