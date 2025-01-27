@@ -144,7 +144,7 @@ MonoBehaviour:
       Data2: 1093783188
       Data3: -2007359555
       Data4: 317742445
-    Path: event:/Interactables/Door Movement
+    Path: event:/UI/Door Movement
   <Light>k__BackingField:
     Guid:
       Data1: -953896551
@@ -187,6 +187,13 @@ MonoBehaviour:
       Data3: -2059073105
       Data4: -662535256
     Path: event:/Interactables/Key Interaction
+  <CameraPickup>k__BackingField:
+    Guid:
+      Data1: 1492440964
+      Data2: 1147271134
+      Data3: 1356289711
+      Data4: 514862247
+    Path: event:/Interactables/Camera Pick
   <PolaroidPickup>k__BackingField:
     Guid:
       Data1: -1077080282
@@ -195,6 +202,27 @@ MonoBehaviour:
       Data4: -1307194684
     Path: event:/Interactables/Polaroid
   <Narrative1Pickup>k__BackingField:
+    Guid:
+      Data1: 1149368326
+      Data2: 1216367197
+      Data3: -1035697022
+      Data4: 395364433
+    Path: event:/Music/Narrative 1
+  <Narrative2Pickup>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Narrative3Pickup>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Narrative4Pickup>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
