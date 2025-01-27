@@ -57,11 +57,9 @@ public class LightMove : MonoBehaviour
 
     private void PlayLightMoveSound(int state)
     {
-        if (!_lightMoveSound.IsPlaying())
-        {
-            _lightMoveSound.Play();
-            FMODManager.Instance.AttachInstance(_lightMoveSound.EventInstance, transform);
-        }
+        if (_lightMoveSound.IsPlaying()) _lightMoveSound.Stop();
+        _lightMoveSound.Play();
+        FMODManager.Instance.AttachInstance(_lightMoveSound.EventInstance, transform);
         _lightMoveSound.SetParameter(EVENT_PARAMETER_STATE, state);
     }
 }
