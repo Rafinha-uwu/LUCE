@@ -22,27 +22,34 @@ public class FMODBusDatabase : ScriptableObject
     {
         [field: SerializeField] public string BusName { get; private set; }
         [field: SerializeField] public string BusPath { get; private set; }
-        public Bus Bus { get; private set; }
+        public Bus? Bus { get; private set; }
 
         private string PlayerPrefsKey => $"{BusName}Volume";
 
 
         public void Initialize()
         {
-            // Throws an exception the bus doesn't exist
-            Bus = RuntimeManager.GetBus(BusPath);
+            try
+            {
+                Bus = RuntimeManager.GetBus(BusPath);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Bus {BusName} not found: {e.Message}");
+            }
 
             // Set the volume to the value stored in PlayerPrefs
             if (PlayerPrefs.HasKey(PlayerPrefsKey))
             {
                 float volume = PlayerPrefs.GetFloat(PlayerPrefsKey);
-                Bus.setVolume(volume);
+                Bus?.setVolume(volume);
             }
             // Set the value stored in PlayerPrefs to the volume
             else
             {
-                Bus.getVolume(out float volume);
-                PlayerPrefs.SetFloat(PlayerPrefsKey, volume);
+                float volume = -1f;
+                Bus?.getVolume(out volume);
+                PlayerPrefs.SetFloat(PlayerPrefsKey, volume == -1f ? 1f : volume);
             }
         }
 
@@ -53,7 +60,7 @@ public class FMODBusDatabase : ScriptableObject
 
             // Store the volume in PlayerPrefs + Set the volume
             PlayerPrefs.SetFloat(PlayerPrefsKey, normalizedVolume);
-            Bus.setVolume(normalizedVolume);
+            Bus?.setVolume(normalizedVolume);
         }
 
         public int GetBusVolume()

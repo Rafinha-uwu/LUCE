@@ -70,6 +70,9 @@ public class VideoCategory : SettingsCategory
 
     private void Apply()
     {
+        if (_modeDropdown.value < 0 || _modeDropdown.value >= _modes.Length) return;
+        if (_resolutionDropdown.value < 0 || _resolutionDropdown.value >= _resolutions.Length) return;
+
         _currentMode = _modes[_modeDropdown.value];
         _currentResolution = _resolutions[_resolutionDropdown.value];
 

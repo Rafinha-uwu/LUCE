@@ -8,7 +8,8 @@ public class ElevatorShakeAnimationBehavior : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _shakeSound ??= GetShakeSound();
+        if (!_shakeSound.HasValue || !_shakeSound.Value.isValid())
+            _shakeSound = GetShakeSound();
 
         _shakeSound?.start();
         if (_shakeSound.HasValue) FMODManager.Instance.AttachInstance(_shakeSound.Value, animator.transform);

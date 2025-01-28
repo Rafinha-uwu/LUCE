@@ -49,11 +49,11 @@ MonoBehaviour:
     Path: event:/Ambience/Intro Scene
   <EndGameCutscene>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1542202070
+      Data2: 1132484734
+      Data3: 290628499
+      Data4: -1867630889
+    Path: event:/Ambience/End Scene 2
   <PlayerMove>k__BackingField:
     Guid:
       Data1: -385494015
