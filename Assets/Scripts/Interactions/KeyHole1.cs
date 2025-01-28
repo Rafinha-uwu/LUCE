@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.Rendering.Universal;
 
 public class KeyHole1 : MonoBehaviour
 {
@@ -10,17 +7,16 @@ public class KeyHole1 : MonoBehaviour
     protected static readonly string PLAYER_TAG = "Player";
     protected bool _isPlayerNearby = false;
 
-
     public GameObject Block;
     public GameObject KeyCanvas;
 
-    public GameObject Door;
+    public SpriteRenderer DoorClose;
+    public SpriteRenderer DoorOpen;
 
     public bool once;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (_inputHandler == null)
         {
@@ -28,15 +24,10 @@ public class KeyHole1 : MonoBehaviour
             _inputHandler = player.GetComponent<InputHandler>();
         }
 
+        DoorClose.enabled = true;
+        DoorOpen.enabled = false;
+
         _inputHandler.OnInteractAction += OnInteractAction;
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
 
@@ -44,11 +35,7 @@ public class KeyHole1 : MonoBehaviour
     {
         if (_isPlayerNearby && once == true)
         {
-
             StartCoroutine(Look());
-
-            
-
         }
     }
 
@@ -64,13 +51,15 @@ public class KeyHole1 : MonoBehaviour
         if (collision.CompareTag(PLAYER_TAG)) _isPlayerNearby = false;
     }
 
+
     private IEnumerator Look()
     {
         PauseManager.Instance.PauseGame();
 
         KeyCanvas.GetComponent<Animator>().Play("HoleBlack");
 
-        Door.SetActive(true);
+        DoorClose.enabled = false;
+        DoorOpen.enabled = true;
 
         once = false;
         yield return new WaitForSecondsRealtime(9f);
@@ -79,7 +68,6 @@ public class KeyHole1 : MonoBehaviour
         Block.SetActive(false);
 
         PauseManager.Instance.ResumeGame();
-
     }
 
 }

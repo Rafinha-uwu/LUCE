@@ -26,7 +26,7 @@ public class SaveManager
         LastCheckpoint = checkpoint;
 
         string oldSaveName = LastCheckpointName;
-        LastCheckpointName = checkpoint.GetSaveName();
+        LastCheckpointName = checkpoint == null ? null : checkpoint.GetSaveName();
 
         if (oldSaveName != LastCheckpointName) SaveSaveManagerData();
     }
@@ -91,11 +91,28 @@ public class SaveManager
     }
 
 
+#if !UNITY_WEBGL
     public void NewSave()
     {
         if (SaveExists()) Directory.Delete(SavesDirectory, true);
         LastCheckpoint = null;
         LastCheckpointName = null;
     }
+
     public bool SaveExists() => Directory.Exists(SavesDirectory);
+
+#else
+
+    public void NewSave()
+    {
+        if (!SaveExists()) return;
+        SetLastCheckpoint(null);
+
+        string[] files = Directory.GetFiles(SavesDirectory);
+        foreach (string file in files) File.WriteAllText(file, "");
+    }
+
+    public bool SaveExists() => LastCheckpointName != null && LastCheckpointName.Length > 0;
+
+#endif
 }
