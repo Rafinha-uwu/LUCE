@@ -39,6 +39,7 @@ public class CreditsMenu : MonoBehaviour
     {
         CancelInvoke();
         _canvas.enabled = false;
+        _animator.Play("Notin");
         OnClose?.Invoke();
     }
 }
