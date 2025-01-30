@@ -26,8 +26,6 @@ public class PCam : HoldableItem
     private bool Cooldown = true;
 
 
-
-
     protected override void Awake()
     {
         base.Awake();
@@ -67,7 +65,7 @@ public class PCam : HoldableItem
 
         Cooldown = true;
         Light.SetActive(true);
-
+        FMODManager.Instance.PlayOneShot(FMODManager.Instance.EventDatabase.CameraFlash, transform.position);
         ECam.SetActive(false);
 
         Invoke(nameof(Cool), 5);
@@ -81,8 +79,6 @@ public class PCam : HoldableItem
 
         if (once == false)
         {
-
-
             if (HelpCam.GetComponent<Help>().isUsingController == true)
             {
                 HelpCam.GetComponent<Animator>().Play("Idle");
@@ -100,8 +96,6 @@ public class PCam : HoldableItem
             {
                 HelpGrab.GetComponent<Animator>().Play("KeyboardHelp");
             }
-
-
         }
 
 
@@ -163,8 +157,8 @@ public class PCam : HoldableItem
         {
             ECam.GetComponent<Animator>().Play("KeyboardHelp");
         }
-
     }
+
 
     public override object GetSaveData() => new PCamSaveData
     {

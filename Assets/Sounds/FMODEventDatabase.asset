@@ -194,6 +194,13 @@ MonoBehaviour:
       Data3: 1356289711
       Data4: 514862247
     Path: event:/Interactables/Camera Pick
+  <CameraFlash>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <PolaroidPickup>k__BackingField:
     Guid:
       Data1: -1077080282
