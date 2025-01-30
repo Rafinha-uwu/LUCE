@@ -44,6 +44,7 @@ public class FMODEventDatabase : ScriptableObject
     [field: Header("Lights")]
     [field: SerializeField] public EventReference Light { get; private set; }
     [field: SerializeField] public EventReference MovingLight { get; private set; }
+    [field: SerializeField] public EventReference PuzzleEyeLight { get; private set; }
 
     // Holdables
     [field: Header("Holdables")]

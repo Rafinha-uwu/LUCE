@@ -6,6 +6,7 @@ public class Key : HoldableItem
 {
     private GroundCheck _groundCheck;
     private bool _isFalling = false;
+    public bool IsBeingHeld => !_rigidbody2D.simulated;
 
 
     protected override void Awake()

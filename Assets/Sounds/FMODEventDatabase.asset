@@ -159,6 +159,13 @@ MonoBehaviour:
       Data3: -386241875
       Data4: -799918011
     Path: event:/UI/TestMovingLight
+  <PuzzleEyeLight>k__BackingField:
+    Guid:
+      Data1: -953896551
+      Data2: 1179323909
+      Data3: 1592764574
+      Data4: -1553160603
+    Path: event:/UI/Lamp
   <TeddyPickup>k__BackingField:
     Guid:
       Data1: 224608274
