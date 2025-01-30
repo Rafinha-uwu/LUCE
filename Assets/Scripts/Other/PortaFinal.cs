@@ -9,12 +9,14 @@ public class PortaFinal : MonoBehaviour
     private static readonly string START_SCENE = "StartMenu";
 
     public GameObject EndCut;
+    private Animator _endCutAnimator;
     private EventInstance? _endSound;
 
 
     private void Start()
     {
         _endSound = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.EndGameCutscene);
+        _endCutAnimator = EndCut.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +29,8 @@ public class PortaFinal : MonoBehaviour
 
     private IEnumerator End()
     {
-        EndCut.GetComponent<Animator>().Play("Show");
+        _endCutAnimator.SetBool("Thanks", true);
+        _endCutAnimator.Play("Show");
         yield return new WaitForSecondsRealtime(1.5f);
 
         SaveManager.Instance.NewSave(); // Clear save
@@ -36,11 +39,10 @@ public class PortaFinal : MonoBehaviour
         _endSound?.setPaused(false);
         _endSound?.start();
 
-        yield return new WaitForSecondsRealtime(50f);
-        //_endSound?.stop(STOP_MODE.ALLOWFADEOUT);
+        yield return new WaitForSecondsRealtime(54.5f);
+        _endSound?.stop(STOP_MODE.ALLOWFADEOUT);
         PauseManager.Instance.ResumeGame();
         SceneManager.LoadScene(START_SCENE);
-
     }
 
 }
