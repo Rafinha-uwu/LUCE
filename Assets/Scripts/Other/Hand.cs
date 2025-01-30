@@ -131,8 +131,8 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         yield return new WaitForSeconds(1f);
 
         move = true;
-        _scared.Death();
         _inputHandler.ResumeInput();
+        _scared.Death();
     }
 
 
