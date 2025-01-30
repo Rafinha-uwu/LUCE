@@ -39,7 +39,7 @@ public class PortaFinal : MonoBehaviour
         _endSound?.setPaused(false);
         _endSound?.start();
 
-        yield return new WaitForSecondsRealtime(54.5f);
+        yield return new WaitForSecondsRealtime(53.6f);
         _endSound?.stop(STOP_MODE.ALLOWFADEOUT);
         PauseManager.Instance.ResumeGame();
         SceneManager.LoadScene(START_SCENE);
