@@ -4,6 +4,7 @@ public class DoorAnimationBehavior : StateMachineBehaviour
 {
     [SerializeField] private bool _playOnEnter = true;
     [SerializeField] private bool _stopOnExit = true;
+    [SerializeField] private string _data = null;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -12,7 +13,7 @@ public class DoorAnimationBehavior : StateMachineBehaviour
         bool hasDoorSound = animator.TryGetComponent<IDoorSound>(out var doorSound);
         if (!hasDoorSound) return;
 
-        doorSound.PlayDoorSound();
+        doorSound.PlayDoorSound(_data == string.Empty ? null : _data);
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,6 +23,6 @@ public class DoorAnimationBehavior : StateMachineBehaviour
         bool hasDoorSound = animator.TryGetComponent<IDoorSound>(out var doorSound);
         if (!hasDoorSound) return;
 
-        doorSound.StopDoorSound();
+        doorSound.StopDoorSound(_data == string.Empty ? null : _data);
     }
 }

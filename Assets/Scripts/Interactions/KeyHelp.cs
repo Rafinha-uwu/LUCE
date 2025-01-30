@@ -1,62 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyHelp : MonoBehaviour
 {
-
     public GameObject HelpDoor;
     public GameObject HelpKey;
 
-    public GameObject Key;
+    [SerializeField] private Key _key;
 
     public bool keyreal;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (!Key.activeSelf && HelpDoor != null)
+        if (_key.gameObject.activeSelf) UpdateHelp(_key.IsBeingHeld);
+        else if (HelpDoor != null)
         {
             keyreal = false;
-
-            if (HelpDoor.GetComponent<Help>().isUsingController == true)
-            {
-                HelpDoor.GetComponent<Animator>().Play("Idle");
-            }
-            else
-            {
-                HelpDoor.GetComponent<Animator>().Play("Idle 1");
-            }
-
-            Invoke("Kill", 1);
-
+            Kill();
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+
+    private void UpdateHelp(bool keyInside)
     {
-
-        if (keyreal)
-        {
-            if (collision.name == "Key")
-            {
-                HelpKey.SetActive(true);
-                HelpDoor.SetActive(false);
-            }
-            else
-            {
-                HelpKey.SetActive(false);
-                HelpDoor.SetActive(true);
-            }
-        }
-
-
+        if (!keyreal) return;
+        HelpKey.SetActive(!keyInside);
+        HelpDoor.SetActive(keyInside);
     }
 
     public void Kill()

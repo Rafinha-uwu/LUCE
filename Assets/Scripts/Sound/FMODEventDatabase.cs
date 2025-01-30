@@ -44,6 +44,7 @@ public class FMODEventDatabase : ScriptableObject
     [field: Header("Lights")]
     [field: SerializeField] public EventReference Light { get; private set; }
     [field: SerializeField] public EventReference MovingLight { get; private set; }
+    [field: SerializeField] public EventReference PuzzleEyeLight { get; private set; }
 
     // Holdables
     [field: Header("Holdables")]
@@ -52,6 +53,7 @@ public class FMODEventDatabase : ScriptableObject
     [field: SerializeField] public EventReference KeyGroundHit { get; private set; }
     [field: SerializeField] public EventReference KeyUnlock { get; private set; }
     [field: SerializeField] public EventReference CameraPickup { get; private set; }
+    [field: SerializeField] public EventReference CameraFlash { get; private set; }
     // ...
 
     // Polaroids

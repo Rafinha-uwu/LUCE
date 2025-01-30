@@ -20,10 +20,7 @@ public class KeyDoor : SwitchObject, IDoorSound
     }
     private void OnDestroy() => OnStateChange -= OnKeyDoorStateChange;
 
-    public void Update()
-    {
-        
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool hasKey = collision.TryGetComponent(out Key key);
@@ -65,13 +62,13 @@ public class KeyDoor : SwitchObject, IDoorSound
         );
     }
 
-    public void PlayDoorSound()
+    public void PlayDoorSound(string _)
     {
         _doorSound.Play();
         FMODManager.Instance.AttachInstance(_doorSound.EventInstance, transform);
     }
 
-    public void StopDoorSound() => _doorSound.Stop();
+    public void StopDoorSound(string _) => _doorSound.Stop();
 
 
     public override void LoadData(object data)

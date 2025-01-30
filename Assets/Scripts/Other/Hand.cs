@@ -1,3 +1,4 @@
+using Cinemachine;
 using Newtonsoft.Json;
 using System.Collections;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
 
     public GameObject HelpCam;
 
+    private CinemachineImpulseSource impulseSource;
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
@@ -38,6 +40,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         _animator = GetComponent<Animator>();
         _black2Animator = Black2.GetComponent<Animator>();
         _boxAnimator = Box.GetComponent<Animator>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void Update()
@@ -91,6 +94,8 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         _boxAnimator.Play("Fall");
         Block.SetActive(false);
+        Block.SetActive(false); CameraShake.instance.CameraShaking(impulseSource);
+
     }
 
     private void Help()
@@ -149,7 +154,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         {
             HelpCam.GetComponent<Animator>().Play("Idle 1");
         }
-
+        Block.SetActive(false); CameraShake.instance.CameraShaking(impulseSource);
         Invoke("HelpKill", 1);
         yield return new WaitForSeconds(3f);
         move = true;

@@ -147,11 +147,11 @@ MonoBehaviour:
     Path: event:/UI/Door Movement
   <Light>k__BackingField:
     Guid:
-      Data1: -953896551
-      Data2: 1179323909
-      Data3: 1592764574
-      Data4: -1553160603
-    Path: event:/UI/Lamp
+      Data1: -373801252
+      Data2: 1203035209
+      Data3: 802924681
+      Data4: 1385789313
+    Path: event:/UI/Lamp Bool
   <MovingLight>k__BackingField:
     Guid:
       Data1: -952245531
@@ -159,6 +159,13 @@ MonoBehaviour:
       Data3: -386241875
       Data4: -799918011
     Path: event:/UI/TestMovingLight
+  <PuzzleEyeLight>k__BackingField:
+    Guid:
+      Data1: 863156780
+      Data2: 1230820982
+      Data3: -515357532
+      Data4: -1955156978
+    Path: event:/UI/PuzzleLight
   <TeddyPickup>k__BackingField:
     Guid:
       Data1: 224608274
@@ -194,6 +201,13 @@ MonoBehaviour:
       Data3: 1356289711
       Data4: 514862247
     Path: event:/Interactables/Camera Pick
+  <CameraFlash>k__BackingField:
+    Guid:
+      Data1: -126836909
+      Data2: 1235917939
+      Data3: -1892929110
+      Data4: -1585654717
+    Path: event:/Interactables/Camera Shutter
   <PolaroidPickup>k__BackingField:
     Guid:
       Data1: -1077080282

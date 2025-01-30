@@ -1,3 +1,4 @@
+using FMODUnity;
 using Newtonsoft.Json;
 using System.Collections;
 using UnityEngine;
@@ -23,8 +24,13 @@ public class PuzzleEye : MonoBehaviour, ISavable
     public Light2D L3;
     public Light2D L33;
 
-    public GameObject Doors;
-    private Animator _doorsAnimator;
+    private StudioEventEmitter _l1Sound;
+    private StudioEventEmitter _l2Sound;
+    private StudioEventEmitter _l3Sound;
+    [SerializeField] private float _soundMinDistance = 0f;
+    [SerializeField] private float _soundMaxDistance = 10f;
+
+    [SerializeField] private PuzzleEyeDoors _doors;
 
     public GameObject Eye1;
     public GameObject Eye2;
@@ -43,7 +49,6 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
         NormalColor = L1.color;
 
-        _doorsAnimator = Doors.GetComponent<Animator>();
         _eye1Animator = Eye1.GetComponent<Animator>();
         _eye2Animator = Eye2.GetComponent<Animator>();
     }
@@ -61,7 +66,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
         L3.color = NormalColor;
         L33.color = NormalColor;
 
-        DoorDown();
+        _doors.DoorDown();
         EyeStart();
 
         Invoke(nameof(FOff1), 0);
@@ -83,7 +88,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
         L33.color = NormalColor;
 
         EyeNone();
-        DoorUp();
+        _doors.DoorStart();
 
         Invoke(nameof(FOff1), 0);
         Invoke(nameof(FOn2), 0);
@@ -295,8 +300,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
 
     #region Animation Logic
-    private void DoorUp() => _doorsAnimator.Play("Open");
-    private void DoorDown() => _doorsAnimator.Play("Close");
+    private void DoorUp() => _doors.DoorUp();
 
     private void EyeNone()
     {
@@ -350,6 +354,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private IEnumerator On1()
     {
+        PlaySound(_l1Sound, true);
         L1.intensity = 0.5f;
         L11.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.5f);
@@ -359,6 +364,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private IEnumerator On2()
     {
+        PlaySound(_l2Sound, true);
         L2.intensity = 0.5f;
         L22.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.5f);
@@ -368,6 +374,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private IEnumerator On3()
     {
+        PlaySound(_l3Sound, true);
         L3.intensity = 0.5f;
         L33.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.5f);
@@ -378,6 +385,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private IEnumerator Off1()
     {
+        PlaySound(_l1Sound, false);
         L1.intensity = 0.5f;
         L11.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.1f);
@@ -390,6 +398,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private IEnumerator Off2()
     {
+        PlaySound(_l2Sound, false);
         L2.intensity = 0.5f;
         L22.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.1f);
@@ -402,6 +411,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private IEnumerator Off3()
     {
+        PlaySound(_l3Sound, false);
         L3.intensity = 0.5f;
         L33.intensity = 0.5f;
         yield return new WaitForSecondsRealtime(0.1f);
@@ -413,6 +423,30 @@ public class PuzzleEye : MonoBehaviour, ISavable
     }
     #endregion
 
+
+    private void Start()
+    {
+        _l1Sound = GetLightSound(L1);
+        _l2Sound = GetLightSound(L2);
+        _l3Sound = GetLightSound(L3);
+    }
+
+    private StudioEventEmitter GetLightSound(Light2D light)
+    {
+        return FMODManager.Instance.CreateEventEmitter(
+            FMODManager.Instance.EventDatabase.PuzzleEyeLight,
+            light.gameObject,
+            _soundMinDistance, _soundMaxDistance
+        );
+    }
+
+
+    private void PlaySound(StudioEventEmitter sound, bool isOn)
+    {
+        if (sound.IsPlaying()) sound.Stop();
+        sound.Play();
+        sound.SetParameter("IsOn", isOn ? 1 : 0);
+    }
 
     public string GetSaveName() => name;
     public object GetSaveData() => Phase;

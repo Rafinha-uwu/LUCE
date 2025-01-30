@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
+using Cinemachine;
 
 public class KeyHole : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class KeyHole : MonoBehaviour
 
     public bool once;
 
+    private CinemachineImpulseSource impulseSource;
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class KeyHole : MonoBehaviour
         }
 
         _inputHandler.OnInteractAction += OnInteractAction;
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void OnDestroy()
@@ -42,7 +45,7 @@ public class KeyHole : MonoBehaviour
     {
         if (fade && Light.GetComponent<Light2D>().intensity > 0)
         {
-            Light.GetComponent<Light2D>().intensity -= 0.01f;
+            Light.GetComponent<Light2D>().intensity -= 0.05f;
         }
     }
 
@@ -83,6 +86,8 @@ public class KeyHole : MonoBehaviour
 
         HelpBox.SetActive(true);
         fade = true;
+
+        CameraShake.instance.CameraShaking(impulseSource);
 
         PauseManager.Instance.ResumeGame();
     }
