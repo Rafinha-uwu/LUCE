@@ -124,6 +124,7 @@ public class LightEffects : MonoBehaviour
 
     public void PlayLightSound(bool isOn)
     {
+        if (_lightSound.IsPlaying()) _lightSound.Stop();
         _lightSound.Play();
         FMODManager.Instance.AttachInstance(_lightSound.EventInstance, transform);
         _lightSound.SetParameter(EVENT_PARAMETER_IS_ON, isOn ? 1 : 0);

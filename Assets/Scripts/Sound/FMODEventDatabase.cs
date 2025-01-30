@@ -52,6 +52,7 @@ public class FMODEventDatabase : ScriptableObject
     [field: SerializeField] public EventReference KeyGroundHit { get; private set; }
     [field: SerializeField] public EventReference KeyUnlock { get; private set; }
     [field: SerializeField] public EventReference CameraPickup { get; private set; }
+    [field: SerializeField] public EventReference CameraFlash { get; private set; }
     // ...
 
     // Polaroids
