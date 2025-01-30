@@ -51,7 +51,7 @@ public class Door : SwitchWithRequirements, IDoorSound
         );
     }
 
-    public void PlayDoorSound()
+    public void PlayDoorSound(string _)
     {
         if (!_playSound) return;
 
@@ -59,7 +59,7 @@ public class Door : SwitchWithRequirements, IDoorSound
         FMODManager.Instance.AttachInstance(_doorSound.EventInstance, transform);
     }
 
-    public void StopDoorSound() => _doorSound.Stop();
+    public void StopDoorSound(string _) => _doorSound.Stop();
 
 
     public override void LoadData(object data)
