@@ -22,8 +22,7 @@ public class KeyHole : MonoBehaviour
     public bool once;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (_inputHandler == null)
         {
@@ -32,12 +31,14 @@ public class KeyHole : MonoBehaviour
         }
 
         _inputHandler.OnInteractAction += OnInteractAction;
-
-
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
+    {
+        _inputHandler.OnInteractAction -= OnInteractAction;
+    }
+
+    private void Update()
     {
         if (fade && Light.GetComponent<Light2D>().intensity > 0)
         {
@@ -50,11 +51,7 @@ public class KeyHole : MonoBehaviour
     {
         if (_isPlayerNearby && once == true)
         {
-
             StartCoroutine(Look());
-
-            
-
         }
     }
 
@@ -88,7 +85,5 @@ public class KeyHole : MonoBehaviour
         fade = true;
 
         PauseManager.Instance.ResumeGame();
-
     }
-
 }

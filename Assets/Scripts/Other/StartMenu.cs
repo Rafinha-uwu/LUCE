@@ -16,6 +16,7 @@ public class StartMenu : MonoBehaviour
 
     [SerializeField] private Canvas _canvas;
     [SerializeField] private SettingsMenu _settingsMenu;
+    [SerializeField] private CreditsMenu _creditsMenu;
 
     [SerializeField] private GameObject _continueButton;
     [SerializeField] private UnityEngine.UI.Button _firstButton;
@@ -27,20 +28,24 @@ public class StartMenu : MonoBehaviour
         if (_firstButton == null) throw new System.Exception("FirstButton is not set in the inspector");
 
         _canvas.enabled = true;
-        if (_settingsMenu != null) _settingsMenu.OnClose += OnSettingsClose;
+        if (_settingsMenu != null) _settingsMenu.OnClose += OnOtherMenuClose;
+        if (_creditsMenu != null) _creditsMenu.OnClose += OnOtherMenuClose;
     }
 
     private void Start()
     {
+        // Sound setup
         _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
         
         FMODManager.Instance.PauseSounds();
         StartCoroutine(StopExternalSounds());
 
+        // Continue button setup
         if (_continueButton == null) return;
         bool saveExists = SaveManager.Instance.SaveExists();
         _continueButton.SetActive(saveExists);
 
+        // Navigation of the first button
         if (!saveExists) return;
         UnityEngine.UI.Button continueButtonUI = _continueButton.GetComponent<UnityEngine.UI.Button>();
 
@@ -50,12 +55,14 @@ public class StartMenu : MonoBehaviour
             selectOnDown = _firstButton.navigation.selectOnDown
         };
 
+        // Set the first button to the continue button
         _firstButton = continueButtonUI;
     }
 
     private void OnDestroy()
     {
-        if (_settingsMenu != null) _settingsMenu.OnClose -= OnSettingsClose;
+        if (_settingsMenu != null) _settingsMenu.OnClose -= OnOtherMenuClose;
+        if (_creditsMenu != null) _creditsMenu.OnClose -= OnOtherMenuClose;
     }
 
 
@@ -92,7 +99,14 @@ public class StartMenu : MonoBehaviour
         _settingsMenu.Open();
     }
 
-    private void OnSettingsClose()
+    public void Credits()
+    {
+        if (_creditsMenu == null) return;
+        _canvas.enabled = false;
+        _creditsMenu.Open();
+    }
+
+    private void OnOtherMenuClose()
     {
         _canvas.enabled = true;
         _firstButton.Select();

@@ -21,8 +21,7 @@ public class AllPol : MonoBehaviour
     public GameObject CutCol;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (_inputHandler == null)
         {
@@ -35,8 +34,12 @@ public class AllPol : MonoBehaviour
         _colect = CC.GetComponent<CountColect>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
+    {
+        _inputHandler.OnInteractAction -= OnInteractAction;
+    }
+
+    private void Update()
     {
         if (_colect.nColect > 5 && once)
         {
@@ -60,7 +63,6 @@ public class AllPol : MonoBehaviour
 
             once = false;
             StartCoroutine(WeBack());
-
         }
     }
 

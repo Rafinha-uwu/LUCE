@@ -16,7 +16,7 @@ public class KeyHole1 : MonoBehaviour
     public bool once;
 
 
-    private void Start()
+    private void Awake()
     {
         if (_inputHandler == null)
         {
@@ -28,6 +28,11 @@ public class KeyHole1 : MonoBehaviour
         DoorOpen.enabled = false;
 
         _inputHandler.OnInteractAction += OnInteractAction;
+    }
+
+    private void OnDestroy()
+    {
+        _inputHandler.OnInteractAction -= OnInteractAction;
     }
 
 
