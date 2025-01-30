@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ public class End1 : SwitchObject
 
     private Coroutine _coroutine;
 
-
+    private CinemachineImpulseSource impulseSource;
     private void Awake()
     {
         _polaroid = GetComponentInChildren<Polaroid>();
@@ -36,6 +37,7 @@ public class End1 : SwitchObject
             _endCheckpointCollider.enabled = false;
         }
         OnStateChange += OnEndStateChange;
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
     private void OnDestroy() => OnStateChange -= OnEndStateChange;
 
@@ -80,7 +82,7 @@ public class End1 : SwitchObject
     public IEnumerator Run()
     {
         cLights.SetActive(true);
-
+        CameraShake.instance.CameraShaking(impulseSource);
         yield return new WaitForSeconds(1);
         cLights.SetActive(false);
         Lights8.SetActive(false);

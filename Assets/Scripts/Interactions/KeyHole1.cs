@@ -13,6 +13,8 @@ public class KeyHole1 : MonoBehaviour
     public SpriteRenderer DoorClose;
     public SpriteRenderer DoorOpen;
 
+    public GameObject HelpDoor;
+
     public bool once;
 
 
@@ -65,6 +67,7 @@ public class KeyHole1 : MonoBehaviour
 
         DoorClose.enabled = false;
         DoorOpen.enabled = true;
+        HelpDoor.SetActive(false);
 
         once = false;
         yield return new WaitForSecondsRealtime(9f);
