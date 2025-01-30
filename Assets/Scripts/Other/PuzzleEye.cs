@@ -23,8 +23,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
     public Light2D L3;
     public Light2D L33;
 
-    public GameObject Doors;
-    private Animator _doorsAnimator;
+    [SerializeField] private PuzzleEyeDoors _doors;
 
     public GameObject Eye1;
     public GameObject Eye2;
@@ -43,7 +42,6 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
         NormalColor = L1.color;
 
-        _doorsAnimator = Doors.GetComponent<Animator>();
         _eye1Animator = Eye1.GetComponent<Animator>();
         _eye2Animator = Eye2.GetComponent<Animator>();
     }
@@ -61,7 +59,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
         L3.color = NormalColor;
         L33.color = NormalColor;
 
-        DoorDown();
+        _doors.DoorDown();
         EyeStart();
 
         Invoke(nameof(FOff1), 0);
@@ -83,7 +81,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
         L33.color = NormalColor;
 
         EyeNone();
-        DoorUp();
+        _doors.DoorStart();
 
         Invoke(nameof(FOff1), 0);
         Invoke(nameof(FOn2), 0);
@@ -295,8 +293,7 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
 
     #region Animation Logic
-    private void DoorUp() => _doorsAnimator.Play("Open");
-    private void DoorDown() => _doorsAnimator.Play("Close");
+    private void DoorUp() => _doors.DoorUp();
 
     private void EyeNone()
     {
