@@ -62,7 +62,7 @@ public class Elevator : SwitchWithRequirements
         SetCurrentFloor(_currentIndex + 1);
 
         // Stop the player from moving
-        if (_inputHandler != null) _inputHandler.PauseInput();
+        if (_inputHandler != null) _inputHandler.PauseInput(this);
     }
 
 
@@ -80,7 +80,7 @@ public class Elevator : SwitchWithRequirements
     public void OnAnimationEnd()
     {
         // Resume the player's movement
-        if (_inputHandler != null) _inputHandler.ResumeInput();
+        if (_inputHandler != null) _inputHandler.ResumeInput(this);
 
         // Reset the trigger
         _animator.ResetTrigger(ANIMATOR_PARAMETER_NEXT);

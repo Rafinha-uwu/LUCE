@@ -73,6 +73,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         start = false;
         move = false;
+        _inputHandler.ResumeInput(this);
 
         Block2.SetActive(false);
         Sprite.SetActive(false);
@@ -129,14 +130,13 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         move = false;
         _animator.Play("Grab");
-        _inputHandler.PauseInput();
+        _inputHandler.PauseInput(this);
         yield return new WaitForSeconds(0.4f);
 
         _black2Animator.SetBool("Dark", true);
         yield return new WaitForSeconds(1f);
 
         move = true;
-        _inputHandler.ResumeInput();
         _scared.Death();
     }
 
@@ -154,13 +154,11 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         {
             HelpCam.GetComponent<Animator>().Play("Idle 1");
         }
-        Block.SetActive(false); CameraShake.instance.CameraShaking(impulseSource);
-        Invoke("HelpKill", 1);
+        Block.SetActive(false);
+        CameraShake.instance.CameraShaking(impulseSource);
+        Invoke(nameof(HelpKill), 1);
         yield return new WaitForSeconds(3f);
         move = true;
-
-        
-
     }
 
     public void HelpKill() => HelpCam.SetActive(false);
@@ -192,7 +190,6 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         public float[] Position;
         public bool Started;
-        public bool Stopped;
     }
 }
 
