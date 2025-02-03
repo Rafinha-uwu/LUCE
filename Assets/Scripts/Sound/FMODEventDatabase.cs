@@ -39,6 +39,8 @@ public class FMODEventDatabase : ScriptableObject
     [field: SerializeField] public EventReference Elevator { get; private set; }
     [field: SerializeField] public EventReference ElevatorShake { get; private set; }
     [field: SerializeField] public EventReference Door { get; private set; }
+    [field: SerializeField] public EventReference FirstKeyHole { get; private set; }
+    [field: SerializeField] public EventReference LastKeyHole { get; private set; }
 
     // Lights
     [field: Header("Lights")]
