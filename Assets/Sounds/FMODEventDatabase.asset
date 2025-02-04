@@ -145,6 +145,20 @@ MonoBehaviour:
       Data3: -2007359555
       Data4: 317742445
     Path: event:/UI/Door Movement
+  <FirstKeyHole>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <LastKeyHole>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <Light>k__BackingField:
     Guid:
       Data1: -373801252
@@ -237,6 +251,13 @@ MonoBehaviour:
       Data4: 0
     Path: 
   <Narrative4Pickup>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Hand>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
