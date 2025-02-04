@@ -50,11 +50,4 @@ public class Shut : SwitchObject
         Block.SetActive(isOn);
         _blackAnimator.Play(isOn ? EVENT_STATE_BLACK100 : EVENT_STATE_BLACK0);
     }
-
-
-    public override void LoadData(object data)
-    {
-        TurnOff();
-        base.LoadData(data);
-    }
 }
