@@ -51944,6 +51944,8 @@ MonoBehaviour:
   <IsOn>k__BackingField: 0
   Block: {fileID: 374823662}
   Black: {fileID: 1310224928}
+  _hand: {fileID: 1319233651}
+  _shutCheckpoint: {fileID: 2097705383}
 --- !u!61 &1510548218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68272,19 +68274,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4160846047664677246, guid: 488593b00c85ac24e98df898c392cff8, type: 3}
       propertyPath: m_Size.x
-      value: 5.5207214
+      value: 8.290894
       objectReference: {fileID: 0}
     - target: {fileID: 4160846047664677246, guid: 488593b00c85ac24e98df898c392cff8, type: 3}
       propertyPath: m_Size.y
-      value: 3.727934
+      value: 7.8672447
       objectReference: {fileID: 0}
     - target: {fileID: 4160846047664677246, guid: 488593b00c85ac24e98df898c392cff8, type: 3}
       propertyPath: m_Offset.x
-      value: 1.8922882
+      value: 3.2773743
       objectReference: {fileID: 0}
     - target: {fileID: 4160846047664677246, guid: 488593b00c85ac24e98df898c392cff8, type: 3}
       propertyPath: m_Offset.y
-      value: 1.2476892
+      value: 1.9481878
       objectReference: {fileID: 0}
     - target: {fileID: 6746460388784086734, guid: 488593b00c85ac24e98df898c392cff8, type: 3}
       propertyPath: _objects.Array.size

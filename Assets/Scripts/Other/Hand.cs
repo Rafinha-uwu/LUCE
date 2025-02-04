@@ -97,6 +97,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
 
     public void StopHand()
     {
+        start = false;
         move = false;
         PlayHandSound(null);
     }

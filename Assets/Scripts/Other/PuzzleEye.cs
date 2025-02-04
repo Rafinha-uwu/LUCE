@@ -454,7 +454,8 @@ public class PuzzleEye : MonoBehaviour, ISavable
     public object GetSaveData() => Phase;
     public void LoadData(object data)
     {
-        float savedPhase = JsonConvert.DeserializeObject<float>(data.ToString());
+        string formattedData = data.ToString().Replace(',', '.');
+        float savedPhase = JsonConvert.DeserializeObject<float>(formattedData);
         
         CancelInvoke();
         StopAllCoroutines();
