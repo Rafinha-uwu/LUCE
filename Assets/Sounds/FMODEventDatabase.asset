@@ -54,6 +54,13 @@ MonoBehaviour:
       Data3: 290628499
       Data4: -1867630889
     Path: event:/Ambience/End Scene 2
+  <AllPolaroidsCutscene>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <PlayerMove>k__BackingField:
     Guid:
       Data1: -385494015

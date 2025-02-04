@@ -16,6 +16,7 @@ public class FMODEventDatabase : ScriptableObject
     [field: Header("Cutscenes")]
     [field: SerializeField] public EventReference StartGameCutscene { get; private set; }
     [field: SerializeField] public EventReference EndGameCutscene { get; private set; }
+    [field: SerializeField] public EventReference AllPolaroidsCutscene { get; private set; }
     // ...
 
     // Player
