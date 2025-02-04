@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
+using FMOD.Studio;
 
 public class KeyHole : MonoBehaviour
 {
@@ -23,6 +22,9 @@ public class KeyHole : MonoBehaviour
     public bool once;
 
     private CinemachineImpulseSource impulseSource;
+
+    private EventInstance? _keyHoleSound;
+
 
     private void Awake()
     {
@@ -70,9 +72,13 @@ public class KeyHole : MonoBehaviour
         if (collision.CompareTag(PLAYER_TAG)) _isPlayerNearby = false;
     }
 
+
     private IEnumerator Look()
     {
         PauseManager.Instance.PauseGame();
+
+        _keyHoleSound?.start();
+        _keyHoleSound?.setPaused(false);
 
         HelpDoor.SetActive(false);
         KeyCanvas.GetComponent<Animator>().Play("Hole");
@@ -90,5 +96,11 @@ public class KeyHole : MonoBehaviour
         CameraShake.instance.CameraShaking(impulseSource);
 
         PauseManager.Instance.ResumeGame();
+    }
+
+
+    private void Start()
+    {
+        _keyHoleSound = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.FirstKeyHole);
     }
 }

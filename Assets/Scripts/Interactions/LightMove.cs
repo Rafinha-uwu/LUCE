@@ -51,15 +51,22 @@ public class LightMove : MonoBehaviour
         );
     }
 
-    public void OnLightIdle() => PlayLightMoveSound(0);
-    public void OnLightMoving() => PlayLightMoveSound(1);
-    public void OnLightError() => PlayLightMoveSound(2);
+    public void OnLightIdle() => PlayLightMoveSound(LightMoveState.Idle);
+    public void OnLightMoving() => PlayLightMoveSound(LightMoveState.Moving);
+    public void OnLightError() => PlayLightMoveSound(LightMoveState.Error);
 
-    private void PlayLightMoveSound(int state)
+    private void PlayLightMoveSound(LightMoveState state)
     {
         if (_lightMoveSound.IsPlaying()) _lightMoveSound.Stop();
         _lightMoveSound.Play();
         FMODManager.Instance.AttachInstance(_lightMoveSound.EventInstance, transform);
-        _lightMoveSound.SetParameter(EVENT_PARAMETER_STATE, state);
+        _lightMoveSound.SetParameter(EVENT_PARAMETER_STATE, (int)state);
+    }
+
+    public enum LightMoveState
+    {
+        Idle,
+        Moving,
+        Error
     }
 }
