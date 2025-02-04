@@ -66,4 +66,9 @@ public class FMODEventDatabase : ScriptableObject
     [field: SerializeField] public EventReference Narrative3Pickup { get; private set; }
     [field: SerializeField] public EventReference Narrative4Pickup { get; private set; }
     // ...
+
+    // Other
+    [field: Header("Other")]
+    [field: SerializeField] public EventReference Hand { get; private set; }
+    // ...
 }
