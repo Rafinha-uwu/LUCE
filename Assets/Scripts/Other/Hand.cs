@@ -1,4 +1,5 @@
 using Cinemachine;
+using FMODUnity;
 using Newtonsoft.Json;
 using System.Collections;
 using UnityEngine;
@@ -31,6 +32,13 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     public GameObject HelpCam;
 
     private CinemachineImpulseSource impulseSource;
+
+    private static readonly string EVENT_PARAMETER_STATE = "HandState";
+    private StudioEventEmitter _handSound;
+    [SerializeField] private float _soundMinDistance = 0f;
+    [SerializeField] private float _soundMaxDistance = 10f;
+
+
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
@@ -46,7 +54,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     private void Update()
     {
         if (!move) return;
-        if (transform.position.x > 390) move = false;
+        if (transform.position.x > 390) StopHand();
 
         transform.Translate(speed * Time.deltaTime * Vector3.right);
         _animator.Play("Move");
@@ -63,6 +71,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         Touchi.SetActive(true);
 
         _animator.Play("Start");
+        PlayHandSound(HandState.Start);
 
         Invoke(nameof(Alive), 10.4f);
         Invoke(nameof(Boxes), 9.1f);
@@ -73,6 +82,7 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         start = false;
         move = false;
+
         _inputHandler.ResumeInput(this);
 
         Block2.SetActive(false);
@@ -82,12 +92,20 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         Block.SetActive(true);
 
         _boxAnimator.Play("Idle");
+        PlayHandSound(null);
+    }
+
+    public void StopHand()
+    {
+        move = false;
+        PlayHandSound(null);
     }
 
 
     private void Alive()
     {
         move = true;
+        PlayHandSound(HandState.Move);
         Block2.SetActive(false);
     }
 
@@ -95,8 +113,8 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         _boxAnimator.Play("Fall");
         Block.SetActive(false);
-        Block.SetActive(false); CameraShake.instance.CameraShaking(impulseSource);
-
+        Block.SetActive(false);
+        CameraShake.instance.CameraShaking(impulseSource);
     }
 
     private void Help()
@@ -129,14 +147,15 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     private IEnumerator Death()
     {
         move = false;
+
         _animator.Play("Grab");
+        PlayHandSound(HandState.Grab);
+
         _inputHandler.PauseInput(this);
         yield return new WaitForSeconds(0.4f);
 
         _black2Animator.SetBool("Dark", true);
         yield return new WaitForSeconds(1f);
-
-        move = true;
         _scared.Death();
     }
 
@@ -144,7 +163,9 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     private IEnumerator Flash()
     {
         move = false;
+
         _animator.Play("Flash");
+        PlayHandSound(HandState.Flash);
 
         if (HelpCam.GetComponent<Help>().isUsingController == true)
         {
@@ -154,15 +175,44 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
         {
             HelpCam.GetComponent<Animator>().Play("Idle 1");
         }
+
         Block.SetActive(false);
         CameraShake.instance.CameraShaking(impulseSource);
+        
         Invoke(nameof(HelpKill), 1);
         yield return new WaitForSeconds(3f);
+        
         move = true;
+        PlayHandSound(HandState.Move);
     }
 
     public void HelpKill() => HelpCam.SetActive(false);
     public void CallFlash() => StartCoroutine(Flash());
+
+
+    private void Start()
+    {
+        _handSound = GetHandSound();
+    }
+
+    private StudioEventEmitter GetHandSound()
+    {
+        return FMODManager.Instance.CreateEventEmitter(
+            FMODManager.Instance.EventDatabase.Hand,
+            gameObject,
+            _soundMinDistance, _soundMaxDistance
+        );
+    }
+
+    private void PlayHandSound(HandState? state)
+    {
+        if (_handSound.IsPlaying()) _handSound.Stop();
+        if (!state.HasValue) return;
+
+        _handSound.Play();
+        FMODManager.Instance.AttachInstance(_handSound.EventInstance, transform);
+        _handSound.SetParameter(EVENT_PARAMETER_STATE, (int)state.Value);
+    }
 
 
     public string GetSaveName() => name;
@@ -190,6 +240,14 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
     {
         public float[] Position;
         public bool Started;
+    }
+
+    public enum HandState
+    {
+        Start,
+        Move,
+        Grab,
+        Flash
     }
 }
 
