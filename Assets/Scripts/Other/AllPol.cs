@@ -1,9 +1,6 @@
+using FMOD.Studio;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.Rendering.Universal;
 
 public class AllPol : MonoBehaviour
 {
@@ -20,6 +17,8 @@ public class AllPol : MonoBehaviour
 
     public GameObject CutCol;
 
+    private EventInstance? _cutsceneSound;
+
 
     private void Awake()
     {
@@ -29,9 +28,8 @@ public class AllPol : MonoBehaviour
             _inputHandler = player.GetComponent<InputHandler>();
         }
 
-        _inputHandler.OnInteractAction += OnInteractAction;
-
         _colect = CC.GetComponent<CountColect>();
+        _inputHandler.OnInteractAction += OnInteractAction;
     }
 
     private void OnDestroy()
@@ -39,31 +37,28 @@ public class AllPol : MonoBehaviour
         _inputHandler.OnInteractAction -= OnInteractAction;
     }
 
+
     private void Update()
     {
-        if (_colect.nColect > 5 && once)
-        {
-            E.SetActive(true);
-        }
+        if (once && _colect.nColect >= _colect.MaxColect) E.SetActive(true);
     }
 
 
     protected virtual void OnInteractAction()
     {
-        if (_isPlayerNearby && _colect.nColect > 5 && once == true)
-        {
-            if (E.GetComponent<Help>().isUsingController == true)
-            {
-                E.GetComponent<Animator>().Play("Idle");
-            }
-            else
-            {
-                E.GetComponent<Animator>().Play("Idle 1");
-            }
+        if (!once || !_isPlayerNearby || _colect.nColect < _colect.MaxColect) return;
 
-            once = false;
-            StartCoroutine(WeBack());
+        if (E.GetComponent<Help>().isUsingController == true)
+        {
+            E.GetComponent<Animator>().Play("Idle");
         }
+        else
+        {
+            E.GetComponent<Animator>().Play("Idle 1");
+        }
+
+        once = false;
+        StartCoroutine(WeBack());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,6 +73,7 @@ public class AllPol : MonoBehaviour
         if (collision.CompareTag(PLAYER_TAG)) _isPlayerNearby = false;
     }
 
+
     private IEnumerator WeBack()
     {
         CutCol.GetComponent<Animator>().Play("Show");
@@ -86,7 +82,16 @@ public class AllPol : MonoBehaviour
         E.SetActive(false);
         PauseManager.Instance.PauseGame();
 
-        yield return new WaitForSecondsRealtime(6.5f);
+        _cutsceneSound?.setPaused(false);
+        _cutsceneSound?.start();
+
+        yield return new WaitForSecondsRealtime(7f);
         PauseManager.Instance.ResumeGame();
+    }
+
+
+    private void Start()
+    {
+        _cutsceneSound = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.AllPolaroidsCutscene);
     }
 }
