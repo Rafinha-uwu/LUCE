@@ -115,12 +115,12 @@ public class Elevator : SwitchWithRequirements
         if (_elevatorSound == null) return;
 
         // 0 = Off, 1 = On, 2 = Moving
-        int elevatorState = isMoving ? 2 : IsOn ? 1 : 0;
+        ElevatorState elevatorState = isMoving ? ElevatorState.Moving : IsOn ? ElevatorState.On : ElevatorState.Off;
 
         if (_elevatorSound.IsPlaying()) _elevatorSound.Stop();
         _elevatorSound.Play();
         FMODManager.Instance.AttachInstance(_elevatorSound.EventInstance, transform);
-        _elevatorSound.SetParameter(EVENT_PARAMETER_STATE, elevatorState);
+        _elevatorSound.SetParameter(EVENT_PARAMETER_STATE, (int)elevatorState);
     }
 
 
@@ -153,5 +153,12 @@ public class Elevator : SwitchWithRequirements
         
         SetCurrentFloor(floor);
         OnSwitchStateChange(null, IsOn);
+    }
+
+    public enum ElevatorState
+    {
+        Off,
+        On,
+        Moving
     }
 }
