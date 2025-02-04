@@ -7,13 +7,23 @@ public class Shut : SwitchObject
     public GameObject Block;
     public GameObject Black;
 
-    private static readonly string EVENT_PARAMETER_BLACK0 = "0";
-    private static readonly string EVENT_PARAMETER_BLACK100 = "100";
+    private static readonly string EVENT_STATE_BLACK0 = "0";
+    private static readonly string EVENT_STATE_BLACK100 = "100";
     private Animator _blackAnimator;
+
+    [SerializeField] private Hand _hand;
+    [SerializeField] private Checkpoint _shutCheckpoint;
+    private Collider2D _shutCheckpointCollider;
 
 
     private void Awake()
     {
+        if (_shutCheckpoint != null)
+        {
+            _shutCheckpointCollider = _shutCheckpoint.GetComponent<Collider2D>();
+            _shutCheckpointCollider.enabled = false;
+        }
+
         _blackAnimator = Black.GetComponent<Animator>();
         OnStateChange += OnShutStateChange;
     }
@@ -34,7 +44,10 @@ public class Shut : SwitchObject
 
     private void OnShutStateChange(SwitchObject switchObject, bool isOn)
     {
+        if (isOn && _hand != null) _hand.StopHand();
+        if (_shutCheckpointCollider != null) _shutCheckpointCollider.enabled = isOn;
+
         Block.SetActive(isOn);
-        _blackAnimator.Play(isOn ? EVENT_PARAMETER_BLACK100 : EVENT_PARAMETER_BLACK0);
+        _blackAnimator.Play(isOn ? EVENT_STATE_BLACK100 : EVENT_STATE_BLACK0);
     }
 }

@@ -1,31 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorCloseEnd : MonoBehaviour
+public class DoorCloseEnd : SwitchObject
 {
-    // Start is called before the first frame update
-
-
     private static readonly string PLAYER_TAG = "Player";
 
+    private static readonly string EVENT_STATE_OPEN = "OpenDoor";
+    private static readonly string EVENT_STATE_CLOSE = "CloseDoor";
+    private Animator _animator;
 
-    void Start()
+
+    private void Awake()
     {
-
+        _animator = GetComponentInChildren<Animator>();
+        OnStateChange += OnDoorCloseEndStateChange;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-
+        OnStateChange -= OnDoorCloseEndStateChange;
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (IsOn) return;
         if (!collision.CompareTag(PLAYER_TAG)) return;
 
-        this.GetComponentInChildren<Animator>().Play("CloseDoor");
+        TurnOn();
+    }
 
+    private void OnDoorCloseEndStateChange(SwitchObject switchObject, bool isOn)
+    {
+        if (_animator != null) _animator.Play(isOn ? EVENT_STATE_CLOSE : EVENT_STATE_OPEN);
     }
 }
