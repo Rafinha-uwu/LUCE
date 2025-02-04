@@ -443,6 +443,8 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private void PlaySound(StudioEventEmitter sound, bool isOn)
     {
+        if (sound == null) return;
+
         if (sound.IsPlaying()) sound.Stop();
         sound.Play();
         sound.SetParameter("IsOn", isOn ? 1 : 0);

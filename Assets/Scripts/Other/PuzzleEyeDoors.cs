@@ -43,13 +43,13 @@ public class PuzzleEyeDoors : MonoBehaviour, IDoorSound
 
     public void PlayDoorSound(string data = null)
     {
-        if (data == null || data == "left")
+        if (_doorSoundL != null && (data == null || data == "left"))
         {
             if (_doorSoundL.IsPlaying()) _doorSoundL.Stop();
             _doorSoundL.Play();
             FMODManager.Instance.AttachInstance(_doorSoundL.EventInstance, _doorTransformL);
         }
-        if (data == null || data == "right")
+        if (_doorSoundR != null && (data == null || data == "right"))
         {
             if (_doorSoundR.IsPlaying()) _doorSoundR.Stop();
             _doorSoundR.Play();
@@ -59,7 +59,7 @@ public class PuzzleEyeDoors : MonoBehaviour, IDoorSound
 
     public void StopDoorSound(string data = null)
     {
-        if (data == null || data == "left") _doorSoundL.Stop();
-        if (data == null || data == "right") _doorSoundR.Stop();
+        if (_doorSoundL != null && (data == null || data == "left")) _doorSoundL.Stop();
+        if (_doorSoundR != null && (data == null || data == "right")) _doorSoundR.Stop();
     }
 }

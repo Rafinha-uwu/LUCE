@@ -206,6 +206,8 @@ public class Hand : MonoBehaviour, IChildTriggerParent, ISavable
 
     private void PlayHandSound(HandState? state)
     {
+        if (_handSound == null) return;
+
         if (_handSound.IsPlaying()) _handSound.Stop();
         if (!state.HasValue) return;
 

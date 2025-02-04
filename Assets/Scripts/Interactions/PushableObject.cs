@@ -78,8 +78,10 @@ public class PushableObject : MonoBehaviour, ISavable
 
     private void PlayMoveSound(float horizontalVelocity)
     {
+        if (_objectMoveSound == null) return;
+
         // Stop the sound if the object is not moving
-        if (horizontalVelocity == 0)_objectMoveSound.Stop();
+        if (horizontalVelocity == 0) _objectMoveSound.Stop();
 
         // Start the sound if it is not playing
         else if (!_objectMoveSound.IsPlaying())
