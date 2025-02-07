@@ -77,26 +77,25 @@ public class PCam : HoldableItem
         base.StartHold(holdPosition);
         holding = true;
 
-        if (once == false)
-        {
-            if (HelpCam.GetComponent<Help>().isUsingController == true)
-            {
-                HelpCam.GetComponent<Animator>().Play("Idle");
-            }
-            else
-            {
-                HelpCam.GetComponent<Animator>().Play("Idle 1");
-            }
 
-            if (HelpGrab.GetComponent<Help>().isUsingController == true)
-            {
-                HelpGrab.GetComponent<Animator>().Play("ControllerHelp");
-            }
-            else
-            {
-                HelpGrab.GetComponent<Animator>().Play("KeyboardHelp");
-            }
+        if (HelpCam.GetComponent<Help>().isUsingController == true)
+        {
+            HelpCam.GetComponent<Animator>().Play("Idle");
         }
+        else
+        {
+            HelpCam.GetComponent<Animator>().Play("Idle 1");
+        }
+
+        if (HelpGrab.GetComponent<Help>().isUsingController == true)
+        {
+            HelpGrab.GetComponent<Animator>().Play("ControllerHelp");
+        }
+        else
+        {
+            HelpGrab.GetComponent<Animator>().Play("KeyboardHelp");
+        }
+
 
 
         if (!once) return;
@@ -147,8 +146,7 @@ public class PCam : HoldableItem
     private void Desligar() => Light.SetActive(false);
     private void Cool()
     {
-        Cooldown = false;
-
+        ECam.SetActive(true);
         if (ECam.GetComponent<Help>().isUsingController == true)
         {
             ECam.GetComponent<Animator>().Play("ControllerHelp");
@@ -157,6 +155,7 @@ public class PCam : HoldableItem
         {
             ECam.GetComponent<Animator>().Play("KeyboardHelp");
         }
+        Cooldown = false;
     }
 
 

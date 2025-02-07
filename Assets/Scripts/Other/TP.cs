@@ -76,6 +76,7 @@ public class TP : MonoBehaviour, ISavable
         yield return new WaitForSeconds(4f);
 
         Player.gameObject.transform.position = new Vector3(924.7f, -8.96f, 0);
+        Player.GetComponent<Scared>().enabled = false;
 
         yield return new WaitForSeconds(1);
 

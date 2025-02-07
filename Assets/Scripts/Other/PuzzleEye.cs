@@ -175,12 +175,12 @@ public class PuzzleEye : MonoBehaviour, ISavable
                 break;
 
             case 1.5f:
-                L1.color = Color.red;
-                L11.color = Color.red;
-                L2.color = Color.red;
-                L22.color = Color.red;
-                L3.color = Color.red;
-                L33.color = Color.red;
+                L1.color = Color.cyan;
+                L11.color = Color.cyan;
+                L2.color = Color.cyan;
+                L22.color = Color.cyan;
+                L3.color = Color.cyan;
+                L33.color = Color.cyan;
 
                 Invoke(nameof(FOff2), 3);
                 Invoke(nameof(EyeL), 0);
@@ -242,6 +242,14 @@ public class PuzzleEye : MonoBehaviour, ISavable
                 break;
 
             case 2.5f:
+
+                L1.color = Color.red;
+                L11.color = Color.red;
+                L2.color = Color.red;
+                L22.color = Color.red;
+                L3.color = Color.red;
+                L33.color = Color.red;
+
                 Invoke(nameof(FOn3), 0);
                 Invoke(nameof(FOff3), 3);
 
