@@ -175,12 +175,12 @@ public class PuzzleEye : MonoBehaviour, ISavable
                 break;
 
             case 1.5f:
-                L1.color = Color.cyan;
-                L11.color = Color.cyan;
-                L2.color = Color.cyan;
-                L22.color = Color.cyan;
-                L3.color = Color.cyan;
-                L33.color = Color.cyan;
+                L1.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L11.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L2.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L22.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L3.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L33.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
 
                 Invoke(nameof(FOff2), 3);
                 Invoke(nameof(EyeL), 0);

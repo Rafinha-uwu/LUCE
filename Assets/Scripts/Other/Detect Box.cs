@@ -22,7 +22,7 @@ public class DetectBox : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
 
         if(collision.name == "Box")
@@ -41,6 +41,6 @@ public class DetectBox : MonoBehaviour
     }
     public void Kill()
     {
-        Destroy(Help);
+        Help.SetActive(false);
     }
 }

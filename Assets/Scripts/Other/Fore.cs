@@ -7,6 +7,7 @@ public class Fore : MonoBehaviour
 
     public GameObject Foreanim;
     private bool once = true;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -78,7 +78,7 @@ public class TP : MonoBehaviour, ISavable
         Player.gameObject.transform.position = new Vector3(924.7f, -8.96f, 0);
         Player.GetComponent<Scared>().enabled = false;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
 
         White.GetComponent<Animator>().SetBool("White", false);
     }

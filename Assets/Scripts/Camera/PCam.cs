@@ -96,7 +96,17 @@ public class PCam : HoldableItem
             HelpGrab.GetComponent<Animator>().Play("KeyboardHelp");
         }
 
-
+        if (Cooldown == false)
+        {
+            if (ECam.GetComponent<Help>().isUsingController == true)
+            {
+                ECam.GetComponent<Animator>().Play("ControllerHelp");
+            }
+            else
+            {
+                ECam.GetComponent<Animator>().Play("KeyboardHelp");
+            }
+        }
 
         if (!once) return;
 
@@ -138,6 +148,14 @@ public class PCam : HoldableItem
             HelpGrab.GetComponent<Animator>().Play("Idle 1");
         }
 
+        if (ECam.GetComponent<Help>().isUsingController == true)
+        {
+            ECam.GetComponent<Animator>().Play("Idle");
+        }
+        else
+        {
+            ECam.GetComponent<Animator>().Play("Idle 1");
+        }
 
         base.StopHold();
         holding = false;
@@ -146,14 +164,18 @@ public class PCam : HoldableItem
     private void Desligar() => Light.SetActive(false);
     private void Cool()
     {
-        ECam.SetActive(true);
-        if (ECam.GetComponent<Help>().isUsingController == true)
+        if (holding)
         {
-            ECam.GetComponent<Animator>().Play("ControllerHelp");
-        }
-        else
-        {
-            ECam.GetComponent<Animator>().Play("KeyboardHelp");
+            ECam.SetActive(true);
+            if (ECam.GetComponent<Help>().isUsingController == true)
+            {
+                ECam.GetComponent<Animator>().Play("ControllerHelp");
+            }
+            else
+            {
+                ECam.GetComponent<Animator>().Play("KeyboardHelp");
+            }
+
         }
         Cooldown = false;
     }
