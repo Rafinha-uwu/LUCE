@@ -1,34 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Fore : MonoBehaviour
+public class Fore : MonoBehaviour, ISavable
 {
-
+    private static readonly string PLAYER_TAG = "Player";
     public GameObject Foreanim;
     private bool once = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (once && other.CompareTag(PLAYER_TAG))
         {
-            if (once == true)
-            {
-                Foreanim.GetComponent<Animator>().Play("Idle");
-                Invoke("Kill", 4);
-                once = false;
-            }
+            Foreanim.GetComponent<Animator>().Play("Idle");
+            Invoke(nameof(Kill), 4);
+            once = false;
         }
     }
 
@@ -37,4 +21,12 @@ public class Fore : MonoBehaviour
         Foreanim.SetActive(false);
     }
 
+
+    public string GetSaveName() => name;
+    public object GetSaveData() => once;
+    public void LoadData(object data)
+    {
+        bool loadedOnce = (bool)data;
+        if (!loadedOnce && once) Kill();
+    }
 }
