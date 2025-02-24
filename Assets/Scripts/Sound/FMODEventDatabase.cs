@@ -71,5 +71,6 @@ public class FMODEventDatabase : ScriptableObject
     // Other
     [field: Header("Other")]
     [field: SerializeField] public EventReference Hand { get; private set; }
+    [field: SerializeField] public EventReference ScreenShake { get; private set; }
     // ...
 }
