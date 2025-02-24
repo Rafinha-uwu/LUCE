@@ -1,8 +1,5 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class CameraShake : MonoBehaviour
 {
@@ -12,14 +9,12 @@ public class CameraShake : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
+        if (instance == null) instance = this;
     }
 
     public void CameraShaking (CinemachineImpulseSource impulseSource)
     {
         impulseSource.GenerateImpulseWithForce(globalShakeForce);
+        FMODManager.Instance.PlayOneShot(FMODManager.Instance.EventDatabase.ScreenShake);
     }
 }

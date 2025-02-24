@@ -26,6 +26,8 @@ public class End1 : SwitchObject
     private Coroutine _coroutine;
 
     private CinemachineImpulseSource impulseSource;
+    private bool _started;
+
     private void Awake()
     {
         _polaroid = GetComponentInChildren<Polaroid>();
@@ -82,7 +84,8 @@ public class End1 : SwitchObject
     public IEnumerator Run()
     {
         cLights.SetActive(true);
-        CameraShake.instance.CameraShaking(impulseSource);
+        if (_started) CameraShake.instance.CameraShaking(impulseSource);
+
         yield return new WaitForSeconds(1);
         cLights.SetActive(false);
         Lights8.SetActive(false);
@@ -119,6 +122,13 @@ public class End1 : SwitchObject
         Lights2.SetActive(true);
 
         _coroutine = null;
+    }
+
+    protected override void Start()
+    {
+        _started = false;
+        base.Start();
+        _started = true;
     }
 
 
