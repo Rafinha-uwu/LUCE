@@ -85,7 +85,7 @@ public class AllPol : MonoBehaviour
         _cutsceneSound?.setPaused(false);
         _cutsceneSound?.start();
 
-        yield return new WaitForSecondsRealtime(7f);
+        yield return new WaitForSecondsRealtime(10f);
         PauseManager.Instance.ResumeGame();
     }
 
