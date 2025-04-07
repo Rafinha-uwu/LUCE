@@ -17,10 +17,10 @@ public class TP : MonoBehaviour, ISavable
 
     private bool Once = true;
 
-    // Update is called once per frame
+
     private void Update()
     {
-        if (!Pol.activeSelf && Once == true)
+        if (!Pol.activeSelf && Once)
         {
             StartCoroutine(TPME());
             Once = false;
@@ -75,11 +75,17 @@ public class TP : MonoBehaviour, ISavable
 
         yield return new WaitForSeconds(4f);
 
-        Player.gameObject.transform.position = new Vector3(924.7f, -8.96f, 0);
+        Player.transform.position = new Vector3(924.7f, -8.96f, 0);
+        DisableScared();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
 
         White.GetComponent<Animator>().SetBool("White", false);
+    }
+
+    private void DisableScared()
+    {
+        Player.GetComponent<Scared>().enabled = false;
     }
 
 
@@ -88,6 +94,10 @@ public class TP : MonoBehaviour, ISavable
     public void LoadData(object data)
     {
         bool savedOnce = (bool)data;
-        if (Once) Once = savedOnce;
+        if (Once && !savedOnce)
+        {
+            Once = false;
+            DisableScared();
+        }
     }
 }

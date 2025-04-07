@@ -21,6 +21,9 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private GameObject _continueButton;
     [SerializeField] private UnityEngine.UI.Button _firstButton;
 
+    private bool skip = false;
+    private float lastPressTime = 0f;
+    private float doublePressThreshold = 0.5f;
 
     private void Awake()
     {
@@ -32,11 +35,28 @@ public class StartMenu : MonoBehaviour
         if (_creditsMenu != null) _creditsMenu.OnClose += OnOtherMenuClose;
     }
 
+    private void Update()
+    {
+        if (skip)
+        {
+            if (Input.anyKeyDown)
+            {
+                if (Time.time - lastPressTime <= doublePressThreshold)
+                {
+                    Invoke(nameof(Load),0);
+                }
+
+                lastPressTime = Time.time;
+            }
+
+        }
+    }
+
     private void Start()
     {
         // Sound setup
         _startGameCutsceneInstance = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.StartGameCutscene);
-        
+
         FMODManager.Instance.PauseSounds();
         StartCoroutine(StopExternalSounds());
 
@@ -49,7 +69,8 @@ public class StartMenu : MonoBehaviour
         if (!saveExists) return;
         UnityEngine.UI.Button continueButtonUI = _continueButton.GetComponent<UnityEngine.UI.Button>();
 
-        _firstButton.navigation = new Navigation {
+        _firstButton.navigation = new Navigation
+        {
             mode = Navigation.Mode.Explicit,
             selectOnUp = continueButtonUI,
             selectOnDown = _firstButton.navigation.selectOnDown
@@ -78,7 +99,13 @@ public class StartMenu : MonoBehaviour
         _startGameCutsceneInstance?.start();
         _startGameCutsceneInstance?.setPaused(false);
 
+        Invoke("Skiptime", 5);
         Invoke(nameof(Load), 40.5f);
+    }
+
+    public void Skiptime()
+    {
+        skip = true;
     }
 
     public void Load()

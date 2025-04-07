@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class KeyHole1 : MonoBehaviour
     public GameObject HelpDoor;
 
     public bool once;
+
+    private EventInstance? _keyHoleSound;
 
 
     private void Awake()
@@ -63,6 +66,9 @@ public class KeyHole1 : MonoBehaviour
     {
         PauseManager.Instance.PauseGame();
 
+        _keyHoleSound?.start();
+        _keyHoleSound?.setPaused(false);
+
         KeyCanvas.GetComponent<Animator>().Play("HoleBlack");
 
         DoorClose.enabled = false;
@@ -78,4 +84,9 @@ public class KeyHole1 : MonoBehaviour
         PauseManager.Instance.ResumeGame();
     }
 
+
+    private void Start()
+    {
+        _keyHoleSound = FMODManager.Instance.CreateEventInstance(FMODManager.Instance.EventDatabase.LastKeyHole);
+    }
 }

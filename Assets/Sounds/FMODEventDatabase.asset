@@ -54,6 +54,13 @@ MonoBehaviour:
       Data3: 290628499
       Data4: -1867630889
     Path: event:/Ambience/End Scene 2
+  <AllPolaroidsCutscene>k__BackingField:
+    Guid:
+      Data1: 1956343102
+      Data2: 1096258218
+      Data3: 515566219
+      Data4: 1571495637
+    Path: event:/Music/PolaroidCutscene
   <PlayerMove>k__BackingField:
     Guid:
       Data1: -385494015
@@ -145,6 +152,20 @@ MonoBehaviour:
       Data3: -2007359555
       Data4: 317742445
     Path: event:/UI/Door Movement
+  <FirstKeyHole>k__BackingField:
+    Guid:
+      Data1: 1002513984
+      Data2: 1243617797
+      Data3: -460644697
+      Data4: -2070340081
+    Path: event:/Music/KeyHole
+  <LastKeyHole>k__BackingField:
+    Guid:
+      Data1: 1002513984
+      Data2: 1243617797
+      Data3: -460644697
+      Data4: -2070340081
+    Path: event:/Music/KeyHole
   <Light>k__BackingField:
     Guid:
       Data1: -373801252
@@ -243,3 +264,17 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <Hand>k__BackingField:
+    Guid:
+      Data1: -1454539128
+      Data2: 1265036799
+      Data3: 1007058594
+      Data4: -441632735
+    Path: event:/UI/Hand
+  <ScreenShake>k__BackingField:
+    Guid:
+      Data1: 432531246
+      Data2: 1150990803
+      Data3: -37804136
+      Data4: 844124927
+    Path: event:/Ambience/Screen Shake

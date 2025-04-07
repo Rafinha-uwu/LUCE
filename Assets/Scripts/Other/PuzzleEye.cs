@@ -175,12 +175,12 @@ public class PuzzleEye : MonoBehaviour, ISavable
                 break;
 
             case 1.5f:
-                L1.color = Color.red;
-                L11.color = Color.red;
-                L2.color = Color.red;
-                L22.color = Color.red;
-                L3.color = Color.red;
-                L33.color = Color.red;
+                L1.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L11.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L2.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L22.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L3.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
+                L33.color = Color.Lerp(Color.red, Color.yellow, 0.5f);
 
                 Invoke(nameof(FOff2), 3);
                 Invoke(nameof(EyeL), 0);
@@ -242,6 +242,14 @@ public class PuzzleEye : MonoBehaviour, ISavable
                 break;
 
             case 2.5f:
+
+                L1.color = Color.red;
+                L11.color = Color.red;
+                L2.color = Color.red;
+                L22.color = Color.red;
+                L3.color = Color.red;
+                L33.color = Color.red;
+
                 Invoke(nameof(FOn3), 0);
                 Invoke(nameof(FOff3), 3);
 
@@ -443,6 +451,8 @@ public class PuzzleEye : MonoBehaviour, ISavable
 
     private void PlaySound(StudioEventEmitter sound, bool isOn)
     {
+        if (sound == null) return;
+
         if (sound.IsPlaying()) sound.Stop();
         sound.Play();
         sound.SetParameter("IsOn", isOn ? 1 : 0);
@@ -452,7 +462,8 @@ public class PuzzleEye : MonoBehaviour, ISavable
     public object GetSaveData() => Phase;
     public void LoadData(object data)
     {
-        float savedPhase = JsonConvert.DeserializeObject<float>(data.ToString());
+        string formattedData = data.ToString().Replace(',', '.');
+        float savedPhase = JsonConvert.DeserializeObject<float>(formattedData);
         
         CancelInvoke();
         StopAllCoroutines();

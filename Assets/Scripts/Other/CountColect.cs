@@ -3,22 +3,22 @@ using TMPro;
 
 public class CountColect : MonoBehaviour
 {
-
-    public float nColect = 0;
+    [field: SerializeField] public int MaxColect { get; private set; } = 6;
+    public int nColect = 0;
 
     private TextMeshProUGUI tmpText;
     public TextMeshProUGUI pauseText;
 
-    // Start is called before the first frame update
-    private void Start()
+
+    private void Awake()
     {
         tmpText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-       tmpText.text = nColect + "/6";
-       pauseText.GetComponentInChildren<TextMeshProUGUI>().text = nColect + "/6";
+        string text = $"{nColect}/{MaxColect}";
+        tmpText.text = text;
+        pauseText.text = text;
     }
 }

@@ -16,6 +16,7 @@ public class FMODEventDatabase : ScriptableObject
     [field: Header("Cutscenes")]
     [field: SerializeField] public EventReference StartGameCutscene { get; private set; }
     [field: SerializeField] public EventReference EndGameCutscene { get; private set; }
+    [field: SerializeField] public EventReference AllPolaroidsCutscene { get; private set; }
     // ...
 
     // Player
@@ -39,6 +40,8 @@ public class FMODEventDatabase : ScriptableObject
     [field: SerializeField] public EventReference Elevator { get; private set; }
     [field: SerializeField] public EventReference ElevatorShake { get; private set; }
     [field: SerializeField] public EventReference Door { get; private set; }
+    [field: SerializeField] public EventReference FirstKeyHole { get; private set; }
+    [field: SerializeField] public EventReference LastKeyHole { get; private set; }
 
     // Lights
     [field: Header("Lights")]
@@ -63,5 +66,11 @@ public class FMODEventDatabase : ScriptableObject
     [field: SerializeField] public EventReference Narrative2Pickup { get; private set; }
     [field: SerializeField] public EventReference Narrative3Pickup { get; private set; }
     [field: SerializeField] public EventReference Narrative4Pickup { get; private set; }
+    // ...
+
+    // Other
+    [field: Header("Other")]
+    [field: SerializeField] public EventReference Hand { get; private set; }
+    [field: SerializeField] public EventReference ScreenShake { get; private set; }
     // ...
 }
